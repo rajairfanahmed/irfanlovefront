@@ -16,12 +16,12 @@ Execute this critique pass on rendered output (or candidate mockups) before deli
 | **3. Hierarchy** | Scannability & visual priority | Primary visual anchor, clear secondary actions, and logical reading flow. | Competing focal points; primary action obscured or ambiguous. |
 | **4. Composition** | Balance, alignment & rhythm | Deliberate proportions, vertical pacing, whitespace, and intentional container usage. | Incoherent alignment; empty card proliferation wrapping every item. |
 | **5. Specificity** | Product-specific authenticity | Design arises from genuine content, real assets, and authentic brand identity. | Interchangeable generic layout that could belong to any unrelated product. |
-| **6. Restraint** | Elimination of visual noise | Every visible element serves an explicit functional or visual purpose. | Gratuitous decorative props, floating blur blobs, or fake telemetry. |
+| **6. Restraint** | Elimination of visual & technical noise | Every visible element serves a functional or visual purpose; no forced GSAP/Lenis or unneeded dependencies. | Gratuitous decorative props, floating blur blobs, fake telemetry, or forced scroll hijacking. |
 | **7. Consistency** | Systemic coherence | Semantic tokens, typography scales, icon styles, and navigation shells aligned. | Fragmented tokens; conflicting component styles across pages. |
 | **8. Novelty** | Fingerprint differentiation | Avoids repeating identical fingerprints across independent projects. | Exact macrostructure and palette formula copied from previous output. |
 | **9. Usability & Accessibility** | Inclusivity & compliance | WCAG AA contrast (4.5:1), visible keyboard focus, semantic HTML, screen reflow. | Contrast failure, missing keyboard accessibility, broken navigation. |
 | **10. Execution** | Viewport & state fidelity | Rendered output holds across 320px–1440px viewports without overflow or clipping. | Horizontal scroll overflow; broken layouts or clipped controls. |
-| **11. Technical Integrity** | Code & architecture realism | Follows framework conventions, preserves working data flow, zero broken controls. | Dead buttons; broken routes; fabricated data presented as real. |
+| **11. Technical Integrity** | Code & architecture realism | Follows framework conventions, SEO metadata, Core Web Vitals, preserves working data flow, zero dead controls. | Dead buttons; broken routes; fabricated data; unhandled CLS or LCP regressions. |
 
 ---
 

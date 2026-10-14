@@ -58,12 +58,12 @@ Write concise, specific interface copy. Avoid interchangeable AI marketing langu
 
 Use natural prose. Do not use em dashes or dash-based asides in ordinary written copy. Avoid formulaic AI phrasing, repetitive sentence patterns, hollow claims, and generic phrases that could belong to any product. This prose rule does not apply to code, filenames, URLs, CSS utility classes, command syntax, or technical identifiers where hyphens are required.
 
-### 6. Make interaction and motion intentional
-Do not treat motion as a package installation task or decorative finish. Define what an animation communicates, what triggers it, how it responds to user input, and whether it improves continuity, feedback, hierarchy, or comprehension.
+### 6. Make interaction, motion, and frameworks intentional (No Forced Defaults)
+Do not force GSAP, Lenis, bento grids, or specific frameworks onto every project. Every architectural, animation, or structural choice must be decided based on the user's explicit requirements, the existing project stack, web performance, and accessibility. This keeps the design engine advanced without making projects unnecessarily complicated.
 
-Use GSAP, Lenis, or other libraries only when suitable for the existing project and the requested experience. Inspect the installed stack before adding dependencies. Avoid excessive parallax, ornamental cursor effects, repeated reveal animations, and blanket transition utilities when they do not add value.
+Motion libraries are a capability, not a mandatory style. Excellent interfaces often use little or no animation. Native browser scrolling is preferred. Consider Lenis only when coordinated smooth scrolling directly benefits the experience and does not break keyboard navigation, touch devices, anchor jumps, or accessibility. Use GSAP only when complex sequenced timelines or SVG animations are explicitly needed; for standard transitions, use performant CSS.
 
-Respect reduced motion, keyboard interaction, touch input, and performance. Do not add a fake interaction simply to make a screenshot appear sophisticated. Any advertised control must do what its label implies.
+Respect reduced motion (`prefers-reduced-motion`), keyboard interaction, touch input, and performance. Do not add a fake interaction simply to make a screenshot appear sophisticated. Any advertised control must do what its label implies.
 
 ### 7. Implement and visually inspect the real result
 When the task includes frontend implementation and browser or preview tools are available, do not stop after writing code or confirming that it compiles.
@@ -147,7 +147,7 @@ Execute UI/UX tasks through this deliberate sequence:
        ↓
 [Stage 1: Establish Project Context (Pre-flight)] 
        ↓
-[Stage 2: Retrieve Relevant Guidance] 
+[Stage 2: Inspiration Library & Knowledge Retrieval] 
        ↓
 [Stage 3: Develop Creative Direction Before Coding] 
        ↓
@@ -168,11 +168,12 @@ For existing repositories, inspect the actual codebase before making any design 
 - Review package configuration, scripts, routes, page structure, and existing components.
 - Inspect design tokens, CSS variables, Tailwind configurations, and theme providers.
 - Check available brand assets, official SVGs, logos, fonts, and data sources.
-- Identify installed dependencies (such as GSAP, Lenis, or Lucide React).
+- Identify installed dependencies (such as GSAP, Lenis, or Lucide React) and bundler (Turbopack, Vite, Webpack).
 - Existing brand constraints and locked tokens take precedence over novelty goals.
 
-### Stage 2: Retrieve Relevant Guidance
-Query and load only the relevant reference documents on-demand from `references/`. Do not dump the entire library into memory. (See Section 6 for routing).
+### Stage 2: Inspiration Library and Knowledge Retrieval
+- **Inspiration Library (`designs/`):** When creative inspiration is needed, query the 124 curated assets indexed in `designs/README.md`. Extract transferable principles (layout grammar, spacing rhythm, color balance, type roles). Never copy pixels or proprietary identity.
+- **Knowledge Base (`references/`):** Query and load only the relevant reference documents on-demand. Do not dump the entire library into memory. (See Section 6 for routing).
 
 ### Stage 3: Develop Creative Direction Before Coding
 1. **Formulate a design thesis:** Articulate a concise thesis with real decisions: primary visual focus, spatial arrangement, typographic language, product specificity, and systemic coherence.
@@ -187,6 +188,7 @@ For multi-page work, compile or update a semantic token contract (`design.md` or
 ### Stage 5: Implement Design Faithfully
 - Translate the design thesis and tokens into clean, modular, semantic code.
 - Ground implementation in real data and authentic assets. Never fabricate testimonials, metrics, customer logos, or fake functional elements (such as pretend terminals or simulated telemetry).
+- Apply production engineering discipline: valid SEO architecture (canonical URLs, Open Graph, structured data JSON-LD, sitemap), Core Web Vitals optimization (LCP priority, CLS image boxes, INP responsiveness), and accessible states.
 - Ensure all advertised interactive controls actually work.
 
 ### Stage 6: Independent Visual Critique
@@ -250,10 +252,11 @@ Write natural, concise, and specific copy:
 
 ## 6. Selective Reference Routing
 
-Consult the 23 specialized reference files in `references/` on-demand based on task needs:
+Consult the specialized reference files in `references/` on-demand based on task needs:
 
 | Task Need | Reference to Consult |
 |---|---|
+| Inspiration library, 124 curated assets index, retrieval rules | [designs/README.md](./designs/README.md) and [inspiration-library-and-asset-retrieval.md](./references/inspiration-library-and-asset-retrieval.md) |
 | Concept exploration, originality, candidate comparison | [creative-exploration-and-originality.md](./references/creative-exploration-and-originality.md) |
 | Design system compilation, novelty engine, token contracts | [design-system-generation-and-novelty.md](./references/design-system-generation-and-novelty.md) |
 | Hard correctness gates, anti-slop rules, craft heuristics | [anti-slop-standard.md](./references/anti-slop-standard.md) |
@@ -265,7 +268,7 @@ Consult the 23 specialized reference files in `references/` on-demand based on t
 | Information architecture, navigation, tables, forms | [information-architecture-and-interaction-patterns.md](./references/information-architecture-and-interaction-patterns.md) |
 | Reference analysis and visual reverse engineering | [reference-analysis.md](./references/reference-analysis.md) |
 | Realistic data, edge cases, anti-fabrication standards | [realistic-data-and-edge-cases.md](./references/realistic-data-and-edge-cases.md) |
-| Design-to-code implementation, visual inspection loop | [design-to-code.md](./references/design-to-code.md) |
+| Production engineering, SEO, Core Web Vitals, bundler, verification | [design-to-code.md](./references/design-to-code.md) |
 | Quality rubric, 11-axis critique, portfolio benchmark | [quality-evaluation-rubric.md](./references/quality-evaluation-rubric.md) |
 | Accessibility, WCAG 2.2, keyboard operation, focus | [accessibility-and-inclusive-design.md](./references/accessibility-and-inclusive-design.md) |
 | Motion, transitions, responsive adaptation | [motion-and-responsive-design.md](./references/motion-and-responsive-design.md) |
@@ -286,10 +289,12 @@ Consult the 23 specialized reference files in `references/` on-demand based on t
 Before completing any UI/UX task, confirm:
 1. Does the design solve the specific product problem and user task?
 2. Has a concrete design thesis guided visual choices rather than an unconsidered template?
-3. Are semantic tokens used consistently without scattered arbitrary values?
-4. Have unnecessary cards, containers, floating pills, and decorative props been eliminated?
-5. Is copy specific, truthful, free of AI marketing language, and free of em dashes?
-6. Do interactive elements have working behaviour, visible focus, and appropriate states?
-7. Has the rendered result been visually inspected across routes and viewports (or limitation disclosed)?
-8. Did an independent critique pass identify and correct material defects?
-9. Are all verification and test claims backed by actual evidence?
+3. Were GSAP, Lenis, bento grids, and frameworks evaluated with restraint rather than forced blindly?
+4. Are semantic tokens used consistently without scattered arbitrary values?
+5. Have unnecessary cards, containers, floating pills, and decorative props been eliminated?
+6. Is copy specific, truthful, free of AI marketing language, and free of em dashes?
+7. Do interactive elements have working behaviour, visible focus, and appropriate states?
+8. Are SEO metadata, canonicals, and Core Web Vitals protections implemented when building pages?
+9. Has the rendered result been visually inspected across routes and viewports (or limitation disclosed)?
+10. Did an independent critique pass identify and correct material defects?
+11. Are all verification and test claims backed by actual evidence?

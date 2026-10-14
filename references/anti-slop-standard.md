@@ -112,6 +112,10 @@ These checks prevent unconscious habit and formula repetition:
 - **Warning:** Using dark navy surfaces with neon purple, violet, or cyan accents on unrelated projects.
 - **Remediation:** Select hues based on brand identity and content warmth (warm stone, olive, terracotta, deep slate, monochromatic).
 
+### 3.4 Forced Motion and Framework Bloat
+- **Warning:** Automatically installing or forcing GSAP, Lenis, bento grids, or heavy animation libraries onto projects without explicit user need or performance justification.
+- **Remediation:** Decide strictly based on the user's explicit requirements, existing project architecture, web performance, and accessibility. Motion libraries are capabilities, not mandatory defaults. Use native scrolling and lightweight CSS transitions when adequate.
+
 ---
 
 ## 5. Summary Matrix of Gates and Verification Requirements
@@ -130,3 +134,4 @@ These checks prevent unconscious habit and formula repetition:
 | Product Specificity | Craft Heuristic | High | Thesis & Content Comparison |
 | Natural Prose (No Em Dashes) | Craft Heuristic | Medium | Copy Text Review |
 | Novelty & Anti-Template | Fingerprint Check | Medium | Structural Fingerprint Comparison |
+| Framework & Motion Restraint | Craft Heuristic | High | Dependency & Stack Inspection |

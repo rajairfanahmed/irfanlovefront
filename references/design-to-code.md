@@ -1,137 +1,128 @@
-# Design-to-Code Fidelity and Engineering Constraints
+# Design-to-Code Fidelity, Production Engineering, and Quality Verification
 
 ## Purpose
-Preserve design intent when translating interface designs into maintainable frontend code connected to real product behaviour. Distinguish implementation correctness from design quality, and require genuine visual inspection of rendered output whenever tools allow.
+Bridge visual design and production engineering. Ensure interfaces are not only visually distinctive but technically robust, performant, accessible, and aligned with modern web standards and search engine optimization.
 
 ---
 
-## 1. Project Inspection Before Implementation
+## 1. Project Inspection and Stack Detection
 
-Before modifying code in an existing repository, thoroughly inspect its actual state:
-- Check existing package configuration (`package.json`, dependencies, scripts)
-- Identify existing app router or pages structure, routes, and layout hierarchy
-- Review existing UI components, styling conventions (Tailwind, CSS modules, design tokens)
-- Inspect available data sources, schemas, and asset directories (`public/`, icons, SVGs)
-- Identify installed animation and interaction libraries (GSAP, Lenis, Framer Motion)
-- Report any material discrepancies between user instructions and the checkout
-- Use the actual repository as the implementation source of truth, preserving working architecture, existing routes, real content, and official brand assets unless explicitly directed to modify them
-
-### 1.1 Scope-Specific Implementation Routing
-- **Single component scope:** Focus strictly on component anatomy, design tokens, state contracts (hover/focus/active/disabled/loading/error), and accessibility. Skip full-page routing rituals.
-- **Single page scope:** Implement route composition, typographic hierarchy, responsive layout, and full-page section flow.
-- **Multi-page product scope:** Enforce shared semantic tokens and design system consistency across routes; implement page-specific compositions.
-- **Controlled redesign scope:** Preserve existing routes, state logic, and APIs; update component presentation and layout structure.
+Before writing or modifying code in an existing repository, thoroughly inspect its actual state:
+- **Detect actual build tool and compiler:** Detect whether the project uses Turbopack, Vite/Rollup, Webpack, or a framework-native compiler. Do not add Webpack or replace an existing bundler unless explicitly requested with clear rationale.
+- **Inspect package manifests and dependencies:** Review `package.json` for installed packages, exact framework versions (e.g. Next.js 14/15, React 18/19), styling libraries (Tailwind v3/v4, CSS Modules), and utility libraries.
+- **Identify routing and architectural boundaries:** Inspect App Router versus Pages router, server components versus client components (`'use client'`), layout hierarchy, and data flow.
+- **Locate official assets:** Verify the location of genuine brand marks, official vector SVGs, public fonts, and data schemas (`src/data/`, `public/`).
 
 ---
 
-## 2. Rendered Visual Inspection and Corrective Iteration Loop
+## 2. Framework, Motion, and Bento Grid Restraint
 
-When implementation is requested and browser, preview, or screenshot capabilities are available, follow this verified cycle:
+> **Core Principle:** Never force GSAP, Lenis, bento grids, or specific frameworks onto every project. Every architectural, animation, or structural choice must be decided based on the user's explicit requirements, the existing project stack, web performance, and accessibility. This keeps the design engine advanced without making projects unnecessarily complicated.
+
+### Motion Restraint (GSAP & Lenis)
+- **Animation is a capability, not a mandatory style:** Outstanding interfaces often rely on clean layout, refined typography, and minimal or no animation.
+- **Native scrolling is preferred:** Browser native scrolling is responsive, predictable, and universally accessible.
+- **Lenis criteria:** Consider Lenis only when smooth coordinated scrolling directly enhances narrative presentation, and only after verifying it does not disrupt keyboard navigation, anchor jumps, browser history, touch devices, reduced-motion preferences, or sticky navigation. Never hijack scrolling in a way that reduces user control.
+- **GSAP criteria:** Reserve GSAP for complex SVG morphing, sequenced timelines, or advanced scroll-triggered choreographies explicitly requested. For standard UI feedback (hover, focus, modals, accordion transitions), use performant CSS transitions or Tailwind utility transitions.
+- **Reduced motion:** Always implement `@media (prefers-reduced-motion: reduce)` fallbacks that disable or minimize non-essential movement.
+
+### Structural Restraint (Bento Grids & Cards)
+- **Bento grids are an option, not a default formula:** Evaluate content relationships first. If information naturally flows as an editorial article, a tabular directory, or a narrative split view, use that structure rather than forcing content into bento boxes.
+- **Container justification:** Every card must earn its place; use typography, whitespace, and hairline rules to establish hierarchy before reaching for a card container.
+
+---
+
+## 3. Rendered Visual Inspection and Corrective Iteration Loop
+
+When implementation is requested and browser, preview, or screenshot tools are available, follow this cycle:
 
 ```
 [Inspect Repo & Stack] 
        ↓
-[Implement Design in Code] 
+[Implement Design with Semantic Tokens] 
        ↓
-[Run Build, Typecheck, Lint] 
+[Execute Build, Typecheck, and Lint] 
        ↓
-[Launch Dev/Preview Server] 
+[Launch Dev Server & Render Routes] 
        ↓
-[Render & Visually Inspect Routes across Viewports] 
+[Capture Screenshots across 320px–1440px Viewports] 
        ↓
-[Log Prioritized Visual/UX Defects] 
+[Prioritize Defects (Blocker, High, Medium, Polish)] 
        ↓
 [Correct Code in Source Files] 
        ↓
 [Re-render & Verify Fixes (Check Regressions)]
 ```
 
-### Detailed Inspection Protocol:
-
-1. **Start application:** Run the project development server or build preview using the repository's verified scripts.
-2. **Inspect rendered output across all routes:** Do not rely on code review or build status alone. Open and inspect every requested route and major section.
-3. **Multi-viewport verification:** Inspect desktop (e.g. 1440px or 1280px) and mobile viewports (e.g. 375px or 390px). Check intermediate tablet viewports when layout complexity requires it.
-4. **Full-page evaluation:** Review both the above-the-fold viewport and the complete scrollable page:
-   - Composition balance and section pacing
-   - Typographic scale, readability, line lengths, and text wrapping
-   - Container widths, padding, margins, and spatial rhythm
-   - Alignment, visual anchors, and focal point clarity
-   - Image cropping, aspect ratios, contrast, and asset rendering
-   - Component repetition and container justification (ensuring cards earn their place)
-   - Layout overflow, unwanted horizontal scrolling, and sticky element behaviour
-   - Interaction states (hover, focus, active, loading, error, empty)
-   - Adherence to the stated design thesis
-5. **Defect ranking:** Record a prioritized list of concrete defects (Critical, Major, Minor, Cosmetic).
-6. **Code correction:** Modify the actual source files to resolve defects.
-7. **Re-inspection:** Re-render the affected routes and confirm that the issues are resolved without regressions.
-8. **Verification honesty:** If preview, browser, or screenshot tools are unavailable in the environment, explicitly disclose that limitation, execute all available build and type checks, and never falsely claim visual verification.
+### Inspection Protocol:
+1. **Multi-viewport verification:** Inspect desktop (1440px, 1280px), tablet (768px, 1024px), and mobile (320px, 375px) viewports.
+2. **Full-page evaluation:** Review the first viewport and lower sections for alignment, container justification, typographic scale, line wrapping, contrast, and sticky header behavior.
+3. **Defect ranking:** Fix blockers (overflow, broken links, contrast failures) and high-severity issues first.
+4. **Tooling limits:** If browser inspection tools are unavailable, disclose the limitation honestly and execute all supported static build and type checks. Never claim visual verification occurred without tool evidence.
 
 ---
 
-## 3. Design-to-Implementation Mapping
+## 4. Advanced Technical SEO for Web Pages
 
-Translate design system tokens and choices cleanly into code:
-- **Layout:** CSS Grid, Flexbox, flow layout, container queries, and responsive breakpoints
-- **Typography:** Web font loading, semantic type tokens, appropriate line heights, and clamp-based fluid scales
-- **Color:** Semantic design tokens (foreground, background, border, surface, accent) mapped to CSS variables or Tailwind config
-- **Spacing:** Predictable spacing scales (multiples of 4px or 8px) applied consistently across margins and paddings
-- **Components:** Modular, single-responsibility components with clean prop contracts
-- **Interactions:** Explicit state machines or handlers for hover, focus, active, disabled, loading, and error states
-- **Assets:** Official vector brand SVGs and optimized modern image formats (WebP, AVIF)
-
----
-
-## 4. Semantic HTML and Accessible Implementation
-
-Always build on solid semantic foundations:
-- Proper heading hierarchy (`h1` through `h6`) without skipping levels
-- Native `<button>` elements for actions and `<a>` elements for navigation
-- Associated form `<label>` elements and accessible descriptions (`aria-describedby`)
-- Proper input types (`email`, `tel`, `search`, etc.) with autocomplete attributes
-- Semantic tables (`<table>`, `<th>`, `<td>`) for tabular data; lists (`<ul>`, `<ol>`) for groups
-- Visible keyboard focus indicators that pass WCAG contrast requirements
-- Meaningful landmarks (`<header>`, `<nav>`, `<main>`, `<aside>`, `<footer>`)
-- Support for `prefers-reduced-motion` media queries when animations or smooth scrolling are used
-- Never use ARIA as a substitute for semantic native HTML
+When implementing public web pages, apply modern, verified SEO architecture:
+- **Title and Meta Descriptions:** Unique, descriptive `<title>` and `<meta name="description">` per route.
+- **Canonical URLs:** Self-referencing canonical tags (`<link rel="canonical">`) matching the verified production domain.
+- **Open Graph and Social Metadata:** Complete `og:title`, `og:description`, `og:image`, `og:url`, and Twitter card tags.
+- **Sitemap and Robots:** Valid XML sitemap (`/sitemap.xml`) referencing canonical indexable routes; intentional `robots.txt` rules.
+- **Structured Data (JSON-LD):** Truthful, validated Schema.org markup (e.g. `Person`, `ProfilePage`, `Organization`, `WebSite`). Never inject fake review stars, fake ratings, or unverified business locations.
+- **Semantic Structure:** Single `<h1>` per page, sequential heading hierarchy (`h1` through `h6`), crawlable internal links with descriptive anchor text, and meaningful image `alt` attributes.
 
 ---
 
-## 5. Interaction Contracts and State Integrity
+## 5. Web Performance and Core Web Vitals (CWV)
 
-Every interactive component must declare and handle its complete lifecycle:
-- **Default state:** Clear affordance indicating interactivity
-- **Hover/focus state:** Visible, accessible feedback
-- **Active state:** Immediate acknowledgment of user action
-- **Loading state:** Accessible progress indicator without layout shift
-- **Error state:** Actionable guidance explaining how to recover
-- **Success state:** Confirmation of completed operation
-- **Empty state:** Helpful guidance when no data exists
-
-**Rule:** Every advertised control must perform the action implied by its label. Never add non-functional buttons, dummy toggle switches, or fake interactions merely to make an interface look advanced in a screenshot.
+Treat performance as an essential pillar of design:
+- **Largest Contentful Paint (LCP):** Preload genuine hero LCP images; use modern formats (AVIF, WebP); set `priority` or `fetchpriority="high"` on hero visuals; lazy-load below-the-fold media.
+- **Cumulative Layout Shift (CLS):** Reserve explicit width, height, or aspect-ratio boxes for all images, videos, and dynamic widgets to eliminate layout reflow.
+- **Interaction to Next Paint (INP):** Avoid heavy synchronous JavaScript execution on the main thread; optimize click and input event listeners.
+- **Typography Loading:** Use font subsetting and `font-display: swap` to prevent invisible text during font loading.
+- **Bundle Weight:** Avoid adding heavy third-party packages for simple tasks; analyze dependencies before importing.
 
 ---
 
-## 6. Performance-Aware Implementation
+## 6. Interaction Contracts and State Integrity
 
-Optimize interfaces for real user devices and networks:
-- Optimize font loading (`font-display: swap`, sub-setting)
-- Set explicit width/height or aspect ratios on media to prevent Layout Shift (CLS)
-- Lazy-load below-the-fold images and complex widgets
-- Prevent unnecessary re-renders in client components
-- Minimize heavy third-party JavaScript dependencies
-- Ensure smooth 60fps animations using transform and opacity properties
+Every interactive component must declare and handle its relevant states:
+- **Default:** Clear interactive affordance.
+- **Hover:** Visible feedback on pointer devices.
+- **Focus-visible:** Clear keyboard focus ring passing 3:1 contrast against background.
+- **Active:** Immediate acknowledgment of click/touch.
+- **Disabled:** Visually distinct, non-clickable, accessible explanation provided.
+- **Loading:** Accessible indicator without layout jump.
+- **Error:** Clear, actionable guidance explaining recovery steps.
+- **Success:** Confirmation of completed user operation.
+
+**Rule:** Advertised controls must perform the action implied by their labels. Never add fake buttons, dummy toggle switches, or simulated interactions.
 
 ---
 
-## 7. Engineering Claims and Verification Honesty
+## 7. Scope-Specific Implementation Routing
+
+- **Single component scope:** Focus strictly on component anatomy, design tokens, state contracts, and accessibility. Skip full-page routing rituals.
+- **Single page scope:** Implement route composition, typographic hierarchy, responsive layout, and full-page section flow.
+- **Multi-page product scope:** Enforce shared semantic tokens and design system consistency across routes; implement page-specific compositions.
+- **Controlled redesign scope:** Preserve existing routes, state logic, and APIs; update component presentation and layout structure.
+
+---
+
+## 8. Final Engineering Verification and Claims Honesty
+
+When implementation is in scope, run and report relevant project checks:
+- Type check (e.g. `npm run type-check` or `tsc --noEmit`)
+- Linting (e.g. `npm run lint`)
+- Production build (e.g. `npm run build`)
+- Unit / integration tests (e.g. `npm run test`)
 
 Distinguish clearly between:
-- **Designed:** Specified in concept or mockup
+- **Designed:** Specified in concept
 - **Implemented:** Written in code
 - **Built:** Successfully compiled by build tool
-- **Type-checked:** Verified by static type checker
-- **Visually Inspected:** Rendered in a real browser or preview and inspected
-- **Tested:** Validated against automated test assertions
+- **Visually Inspected:** Rendered in a real browser or preview across viewports
 - **Known Limitation:** Unchecked aspect due to missing tools or environment constraints
 
-Never claim an interface is production-ready, fully accessible, or responsive across all devices unless verifiable evidence supports that claim.
+Never claim an interface is production-ready, fully accessible, or responsive without verifiable evidence.

@@ -9,7 +9,7 @@ Provide a standardized suite of 18 representative design scenarios to test the c
 
 ### Scenario 1: Developer Portfolio (Unspecified Palette)
 - **Brief:** Create a developer portfolio for an AI/systems engineer with no color constraints.
-- **Expected Evaluation:** Distinctive design thesis (e.g. architectural clarity), left-aligned or asymmetric macrostructure, genuine project case studies, no fake terminals or pretend telemetry, no generic purple glow.
+- **Expected Evaluation:** Distinctive design thesis (e.g. architectural clarity), left-aligned or asymmetric macrostructure, genuine project case studies, no fake terminals or pretend telemetry, no generic purple glow, restraint against forced GSAP/Lenis, bento grids, or unneeded animation bloat (native scrolling preferred).
 
 ### Scenario 2: Unrelated Product (Craft Bakery / Hospitality)
 - **Brief:** Design a local artisanal bakery website foregrounding daily sourdough rhythms.
@@ -29,7 +29,7 @@ Provide a standardized suite of 18 representative design scenarios to test the c
 
 ### Scenario 6: Existing Design System Pre-Flight
 - **Brief:** Add a new route to an existing repository with established Tailwind configuration and custom button components.
-- **Expected Evaluation:** Pre-flight inspection identifies existing tokens and components; reuses existing architecture rather than introducing conflicting classes.
+- **Expected Evaluation:** Pre-flight inspection identifies existing tokens, components, build tool (Turbopack, Vite, Webpack), and motion dependencies; reuses existing architecture rather than introducing conflicting classes or unneeded libraries.
 
 ### Scenario 7: High-Density Operations Dashboard
 - **Brief:** Design a real-time cluster monitoring dashboard for DevOps engineers.
@@ -45,7 +45,7 @@ Provide a standardized suite of 18 representative design scenarios to test the c
 
 ### Scenario 10: Reference-Led Design Study (Mode C)
 - **Brief:** Adapt visual inspiration from a supplied modern minimal portfolio URL or screenshot.
-- **Expected Evaluation:** Executes 4-step reference study; extracts layout grammar and spacing rhythm; adapts to user's authentic content without copying proprietary assets or exact pixels.
+- **Expected Evaluation:** Executes 4-step reference study (informed by `designs/` inspiration library); extracts layout grammar and spacing rhythm; adapts to user's authentic content without copying proprietary assets or exact pixels.
 
 ### Scenario 11: Controlled Redesign Scope
 - **Brief:** Redesign an existing web app's settings view.
@@ -61,7 +61,7 @@ Provide a standardized suite of 18 representative design scenarios to test the c
 
 ### Scenario 14: Zero-Proof Brief (Anti-Fabrication Test)
 - **Brief:** Early-stage stealth startup website with zero customers or revenue data.
-- **Expected Evaluation:** Refuses to fabricate customer logos, fake statistics, or synthetic reviews; structures page around problem statement, product demonstration, and technical thesis.
+- **Expected Evaluation:** Refuses to fabricate customer logos, fake statistics, synthetic reviews, or fake SEO schema ratings; structures page around problem statement, product demonstration, and technical thesis.
 
 ### Scenario 15: Tooling-Limited Environment
 - **Brief:** Implementation requested in an environment without browser or preview tools.
