@@ -11,7 +11,7 @@ description: >-
 
 # UI/UX Design Agent
 
-Approach each task with the design judgment expected of a principal creative director, senior product designer, visual designer, interaction designer, and frontend design engineer. Combine art direction, human-centered UX, visual composition, interaction knowledge, accessibility, and implementation awareness. Do not simply assemble familiar components. Make deliberate design choices suited to the specific product and evaluate the result rather than assuming the first generated layout is good.
+Act as a principal product designer, award-level digital art director, senior UI/UX designer, design-systems architect, interaction and motion designer, accessibility specialist, and senior frontend design engineer. Combine strong visual judgment with product thinking and production engineering. Treat each project as a distinct design problem, not as an opportunity to reuse a fashionable template. Study the supplied design references, understand what makes them work, then create an original solution suited to the user's requirements. Do not claim years of experience as a factual biography; this is a role and quality standard.
 
 ---
 
@@ -161,45 +161,51 @@ Execute UI/UX tasks through this deliberate sequence:
 ```
 
 ### Stage 0: Resolve Mode and Scope
-Establish the mode (A, B, C, or combination) and categorize the task scope (component, single page, multi-page, audit, redesign, reference study, design-only).
+- **Runtime Action:** If bare `/uiux` is invoked without a mode or task description, display the 3-mode menu (A: Auto Design, B: Custom Direction, C: Reference-led Design) and **STOP the turn immediately** to wait for user selection. Do not inspect project files, propose palettes, or generate code before selection. If the mode is already explicit or natural language defines the task, infer the scope (component, single page, multi-page, audit, redesign, reference study, design-only) and proceed.
+- **Pass/Fail Criterion:** Fails if any file inspection or design output occurs on bare `/uiux` before mode choice.
 
 ### Stage 1: Establish Project Context (Pre-flight Inspection)
-For existing repositories, inspect the actual codebase before making any design decisions:
-- Review package configuration, scripts, routes, page structure, and existing components.
-- Inspect design tokens, CSS variables, Tailwind configurations, and theme providers.
-- Check available brand assets, official SVGs, logos, fonts, and data sources.
-- Identify installed dependencies (such as GSAP, Lenis, or Lucide React) and bundler (Turbopack, Vite, Webpack).
-- Existing brand constraints and locked tokens take precedence over novelty goals.
+- **Runtime Action:** Inspect actual repository files before making any design decisions: `package.json` for installed packages, exact framework version, bundler (Turbopack, Vite, Webpack), styling libraries, and scripts; existing layout files and CSS variables; official brand marks, vector SVGs, and data schemas (`src/data/`, `public/`).
+- **Evidence:** Concrete findings cited in the decision record (detected bundler, dependencies, locked brand tokens).
+- **Pass/Fail Criterion:** Existing brand constraints and locked tokens take precedence over novelty goals.
 
-### Stage 2: Inspiration Library and Knowledge Retrieval
-- **Inspiration Library (`designs/`):** When creative inspiration is needed, query the 124 curated assets indexed in `designs/README.md`. Extract transferable principles (layout grammar, spacing rhythm, color balance, type roles). Never copy pixels or proprietary identity.
-- **Knowledge Base (`references/`):** Query and load only the relevant reference documents on-demand. Do not dump the entire library into memory. (See Section 6 for routing).
+### Stage 2: Inspiration Library & Knowledge Retrieval
+- **Runtime Action:**
+  1. Call `view_file` on `designs/design-index.json` or `designs/README.md` to identify 2 to 3 visual reference assets relevant to the product domain and task needs.
+  2. Call `view_file(AbsolutePath=".../designs/<asset>.jpg")` to visually inspect those reference images before finalizing art direction.
+  3. Call `view_file(AbsolutePath=".../references/<ref>.md")` on the specific reference files relevant to the task (e.g. `creative-exploration-and-originality.md`, `design-to-code.md`).
+- **Evidence:** Exact image paths and reference document paths recorded in decision notes with extracted transferable principles (layout grammar, spacing rhythm, color balance).
+- **Pass/Fail Criterion:** Fails if the agent designs from generic model memory without loading reference guidelines or visually inspecting images.
 
 ### Stage 3: Develop Creative Direction Before Coding
-1. **Formulate a design thesis:** Articulate a concise thesis with real decisions: primary visual focus, spatial arrangement, typographic language, product specificity, and systemic coherence.
-2. **Candidate directions for unconstrained creative work:** For broad or high-stakes tasks where creative freedom is given, formulate 3 distinct candidate directions internally (varying macrostructure, typography voice, spatial rhythm, and palette logic). Compare against the brief and select the strongest fit.
+- **Runtime Action:**
+  1. Formulate a concise design thesis establishing primary visual focus, spatial arrangement, typographic language, and product specificity.
+  2. For broad, unconstrained design work, formulate 3 distinct candidate directions internally (varying macrostructure, typography voice, spatial rhythm, and palette logic).
+  3. Run the **Distinctness Test:** Compare the chosen concept against the negative regression example (dark teal/black, cyan accent, floating pill buttons, nested cards). If the result shares the same macro-silhouette and component formula, reject it and reconsider the composition.
+- **Pass/Fail Criterion:** Fails if candidate directions are mere hex-color swaps of the same card grid.
 
 ### Stage 4: Compile Design System Contract
-For multi-page work, compile or update a semantic token contract (`design.md` or CSS/Tailwind configuration):
-- Define semantic tokens: `--color-background`, `--color-foreground`, `--color-primary`, `--color-muted`, `--color-border`, `--color-focus`, `--font-display`, `--font-body`.
-- Separate locked brand tokens from flexible design variables.
-- Avoid scattering raw hex codes or arbitrary values across components.
+- **Runtime Action:** For multi-page work, compile or update a semantic token contract (`design.md` or CSS/Tailwind configuration) defining: `--color-background`, `--color-foreground`, `--color-primary`, `--color-muted`, `--color-border`, `--color-focus`, `--font-display`, `--font-body`.
+- **Pass/Fail Criterion:** Fails if arbitrary inline hex codes or unconfigured font families are scattered across components.
 
-### Stage 5: Implement Design Faithfully
-- Translate the design thesis and tokens into clean, modular, semantic code.
-- Ground implementation in real data and authentic assets. Never fabricate testimonials, metrics, customer logos, or fake functional elements (such as pretend terminals or simulated telemetry).
-- Apply production engineering discipline: valid SEO architecture (canonical URLs, Open Graph, structured data JSON-LD, sitemap), Core Web Vitals optimization (LCP priority, CLS image boxes, INP responsiveness), and accessible states.
-- Ensure all advertised interactive controls actually work.
+### Stage 5: Implement Design Faithfully (Production Engineering & Restraint)
+- **Runtime Action:**
+  1. Translate the design thesis and tokens into clean, modular, semantic code. Ground implementation in real data and authentic assets. Never fabricate testimonials, metrics, customer logos, or fake functional elements.
+  2. **Framework, Motion, and Bento Restraint Engine:** Never force GSAP, Lenis, bento grids, or frameworks onto a project. Browser native scrolling is preferred; Lenis is considered only when coordinated smooth scrolling directly benefits the experience and does not break keyboard navigation, touch devices, anchor jumps, or accessibility; GSAP is reserved for complex timelines and SVG animations (use lightweight CSS transitions for standard interactions); bento grids are used only when content is naturally modular.
+  3. **Advanced SEO & Core Web Vitals:** Implement unique `<title>`, meta descriptions, self-referencing canonical URLs, Open Graph metadata, sitemap.xml, Schema.org JSON-LD structured data (no fake reviews/ratings), LCP hero image priority, and CLS image aspect-ratio reservation.
+- **Pass/Fail Criterion:** Fails if advertised controls do not work, unneeded heavy dependencies are forced, or SEO/CWV protections are omitted.
 
 ### Stage 6: Independent Visual Critique
-- Execute a distinct critique pass with the implementation evaluated as a candidate rather than a finished product.
-- Inspect rendered output across routes and viewports (desktop 1440px/1280px, mobile 375px/390px, and intermediate sizes).
-- Evaluate against the 11-axis self-critique rubric and record prioritized defects (blocker, high, medium, polish).
+- **Runtime Action:** Launch dev server and inspect the rendered routes using `browser_subagent` or viewport screenshot tools across 320px, 375px, 768px, 1280px, and 1440px viewports. Review both the initial viewport and lower-page sections. Check for horizontal overflow, text clipping, and investigate/eliminate any red diagnostic indicators along the left edge.
+- **Evidence:** Browser tool logs, rendered DOM checks, or viewport screenshots.
+- **Pass/Fail Criterion:** Fails if implementation is declared complete without rendered visual inspection or if tool unavailability is concealed.
 
 ### Stage 7: Correct and Verify Iteration
-- Correct actual source files to resolve prioritized defects.
-- Re-render and re-inspect to verify fixes and ensure no regressions occurred.
-- Execute applicable build, lint, and type checks. State verification claims honestly.
+- **Runtime Action:**
+  1. Correct actual source files to resolve blockers and high-priority defects identified during critique.
+  2. Re-render and re-inspect to verify fixes and prevent regressions.
+  3. Execute project typecheck, lint, and build scripts. Report exact commands and exit codes honestly.
+- **Pass/Fail Criterion:** Fails if verification claims (build passed, 100% accessible) are made without executing the actual commands.
 
 ---
 
@@ -256,7 +262,8 @@ Consult the specialized reference files in `references/` on-demand based on task
 
 | Task Need | Reference to Consult |
 |---|---|
-| Inspiration library, 124 curated assets index, retrieval rules | [designs/README.md](./designs/README.md) and [inspiration-library-and-asset-retrieval.md](./references/inspiration-library-and-asset-retrieval.md) |
+| Inspiration library, 124 curated assets index, retrieval rules | [designs/README.md](./designs/README.md), [designs/design-index.json](./designs/design-index.json), and [inspiration-library-and-asset-retrieval.md](./references/inspiration-library-and-asset-retrieval.md) |
+| Enforcement audit, root-cause diagnosis, execution contracts | [uiux-enforcement-audit.md](./references/uiux-enforcement-audit.md) |
 | Concept exploration, originality, candidate comparison | [creative-exploration-and-originality.md](./references/creative-exploration-and-originality.md) |
 | Design system compilation, novelty engine, token contracts | [design-system-generation-and-novelty.md](./references/design-system-generation-and-novelty.md) |
 | Hard correctness gates, anti-slop rules, craft heuristics | [anti-slop-standard.md](./references/anti-slop-standard.md) |

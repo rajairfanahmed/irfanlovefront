@@ -50,6 +50,25 @@ Do not expose long private reasoning to the user. Communicate the thesis briefly
 
 ---
 
+## 3A. The Distinctness Test and Negative Regression Check
+
+Before committing to a design concept or implementation, execute the **Distinctness Test**:
+
+1. **Compare against the Negative Regression Pattern:**
+   - **The Negative Benchmark:** A dark near-black/teal canvas, electric green/cyan accents, a floating rounded navbar, an oversized left-aligned text hero, a cluster of pill buttons, a rounded featured-project panel with nested cards, a chip-heavy tech stack section, four rounded skill cards, and a rounded CTA panel.
+   - **The Failure Criterion:** If the new concept has the same macro-silhouette, hero placement, section sequence, card-in-card composition, button styling, and palette formula as this negative benchmark, it has **failed the distinctness test**.
+   - **The Remediation:** Reconsider the macro-composition, spatial proportions, and section rhythm. Do not simply change the accent color or swap fonts.
+
+2. **Cross-Project Distinctness:**
+   - Verify that the concept does not merely copy the macrostructure or palette of other recent outputs from this skill.
+   - Ensure the structural fingerprint (macrostructure, hero archetype, grid logic, section rhythm) is genuinely derived from the current brief.
+
+3. **No Blanket Pattern Prohibitions:**
+   - The Distinctness Test does not ban centered heroes, cards, bento grids, dark themes, light themes, or gradients universally.
+   - Use them when evidence and project needs support them; reject them when they appear as an unexamined default.
+
+---
+
 ## 4. Grounding Product Identity Without Fabricating Features
 
 A job title, brand description, or industry category may inform art direction, but it does not justify a set of fashionable decorations:

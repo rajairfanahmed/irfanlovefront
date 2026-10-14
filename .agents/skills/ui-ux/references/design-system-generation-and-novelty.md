@@ -63,48 +63,43 @@ Follow this sequential method for color selection:
 
 ## 4. The Multi-Page Semantic Token Contract
 
-When building or updating multi-page applications, compile a central token contract (e.g. in CSS custom properties, Tailwind theme configuration, or a `design.md` file):
+When building or updating multi-page applications, compile a central semantic token contract (e.g. in CSS custom properties, Tailwind theme configuration, or a `design.md` file). **Never copy fixed hex codes or default font families blindly.** Every token must be intentionally derived from the chosen design thesis and product context:
 
 ```css
+/* Semantic Token Architecture Schema (Keys are required; values must be project-specific) */
 :root {
-  /* Surfaces & Backgrounds */
-  --color-background: #fbfbfb;
-  --color-surface: #ffffff;
-  --color-surface-subtle: #f4f4f5;
-  --color-surface-elevated: #ffffff;
+  /* Surfaces & Backgrounds - Derived from chosen lightness band (monochrome, warm stone, deep slate, organic cream) */
+  --color-background: var(--project-bg);
+  --color-surface: var(--project-surface);
+  --color-surface-subtle: var(--project-surface-subtle);
+  --color-surface-elevated: var(--project-surface-elevated);
   
-  /* Foreground & Typography */
-  --color-foreground: #18181b;
-  --color-foreground-muted: #71717a;
-  --color-foreground-subtle: #a1a1aa;
+  /* Foreground & Typography - Must meet WCAG AA 4.5:1 minimum against computed surfaces */
+  --color-foreground: var(--project-text-primary);
+  --color-foreground-muted: var(--project-text-secondary);
+  --color-foreground-subtle: var(--project-text-tertiary);
   
-  /* Brand & Accents */
-  --color-primary: #18181b;
-  --color-primary-foreground: #fafafa;
-  --color-accent: #2563eb;
-  --color-accent-foreground: #ffffff;
+  /* Brand & Accents - Intentional accent derived from brief, NOT automatic generic cyan or blue */
+  --color-primary: var(--brand-anchor);
+  --color-primary-foreground: var(--brand-anchor-contrast);
+  --color-accent: var(--brand-accent);
+  --color-accent-foreground: var(--brand-accent-contrast);
   
-  /* Borders & Dividers */
-  --color-border: #e4e4e7;
-  --color-border-subtle: #f4f4f5;
-  --color-focus: #2563eb;
+  /* Borders, Dividers & Focus */
+  --color-border: var(--border-default);
+  --color-border-subtle: var(--border-hairline);
+  --color-focus: var(--focus-ring); /* Must have 3:1 non-text contrast */
   
-  /* Feedback States */
-  --color-success: #16a34a;
-  --color-warning: #d97706;
-  --color-error: #dc2626;
-  --color-info: #2563eb;
+  /* Typography Roles - Deliberate pairing; do not default to Inter for every project */
+  --font-display: var(--project-display-font);
+  --font-body: var(--project-body-font);
+  --font-mono: var(--project-mono-font); /* Reserved strictly for code and tabular metrics */
 
-  /* Typography Scales & Roles */
-  --font-display: 'Inter', -apple-system, sans-serif;
-  --font-body: 'Inter', -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-
-  /* Spacing & Geometry */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --container-max-width: 1200px;
+  /* Spacing & Geometry - Geometric radius must reflect brand tone (sharp 0px, subtle 4px, architectural 6px) */
+  --radius-sm: var(--project-radius-sm);
+  --radius-md: var(--project-radius-md);
+  --radius-lg: var(--project-radius-lg);
+  --container-max-width: var(--project-layout-max);
 }
 ```
 

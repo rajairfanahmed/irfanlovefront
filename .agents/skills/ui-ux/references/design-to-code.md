@@ -112,11 +112,14 @@ Every interactive component must declare and handle its relevant states:
 
 ## 8. Final Engineering Verification and Claims Honesty
 
-When implementation is in scope, run and report relevant project checks:
-- Type check (e.g. `npm run type-check` or `tsc --noEmit`)
-- Linting (e.g. `npm run lint`)
-- Production build (e.g. `npm run build`)
-- Unit / integration tests (e.g. `npm run test`)
+When implementation is in scope, run and report relevant project checks through the verifiable execution chain:
+
+| Requirement | Runtime Action | Required Evidence | Pass/Fail Criterion | Corrective Action |
+|---|---|---|---|---|
+| **Rendered Visual Inspection** | Launch dev server and inspect rendered route via `browser_subagent` or viewport screenshots. | Browser tool logs or screenshot files across 320px, 375px, 768px, 1280px, 1440px. | **Pass:** Zero horizontal scroll; contrast ≥ 4.5:1; no clipped text.<br>**Fail:** Overflow, clipped text, uninspected render. | Adjust CSS in source files, re-render, and re-inspect. |
+| **Diagnostic & Red Indicator Cleanliness** | Inspect viewport edges for red issue badges, layout warnings, or error flags. | Rendered DOM check showing clean layout with 0 error indicators. | **Pass:** Zero diagnostic overlays or red indicators.<br>**Fail:** Persistent red flags along viewport edge. | Investigate root cause (DOM hydration error, accessibility flag, or lint warning) and fix in code. |
+| **Build & Typecheck** | Run `npm run build` or `npm run type-check`. | Exact command line and exit code 0 output. | **Pass:** Zero TypeScript or compilation errors.<br>**Fail:** Build fails or command omitted. | Resolve type or syntax errors in source files. |
+| **Technical SEO & CWV** | Verify unique `<title>`, canonicals, Open Graph, sitemap, LCP priority, and CLS image dimensions. | HTML source / head tag inspection. | **Pass:** Complete metadata and reserved media dimensions.<br>**Fail:** Generic title, missing canonical, layout shift. | Add missing meta tags and aspect-ratio CSS. |
 
 Distinguish clearly between:
 - **Designed:** Specified in concept
