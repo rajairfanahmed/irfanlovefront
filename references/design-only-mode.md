@@ -14,7 +14,7 @@ A design-only request is a valid professional deliverable. It is not incomplete 
 Use relevant design principles, accessibility considerations, and quality standards while designing. Do not narrate every design decision or explain ordinary professional choices.
 
 ### 3. Do not force unnecessary discovery
-Do not require the user to fill out a comprehensive brief, answer a long questionnaire, or approve a strategy document before a design can begin. If the user has supplied enough information to produce a visual result, proceed.
+Do not require the user to fill out a comprehensive brief, answer a long questionnaire, or approve a strategy document before a design can begin. If the user has supplied enough information to produce a visual result, make reasonable design decisions and produce the requested design artifact. Do not mistake a request for advice, a prompt, or instructions for authorization to change the project; follow the execution authorization rules in the main skill.
 
 ### 4. Ask only essential questions
 Ask a concise question only when a missing detail would materially change the design and cannot be reasonably assumed.
@@ -23,7 +23,7 @@ Ask a concise question only when a missing detail would materially change the de
 Do not convert a visual design request into a research report, user journey, competitive analysis, accessibility audit, or implementation plan unless the user asked for those.
 
 ### 6. Produce the actual design
-Deliver a visual design, mockup, coded prototype, or implementation — not a description of what a design might look like.
+Deliver a visual design, mockup, coded prototype, or implementation — not a description of what a design might look like. For a requested full page or website, cover the complete requested layout and content hierarchy rather than returning only a hero or component. Use a viewable artifact whenever the available environment supports one.
 
 ### 7. Keep explanations proportionate
 Brief context about meaningful choices is acceptable. Multi-paragraph justifications for ordinary design decisions are not.

@@ -1,104 +1,131 @@
 # Design-to-Code Fidelity and Engineering Constraints
 
 ## Purpose
-Preserve design intent when translating interface design into frontend code connected to real product behaviour. Distinguish implementation correctness from design quality.
+Preserve design intent when translating interface designs into maintainable frontend code connected to real product behaviour. Distinguish implementation correctness from design quality, and require genuine visual inspection of rendered output whenever tools allow.
 
 ---
 
-## Project Inspection Before Implementation
-Before making changes, inspect the actual repository:
-- Check existing instructions, package configuration, app routes, components, data, assets, and styling conventions
-- Do not assume that the user's description perfectly matches the current checkout
-- Report material discrepancies and use the actual project as the implementation source of truth
-- Reuse genuine project content, existing assets, official brand SVGs, and available data definitions
-- Do not replace a functioning source of truth with invented data or recreate assets that already exist without a reason
-- Inspect the installed stack before adding dependencies or assuming library versions
+## 1. Project Inspection Before Implementation
 
-## Design-to-Implementation Mapping
-- Layout → grid, flex, flow, positioning, responsive rules
-- Typography → font loading, type tokens, line height, wrapping
-- Colour → semantic design tokens and theme values
-- Spacing → consistent scales and component layout
-- Visual components → reusable component APIs
-- Interactions → explicit state transitions and event behaviour
-- Navigation → actual routes and link targets
-- Data display → real data structures and formatting rules
-- Validation → client-side and server-side constraints
-- Feedback → loading, success, error, and recovery states
-- Accessibility → semantic structure, accessible names, focus management, keyboard behaviour
-- Responsive layouts → tested viewport adaptation
+Before modifying code in an existing repository, thoroughly inspect its actual state:
+- Check existing package configuration (`package.json`, dependencies, scripts)
+- Identify existing app router or pages structure, routes, and layout hierarchy
+- Review existing UI components, styling conventions (Tailwind, CSS modules, design tokens)
+- Inspect available data sources, schemas, and asset directories (`public/`, icons, SVGs)
+- Identify installed animation and interaction libraries (GSAP, Lenis, Framer Motion)
+- Report any material discrepancies between user instructions and the checkout
+- Use the actual repository as the implementation source of truth, preserving working architecture, existing routes, real content, and official brand assets unless explicitly directed to modify them
 
-## Visual Inspection of Rendered Output
-When browser or preview tools are available and the task includes implementation:
-- Do not stop after writing code or confirming that it compiles
-- Start the application when supported and inspect rendered pages at appropriate viewport sizes
-- Review the full page, not only the first viewport
-- Inspect typography, line wrapping, content density, section rhythm, alignment, contrast, image cropping, visual hierarchy, overflow, component consistency, and the relationship between sections
-- Identify the most important visual defects, correct them in the code, and inspect the updated result again
-- Continue until the available verification shows a coherent result or a concrete limitation prevents further validation
-- If visual inspection tools are not available, do not claim to have visually reviewed the rendered interface — state the limitation precisely and perform the strongest available code and build checks
+---
 
-## Semantic and Structural Implementation
-- Headings in a meaningful hierarchy
-- Buttons for actions and links for navigation
-- Associated form labels and descriptions
-- Appropriate input types
-- Semantic tables for tabular data
-- Lists for collections where appropriate
-- Accessible names and states for controls
-- Meaningful document structure and landmarks
-- Focus management for dialogs and route changes
-- Do not use ARIA as a substitute for correct native semantics
+## 2. Rendered Visual Inspection and Corrective Iteration Loop
 
-## Component Architecture
-Document: purpose, anatomy, properties/data inputs, variants/sizes, state transitions, events/callbacks, accessibility expectations, responsive behaviour, error handling, testing requirements. Promote reuse when it reduces duplication; avoid excessive abstraction.
+When implementation is requested and browser, preview, or screenshot capabilities are available, follow this verified cycle:
 
-## Design Tokens and Visual Consistency
-Define tokens for: colour roles, typography, spacing, sizing, border radii, border widths, elevation, motion, breakpoints, layering. Prefer semantic token names. Avoid scattering arbitrary values.
+```
+[Inspect Repo & Stack] 
+       ↓
+[Implement Design in Code] 
+       ↓
+[Run Build, Typecheck, Lint] 
+       ↓
+[Launch Dev/Preview Server] 
+       ↓
+[Render & Visually Inspect Routes across Viewports] 
+       ↓
+[Log Prioritized Visual/UX Defects] 
+       ↓
+[Correct Code in Source Files] 
+       ↓
+[Re-render & Verify Fixes (Check Regressions)]
+```
 
-## Responsive Implementation
-Consider fluid sizing, content-driven wrapping, responsive grids, container constraints, breakpoint behaviour, touch input, keyboard input, orientation, and overflow. Verify: no horizontal overflow, text readable, controls usable, important content not clipped, navigation works, sticky elements don't obstruct, tables/charts have narrow-screen treatments.
+### Detailed Inspection Protocol:
 
-## State and Interaction Contracts
-Define: initial state, triggering action, state transition, visible feedback, disabled conditions, loading behaviour, success behaviour, error behaviour, cancellation/undo, data persistence, keyboard behaviour, focus behaviour.
+1. **Start application:** Run the project development server or build preview using the repository's verified scripts.
+2. **Inspect rendered output across all routes:** Do not rely on code review or build status alone. Open and inspect every requested route and major section.
+3. **Multi-viewport verification:** Inspect desktop (e.g. 1440px or 1280px) and mobile viewports (e.g. 375px or 390px). Check intermediate tablet viewports when layout complexity requires it.
+4. **Full-page evaluation:** Review both the above-the-fold viewport and the complete scrollable page:
+   - Composition balance and section pacing
+   - Typographic scale, readability, line lengths, and text wrapping
+   - Container widths, padding, margins, and spatial rhythm
+   - Alignment, visual anchors, and focal point clarity
+   - Image cropping, aspect ratios, contrast, and asset rendering
+   - Component repetition and container justification (ensuring cards earn their place)
+   - Layout overflow, unwanted horizontal scrolling, and sticky element behaviour
+   - Interaction states (hover, focus, active, loading, error, empty)
+   - Adherence to the stated design thesis
+5. **Defect ranking:** Record a prioritized list of concrete defects (Critical, Major, Minor, Cosmetic).
+6. **Code correction:** Modify the actual source files to resolve defects.
+7. **Re-inspection:** Re-render the affected routes and confirm that the issues are resolved without regressions.
+8. **Verification honesty:** If preview, browser, or screenshot tools are unavailable in the environment, explicitly disclose that limitation, execute all available build and type checks, and never falsely claim visual verification.
 
-Any advertised control must do what its label implies. Do not add fake interactions to make screenshots appear sophisticated.
+---
 
-## Data and API Boundaries
-Account for: data loading/refresh, partial data, invalid data, network failure, authorization failure, rate limiting, duplicate requests, out-of-order responses, conflicting updates, stale data, form submission failure, optimistic updates and rollback.
+## 3. Design-to-Implementation Mapping
 
-Never simulate a successful submission when the request has failed.
+Translate design system tokens and choices cleanly into code:
+- **Layout:** CSS Grid, Flexbox, flow layout, container queries, and responsive breakpoints
+- **Typography:** Web font loading, semantic type tokens, appropriate line heights, and clamp-based fluid scales
+- **Color:** Semantic design tokens (foreground, background, border, surface, accent) mapped to CSS variables or Tailwind config
+- **Spacing:** Predictable spacing scales (multiples of 4px or 8px) applied consistently across margins and paddings
+- **Components:** Modular, single-responsibility components with clean prop contracts
+- **Interactions:** Explicit state machines or handlers for hover, focus, active, disabled, loading, and error states
+- **Assets:** Official vector brand SVGs and optimized modern image formats (WebP, AVIF)
 
-## Performance-Aware Design
-Consider: font loading, image size/format, lazy loading, large media, excessive animation, layout shifts, large component trees, unnecessary client-side JavaScript, code splitting, expensive chart rendering, repeated network requests, perceived loading.
+---
 
-## Browser and Platform Realities
-Respect supported browser capabilities, form behaviour, keyboard conventions, font rendering, viewport units, scroll behaviour, reduced-motion preferences, touch-versus-pointer interaction. Use progressive enhancement where it improves resilience.
+## 4. Semantic HTML and Accessible Implementation
 
-## Accessibility Implementation
-Inspect: semantic elements, accessible names/descriptions, keyboard operation, visible focus, focus order/restoration, screen-reader announcements, form error relationships, dialog semantics, reduced-motion support, contrast, zoom and reflow.
+Always build on solid semantic foundations:
+- Proper heading hierarchy (`h1` through `h6`) without skipping levels
+- Native `<button>` elements for actions and `<a>` elements for navigation
+- Associated form `<label>` elements and accessible descriptions (`aria-describedby`)
+- Proper input types (`email`, `tel`, `search`, etc.) with autocomplete attributes
+- Semantic tables (`<table>`, `<th>`, `<td>`) for tabular data; lists (`<ul>`, `<ol>`) for groups
+- Visible keyboard focus indicators that pass WCAG contrast requirements
+- Meaningful landmarks (`<header>`, `<nav>`, `<main>`, `<aside>`, `<footer>`)
+- Support for `prefers-reduced-motion` media queries when animations or smooth scrolling are used
+- Never use ARIA as a substitute for semantic native HTML
 
-## Design Fidelity Review
-Compare implementation with intended design: typography, spacing, alignment, container widths, component dimensions, colour/contrast, image cropping, borders/shadows, responsive breakpoints, hover/focus states, loading/empty/error states, content wrapping, scroll/sticky behaviour.
+---
 
-## Post-Implementation Checks
-After changes, run appropriate available checks:
-- Inspect the project's scripts and use the applicable lint, type check, build, tests, or development preview where available
-- Do not report a command as successful unless it was actually run and succeeded
-- Prefer focused changes that improve the result without unnecessarily rewriting working architecture
-- Preserve existing user content, integrations, routes, and working functionality unless change is required and justified
+## 5. Interaction Contracts and State Integrity
 
-## Testing Layers
-Unit tests, component tests, integration tests, end-to-end workflow tests, keyboard/accessibility tests, responsive checks, cross-browser checks, visual regression tests, performance measurements, error/recovery tests. Choose testing depth according to deliverable and risks.
+Every interactive component must declare and handle its complete lifecycle:
+- **Default state:** Clear affordance indicating interactivity
+- **Hover/focus state:** Visible, accessible feedback
+- **Active state:** Immediate acknowledgment of user action
+- **Loading state:** Accessible progress indicator without layout shift
+- **Error state:** Actionable guidance explaining how to recover
+- **Success state:** Confirmation of completed operation
+- **Empty state:** Helpful guidance when no data exists
 
-## Engineering Claims and Verification
-Distinguish: designed, implemented, executed, tested, verified against requirement, not tested, known limitation. Do not claim a build passes, a route works, or accessibility conforms unless verification actually occurred.
+**Rule:** Every advertised control must perform the action implied by its label. Never add non-functional buttons, dummy toggle switches, or fake interactions merely to make an interface look advanced in a screenshot.
 
-A successful build proves neither strong visual design nor good UX. A visually attractive screenshot proves neither functional correctness nor accessibility conformance.
+---
 
-## Maintainability
-Prefer clear naming, predictable behaviour, consistent styling, appropriate separation of concerns, manageable dependencies, proportional documentation. Avoid: duplicate implementations, global CSS with unintended effects, arbitrary one-off styles, overly complex components, unnecessary dependencies, hardcoded sample values, fragile selectors and magic numbers.
+## 6. Performance-Aware Implementation
 
-Do not add an unrelated design system, dependency, route, component, or decorative feature merely to make the implementation appear more sophisticated.
+Optimize interfaces for real user devices and networks:
+- Optimize font loading (`font-display: swap`, sub-setting)
+- Set explicit width/height or aspect ratios on media to prevent Layout Shift (CLS)
+- Lazy-load below-the-fold images and complex widgets
+- Prevent unnecessary re-renders in client components
+- Minimize heavy third-party JavaScript dependencies
+- Ensure smooth 60fps animations using transform and opacity properties
 
-**Foundational principle:** Preserve visual intent while building an interface that is semantically correct, responsive, accessible, realistic, and maintainable. Verify the rendered result, not just the code.
+---
+
+## 7. Engineering Claims and Verification Honesty
+
+Distinguish clearly between:
+- **Designed:** Specified in concept or mockup
+- **Implemented:** Written in code
+- **Built:** Successfully compiled by build tool
+- **Type-checked:** Verified by static type checker
+- **Visually Inspected:** Rendered in a real browser or preview and inspected
+- **Tested:** Validated against automated test assertions
+- **Known Limitation:** Unchecked aspect due to missing tools or environment constraints
+
+Never claim an interface is production-ready, fully accessible, or responsive across all devices unless verifiable evidence supports that claim.

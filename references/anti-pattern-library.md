@@ -1,97 +1,110 @@
 # UI/UX Anti-Pattern Library
 
 ## Purpose
-Document common interface design failures that harm usability, trust, or user experience. Each pattern should explain the problem, its symptoms, its consequences, and an appropriate correction.
+Document common interface design failures that harm usability, trust, or user experience. Each pattern explains the problem, its symptoms, its consequences, and an appropriate correction.
 
 ---
 
-## Template-Default Anti-Patterns
-These are anti-patterns specific to AI-generated design work:
+## 1. Template-Default Anti-Patterns
+These anti-patterns occur when interfaces rely on unconsidered AI-generated defaults or formula swapping:
 
-- **Default hero formula:** Automatically producing a centered hero, eyebrow badge, huge headline, centered paragraph, cluster of pill buttons regardless of the product
-- **Formula replacement:** Replacing one default formula with another (always asymmetric, always brutalist, always terminal-styled) instead of making a contextual choice
-- **Universal card grids:** Putting every content group inside cards and repeating the same three-column card grid across every page
-- **Generic premium styling:** Assuming a light neutral palette, particular font, rounded rectangles, subtle shadows, and black primary button constitute universal premium design
-- **Decorative engineering props:** Adding fake terminals, pretend telemetry, decorative topology graphics, or fabricated system health indicators merely because the product owner works in engineering
-- **Interchangeable pages:** Giving every page the same composition instead of letting each page respond to its own content and task
-- **Fabricated functional elements:** Presenting system health, latency, transaction logs, subscriber metrics, or similar data as real when it is fabricated
-- **Empty container proliferation:** Wrapping every section in containers (cards, panels, boxes) without evaluating whether typography, spacing, rules, or background changes could establish hierarchy instead
+- **Default hero formula:** Automatically producing a centered hero, eyebrow badge, huge gradient headline, centered paragraph, and a cluster of pill buttons regardless of product context.
+- **Floating badge clusters:** Placing a row of floating tech badges or pills beneath hero buttons without functional context or hierarchy.
+- **Formula replacement:** Replacing one default formula with another (e.g. automatically making every site an asymmetric brutalist grid, or forcing terminal styling onto everything) instead of making a contextual choice.
+- **Universal card grids:** Putting every content group inside cards and repeating the same three-column card grid across every page.
+- **Card-in-card nesting:** Nesting rounded cards inside larger rounded cards for flagship items, creating visual clutter and confusing boundaries.
+- **Generic premium styling:** Assuming a light neutral palette, rounded rectangles, subtle shadows, and a black primary button constitute universal premium design.
+- **Decorative engineering props:** Adding fake terminal windows, pretend telemetry, fake latency meters, or decorative topology graphics merely because the product owner works in engineering.
+- **Interchangeable pages:** Giving every page the exact same layout structure instead of letting each page respond to its unique content and task.
+- **Fabricated functional elements:** Presenting system health, latency, transaction logs, subscriber metrics, or star ratings as real when they are simulated or fabricated.
+- **Container proliferation:** Wrapping every section in containers without evaluating whether typography, spacing, rules, or background shifts could establish hierarchy instead.
+
+For a concrete benchmark demonstrating these failures and how to avoid them, see the Portfolio Regression Test in [quality-evaluation-rubric.md](./quality-evaluation-rubric.md).
 
 ---
 
-## Navigation Anti-Patterns
+## 2. Navigation Anti-Patterns
 - Unlabeled or ambiguous navigation items
 - Deep nesting requiring excessive clicks to reach common content
-- Inconsistent navigation across pages
-- Missing back/escape mechanisms
+- Inconsistent navigation shells across different routes
+- Missing back, escape, or home navigation mechanisms
 - Hidden primary navigation without accessible alternatives
-- Breadcrumbs that do not reflect actual hierarchy
-- Navigation that changes unpredictably based on user action
+- Breadcrumbs that do not reflect actual site hierarchy
+- Navigation that changes unpredictably based on scroll or viewport changes
 
-## Form Anti-Patterns
+---
+
+## 3. Form and Input Anti-Patterns
 - Clearing valid form fields after a submission error
-- Vague or generic error messages
-- Validation rules not communicated before submission
-- Inline validation that fires before the user finishes typing
-- Required fields without clear indicators
-- Unnecessary formatting restrictions
+- Vague or generic error messages ("Something went wrong")
+- Validation rules hidden until after submission failure
+- Aggressive inline validation that fires before the user finishes typing
+- Required fields without clear, accessible indicators
+- Unnecessary formatting restrictions on phone numbers or dates
 - Forms that do not preserve user input across recoverable failures
-- Captcha that blocks legitimate users
-- Simulating a successful submission when the request actually failed
+- Simulating a successful submission when the backend request actually failed
 
-## Feedback Anti-Patterns
-- No visible response to user actions
-- Loading states that persist indefinitely without information
+---
+
+## 4. Feedback and State Anti-Patterns
+- No visible response to user clicks or form submissions
+- Loading spinners that persist indefinitely without timeout or error states
 - Success messages that appear when the operation actually failed
-- Error messages that provide no actionable guidance
-- Notifications that cannot be dismissed
-- Sounds or alerts without user control
-- Toast messages that disappear before being read
+- Toast notifications that disappear before users can read them
+- Sound or audio alerts without user control or toggle
+- Error messages that offer no actionable recovery steps
 
-## Content Anti-Patterns
-- Fabricated testimonials or statistics
-- Misleading pricing or hidden fees
+---
+
+## 5. Content and Copy Anti-Patterns
+- Fabricated testimonials, fake client logos, or invented statistics
+- Misleading pricing or hidden fees revealed at the final step
 - Interchangeable marketing copy with no product specifics
-- Information overload without hierarchy
-- Wall-of-text without structure
-- Inconsistent terminology for the same concept
-- Ambiguous button labels
-- AI marketing language, em dashes in ordinary prose, formulaic phrasing, hollow claims, and phrases that could belong to any product
-- Invented proof, unsupported proficiency labels, and fake usage figures
+- Wall-of-text sections without typographic hierarchy or scannability
+- Inconsistent terminology for identical concepts across pages
+- Ambiguous button labels ("Submit", "Click Here") instead of action-oriented text
+- Em dashes or dash-based asides in ordinary user-facing prose and copy
+- Generic AI buzzwords ("empowering", "revolutionizing", "seamless", "next-gen")
 
-## Visual Anti-Patterns
-- Decorative elements that obscure content
-- Inconsistent spacing and alignment
-- Poor contrast making text unreadable
-- Competing focal points with no clear hierarchy
-- Inconsistent component treatments across pages
-- Arbitrary visual effects unrelated to content
-- Using the same composition for every page of a multi-page product
+---
 
-## Interaction Anti-Patterns
-- Disabled buttons without explanation
-- Destructive actions without confirmation
-- Auto-advancing workflows without user control
-- Unexpected page redirects
-- Infinite scroll with no way to return to position
+## 6. Visual and Spatial Anti-Patterns
+- Decorative elements that obscure text readability or clickable controls
+- Inconsistent spacing scales and haphazard alignment across components
+- Poor colour contrast failing WCAG AA standards
+- Competing focal points causing cognitive overload
+- Inconsistent component treatments and borders across different routes
+- Arbitrary visual effects (blurs, gradients, shadows) unrelated to content hierarchy
+- Using the identical layout composition for every page of a multi-page product
+
+---
+
+## 7. Interaction and Motion Anti-Patterns
+- Disabled buttons without tooltips or explanations of missing requirements
+- Destructive actions executed without confirmation dialogs
+- Unexpected page redirects or modal interruptions without user action
+- Infinite scroll with no way to access the footer or return to previous positions
 - Hover-dependent interactions on touch devices
-- Fake interactions added to make screenshots appear sophisticated
-- Controls that do not do what their labels imply
+- Fake interactions added to make screenshots look functional
+- Controls that do not perform the action implied by their labels
+- Excessive parallax or scroll-jacking that causes motion sickness or input lag
 
-## Trust Anti-Patterns
-- Deliberately confusing cancellation flows
-- Preselected options that benefit the company, not the user
-- Fake urgency or scarcity
-- Dark patterns in consent management
-- Hidden data collection
-- Misleading "free" claims with mandatory payment
-- Countdown timers that reset
+---
 
-## Accessibility Anti-Patterns
-- Images without alternative text
-- Focus traps in dialogs or menus
-- Colour as the only means of communicating information
-- Custom controls without keyboard support
-- Missing form labels
-- Non-semantic markup replacing semantic HTML
-- Motion that cannot be reduced or paused
+## 8. Trust and Dark Patterns
+- Deliberately confusing cancellation or unsubscribe flows
+- Preselected checkboxes that opt users into unwanted services or marketing
+- Fake urgency or artificial countdown timers that reset on refresh
+- Confusing consent dialogs designed to trick users into accepting tracking
+- Hidden subscription terms or forced payment information for free trials
+
+---
+
+## 9. Accessibility Anti-Patterns
+- Images without descriptive alternative text (or icons with redundant labels)
+- Focus traps in dialogs or menus that prevent keyboard escape
+- Colour used as the sole means of communicating status or error
+- Custom interactive controls without keyboard event handlers (`keydown`, `keyup`)
+- Missing `<label>` tags on form inputs
+- Non-semantic markup (e.g. `div` tags with `onClick`) replacing native HTML elements
+- Animations that ignore `prefers-reduced-motion` settings
