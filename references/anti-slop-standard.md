@@ -1,97 +1,132 @@
-# No-AI-Slop Standard
+# Anti-Slop Standard and Verifiable Quality Gates
 
 ## Purpose
-Establish concrete, evidence-based rules for avoiding generic, interchangeable AI-generated design. Every visual and interaction choice must serve the specific product, content, and users rather than conform to an unconsidered formula.
+Establish an enforceable, evidence-based quality system that eliminates generic AI templates and unconsidered defaults. Distinguish hard correctness gates from context-sensitive craft heuristics and novelty checks, providing actionable remediation paths.
 
 ---
 
-## 1. The Core Problem: Formulaic Generation and Formula Swapping
+## 1. Quality Architecture: Three Distinct Tiers
 
-A significant proportion of AI-generated designs rely on an unconsidered, repetitive formula:
-- Centered hero with an eyebrow badge
-- Giant headline with gradient text
-- Clustered pill buttons
-- Repeated three-column card grids wrapping every piece of content
-- Floating gradient blur blobs or decorative glowing orbs
-- Glassmorphic panels with arbitrary borders
-- Fabricated statistics, fake testimonials, and generic stock copy
+Quality evaluation is structured across three distinct tiers:
 
-Equally harmful is **formula swapping**: replacing one default formula with another without considering the product. Automatically turning every layout into an asymmetric brutalist grid, eliminating all cards in favor of harsh black borders, or forcing a dark terminal aesthetic onto every engineering portfolio is just as formulaic as the template it replaces.
-
-The anti-slop standard rejects unconsidered defaults, not established patterns themselves. Centered heroes, card containers, grids, gradients, and symmetry remain valid tools when they are the best solution for the content.
+```
+[Tier 1: Hard Correctness Gates] → Non-negotiable blockers (accessibility, semantics, overflow, broken states)
+           ↓
+[Tier 2: Contextual Craft Heuristics] → High / Medium severity (composition rhythm, hierarchy, container justification)
+           ↓
+[Tier 3: Novelty & Fingerprint Checks] → Medium / Polish severity (repeated skeletons, default palettes, formula swapping)
+```
 
 ---
 
-## 2. Evidence-Based Pre-Commitment Checklist
+## 2. Tier 1: Hard Correctness Gates (Blocker Severity)
 
-Before committing to a layout or component structure, evaluate the composition against these seven questions:
+These gates represent non-negotiable functional, accessibility, and structural requirements. Failure on any hard gate blocks delivery.
 
-1. **Content fit versus habit:** Is this composition being selected because it fits the specific content, or because it is a familiar generation default?
-2. **Container proliferation:** Are several sections using the same card and grid pattern without a content-driven reason?
-3. **Focal point and rhythm:** Does the page have a clear visual focal point and a coherent rhythm from top to bottom?
-4. **Alternative hierarchy:** Could hierarchy be expressed better through typography, alignment, scale, image placement, divider rules, background changes, or spatial relationships rather than wrapping content in another container?
-5. **Authentic product specificity:** Does the visual treatment express something real about this product, or could the same page belong to an unrelated product simply by swapping the logo and headings?
-6. **Purposeful techniques versus new clichés:** Are asymmetry, technical graphics, gradients, oversized typography, glass surfaces, motion, or custom cursors being used with a clear purpose, or are they simply replacing familiar defaults with another fashionable formula?
-7. **Essential integrity:** Does the design remain usable, legible, and structurally coherent if all decorative effects are removed?
+### 1.1 Semantic HTML Structure
+- **Failure:** Using generic `<div>` or `<span>` elements for clickable actions or document landmarks; skipping heading levels (`h1` to `h4`).
+- **Why it matters:** Breaks screen readers, search indexing, and keyboard accessibility.
+- **Verification method:** Source code inspection and DOM validation.
+- **Correction:** Replace with native `<button>`, `<a>`, `<header>`, `<nav>`, `<main>`, `<section>`, and sequential heading hierarchy.
+- **Exceptions:** None.
 
-When a pattern appears generic, identify the root cause and adjust the composition. Do not merely replace cards with bento grids, or centered heroes with asymmetric splits.
+### 1.2 Keyboard Operation and Focus Visibility
+- **Failure:** Interactive elements lack keyboard event handlers; `:focus` outlines are suppressed with `outline: none` without an accessible alternative.
+- **Why it matters:** Blocks keyboard-only and assistive technology users.
+- **Verification method:** Tab navigation inspection and rendered CSS check (`:focus-visible`).
+- **Correction:** Ensure all interactive elements are reachable via Tab/Shift+Tab and display a visible focus indicator with at least 3:1 contrast against the background.
+- **Exceptions:** None.
 
----
+### 1.3 Color Contrast Standards
+- **Failure:** Text or icon contrast below WCAG AA thresholds (4.5:1 for body text, 3:1 for large text 18pt+/14pt bold, 3:1 for UI components).
+- **Why it matters:** Causes severe readability barriers for low-vision users and under bright lighting conditions.
+- **Verification method:** Rendered color inspection using automated contrast tools or color picker calculations.
+- **Correction:** Adjust foreground lightness or background tone to meet or exceed 4.5:1.
+- **Exceptions:** Inactive or disabled controls.
 
-## 3. Anti-Slop Rules
+### 1.4 Responsive Layout Integrity and Zero Horizontal Overflow
+- **Failure:** Horizontal scrollbar appears at standard viewports (320px, 375px, 768px, 1024px, 1440px); text or buttons clipped by containers.
+- **Why it matters:** Destroys mobile usability and causes critical content loss.
+- **Verification method:** Rendered viewport inspection (browser subagent or screenshots).
+- **Correction:** Add `max-width: 100%`, flex-wrap, responsive grid templates, or fluid clamp sizing.
+- **Exceptions:** Intentionally scrollable data tables or code blocks with visible scroll affordances.
 
-### 1. No unconsidered hero templates
-Design hero sections specifically for the product and primary user action. Avoid interchangeable gradient headings, vague taglines, or floating props that could fit any generic product. Centered hero layouts are acceptable when centered composition is the clearest, most impactful way to present the core message.
+### 1.5 Interactive Control Fidelity
+- **Failure:** Advertised buttons, links, or toggle switches that look interactive but perform no action, or lead to broken `#` targets.
+- **Why it matters:** Breaches user trust and creates dead ends.
+- **Verification method:** Interaction testing in rendered preview or code review of event handlers.
+- **Correction:** Connect controls to real event handlers, active routes, or explicitly mark as disabled.
+- **Exceptions:** Clearly annotated static visual mockups in Design-Only mode.
 
-### 2. No unexplained decorative elements
-Do not include floating blur shapes, abstract geometry, arbitrary lines, decorative network graphs, or fake telemetry panels unless they serve an explicit purpose in the visual concept. If removing an element leaves the design clearer, it was visual filler and should not exist.
+### 1.6 Data Integrity and Anti-Fabrication
+- **Failure:** Fabricating customer testimonials, metrics, conversion figures, partner logos, or fake functional telemetry (pretend terminals, latency gauges).
+- **Why it matters:** Deceives users and stakeholders; destroys credibility.
+- **Verification method:** Cross-reference against genuine project data sources (`src/data/` or user brief).
+- **Correction:** Remove fabricated proof; replace with verified project data or honest descriptive content.
+- **Exceptions:** Synthetic demo data explicitly labeled as "Demo Data" in prototype environments.
 
-### 3. Every container must earn its place
-Cards and boxes should reflect genuine content boundaries, not serve as the default container for every list of items. Use typography, spacing, whitespace, alignment, or subtle background tinting to establish hierarchy before reaching for a card. When grouping elements into cards genuinely assists comprehension, use them intentionally.
-
-### 4. No fabricated social proof or metrics
-Never generate fake testimonials, invented company logos, unverified star ratings, simulated user avatars, fabricated usage statistics, unsupported proficiency bars, or invented subscriber numbers. If project proof exists in the codebase or brief, use it; otherwise, focus on the real product capabilities.
-
-### 5. Natural prose, zero AI marketing clichés
-Interface copy must be specific, truthful, and concise. Avoid:
-- "Welcome to the next generation of..."
-- "Revolutionizing the way you..."
-- Interchangeable buzzwords, vague slogans, and empty marketing praise
-- Em dashes or dash-based asides in ordinary user-facing prose and copy
-- Repetitive sentence structures and robotic transition phrases
-
-### 6. Grounded surface treatments
-Apply surface treatments (glassmorphism, subtle shadows, borders, corner radii) only when they reinforce visual hierarchy, interactive affordance, or brand identity. Do not assume that a neutral grey palette with rounded borders and a black button equals universal premium design.
-
-### 7. Authentic iconography and assets
-Icons must be relevant, consistent in weight and style, and easily recognizable. When official brand SVGs, project vector logos, or existing design system icons are available in the repository, use them rather than substituting generic placeholders.
-
-### 8. Purposeful motion, no ornamental animation
-Animation must communicate state changes, spatial orientation, or direct feedback. Avoid arbitrary entrance effects, excessive parallax, intrusive cursor followers, or blanket transitions that degrade performance or battery life. Respect reduced-motion preferences.
-
-### 9. Contextual balance, no forced layout dogmatism
-Do not force symmetry just because it looks tidy, and do not force asymmetry just to avoid looking traditional. Base composition on the logical flow of the information and the user's primary tasks.
-
-### 10. Distinct composition across routes
-A multi-page site or application must not repeat the exact same layout structure on every route. Maintain a unified visual system (typography, colors, tokens, navigation, interaction rules) while giving each route a composition tailored to its content.
-
-### 11. No fake functional elements or engineering props
-Do not add simulated terminals, pretend live telemetry, fake latency counters, fictional system architecture graphs, or dummy transaction logs merely because an application or developer is technical. If a technical visualization is included, it must truthfully represent real data or be explicitly labeled as an interactive demonstration.
+### 1.7 Reduced-Motion Compliance
+- **Failure:** Uncontrollable animations, continuous looping motion, or parallax scrolling that ignores user system settings.
+- **Why it matters:** Causes nausea, dizziness, and vestibular motion triggers.
+- **Verification method:** CSS inspection for `@media (prefers-reduced-motion: reduce)`.
+- **Correction:** Disable or reduce non-essential animations when the reduced-motion preference is active.
+- **Exceptions:** None.
 
 ---
 
-## 4. Grounding Product Identity
+## 3. Tier 2: Contextual Craft Heuristics (High / Medium Severity)
 
-Translate the authentic character of the product into design decisions:
-- **Developer and technical tools:** High information density, precise typography, truthful code architecture, clear keyboard navigation, and functional state indicators.
-- **Editorial and publishing:** Elegant typographic scales, generous line lengths, curated image placement, and uninterrupted reading flows.
-- **Data analytics and dashboards:** Clear data comparisons, intuitive filtering, clear system status, and scannable tabular layouts.
-- **Consumer applications:** Prominent visual storytelling, scannable value propositions, and friction-free interaction flows.
+These heuristics evaluate visual and compositional quality. Violations weaken the user experience and must be prioritized for correction.
+
+### 2.1 Container Justification
+- **Failure:** Wrapping every section, text block, or feature in a rounded card with borders and shadows.
+- **Correction:** Use typography, scale, whitespace, hairline divider rules, or subtle background tinting to define hierarchy. Every container must earn its place.
+
+### 2.2 Visual Focal Point and Rhythm
+- **Failure:** Page lacks a clear primary anchor; all sections share identical visual density and vertical pacing.
+- **Correction:** Establish an unmistakable focal point in the first viewport; alternate dense structured sections with expansive, quiet zones.
+
+### 2.3 Authentic Product Specificity
+- **Failure:** Interface uses interchangeable SaaS styling that could be applied to any product simply by swapping the logo.
+- **Correction:** Derive composition, typography, and visual assets directly from the authentic product context, actual source data, and user brief.
+
+### 2.4 Natural Prose Standard
+- **Failure:** Authored copy uses generic AI marketing clichés ("empowering", "seamless", "next-gen") or em dashes (`—`) in ordinary user-facing prose.
+- **Correction:** Rewrite copy in clear, natural language with concrete descriptions and standard punctuation.
 
 ---
 
-## 5. Permitted Use of Common Patterns
+## 4. Tier 3: Novelty and Fingerprint Checks (Medium / Polish Severity)
 
-The anti-slop standard is not a ban on common UI patterns. Gradients, cards, hero banners, symmetry, borders, and animations are valid when they are chosen intentionally. A design that deliberately uses a centered hero and clean cards because it serves the content is high quality. A design that uses them blindly because an AI has seen them millions of times is slop.
+These checks prevent unconscious habit and formula repetition:
 
-**Core standard:** Every visual element, layout choice, and copy snippet must have a specific, justifiable reason that connects directly to the product, its content, and its users.
+### 3.1 Template Default Stacking
+- **Warning:** Centered hero headline + eyebrow badge + centered paragraph + cluster of 3 pill buttons + floating badge row + 3-card grid.
+- **Remediation:** Evaluate alternative macrostructures (asymmetric split, left-aligned typographic statement, editorial multi-column). Centered heroes remain valid when deliberately chosen for focal impact, but must not be the automatic default.
+
+### 3.2 Formula Swapping
+- **Warning:** Automatically replacing cards with brutalist black borders, or forcing dark terminal styling onto every engineering project.
+- **Remediation:** Match the aesthetic directly to the target user and brand requirements. Do not replace one rigid template with another.
+
+### 3.3 Palette Repetition
+- **Warning:** Using dark navy surfaces with neon purple, violet, or cyan accents on unrelated projects.
+- **Remediation:** Select hues based on brand identity and content warmth (warm stone, olive, terracotta, deep slate, monochromatic).
+
+---
+
+## 5. Summary Matrix of Gates and Verification Requirements
+
+| Gate | Tier | Severity | Verification Requirement |
+|---|---|---|---|
+| Semantic HTML | Hard Gate | Blocker | Source Code / DOM Inspection |
+| Keyboard Focus & Names | Hard Gate | Blocker | Code / Tab Navigation Test |
+| WCAG AA Contrast | Hard Gate | Blocker | Rendered Color Calculation |
+| Responsive Overflow | Hard Gate | Blocker | Rendered Multi-Viewport Screenshots |
+| Interactive Control Fidelity | Hard Gate | Blocker | Event Handler / Functional Check |
+| Data & Metric Authenticity | Hard Gate | Blocker | Project Data Cross-Reference |
+| Reduced Motion Support | Hard Gate | Blocker | CSS Media Query Inspection |
+| Container Justification | Craft Heuristic | High | Rendered Full-Page Visual Review |
+| Visual Focal Point | Craft Heuristic | High | Rendered Screenshot Review |
+| Product Specificity | Craft Heuristic | High | Thesis & Content Comparison |
+| Natural Prose (No Em Dashes) | Craft Heuristic | Medium | Copy Text Review |
+| Novelty & Anti-Template | Fingerprint Check | Medium | Structural Fingerprint Comparison |

@@ -1,44 +1,44 @@
-# Realistic Content, Data, and Edge-Case Design
+# Realistic Content, Data Integrity, and Edge-Case Design
 
 ## Purpose
-Ensure interfaces remain understandable and visually coherent when exposed to realistic content, varied datasets, incomplete information, slow systems, permissions, and failures.
+Ensure interfaces remain visually coherent, truthful, and resilient under realistic data conditions. Establish strict anti-fabrication rules to protect user trust and project credibility.
 
 ---
 
-## Content Variability
-Consider where relevant: very short/long titles, long names, multiple-line descriptions, missing optional fields, empty descriptions, unusual punctuation, different capitalization, user-generated text, long URLs/identifiers, code snippets, multiple languages, translation expansion, RTL text, unavailable images, different aspect ratios, captions and alt text, long error messages, dense metadata.
+## 1. Absolute Prohibition on Fabricated Proof and Features
 
-## Data Volume and Distribution
-Consider: no records, one record, small collection, typical volume, large datasets, very large datasets, duplicates, missing values, outliers, unexpected ranges, stale records, partially loaded records, unavailable records, new records arriving during use, concurrent updates, long-running operations.
+Interfaces must never present fictional claims, metrics, or capabilities as real:
 
-## Empty States
-Distinguish: no data exists yet, no results match filters, search returned nothing, access restricted, data not available yet, data failed to load, collection intentionally cleared. Each needs different messages and actions.
+1. **Zero fabricated metrics:** Never invent conversion rates, performance benchmarks, user counts, revenue figures, or uptime percentages (e.g. "Trusted by 10,000+ developers" or "99.99% uptime" without source evidence).
+2. **Zero fake social proof:** Never generate fake customer testimonials, fabricated quotes, fictional company logos, or unverified star ratings.
+3. **Zero fake functional elements:** Do not add fake terminal windows, simulated live telemetry, pretend latency gauges, or dummy transaction logs merely because an application or developer is technical.
+4. **Honest architecture diagrams:** Depict only the project's actual verified architecture. Never generate decorative system topologies and present them as genuine engineering facts.
+5. **Clear demonstration labeling:** If sample or synthetic data is required for a prototype demonstration, explicitly label it as "Demo Data" or "Simulated for Preview".
 
-## Loading and Latency States
-Consider: initial page loading, component loading, pagination loading, search-as-you-type, upload/download progress, background processing, long-running jobs, delayed integrations, partial content, cancellation. Use appropriate feedback — skeletons, spinners, progress indicators. No fabricated percentages.
+---
 
-## Error and Recovery States
-Consider: invalid input, missing required info, network failure, server error, timeout, permission denial, expired session, conflicting changes, upload failure, payment failure, integration failure, rate limiting, unsupported file type, insufficient storage, deleted resources. Errors should explain what happened, identify next steps, preserve work, and avoid misleading statements.
+## 2. Content Length and Typographic Variability
 
-## Permission and Access Variability
-Consider: unauthenticated users, authenticated with no access, read-only, partial permissions, expired access, changed permissions during session, organization restrictions, role-specific content, disabled actions.
+Design components to withstand real content fluctuations without visual breakage:
+- **Short vs extreme text lengths:** Test headings with 3 words and with 25 words; test buttons with short labels ("Save") and localized long phrases ("Save Preferences and Continue").
+- **Container constraints:** Ensure text wraps gracefully without awkward word breaks, orphan words, or overlapping neighboring elements.
+- **Dynamic chips and tags:** Ensure badge/tag collections wrap into multiple lines cleanly without overflowing parent containers.
+- **Long URLs and identifiers:** Use `overflow-wrap: break-word` or truncation with tooltips on hashes, URLs, and file paths.
 
-## Forms and User Input
-Evaluate with: missing input, invalid format, boundary values, long input, copy-pasted text, autocomplete, keyboard navigation, server-side validation, changes to valid input, submission latency, duplicate submission, session interruption, recovery after return.
+---
 
-## Dates, Numbers, Currencies, and Localization
-Consider: localized date formats, timezones, daylight saving, 12/24-hour time, currency symbols/codes, decimal/thousands separators, negative values, large/small numbers, units, pluralization, translation expansion, RTL, local address/phone formats, localized errors.
+## 3. Data Volume and State Coverage
 
-## Images, Files, and Media
-Consider: missing images, failed requests, different aspect ratios, very large files, unsupported formats, upload cancellation/failure, duplicate filenames, file size limits, long filenames, no media available, captions/transcripts, permission-protected media, low bandwidth.
+Every data-driven component must account for the full spectrum of data availability:
+- **Empty state:** Provide helpful guidance and an actionable next step when zero records exist.
+- **Loading state:** Use skeleton screens or subtle spinners that match component dimensions to prevent Cumulative Layout Shift (CLS). Never simulate fake loading percentages.
+- **Error state:** Clearly explain what failed and provide a direct recovery path (e.g. "Retry" button). Preserve valid user input across recoverable failures.
+- **Dense/Overflow volume:** Provide pagination, virtualization, or clean scroll boundaries for large datasets.
 
-## Charts and Analytical Data
-Test with: no observations, single observation, sparse data, negative/zero values, missing periods, extreme outliers, many series, long category names, different units, changing date ranges, incomplete/delayed data, uncertainty/estimates.
+---
 
-## Data Truth and Sample Data
-Distinguish: verified production data, user-provided examples, synthetic sample data, placeholder content, calculated values, estimates/forecasts, unknown values. Never invent testimonials, usage statistics, ratings, revenue, or performance improvements and present them as real.
+## 4. Forms and User Input Edge Cases
 
-## Edge-Case Coverage Matrix
-For important pages, identify relevant cases across: content length, data volume, data availability, network/system state, user permission, input validity, viewport size, locale, accessibility mode, action reversibility.
-
-**Foundational principle:** Design for the range of real situations the product may encounter, not only for the ideal screenshot.
+- **Validation feedback:** Display inline validation after user interaction, not before they finish typing. Communicate requirements clearly before submission.
+- **State preservation:** Never wipe valid form fields after a server error or network failure.
+- **Disabled vs actionable:** Explain why an action is disabled (e.g. tooltip or helper text) rather than disabling a button silently.

@@ -1,101 +1,65 @@
-# Design Reference Analysis and Visual Reverse Engineering
+# Design Reference Analysis, Visual Reverse Engineering, and Study Workflows
 
-## 1. Purpose
-Establish a professional framework for examining existing websites, applications, screenshots, prototypes, and visual references. The objective is to understand the visible design, infer the decisions that produced it, identify underlying principles, distinguish functional patterns from decorative treatments, and determine what can be learned. Reference analysis must go beyond surface-level observations.
+## Purpose
+Establish an actionable framework for examining existing websites, applications, screenshots, and visual references. Extract underlying design principles, spatial grammars, and typographic relationships without copying protected pixels, proprietary assets, or unique content.
 
-## 2. Scope
-Possible reference inputs: single screenshot, multiple screenshots, desktop and mobile screenshots, live website, interactive prototype, screen recording, collection of pages, complete website, source-code repository, design-system document, component library, visual inspiration collection, combination of materials. Different inputs provide different levels of evidence.
+---
 
-## 3. Core Distinctions
+## 1. The 4-Step Reference Study Path
 
-### Observation versus interpretation
-**Observation** describes what is directly visible. **Interpretation** describes a plausible explanation.
+When analyzing references, separate observation from interpretation and adaptation:
 
-### Design intent versus demonstrated outcome
-Appearance does not establish that users actually experience intended benefits.
+```
+[Step 1: Observed Evidence] → What is directly visible (measurements, colors, alignment, type scales)
+           ↓
+[Step 2: Design Interpretation] → Inferred rationale (why this structure solves the user/brand problem)
+           ↓
+[Step 3: Transferable Principles] → Structural grammar (grid logic, pacing, contrast, typographic roles)
+           ↓
+[Step 4: Implementation Adaptation] → Applying principles to user content, brand tokens, and tech stack
+```
 
-### Visual appearance versus interaction behaviour
-A control's appearance may suggest how it should work, but actual behaviour must be examined separately.
+### Step 1: Observed Evidence (Facts Only)
+Describe what is directly visible without guessing:
+- Grid structure: number of columns, gutter sizes, fluid vs fixed widths.
+- Typography: relative scale between headings and body, estimated line heights, font classifications (serif, sans, mono, display).
+- Color and surfaces: background lightness, dominant hue family, accent placement, border hairlines, shadows, elevation.
+- Layout flow: left-aligned vs centered, asymmetric splits, white space distribution.
+- Component anatomy: navigation position, button shapes, container treatments.
 
-### Design principles versus distinctive expression
-A reference may use familiar principles while presenting them through a distinctive visual identity.
+### Step 2: Design Interpretation (Plausible Rationale)
+Infer why these decisions were made:
+- What creates the primary visual focus?
+- How does the layout guide the eye through content priorities?
+- How does whitespace support comprehension and brand perception?
 
-## 4. Analysis Dimensions
+### Step 3: Transferable Design Principles
+Extract generalizable techniques that can inform original work:
+- Section pacing rhythm (e.g. dense data table followed by expansive narrative statement).
+- Contrast relationships (e.g. low-contrast neutral surfaces paired with high-contrast sharp typography).
+- Modular alignment rules (e.g. all section headers locked to a 3-column left gutter).
 
-### Visual composition and layout
-Page structure, composition, grid and alignment systems, vertical rhythm.
+### Step 4: Implementation Adaptation
+Translate the extracted principles into the user's specific context:
+- Map principles onto the user's authentic content, brand identity, and design tokens.
+- Never duplicate unique branding, logos, proprietary illustrations, or copyright copy.
+- Adapt the structure to the user's required tech stack (Next.js, Tailwind, React, etc.).
 
-### Visual hierarchy and information relationships
-Primary and secondary focal points, heading relationships, action prominence, grouping, reading flow.
+---
 
-### Typography
-Typeface characteristics, typographic hierarchy, typographic responsiveness.
+## 2. Distinguishing Reference Operations
 
-### Colour and surface
-Colour roles, colour relationships, surface treatment (solid, border, shadow, transparency, blur, gradients, texture, layering, rounded corners, material separation).
+Ensure the task scope governs execution:
 
-### Imagery, illustration, and iconography
-Photography style, illustration style, icon consistency, asset integrity.
+- **Reference Study:** Extract principles, layout grammar, and visual ideas. Emit design rationale or adapt to an original proposal. Do not clone pixels.
+- **Visual Audit:** Inspect an existing interface or reference, identify flaws and strengths, and provide a prioritized diagnosis with zero code changes.
+- **Redesign:** Preserve existing product intent, information architecture, routes, and business logic while applying fresh, improved visual principles.
 
-### Component anatomy and patterns
-Navigation, buttons, forms, cards, tables, tabs, dialogs, tooltips, notifications, charts, pricing, profiles, media, search, AI components.
+---
 
-### Interaction and behaviour
-Interaction mechanisms, interaction states, feedback and system status.
+## 3. Web and URL Inspection Honesty
 
-### Motion and temporal behaviour
-Entry/exit transitions, hover motion, scroll effects, parallax, staggering, loading animations, reduced-motion alternatives.
-
-### Navigation and information architecture
-Navigation hierarchy, labels, page grouping, active states, breadcrumbs, tabs, sidebar, dropdown, search, filters, mobile navigation.
-
-### Responsive and adaptive behaviour
-Content prioritization, layout transformation, column reduction, navigation changes, image cropping, typography scaling, spacing changes, touch targets.
-
-### Accessibility
-Apparent readability, colour contrast, visible focus indicators, semantic structure, keyboard behaviour, screen-reader compatibility.
-
-### Content and brand
-Heading specificity, sentence structure, information density, content length, labels, call-to-action wording, brand expression, visual personality, tone.
-
-### Design-system inference
-Repeated colour values, typographic scales, spacing patterns, border radii, elevation styles, grid conventions, button variants, component states.
-
-### Technical reverse engineering (when source is available)
-HTML structure, CSS layout, design tokens, component architecture, responsive breakpoints, font loading, animation implementation, state management, accessibility semantics.
-
-## 5. Evidence and Confidence Classification
-- **Observed:** Directly visible or verified.
-- **Strongly inferred:** Supported by multiple consistent observations.
-- **Tentative interpretation:** Plausible with limited evidence.
-- **Unknown:** Cannot be established from available evidence.
-- **Tested or verified:** Established through relevant test or inspection.
-
-## 6. Extracting Transferable Design Knowledge
-
-### Layer A: Observed characteristic — What is visibly present?
-### Layer B: Potential design rationale — What might this accomplish?
-### Layer C: Applicability conditions — When could a similar approach be useful?
-### Layer D: Adaptation requirements — What would change in a different product?
-
-Never assume a reference's exact values should be copied. Transfer the underlying insight where applicable.
-
-## 7. Originality and Intellectual Integrity
-Use reference analysis to expand vocabulary without producing imitation. Avoid copying distinctive compositions without justification, reproducing another brand's complete visual identity, treating a gallery design as proof of usability, or reusing third-party assets without appropriate rights.
-
-Do not blindly copy a reference when the user only wants inspiration. If the user explicitly requests a close recreation, follow that scope to the extent permitted by available evidence and applicable rights. Do not invent behaviour that the reference does not reveal. Do not assume exact fonts, colours, spacing values, animation timing, or library choices without evidence.
-
-## 8. Common Reference-Analysis Failures
-- Describing appearance without interpreting relationships
-- Calling a layout "minimal" without explaining its actual characteristics
-- Claiming usability based solely on aesthetics
-- Inferring responsiveness from a desktop screenshot
-- Guessing exact fonts, colours, or spacing without evidence
-- Confusing popularity with quality
-- Copying surface appearance without understanding purpose
-- Failing to distinguish observations from hypotheses
-
-## 9. Quality Standard
-A professional analysis should: describe accurately, explain relationships, distinguish observations from interpretations, connect characteristics with plausible purposes, recognize uncertainty, examine relevant evidence, identify strengths and weaknesses, separate general principles from brand-specific expression, extract transferable lessons, and avoid unsupported claims.
-
-**Foundational principle:** Study the design to understand its decisions, not merely to copy its appearance.
+When examining live URLs:
+- Use web/browser tools only when accessible and permitted.
+- If a URL is inaccessible, JavaScript-rendered without readable text, password-protected, or blocked by firewalls, request a screenshot from the user or evaluate available public evidence.
+- Explicitly state any inspection limitations. Never fabricate visual observations or pretend to have inspected a live page when tools failed.

@@ -1,4 +1,4 @@
-# Creative Exploration and Originality Principles
+# Creative Exploration, Originality, and Art Direction
 
 ## Purpose
 Produce distinctive, coherent visual design without relying on generic templates or treating novelty as an objective in itself. Creative exploration must respond to the brief, the product's character, real content, target audience, and engineering constraints.
@@ -16,23 +16,22 @@ These qualities are related but not interchangeable. A novel interface may be co
 
 ---
 
-## 2. Practical Concept Development Process
+## 2. Practical Pre-Implementation Decision Process
 
 For substantial design tasks where the user grants creative freedom:
 
 1. **Grounded discovery:** Identify the product's real identity, content, audience, relevant assets, task context, platform, and explicit requirements before making design decisions.
-2. **Consider distinct directions internally:** Before choosing components or writing layout code, consider several materially different design directions internally. Three directions is a useful target for complex creative work, not a compulsory exercise for small edits or tightly specified tasks.
-3. **Meaningful variation:** Directions must differ in meaningful ways, including composition, information flow, typographic approach, image treatment, spatial rhythm, section relationships, storytelling, and component language. Changing only the palette or border radius does not count as a distinct direction.
-4. **Evaluate alternatives:** Compare the directions against product identity, brief fidelity, content clarity, readability, usability, responsive potential, accessibility, implementation feasibility, and originality.
+2. **When to explore candidate directions:**
+   - **Explore 3 candidate directions:** For broad, unconstrained, high-impact creative tasks (e.g. new multi-page website, major brand redesign, flagship landing page).
+   - **Do not manufacture 3 candidates:** For small component tasks, clearly constrained updates, minor revisions, or tightly specified reference recreations. Creativity means making thoughtful, refined decisions within requested constraints, not forcing unnecessary rituals.
+3. **Meaningful structural and palette differentiation:** Candidate directions must differ in structural composition, information flow, typographic pairing, image treatment, spatial rhythm, section relationships, and component language. Changing only the palette hex code or border radius does not count as a distinct direction.
+4. **Evaluate alternatives:** Compare candidate directions against product identity, brief fidelity, content clarity, readability, usability, responsive potential, accessibility, implementation feasibility, and originality.
 5. **Commit to one direction:** Select one coherent direction and apply it consistently. Do not present multiple directions to the user unless they explicitly asked to explore options.
 6. **Formulate a design thesis:** Establish a concise internal design thesis and a practical composition plan for the main page and, when applicable, each route. The thesis is a decision tool, not decorative prose to be forgotten during implementation.
 7. **Organize before selecting components:** Decide how the page's information flow and visual hierarchy should work before choosing specific UI components.
 8. **Derive distinctiveness from real content:** Use genuine product content, real assets, and authentic data as the primary source of distinctiveness. Do not invent decorative features or fake technical props to make the work appear sophisticated.
 9. **Differentiate composition across routes:** Avoid reusing the identical composition across every page. Maintain a coherent visual language (tokens, typography, navigation, component styling) while allowing each page to respond to its unique content and task.
 10. **Validate against the thesis:** After implementation, compare the rendered result with the chosen thesis. If the design does not visibly embody the concept, revise it.
-
-### Respecting clear briefs and references
-When the user provides a clear visual direction or requests a close reference recreation, do not invent competing concepts that ignore the brief. Creativity means making thoughtful, refined decisions within the requested constraints, not overriding them.
 
 ---
 
@@ -64,44 +63,27 @@ Always use evidence from the actual content, source code, project assets, and us
 
 ---
 
-## 5. Art Direction Dimensions
+## 5. Preventing Formula Replacement
 
-Art direction is the intentional coordination of visual choices to build a coherent identity across all touchpoints:
-- **Typography:** Voice, hierarchy, scale contrast, line heights, and character.
-- **Composition and spatial rhythm:** Balance, density, whitespace, alignment, and directional flow.
-- **Colour strategy:** Semantic roles, contrast relationships, brand accents, and theme adaptation.
-- **Imagery and media:** Photography style, vector assets, framing, and graphical treatments.
-- **Surfaces and materials:** Depth, borders, elevation, background contrast, and texture.
-- **Iconography:** Consistent family, stroke weight, scale, and clarity.
-- **Interaction and motion character:** Purposeful transitions that clarify hierarchy and system response.
+Equally problematic to generic AI slop is **formula replacement**: replacing one default formula with another without considering the product.
+- Automatically turning every layout into an asymmetric brutalist grid
+- Eliminating all cards in favor of harsh black borders on every site
+- Forcing a dark terminal aesthetic onto every engineering portfolio
+- Overusing bento grids or massive display typography everywhere
 
----
-
-## 6. Composition Strategies
-
-Explore diverse layout approaches that suit content rather than falling back on standard cards:
-- Centered or left-aligned alignments
-- Symmetrical balance or intentional asymmetry
-- Multi-column editorial grids
-- Split compositions and full-bleed imagery
-- Typographic-led or visual-led focal points
-- Dense structured dashboards or expansive, quiet layouts
-- Narrative, scroll-driven storytelling
-
-Do not enforce symmetry or reject it as a rule. Use centered composition when it is the strongest choice. Use asymmetry when its relationships, hierarchy, and balance are intentional. Every container must earn its place.
+These are just as formulaic as the templates they replace. Centered composition, clean cards, subtle shadows, symmetry, and neutral palettes remain valid tools when they are the strongest solution for the content.
 
 ---
 
-## 7. Style Coherence Across Routes
+## 6. Cross-Project Novelty versus Intra-Product Consistency
 
-Build multi-page experiences as a cohesive system rather than identical clones:
-- Maintain global consistency through typography, colour tokens, navigation shells, and interaction states.
-- Allow each route to have its own tailored composition that reflects its unique information hierarchy.
-- Ensure that elements on subpages feel part of the same design family without mechanically repeating the home page's layout.
+The system evaluates novelty at two distinct levels:
+- **Between independent projects:** Prevent recurring default fingerprints (e.g. dark navy background + purple glow + centered hero + 3-card grid). Vary macrostructure, typography roles, and palette logic.
+- **Within one multi-page product:** Preserve locked brand tokens, shared design systems, typography hierarchy, and navigation shells. Vary the page composition to fit each route's unique purpose and content.
 
 ---
 
-## 8. Creative Quality Review
+## 7. Creative Quality Review
 
 Before finalizing any design, evaluate whether it:
 1. Directly answers the brief and respects explicit constraints.

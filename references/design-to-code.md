@@ -16,6 +16,12 @@ Before modifying code in an existing repository, thoroughly inspect its actual s
 - Report any material discrepancies between user instructions and the checkout
 - Use the actual repository as the implementation source of truth, preserving working architecture, existing routes, real content, and official brand assets unless explicitly directed to modify them
 
+### 1.1 Scope-Specific Implementation Routing
+- **Single component scope:** Focus strictly on component anatomy, design tokens, state contracts (hover/focus/active/disabled/loading/error), and accessibility. Skip full-page routing rituals.
+- **Single page scope:** Implement route composition, typographic hierarchy, responsive layout, and full-page section flow.
+- **Multi-page product scope:** Enforce shared semantic tokens and design system consistency across routes; implement page-specific compositions.
+- **Controlled redesign scope:** Preserve existing routes, state logic, and APIs; update component presentation and layout structure.
+
 ---
 
 ## 2. Rendered Visual Inspection and Corrective Iteration Loop

@@ -1,81 +1,27 @@
-# Design Deliverables and Fidelity Standards
+# Deliverable Categories, Fidelity Standards, and Verification Claims
 
 ## Purpose
-Establish precise distinctions between deliverable types. Each has a different purpose, level of completeness, and appropriate evaluation standard. A design-only request is a valid task in its own right.
+Establish precise boundaries for each design deliverable category. Define what can legitimately be evaluated and claimed at each fidelity level to prevent false claims of testing, responsiveness, or production readiness.
 
 ---
 
-## Deliverable Categories
+## 1. Deliverable Levels and Permitted Claims
 
-### 2.1 Visual inspiration or moodboard
-**Purpose:** Explore atmosphere, visual vocabulary, references, imagery, colour, typography, and potential art direction.
-**Quality criteria:** Coherent direction, relevant references, meaningful variation, clear distinction between inspiration and copied expression.
-
-### 2.2 Concept directions
-**Purpose:** Explore materially different ways a product could look and feel.
-**Quality criteria:** Directions should differ in meaningful choices, not just palette swaps.
-
-### 2.3 Sketch or low-fidelity wireframe
-**Purpose:** Establish content structure, hierarchy, placement, and flow without settling visual details.
-**Quality criteria:** Structure understandable; content relationships and major actions visible.
-
-### 2.4 Mid-fidelity wireframe
-**Purpose:** Refine layout, content hierarchy, spacing relationships, and component placement.
-**Quality criteria:** Realistic enough to evaluate structure and common interactions.
-
-### 2.5 High-fidelity visual mockup
-**Purpose:** Highly resolved visual representation of specified interface or screens.
-**Quality criteria:** Strong visual hierarchy, coherent art direction, accurate content relationships, polished alignment, context-appropriate components. **Limitations:** Does not prove interactions work, code exists, accessibility is conformant, or design has been tested.
-
-### 2.6 Responsive screen set
-**Purpose:** Show how the experience adapts to different viewports or devices.
-**Quality criteria:** Each view preserves essential content and task priorities. Mobile should not merely be a scaled desktop view.
-
-### 2.7 Interaction specification
-**Purpose:** Explain how controls, transitions, and states behave.
-**Quality criteria:** Behaviour sufficiently clear for implementation and testing.
-
-### 2.8 Click-through prototype
-**Purpose:** Represent navigational structure and selected interactions.
-**Quality criteria:** Links and hotspots support intended demonstration.
-
-### 2.9 Coded prototype
-**Purpose:** Explore an interface in a real browser or device environment.
-**Quality criteria:** Suitable for intended experiment, represents key states. Prototype code is not automatically production-ready.
-
-### 2.10 Production frontend implementation
-**Purpose:** Deliver working interface code integrated with real architecture and data.
-**Quality criteria:** Meets requirements, works across agreed environments, correct state/error handling, applicable accessibility, maintainable, tested.
-
-### 2.11 Design system or component specification
-**Purpose:** Establish repeatable visual and behavioural rules.
-**Quality criteria:** Rules coherent, reusable, documented, aligned with actual implementation.
-
-### 2.12 UX audit or design critique
-**Purpose:** Identify issues, assess impact, recommend corrections.
-**Quality criteria:** Findings concrete, evidence-aware, prioritized, contextual, actionable.
+| Deliverable Level | Permitted Verification Claims | Prohibited Claims (False Quality Signals) |
+|---|---|---|
+| **Level 1: Visual Concept / Moodboard** | Visual direction, typographic pairing, color harmonies, aesthetic tone, reference alignment. | Cannot claim working code, responsive reflow, interactive behavior, or accessibility conformance. |
+| **Level 2: Wireframe (Low/Mid)** | Information architecture, content hierarchy, reading flow, component placement, navigation structure. | Cannot claim final visual polish, WCAG color contrast, or production readiness. |
+| **Level 3: High-Fidelity Visual Mockup / Screen Spec** | Visual hierarchy, container justification, typographic scale, component layout, aesthetic polish. | Cannot claim working interactions, browser rendering, responsive adaptation, or tested accessibility. |
+| **Level 4: Interactive / Coded Prototype** | Demonstration of state transitions, user flows, navigation models, and micro-interactions. | Cannot claim production reliability, complete error handling, edge-case coverage, or backend security. |
+| **Level 5: Production Frontend Implementation** | Semantic HTML, modular component code, design token integration, framework conventions. | Cannot claim visual verification or responsive perfection unless rendered inspection actually occurred. |
+| **Level 6: Rendered Visual Verification** | Viewport stability, zero overflow, visible focus indicators, screenshot inspection across viewports. | Requires real browser or preview screenshot inspection. Cannot claim without tool execution. |
+| **Level 7: Tested & Audited Experience** | Automated build pass, static typecheck pass, lint pass, unit/integration test results. | Requires actual command execution and terminal output evidence. |
 
 ---
 
-## Fidelity Dimensions
-Evaluate separately:
-- **Visual fidelity:** How closely appearance reflects intended direction
-- **Content fidelity:** How accurately content resembles intended product
-- **Structural fidelity:** How accurately layout and information relationships are represented
-- **Interaction fidelity:** How closely interactions represent intended behaviour
-- **Data fidelity:** Whether values and data states are realistic
-- **Technical fidelity:** How closely implementation reflects actual constraints
-- **Accessibility fidelity:** Whether accessible structure and behaviour are verified
+## 2. Core Integrity Rules for Deliverable Claims
 
----
-
-## Non-Negotiable Distinctions
-- Never claim a static image is a working application
-- Never claim a prototype uses real integrations unless verified
-- Never claim accessibility conformance from appearance alone
-- Never claim responsive quality without evaluating viewport behaviour
-- Never claim production readiness without implementation and testing evidence
-- Never penalize a visual-only deliverable for omitting unrequested research or code
-- Never provide a lower-fidelity substitute without identifying the limitation
-
-**Foundational principle:** Deliver exactly the type of design requested, at the appropriate level of fidelity, and describe its limitations honestly.
+1. **Never conflate code with rendered output:** Writing clean CSS or JSX does not prove the interface renders properly across viewports. Only rendered screenshots or live browser inspection prove visual quality.
+2. **Never conflate build status with design quality:** A passing TypeScript build proves syntax and type correctness; it does not prove strong visual hierarchy, good spacing, or intuitive UX.
+3. **Never claim WCAG compliance without evaluation:** Check actual contrast ratios, semantic landmarks, and keyboard focus before asserting accessibility conformance.
+4. **State limitations plainly:** If host tools do not support launching a browser or capturing screenshots, state: *"Code implemented and type-checked; rendered visual inspection not performed due to environment limitations."*
