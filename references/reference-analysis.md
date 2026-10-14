@@ -83,6 +83,8 @@ Never assume a reference's exact values should be copied. Transfer the underlyin
 ## 7. Originality and Intellectual Integrity
 Use reference analysis to expand vocabulary without producing imitation. Avoid copying distinctive compositions without justification, reproducing another brand's complete visual identity, treating a gallery design as proof of usability, or reusing third-party assets without appropriate rights.
 
+Do not blindly copy a reference when the user only wants inspiration. If the user explicitly requests a close recreation, follow that scope to the extent permitted by available evidence and applicable rights. Do not invent behaviour that the reference does not reveal. Do not assume exact fonts, colours, spacing values, animation timing, or library choices without evidence.
+
 ## 8. Common Reference-Analysis Failures
 - Describing appearance without interpreting relationships
 - Calling a layout "minimal" without explaining its actual characteristics

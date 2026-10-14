@@ -29,7 +29,7 @@ Deliver a visual design, mockup, coded prototype, or implementation — not a de
 Brief context about meaningful choices is acceptable. Multi-paragraph justifications for ordinary design decisions are not.
 
 ### 8. Quality still applies
-Design-only mode does not disable the anti-slop standard, accessibility considerations, factual integrity, or any mandatory quality requirement. These are applied through the design, not forced into the response as additional documentation.
+Design-only mode does not disable the Core Human Design Directive, anti-slop standard, accessibility considerations, factual integrity, or any mandatory quality requirement. The design thesis, composition quality, content integrity, and visual inspection requirements are applied through the design work, not forced into the response as additional documentation.
 
 ---
 

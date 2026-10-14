@@ -15,6 +15,13 @@ Default, hover, focus, active, selected, disabled, loading, expanded, collapsed,
 
 ## Motion Design
 
+### Motion intentionality
+Do not treat motion as a package-installation task or decorative finish. Before adding any animation, define:
+- What it communicates (feedback, hierarchy, continuity, spatial relationship, comprehension)
+- What triggers it (user action, state change, scroll position, page load)
+- How it responds to user input
+- Whether it improves the experience or merely decorates it
+
 ### Motion categories
 Entry and exit transitions, hover motion, scroll-triggered effects, scroll-linked animation, parallax, staggered elements, shared-element transitions, layout changes, loading animations, chart transitions, animated icons, cursor effects, background motion, reduced-motion alternatives
 
@@ -35,6 +42,18 @@ Distinguish animation that provides orientation, feedback, or context from motio
 - Reduced-motion alternatives that preserve essential feedback
 - Motion that does not delay or obstruct user actions
 - Performance-conscious animation
+
+### Motion anti-patterns
+- Excessive parallax that distracts from content
+- Ornamental cursor effects without functional purpose
+- Repeated reveal animations on every section
+- Blanket transition utilities applied uniformly
+- Fake interactions added to make screenshots appear sophisticated
+- Motion libraries added without checking the installed stack first
+- Any advertised control that does not do what its label implies
+
+### Motion library guidance
+Use GSAP, Lenis, or other motion libraries only when suitable for the existing project and the requested experience. Inspect the installed stack before adding dependencies. Do not add motion dependencies merely to have them available.
 
 ---
 
@@ -70,7 +89,8 @@ Fluid layouts, content reflow, breakpoints, adaptive navigation, text wrapping, 
 - Tables and charts have usable narrow-screen treatments
 - Responsive changes preserve task priorities
 
-Distinguish between a genuinely responsive layout, a breakpoint-specific arrangement, and a separately designed mobile experience when sufficient evidence exists.
+### Responsive verification honesty
+Distinguish between a genuinely responsive layout, a breakpoint-specific arrangement, and a separately designed mobile experience when sufficient evidence exists. Never claim a page is fully responsive without inspecting it at appropriate viewport sizes. If visual inspection tools are not available, state the limitation.
 
 ---
 

@@ -1,9 +1,18 @@
 # Design-to-Code Fidelity and Engineering Constraints
 
 ## Purpose
-Preserve design intent when translating interface design into frontend code connected to real product behaviour.
+Preserve design intent when translating interface design into frontend code connected to real product behaviour. Distinguish implementation correctness from design quality.
 
 ---
+
+## Project Inspection Before Implementation
+Before making changes, inspect the actual repository:
+- Check existing instructions, package configuration, app routes, components, data, assets, and styling conventions
+- Do not assume that the user's description perfectly matches the current checkout
+- Report material discrepancies and use the actual project as the implementation source of truth
+- Reuse genuine project content, existing assets, official brand SVGs, and available data definitions
+- Do not replace a functioning source of truth with invented data or recreate assets that already exist without a reason
+- Inspect the installed stack before adding dependencies or assuming library versions
 
 ## Design-to-Implementation Mapping
 - Layout → grid, flex, flow, positioning, responsive rules
@@ -18,6 +27,16 @@ Preserve design intent when translating interface design into frontend code conn
 - Feedback → loading, success, error, and recovery states
 - Accessibility → semantic structure, accessible names, focus management, keyboard behaviour
 - Responsive layouts → tested viewport adaptation
+
+## Visual Inspection of Rendered Output
+When browser or preview tools are available and the task includes implementation:
+- Do not stop after writing code or confirming that it compiles
+- Start the application when supported and inspect rendered pages at appropriate viewport sizes
+- Review the full page, not only the first viewport
+- Inspect typography, line wrapping, content density, section rhythm, alignment, contrast, image cropping, visual hierarchy, overflow, component consistency, and the relationship between sections
+- Identify the most important visual defects, correct them in the code, and inspect the updated result again
+- Continue until the available verification shows a coherent result or a concrete limitation prevents further validation
+- If visual inspection tools are not available, do not claim to have visually reviewed the rendered interface — state the limitation precisely and perform the strongest available code and build checks
 
 ## Semantic and Structural Implementation
 - Headings in a meaningful hierarchy
@@ -43,8 +62,12 @@ Consider fluid sizing, content-driven wrapping, responsive grids, container cons
 ## State and Interaction Contracts
 Define: initial state, triggering action, state transition, visible feedback, disabled conditions, loading behaviour, success behaviour, error behaviour, cancellation/undo, data persistence, keyboard behaviour, focus behaviour.
 
+Any advertised control must do what its label implies. Do not add fake interactions to make screenshots appear sophisticated.
+
 ## Data and API Boundaries
 Account for: data loading/refresh, partial data, invalid data, network failure, authorization failure, rate limiting, duplicate requests, out-of-order responses, conflicting updates, stale data, form submission failure, optimistic updates and rollback.
+
+Never simulate a successful submission when the request has failed.
 
 ## Performance-Aware Design
 Consider: font loading, image size/format, lazy loading, large media, excessive animation, layout shifts, large component trees, unnecessary client-side JavaScript, code splitting, expensive chart rendering, repeated network requests, perceived loading.
@@ -58,13 +81,24 @@ Inspect: semantic elements, accessible names/descriptions, keyboard operation, v
 ## Design Fidelity Review
 Compare implementation with intended design: typography, spacing, alignment, container widths, component dimensions, colour/contrast, image cropping, borders/shadows, responsive breakpoints, hover/focus states, loading/empty/error states, content wrapping, scroll/sticky behaviour.
 
+## Post-Implementation Checks
+After changes, run appropriate available checks:
+- Inspect the project's scripts and use the applicable lint, type check, build, tests, or development preview where available
+- Do not report a command as successful unless it was actually run and succeeded
+- Prefer focused changes that improve the result without unnecessarily rewriting working architecture
+- Preserve existing user content, integrations, routes, and working functionality unless change is required and justified
+
 ## Testing Layers
 Unit tests, component tests, integration tests, end-to-end workflow tests, keyboard/accessibility tests, responsive checks, cross-browser checks, visual regression tests, performance measurements, error/recovery tests. Choose testing depth according to deliverable and risks.
 
 ## Engineering Claims and Verification
 Distinguish: designed, implemented, executed, tested, verified against requirement, not tested, known limitation. Do not claim a build passes, a route works, or accessibility conforms unless verification actually occurred.
 
+A successful build proves neither strong visual design nor good UX. A visually attractive screenshot proves neither functional correctness nor accessibility conformance.
+
 ## Maintainability
 Prefer clear naming, predictable behaviour, consistent styling, appropriate separation of concerns, manageable dependencies, proportional documentation. Avoid: duplicate implementations, global CSS with unintended effects, arbitrary one-off styles, overly complex components, unnecessary dependencies, hardcoded sample values, fragile selectors and magic numbers.
 
-**Foundational principle:** Preserve visual intent while building an interface that is semantically correct, responsive, accessible, realistic, and maintainable.
+Do not add an unrelated design system, dependency, route, component, or decorative feature merely to make the implementation appear more sophisticated.
+
+**Foundational principle:** Preserve visual intent while building an interface that is semantically correct, responsive, accessible, realistic, and maintainable. Verify the rendered result, not just the code.

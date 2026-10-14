@@ -5,6 +5,20 @@ Document common interface design failures that harm usability, trust, or user ex
 
 ---
 
+## Template-Default Anti-Patterns
+These are anti-patterns specific to AI-generated design work:
+
+- **Default hero formula:** Automatically producing a centered hero, eyebrow badge, huge headline, centered paragraph, cluster of pill buttons regardless of the product
+- **Formula replacement:** Replacing one default formula with another (always asymmetric, always brutalist, always terminal-styled) instead of making a contextual choice
+- **Universal card grids:** Putting every content group inside cards and repeating the same three-column card grid across every page
+- **Generic premium styling:** Assuming a light neutral palette, particular font, rounded rectangles, subtle shadows, and black primary button constitute universal premium design
+- **Decorative engineering props:** Adding fake terminals, pretend telemetry, decorative topology graphics, or fabricated system health indicators merely because the product owner works in engineering
+- **Interchangeable pages:** Giving every page the same composition instead of letting each page respond to its own content and task
+- **Fabricated functional elements:** Presenting system health, latency, transaction logs, subscriber metrics, or similar data as real when it is fabricated
+- **Empty container proliferation:** Wrapping every section in containers (cards, panels, boxes) without evaluating whether typography, spacing, rules, or background changes could establish hierarchy instead
+
+---
+
 ## Navigation Anti-Patterns
 - Unlabeled or ambiguous navigation items
 - Deep nesting requiring excessive clicks to reach common content
@@ -23,6 +37,7 @@ Document common interface design failures that harm usability, trust, or user ex
 - Unnecessary formatting restrictions
 - Forms that do not preserve user input across recoverable failures
 - Captcha that blocks legitimate users
+- Simulating a successful submission when the request actually failed
 
 ## Feedback Anti-Patterns
 - No visible response to user actions
@@ -41,6 +56,8 @@ Document common interface design failures that harm usability, trust, or user ex
 - Wall-of-text without structure
 - Inconsistent terminology for the same concept
 - Ambiguous button labels
+- AI marketing language, em dashes in ordinary prose, formulaic phrasing, hollow claims, and phrases that could belong to any product
+- Invented proof, unsupported proficiency labels, and fake usage figures
 
 ## Visual Anti-Patterns
 - Decorative elements that obscure content
@@ -49,6 +66,7 @@ Document common interface design failures that harm usability, trust, or user ex
 - Competing focal points with no clear hierarchy
 - Inconsistent component treatments across pages
 - Arbitrary visual effects unrelated to content
+- Using the same composition for every page of a multi-page product
 
 ## Interaction Anti-Patterns
 - Disabled buttons without explanation
@@ -57,6 +75,8 @@ Document common interface design failures that harm usability, trust, or user ex
 - Unexpected page redirects
 - Infinite scroll with no way to return to position
 - Hover-dependent interactions on touch devices
+- Fake interactions added to make screenshots appear sophisticated
+- Controls that do not do what their labels imply
 
 ## Trust Anti-Patterns
 - Deliberately confusing cancellation flows
