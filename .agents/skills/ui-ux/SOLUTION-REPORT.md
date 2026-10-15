@@ -122,3 +122,13 @@ To ensure the skill embodies this solution in every future execution:
 
 ## Conclusion
 By liberating the agent to exercise **human-level creative freedom** within **strict engineering craft rules**, this skill will consistently produce award-level, human-designed web experiences that leave generic AI templates far behind.
+
+also i want (e.g. for example when click on button or other components the color is always highlighted so these type of issues also dont occur, vice versa etc, for errors, 404 pages, custom cards or best practices ui/ux should be followed, always for every project advanced seo, custom favicon, custom brand human creativity/created logo(e.g. abstract/monogram/wordmark etc) should be generated, etc. )
+
+every project the sill created, it should not be alwasys same, vice versa that identifies that prject is created by AI. e.g. scrolling effects, animations, interactive elements, unique layouts, etc. that make it stand out from other projects, this is what makes a project unique and stand out from other projects.
+
+always mobile first(start from 320px) --> desktop
+
+ aur hame new rules add krne hoge, all frontend pages/design/UIUX step by step execute ho(e.g. stack installed, then foundation setup, then homepage(if user requires changes then changes done but AI never forgets its progress) for that we have to come up with progress tracking files, what has done, checked etc)
+
+not only 6 rules, but i dont want that it always stick to the written rules, yes i know best practices are good, but you can rewrite the 6 rules as a best practices and professional, also remaining rules should be not only read but adopted for implementation, what do you think? it should have freedom to create (e.g. navbars, layout, animations etc each and everything, dont stick it to specific)

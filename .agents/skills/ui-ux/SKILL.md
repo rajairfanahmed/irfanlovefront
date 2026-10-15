@@ -91,10 +91,16 @@ Declare all custom properties in CSS `:root` (backgrounds, surfaces, text, accen
 
 ### Step 7: Build Components & Layouts
 - **Semantic HTML5:** Native `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<button>`, `<a>`. Single `<h1>`.
-- **Fluid Layouts:** CSS Grid and Flexbox with `clamp()` fluid typography.
-- **Zero Horizontal Overflow:** Mobile-first responsive architecture tested from 320px to 1440px+.
-- **Crafted Components:** Apply the rules in `rules/04-component-engineering.md` (no generic pill buttons, no card-in-card nesting).
-- **Technical SEO:** Complete `<title>`, meta description, canonical, OpenGraph, JSON-LD schema, and LCP image priorities.
+- **Mobile-First Responsive (320px ➔ Desktop):** Always build mobile-first starting at 320px, scaling through 375px, 768px, 1024px, 1280px, 1440px+ with zero horizontal overflow (`max-width: 100vw; overflow-x: hidden`).
+- **Fluid Layouts:** CSS Grid and Flexbox with mathematical `clamp()` fluid typography.
+- **Crafted Components & Interactions:** Apply the rules in `rules/04-component-engineering.md`:
+  - Architectural sharp buttons (4px) with ephemeral active states.
+  - Zero sticky highlight bug on click (`-webkit-tap-highlight-color: transparent` and `:focus:not(:focus-visible)`).
+  - Borderless whitespace containers or single hairline rules.
+- **Brand Identity & Favicon:** Generate a custom vector SVG brand logo (geometric monogram, abstract mark, or typographic wordmark) and custom favicon (`icon.svg` / `favicon.ico`) for every project.
+- **Custom 404 & Error UX:** Implement custom, branded `not-found.tsx` and `error.tsx` recovery boundaries.
+- **Advanced Technical SEO:** Complete `<title>`, meta description, canonical, OpenGraph, JSON-LD schema, and LCP image priorities.
+- **Adopt Full Rule Library:** Actively apply the specialized engineering rules in `rules/` (accessibility, industry patterns, realistic data, and motion curves).
 
 ### Step 8: Visual Preview & Verification
 Launch the local dev server and inspect the rendered page across viewports (320px, 375px, 768px, 1280px, 1440px) using `browser_subagent`. Verify zero horizontal scroll, passing WCAG AA contrast, and zero diagnostic error flags.

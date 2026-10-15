@@ -1,8 +1,6 @@
-# 05 · Production Code & Performance Standards
-**Status:** Mandatory Frontend Engineering Rule  
-**Enforcement:** Must be satisfied by all generated frontend code
-
-A great UI/UX design is worthless if the code is slow, janky, or broken on mobile. These standards bridge visual aesthetics and production-grade engineering.
+# 05 · Production Code, Performance & Advanced SEO Standards
+**Status:** Professional Frontend Best Practices  
+**Philosophy:** A stunning design must be backed by uncompromising engineering rigor, lightning-fast rendering, and flawless search engine crawlability.
 
 ---
 
@@ -32,7 +30,7 @@ Build mobile-first from 320px upwards:
 | **1441px+** | Wide Desktop | Max-width constraints (`max-width: 1440px; margin: 0 auto;`) to prevent awkward line stretching. |
 
 ```css
-/* Zero Horizontal Scroll Guarantee */
+/* Zero Horizontal Scroll & Mobile Tap Highlight Guarantee */
 html, body {
   max-width: 100vw;
   overflow-x: hidden;
@@ -42,6 +40,7 @@ html, body {
 
 *, *::before, *::after {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 ```
 
@@ -86,14 +85,58 @@ Never scatter hardcoded hex values or arbitrary pixel numbers across component f
 
 ---
 
-## 4. Modern Technical SEO & Social Metadata
+## 4. Advanced Technical SEO, Metadata & Favicon Architecture
 
-Every page route must include complete semantic metadata:
-- **Title Tag:** Descriptive, unique per route: `<title>Muhammad Zain | Senior Frontend Engineer & Distributed Systems</title>`
-- **Meta Description:** Compelling, concise (140–160 characters).
-- **Canonical Link:** `<link rel="canonical" href="https://domain.com/path" />`
-- **OpenGraph & Twitter:** `og:title`, `og:description`, `og:image`, `twitter:card`.
-- **Structured Data:** JSON-LD schema (e.g. `Person` or `WebSite`) embedded in `<head>`.
+Every public web page must include full enterprise-grade SEO and identity assets:
+
+### A. Core Semantic Metadata:
+- **Title Tag:** Unique, descriptive: `<title>Muhammad Zain-Ul-Abideen | Senior Frontend Engineer & Distributed Systems</title>`
+- **Meta Description:** Compelling, concise summary (140–160 characters).
+- **Canonical Link:** `<link rel="canonical" href="https://yourdomain.com/" />`
+- **Robots Tag:** `<meta name="robots" content="index, follow" />`
+
+### B. Social OpenGraph & Twitter Cards:
+```html
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Muhammad Zain-Ul-Abideen | Senior Frontend Engineer" />
+<meta property="og:description" content="Portfolio of Muhammad Zain — Distributed systems, scalable React/Next.js architectures, and algorithmic engineering." />
+<meta property="og:image" content="https://yourdomain.com/og-preview.png" />
+<meta property="og:url" content="https://yourdomain.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Muhammad Zain-Ul-Abideen | Senior Frontend Engineer" />
+<meta name="twitter:description" content="Distributed systems, scalable React/Next.js architectures, and algorithmic engineering." />
+<meta name="twitter:image" content="https://yourdomain.com/og-preview.png" />
+```
+
+### C. Custom Favicon System:
+Generate bespoke vector and bitmap icons from the project's brand monogram or abstract mark:
+- `icon.svg` (scalable vector icon for modern browsers)
+- `favicon.ico` (32x32 fallback)
+- `apple-touch-icon.png` (180x180 for iOS home screen bookmarks)
+
+### D. Structured Data (JSON-LD Schema):
+Inject valid, truthful Schema.org markup directly into the `<head>`:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Muhammad Zain-Ul-Abideen",
+  "jobTitle": "Software Engineer & Devsinc Campus Ambassador",
+  "url": "https://yourdomain.com",
+  "sameAs": [
+    "https://github.com/your-username",
+    "https://linkedin.com/in/your-username"
+  ],
+  "knowsAbout": [
+    "Distributed Systems",
+    "Frontend Engineering",
+    "React",
+    "Next.js",
+    "Algorithms"
+  ]
+}
+```
 
 ---
 

@@ -1,8 +1,8 @@
-# 04 · Component Engineering Rules
-**Status:** Mandatory Frontend Engineering Rule  
-**Enforcement:** Follow these specifications for every UI component. Banned AI-template designs must never be generated.
+# 04 · Component Engineering & Human Craft Guidelines
+**Status:** Professional Frontend Best Practices  
+**Philosophy:** Creative freedom governed by master craftsmanship. Components should feel bespoke, responsive, and alive.
 
-Every component must exhibit tactile, intentional craftsmanship. Below are the engineering specifications for the core component categories.
+Every component must exhibit tactile, intentional craftsmanship. Below are the professional engineering specifications for core component categories.
 
 ---
 
@@ -13,13 +13,14 @@ Every component must exhibit tactile, intentional craftsmanship. Below are the e
 - Gradient fills with intense glowing drop-shadows (`box-shadow: 0 0 25px cyan`).
 - Competing primary buttons in the same section.
 - Tiny click targets under 44px.
+- **The "Sticky Highlight" Bug:** Leaving a persistent focus background or ring after a mouse click.
 
 ### ✅ Elite Frontend Button Archetypes:
 
 #### Archetype 1: Architectural Sharp Button (Modernist / Agency)
-- `border-radius: 2px` or `4px` (never pills!)
+- `border-radius: 2px` to `6px` (never pills!)
 - Solid high-contrast background with sharp hover state
-- Focus outline with 2px offset
+- Clean active depression (`transform: scale(0.98)`)
 
 ```css
 .btn-architectural {
@@ -38,6 +39,7 @@ Every component must exhibit tactile, intentional craftsmanship. Below are the e
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-architectural:hover {
@@ -45,6 +47,10 @@ Every component must exhibit tactile, intentional craftsmanship. Below are the e
   color: var(--color-foreground);
   border-color: var(--color-foreground);
   transform: translateY(-1px);
+}
+
+.btn-architectural:active {
+  transform: scale(0.98);
 }
 ```
 
@@ -65,11 +71,16 @@ Every component must exhibit tactile, intentional craftsmanship. Below are the e
   cursor: pointer;
   transition: all 0.2s ease;
   min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-ghost:hover {
   border-color: var(--color-foreground);
   background-color: var(--color-surface-subtle);
+}
+
+.btn-ghost:active {
+  transform: scale(0.98);
 }
 ```
 
@@ -91,6 +102,7 @@ Every component must exhibit tactile, intentional craftsmanship. Below are the e
   text-decoration: none;
   position: relative;
   padding-bottom: 2px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-kinetic-link::after {
@@ -110,13 +122,29 @@ Every component must exhibit tactile, intentional craftsmanship. Below are the e
   transform-origin: left;
   transform: scaleX(1);
 }
+```
 
-.btn-kinetic-link svg {
-  transition: transform 0.2s ease;
+### 1.1 Preventing Persistent Highlight / Color Bleed on Click:
+In web browsers, clicking a button focuses it. If CSS uses `:focus`, the button **stays highlighted** until clicked elsewhere. Prevent this with standard professional CSS:
+
+```css
+/* 1. Eliminate mobile tap highlight flash */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
-.btn-kinetic-link:hover svg {
-  transform: translateX(4px);
+/* 2. Remove focus rings on mouse click while preserving accessibility for keyboard users */
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* 3. Keyboard users get an intentional focus ring */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-focus, currentColor);
+  outline-offset: 2px;
 }
 ```
 
@@ -130,58 +158,60 @@ Every component must exhibit tactile, intentional craftsmanship. Below are the e
 - Hamburger icon on 1440px desktop screens.
 
 ### ✅ Elite Frontend Navbar Archetypes:
-
-#### Archetype 1: Full-Width Hairline Header (Swiss / Architectural)
-- Full bleed width with bottom hairline rule (`border-bottom: 1px solid var(--color-border)`)
-- Logo anchored left, clean 4–5 nav links centered or right-aligned
-- High-contrast primary CTA button anchored far right
-
-#### Archetype 2: Split Minimalist Navigation (Editorial)
-- Sticky top header that remains transparent until scroll
-- Left: Brand name + current status badge (e.g. `[Available for Q4 contracts]`)
-- Right: Minimal text links with monospace indices (`01 / Work`, `02 / About`, `03 / Contact`)
-
-#### Archetype 3: Side Anchor Navigation Rail (Portfolios / Dashboards)
-- Slim left or right fixed sidebar on desktop viewports (e.g. `width: 72px` to `240px`)
-- Provides exceptional layout distinctiveness and leaves the main canvas wide open for media!
+- **Full-Width Hairline Header (Swiss):** Full bleed width with bottom hairline rule (`border-bottom: 1px solid var(--color-border)`).
+- **Split Minimalist Navigation (Editorial):** Brand name left, minimal text links right with monospace index counters (`01 / Work`, `02 / About`).
+- **Side Anchor Rail (Portfolios / Technical):** Fixed slim sidebar navigation rail on desktop viewports.
 
 ---
 
-## 3. Cards & Content Containers
+## 3. Custom Cards & Best UI/UX Practices
 
-### ❌ Banned Card Slop:
-- Wrapping every single piece of text inside a rounded box.
-- Cards with border AND drop shadow AND background gradient (over-styled).
-- Nesting rounded cards inside another larger rounded card.
-- 3 identical cards side-by-side on every section.
-
-### ✅ Elite Frontend Card Alternatives:
-1. **The Borderless Whitespace Container:** Give elements generous padding (`padding: 2.5rem`) and distinct typographic hierarchy. No borders or shadows needed!
-2. **The Single Hairline Rule:** Separate items with a delicate `border-bottom: 1px solid var(--color-border-subtle)` instead of enclosing them in a box.
-3. **The High-Contrast Tone Surface:** One elevation technique only:
+Cards should only be used when clear visual grouping is required.
+1. **The Borderless Whitespace Container:** Generous internal padding (`padding: 2rem` to `2.5rem`) and distinct typographic hierarchy. No heavy border or dark shadow needed!
+2. **Single Elevation Rule:** Choose **one** visual differentiator:
    - Method A: Subtle surface background (`background: var(--color-surface)`), NO border, NO shadow.
-   - Method B: Crisp 1px border (`border: 1px solid var(--color-border)`), transparent background, NO shadow.
+   - Method B: Crisp 1px hairline border (`border: 1px solid var(--color-border)`), transparent background, NO shadow.
    - Method C: Soft diffused shadow (`box-shadow: 0 4px 20px rgba(0,0,0,0.04)`), white background, NO border.
    **NEVER combine all three!**
+3. **Card Micro-Interaction:** Subtle elevation on hover: `transform: translateY(-2px); transition: transform 0.25s ease;`.
 
 ---
 
-## 4. Hero Sections
+## 4. Human-Crafted Brand Logo & Favicon Creation
 
-### ❌ Banned Hero Slop:
-- Always centered.
-- Always eyebrow pill badge + huge gradient title + paragraph + 2 pill buttons + stats row.
+Every project must have a **custom human-created brand logo and favicon** (never a generic text string or default Vercel triangle icon!).
 
-### ✅ Elite Frontend Hero Alternatives:
-1. **Asymmetric Editorial Statement:** Left-aligned 60% text column with oversized typography, right-aligned 40% interactive showcase or media visual.
-2. **Minimalist Typographic Banner:** Massive display headline spanning the full width of the screen (`font-size: clamp(3rem, 10vw, 8rem)`), followed by a 2-column split with paragraph and CTA.
-3. **Media-Led Storyboard:** High-resolution project visual takes 70% of the viewport height, with title and meta anchored along the bottom edge in a clean HUD-style overlay.
+### A. Logo Formats (Generate an SVG suited to the identity):
+1. **Geometric Monogram (Personal / Studio):** Interlocking or stencil letterforms (e.g. `MZ` for Muhammad Zain) drawn with clean SVG vector geometry (`stroke-width="1.5"`, `stroke-linecap="round"`).
+2. **Abstract Engineering Mark:** Architectural node, algorithmic vertex, or continuous topology line reflecting the project's domain.
+3. **Typographic Wordmark:** Bespoke tracking, subtle glyph ligature, or contrasting font weight between first and last words.
+
+### B. Custom Favicon:
+- Always supply `icon.svg` or `favicon.ico` generated from the brand monogram or abstract mark.
+- Include a high-contrast version that renders clearly at `16x16` and `32x32` pixels.
 
 ---
 
-## 5. Forms, Inputs & State Management
+## 5. 404 & Resilient Error States
 
-1. **Always-Visible Labels:** Never use placeholder text as the only label. Place labels above inputs with `font-size: 0.85rem` and `font-weight: 500`.
-2. **Input Sizing:** Minimum height `44px` (ideal `48px`), padding `0.75rem 1rem`, border-radius `4px` or `6px`.
-3. **Focus States:** High-visibility focus ring: `outline: 2px solid var(--color-accent); outline-offset: 2px;`.
-4. **Actionable Error States:** Red text alone is insufficient. Provide an icon, clear explanatory copy, and exact recovery steps (e.g. *"Please enter a valid email address with an @ symbol"*).
+Never leave users stranded with default browser error screens. Every project must include custom crafted error experiences:
+
+### A. The 404 "Not Found" Page (`not-found.tsx` / `404.html`):
+- Branded minimal composition matching the site's typography and color palette.
+- Large artistic display index (e.g. `404` rendered with delicate hairlines or a geometric broken-link icon).
+- Friendly, witty, human-written explanation: *"The page you are seeking has been relocated, archived, or never existed in this dimension."*
+- Primary CTA: Clear return button (*"Return to Index →"* or *"Back to Home"*).
+
+### B. The Error Boundary (`error.tsx`):
+- Graceful recovery component that catches runtime errors without crashing the shell.
+- Reassuring message: *"An unexpected rendering exception occurred."*
+- Actionable recovery: *"Reload Section"* button with `reset()` handler.
+- Zero raw stack traces exposed to non-development users.
+
+---
+
+## 6. Forms & State Feedback
+
+1. **Always-Visible Labels:** Labels placed above inputs with `font-size: 0.85rem` and `font-weight: 500`.
+2. **Accessible Input Height:** Minimum `44px` height with generous padding (`0.75rem 1rem`).
+3. **Contextual Validation:** Red outline alone is inaccessible. Provide an icon, clear explanatory text, and specific recovery instructions.
