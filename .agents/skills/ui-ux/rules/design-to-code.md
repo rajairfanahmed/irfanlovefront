@@ -45,7 +45,7 @@ When implementation is requested and browser, preview, or screenshot tools are a
        ↓
 [Launch Dev Server & Render Routes] 
        ↓
-[Capture Screenshots across 320px–1440px Viewports] 
+[Capture Screenshots across 320px-1440px Viewports] 
        ↓
 [Prioritize Defects (Blocker, High, Medium, Polish)] 
        ↓

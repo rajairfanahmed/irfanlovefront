@@ -1,23 +1,26 @@
-# 03 · Forms, Data Inputs & State Feedback
-**Domain:** Interactive Component Engineering · Stage 3 Components & Motion  
-**Philosophy:** Frictionless Interaction. Form controls must guide users effortlessly, provide crystal-clear error messages, and never cause cognitive or visual fatigue.
+# 03: Accessible Forms, Inputs & Data Entry
+**Domain:** Interactive Component Engineering (Stage 3)  
+**Philosophy:** Form contrast compliance, explicit labeling, and error prevention. Zero em-dashes.
 
 ---
 
-## 1. Professional Input Architecture
+## 1. Form Layout & Contrast Guardrails
 
-BANNED:
-❌ Inputs relying exclusively on placeholder text instead of persistent `<label>`.
-❌ Inputs under 44px height that are difficult to tap on mobile.
-❌ Red border error states without explanatory text.
-❌ Cryptic error messages like "Invalid format".
+1. **Label ABOVE input:** Never use placeholder-as-label.
+2. **Error text BELOW input:** Clear, inline error messages with semantic icons.
+3. **Form Contrast Check (WCAG AA):**
+   - Form inputs, placeholder text, focus rings, helper text, and error text all pass WCAG AA contrast (>= 4.5:1) against the section background.
+   - Light placeholders on a near-white form or form labels grayer than 4.5:1 are banned.
+4. **Standard Spacing:** Use `gap-2` for input blocks and `gap-6` between form rows.
 
-### Production Input Component (`frontend/src/components/ui/Input.tsx`):
+---
+
+## 2. Production Accessible Input Component
 
 ```tsx
+// frontend/src/components/ui/Input.tsx
 'use client';
-import React, { InputHTMLAttributes, forwardRef, useId } from 'react';
-import { AlertCircle } from 'lucide-react';
+import { type InputHTMLAttributes, forwardRef, useId } from 'react';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -25,67 +28,55 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   helperText?: string;
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, helperText, className = '', disabled, ...props }, ref) => {
-    const inputId = useId();
-    const errorId = `${inputId}-error`;
-    const helperId = `${inputId}-helper`;
+export const Input = forwardRef<HTMLInputElement, InputProps>(({
+  label,
+  error,
+  helperText,
+  id,
+  className = '',
+  required,
+  ...props
+}, ref) => {
+  const generatedId = useId();
+  const inputId = id || generatedId;
+  const errorId = `${inputId}-error`;
+  const helperId = `${inputId}-helper`;
 
-    return (
-      <div className="w-full space-y-1.5">
-        <label
-          htmlFor={inputId}
-          className="block text-xs font-mono uppercase tracking-wider font-semibold text-[var(--text-secondary)]"
-        >
-          {label}
-        </label>
+  return (
+    <div className="flex flex-col gap-2 w-full">
+      <label 
+        htmlFor={inputId}
+        className="text-xs uppercase font-mono tracking-wider text-[var(--text-secondary)] font-medium flex items-center justify-between"
+      >
+        <span>{label}</span>
+        {required && <span className="text-amber-500 text-[10px]">*REQUIRED</span>}
+      </label>
 
-        <div className="relative">
-          <input
-            id={inputId}
-            ref={ref}
-            disabled={disabled}
-            aria-invalid={!!error}
-            aria-describedby={error ? errorId : helperText ? helperId : undefined}
-            className={`w-full min-h-[44px] px-3.5 py-2.5 text-sm rounded-md bg-[var(--bg-surface)] text-[var(--text-primary)] border transition-all duration-150 outline-none placeholder:text-[var(--text-muted)] disabled:opacity-50 disabled:cursor-not-allowed ${
-              error
-                ? 'border-rose-500 focus:ring-1 focus:ring-rose-500'
-                : 'border-[var(--border-hairline)] focus:border-[var(--border-focus)] focus:ring-1 focus:ring-[var(--border-focus)]'
-            } ${className}`}
-            {...props}
-          />
+      <input
+        ref={ref}
+        id={inputId}
+        aria-describedby={error ? errorId : helperText ? helperId : undefined}
+        aria-invalid={!!error}
+        required={required}
+        className={`w-full px-4 py-3 rounded-lg bg-[var(--bg-surface)] border text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${
+          error 
+            ? 'border-rose-500 focus-visible:outline-rose-500' 
+            : 'border-[var(--border-hairline)] focus-visible:outline-[var(--border-focus)]'
+        } ${className}`}
+        {...props}
+      />
 
-          {error && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-rose-500 pointer-events-none">
-              <AlertCircle className="w-4 h-4" />
-            </div>
-          )}
-        </div>
-
-        {error && (
-          <p id={errorId} className="text-xs text-rose-500 flex items-center gap-1 font-medium mt-1">
-            <span>{error}</span>
-          </p>
-        )}
-
-        {!error && helperText && (
-          <p id={helperId} className="text-xs text-[var(--text-muted)] mt-1">
-            {helperText}
-          </p>
-        )}
-      </div>
-    );
-  }
-);
-
+      {error ? (
+        <p id={errorId} className="text-xs text-rose-400 font-mono mt-0.5">
+          {error}
+        </p>
+      ) : helperText ? (
+        <p id={helperId} className="text-xs text-[var(--text-muted)] font-mono mt-0.5">
+          {helperText}
+        </p>
+      ) : null}
+    </div>
+  );
+});
 Input.displayName = 'Input';
 ```
-
----
-
-## 2. Form & Feedback Checklist:
-- [ ] Every input has a visible `<label>` tied via `htmlFor` and `id`.
-- [ ] Inputs have minimum 44px height for mobile touch ergonomics.
-- [ ] Error messages are tied via `aria-describedby` and `aria-invalid="true"`.
-- [ ] Submitting forms displays loading spinners and disables the button to prevent duplicate submissions.
-- [ ] Success state delivers a polite confirmation message or notification.

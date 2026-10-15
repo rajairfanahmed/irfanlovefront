@@ -23,10 +23,10 @@ Build mobile-first from 320px upwards:
 
 | Viewport | Device Class | Layout Adaptation |
 |---|---|---|
-| **320px–480px** | Mobile Portrait | Single column, touch targets ≥ 44px, fluid typography via `clamp()`, zero horizontal scroll. |
-| **481px–768px** | Mobile Landscape / Tablet | 2-column grids where appropriate, collapsible navigation. |
-| **769px–1024px** | Tablet Landscape / Small Laptop | Asymmetric split layouts activate, sidebars collapse to icons or top rails. |
-| **1025px–1440px** | Standard Desktop | Full multi-column editorial layouts, sticky sidebars, high whitespace. |
+| **320px-480px** | Mobile Portrait | Single column, touch targets ≥ 44px, fluid typography via `clamp()`, zero horizontal scroll. |
+| **481px-768px** | Mobile Landscape / Tablet | 2-column grids where appropriate, collapsible navigation. |
+| **769px-1024px** | Tablet Landscape / Small Laptop | Asymmetric split layouts activate, sidebars collapse to icons or top rails. |
+| **1025px-1440px** | Standard Desktop | Full multi-column editorial layouts, sticky sidebars, high whitespace. |
 | **1441px+** | Wide Desktop | Max-width constraints (`max-width: 1440px; margin: 0 auto;`) to prevent awkward line stretching. |
 
 ```css
@@ -91,7 +91,7 @@ Every public web page must include full enterprise-grade SEO and identity assets
 
 ### A. Core Semantic Metadata:
 - **Title Tag:** Unique, descriptive: `<title>Muhammad Zain-Ul-Abideen | Senior Frontend Engineer & Distributed Systems</title>`
-- **Meta Description:** Compelling, concise summary (140–160 characters).
+- **Meta Description:** Compelling, concise summary (140-160 characters).
 - **Canonical Link:** `<link rel="canonical" href="https://yourdomain.com/" />`
 - **Robots Tag:** `<meta name="robots" content="index, follow" />`
 
@@ -99,7 +99,7 @@ Every public web page must include full enterprise-grade SEO and identity assets
 ```html
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Muhammad Zain-Ul-Abideen | Senior Frontend Engineer" />
-<meta property="og:description" content="Portfolio of Muhammad Zain — Distributed systems, scalable React/Next.js architectures, and algorithmic engineering." />
+<meta property="og:description" content="Portfolio of Muhammad Zain - Distributed systems, scalable React/Next.js architectures, and algorithmic engineering." />
 <meta property="og:image" content="https://yourdomain.com/og-preview.png" />
 <meta property="og:url" content="https://yourdomain.com/" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -143,7 +143,7 @@ Inject valid, truthful Schema.org markup directly into the `<head>`:
 ## 5. Motion Performance & Accessibility
 
 1. **Hardware-Accelerated Transitions Only:** Animate strictly `transform` and `opacity`. NEVER animate `height`, `width`, `top`, `left`, or `margin` (causes costly browser reflows!).
-2. **Transition Curves:** Use `cubic-bezier(0.16, 1, 0.3, 1)` (out-expo) for snappy, professional UI response (150ms–300ms).
+2. **Transition Curves:** Use `cubic-bezier(0.16, 1, 0.3, 1)` (out-expo) for snappy, professional UI response (150ms-300ms).
 3. **Respect Reduced Motion:**
 ```css
 @media (prefers-reduced-motion: reduce) {

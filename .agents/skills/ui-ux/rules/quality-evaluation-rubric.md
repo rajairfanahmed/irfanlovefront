@@ -20,7 +20,7 @@ Execute this critique pass on rendered output (or candidate mockups) before deli
 | **7. Consistency** | Systemic coherence | Semantic tokens, typography scales, icon styles, and navigation shells aligned. | Fragmented tokens; conflicting component styles across pages. |
 | **8. Novelty** | Fingerprint differentiation | Avoids repeating identical fingerprints across independent projects. | Exact macrostructure and palette formula copied from previous output. |
 | **9. Usability & Accessibility** | Inclusivity & compliance | WCAG AA contrast (4.5:1), visible keyboard focus, semantic HTML, screen reflow. | Contrast failure, missing keyboard accessibility, broken navigation. |
-| **10. Execution** | Viewport & state fidelity | Rendered output holds across 320px–1440px viewports without overflow or clipping. | Horizontal scroll overflow; broken layouts or clipped controls. |
+| **10. Execution** | Viewport & state fidelity | Rendered output holds across 320px-1440px viewports without overflow or clipping. | Horizontal scroll overflow; broken layouts or clipped controls. |
 | **11. Technical Integrity** | Code & architecture realism | Follows framework conventions, SEO metadata, Core Web Vitals, preserves working data flow, zero dead controls. | Dead buttons; broken routes; fabricated data; unhandled CLS or LCP regressions. |
 
 ---

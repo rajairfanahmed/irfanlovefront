@@ -11,8 +11,8 @@ Every layout and component must be designed and verified **mobile-first**, begin
 ### Breakpoint Matrix:
 | Breakpoint | Viewport Width | Key Verification Items |
 |---|---|---|
-| **Compact Mobile** | `320px` – `375px` | Zero horizontal scroll bar, comfortable font sizes, single-column flow, hamburger nav |
-| **Standard Mobile** | `375px` – `480px` | Touch targets ≥ 44px, readable text without zoom |
+| **Compact Mobile** | `320px` to `375px` | Zero horizontal scroll bar, comfortable font sizes, single-column flow, hamburger nav |
+| **Standard Mobile** | `375px` to `480px` | Touch targets >= 44px, readable text without zoom |
 | **Tablet Portrait** | `768px` | 2-column grids, collapsed navigation transition |
 | **Desktop / Laptop**| `1024px` | Full navigation header, multi-column editorial split, hover states enabled |
 | **Wide Display** | `1440px`+ | Max content container constraints (`max-w-7xl mx-auto`), no stretched text lines (`max-w-[65ch]`) |

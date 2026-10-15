@@ -1,67 +1,53 @@
-# 02 · Brand Identity, Monograms & Favicon Engineering
-**Domain:** Frontend Architecture · Stage 1 Foundation  
-**Philosophy:** Instant Brand Authority. Never use an empty `<h1>Acme Inc</h1>` text placeholder or emoji icon. Every project deserves a mathematically crafted SVG brand mark and a sharp favicon.
+# 02: Brand Identity, BrandLogo & Dynamic Favicons
+**Domain:** Frontend Architecture (Stage 1 Foundation)  
+**Philosophy:** Structural Integrity & Vector Precision. Zero floating unaligned brand marks. Zero hand-rolled icon paths. Zero em-dashes.
 
 ---
 
-## 1. Bespoke Brand Mark Architecture
+## 1. Structural BrandLogo Container Constraint (Anti-Floating Bug Rule)
 
-Every frontend must include a dedicated vector logo component at `frontend/src/components/ui/BrandLogo.tsx`.
+### The Identified Bug:
+In previous runs, an isolated black circle with the letter "N" appeared floating randomly on the left margin, completely unaligned with the grid or content container.
+This was caused by styling `BrandLogo` as an unconstrained `absolute` or `fixed` pseudo-element without a parent container binding.
 
-### Archetypes of Human-Crafted Brand Marks:
-1. **Geometric Monogram:** Interlocking initial letterforms with precision bezier curves or isometric angles.
-2. **Abstract Tech Glyph:** Minimalist intersecting hairlines, aperture polygons, or kinetic prisms.
-3. **Architectural Wordmark:** Precision-kerned display typography paired with a geometric punctuation mark or anchor symbol.
-
-### Production BrandLogo Component Template:
+### Mandatory Structural Rule:
+- `BrandLogo` MUST always be rendered as a structural child inside a bounded layout container (e.g. inside `Navbar` or inside a standard page container `max-w-7xl mx-auto px-6`).
+- NEVER position `BrandLogo` with `absolute left-4 top-4` or `fixed` without container bounds.
+- Provide a clean component API:
 ```tsx
 // frontend/src/components/ui/BrandLogo.tsx
-import React from 'react';
-import Link from 'next/link';
+import Link from "next/link";
 
 interface BrandLogoProps {
   className?: string;
   showWordmark?: boolean;
 }
 
-export function BrandLogo({ className = '', showWordmark = true }: BrandLogoProps) {
+export function BrandLogo({ className = "", showWordmark = true }: BrandLogoProps) {
   return (
     <Link 
       href="/" 
-      className={`group inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${className}`}
-      aria-label="Homepage"
+      className={`inline-flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-offset-2 ${className}`}
+      aria-label="Home"
     >
-      {/* Precision Vector Glyph */}
-      <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-[var(--bg-elevated)] border border-[var(--border-hairline)] group-hover:border-[var(--accent-primary)] transition-colors duration-200">
+      <div className="w-9 h-9 rounded-lg bg-surface border border-hairline flex items-center justify-center transition-transform group-hover:scale-105">
         <svg 
           viewBox="0 0 24 24" 
           fill="none" 
-          xmlns="http://www.w3.org/2000/svg" 
-          className="w-4 h-4 text-[var(--accent-primary)]"
-          aria-hidden="true"
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          className="w-5 h-5 text-accent"
         >
-          {/* Example: Precision Geometric Kinetic Monogram */}
-          <path 
-            d="M3 12L12 3L21 12L12 21L3 12Z" 
-            stroke="currentColor" 
-            strokeWidth="1.75" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-          />
-          <path 
-            d="M12 7V17M7 12H17" 
-            stroke="currentColor" 
-            strokeWidth="1.5" 
-            strokeLinecap="round" 
-          />
+          <path d="M12 2L2 7l10 5 10-5-10-5z" />
+          <path d="M2 17l10 5 10-5" />
+          <path d="M2 12l10 5 10-5" />
         </svg>
       </div>
-
-      {/* Crafted Wordmark */}
       {showWordmark && (
-        <span className="font-display font-bold tracking-tight text-[var(--text-primary)] text-lg flex items-center gap-1.5">
-          <span>NEXUS</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-primary)] animate-pulse" />
+        <span className="font-display font-semibold tracking-tight text-foreground text-sm">
+          PLATFORM
         </span>
       )}
     </Link>
@@ -71,46 +57,35 @@ export function BrandLogo({ className = '', showWordmark = true }: BrandLogoProp
 
 ---
 
-## 2. Dynamic Next.js 15 Favicon & App Icon (`app/icon.tsx`)
+## 2. Dynamic Favicon (`frontend/src/app/icon.tsx`)
 
-Next.js 15 provides native support for generating programmatically crisp SVGs and favicons without external image files.
+Use Next.js 15 App Router `ImageResponse` for dynamic retina favicons:
 
-Create `frontend/src/app/icon.tsx`:
 ```tsx
-import { ImageResponse } from 'next/og';
+import { ImageResponse } from "next/og";
 
 export const size = { width: 32, height: 32 };
-export const contentType = 'image/png';
+export const contentType = "image/png";
 
 export default function Icon() {
   return new ImageResponse(
     (
       <div
         style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: '#0B0F17',
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#0B0F17",
           borderRadius: 8,
-          border: '1px solid rgba(245, 158, 11, 0.4)',
+          border: "1px solid rgba(255, 255, 255, 0.15)",
+          color: "#0EA5E9",
+          fontSize: 18,
+          fontWeight: 700,
         }}
       >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#F59E0B"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <polygon points="12 2 2 7 12 12 22 7 12 2" />
-          <polyline points="2 17 12 22 22 17" />
-          <polyline points="2 12 12 17 22 12" />
-        </svg>
+        P
       </div>
     ),
     { ...size }
@@ -118,19 +93,4 @@ export default function Icon() {
 }
 ```
 
-In addition, provide `frontend/public/icon.svg` as a clean vector fallback:
-```xml
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#0B0F17"/>
-  <path d="M16 6L26 12V20L16 26L6 20V12L16 6Z" stroke="#F59E0B" stroke-width="2" stroke-linejoin="round"/>
-</svg>
-```
-
----
-
-## 3. Brand Identity Quality Checklist:
-- [ ] Brand glyph uses scalable, mathematical SVG geometry with explicit `viewBox`.
-- [ ] No generic emoji icons used as brand logos.
-- [ ] SVG handles both dark mode and light mode through `currentColor` or CSS tokens.
-- [ ] Both Next.js dynamic `icon.tsx` and static `public/icon.svg` exist.
-- [ ] Logo links to `/` with proper `aria-label` and visible focus ring for keyboard users.
+Also provide a clean fallback `frontend/public/icon.svg`.

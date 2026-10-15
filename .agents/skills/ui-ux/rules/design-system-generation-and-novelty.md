@@ -25,9 +25,9 @@ Every page concept or system architecture can be characterized by these 11 dimen
    - Chroma and saturation: low-chroma desaturated, vibrant selective accents, atmospheric monochrome.
    - Accent distribution: single surgical accent, dual-tone functional accents, monochromatic hierarchy.
 8. **Imagery and media treatment:** Framing, border treatments, aspect ratios, background integration (e.g. raw unframed screenshots, subtle bordered containers, full-bleed hero visuals, schematic technical diagrams).
-9. **Component form and geometry:** Corner radius strategy (sharp 0px, subtle 4px–6px, rounded 12px+), border weight (hairline 1px, solid 2px, borderless surface contrast), elevation (flat layered, soft diffused shadows, high-contrast borders).
+9. **Component form and geometry:** Corner radius strategy (sharp 0px, subtle 4px-6px, rounded 12px+), border weight (hairline 1px, solid 2px, borderless surface contrast), elevation (flat layered, soft diffused shadows, high-contrast borders).
 10. **CTA and interactive affordance:** Primary button shape and contrast, secondary link styles, micro-state feedback language.
-11. **Motion and interaction voice:** Transition personality (sharp and immediate 150ms, calm and fluid 300ms–400ms, spatial layout shifts, or strictly static when reduced motion is preferred).
+11. **Motion and interaction voice:** Transition personality (sharp and immediate 150ms, calm and fluid 300ms-400ms, spatial layout shifts, or strictly static when reduced motion is preferred).
 
 ---
 
@@ -53,7 +53,7 @@ Follow this sequential method for color selection:
 1. **Check brand constraints:** Identify whether a brand palette, existing logo, or user-specified color is mandatory. Locked brand tokens must be preserved.
 2. **Separate locked tokens from free variables:** Lock brand colors into primary roles; select background, surface, text, and border tones that complement them.
 3. **Specify measurable palette attributes:**
-   - Background lightness (e.g. Light L* > 95, Dark L* < 15, Mid-tone L* 20–30)
+   - Background lightness (e.g. Light L* > 95, Dark L* < 15, Mid-tone L* 20-30)
    - Dominant hue family and warmth (cool blue-grey, warm neutral olive, stone beige, crisp monochromatic)
    - Accent role and contrast ratio (ensuring minimum 4.5:1 against surfaces for text, 3:1 for graphical UI elements)
 4. **Avoid repetitive global defaults:** Reject the automatic reflex to use cyan, violet, neon blue, or purple accents unless explicitly required by brand identity.

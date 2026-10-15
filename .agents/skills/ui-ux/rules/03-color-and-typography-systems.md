@@ -25,7 +25,7 @@ Choose one palette that fits the project mood, or derive an intentional variatio
 - **Border:** `#E4E4E7` (Hairline Grey)
 
 ### Palette 3: Deep Slate & Electric Amber (Refined Dark Mode for Tech & Fintech)
-- **Background:** `#0B0F17` (Deep Obsidian Slate — NOT flat #000)
+- **Background:** `#0B0F17` (Deep Obsidian Slate - NOT flat #000)
 - **Surface:** `#151B26` (Elevated Navy Slate)
 - **Surface Elevated:** `#1E2636` (Card Surface)
 - **Text Primary:** `#F8FAFC` (Off-White)
@@ -46,7 +46,7 @@ Choose one palette that fits the project mood, or derive an intentional variatio
 - **Surface:** `#191B22` (Subtle Dark)
 - **Text Primary:** `#ECEFF4` (Nordic White)
 - **Text Secondary:** `#818B98` (Muted Terminal Grey)
-- **Accent:** `#38BDF8` (Muted Sky Blue — used surgically, <5% of viewport)
+- **Accent:** `#38BDF8` (Muted Sky Blue - used surgically, <5% of viewport)
 - **Border:** `#262A35`
 
 ### Palette 6: Luxury Editorial Ivory & Espresso (Fashion, Luxury, Executive)
@@ -106,4 +106,4 @@ Never use fixed `font-size: 72px` which overflows on mobile!
 ## Typography Rules:
 1. **Line Length:** Restrict reading paragraphs to `55` to `75` characters per line (`max-width: 65ch`).
 2. **Display Contrast:** The heading font must visually contrast with the body font (e.g. Serif Display + Sans Body, or Geometric Display + Humanist Body).
-3. **Weight Contrast:** Headings should be `600`–`800` weight with `-0.02em` letter-spacing; body text should be `400` weight with normal letter-spacing.
+3. **Weight Contrast:** Headings should be `600`-`800` weight with `-0.02em` letter-spacing; body text should be `400` weight with normal letter-spacing.

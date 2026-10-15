@@ -79,6 +79,6 @@ Do not allow the design engine to fall into a default color rut (such as default
 Use typographic references (e.g. `curated-typography-library-typography-fo.jpg`, `okine-sans-modern-sansserif-font-family-.jpg`) to guide role-based type pairing:
 - **Display role:** Sets personality and tone; used sparingly on high-impact headings.
 - **Heading role:** Provides scannable structural anchors across sections.
-- **Body role:** Prioritizes effortless legibility, comfortable line lengths (60–75 characters), and generous line heights (1.5–1.6).
+- **Body role:** Prioritizes effortless legibility, comfortable line lengths (60-75 characters), and generous line heights (1.5-1.6).
 - **Mono / Utility role:** Reserved for code, data metrics, timestamps, and technical tags.
 - **Weight discipline:** Restrict font weights to 2 or 3 per family (e.g. Regular 400, Medium 500, Bold 700) to protect page load speed and prevent layout shifts.

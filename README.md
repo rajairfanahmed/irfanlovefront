@@ -1,47 +1,61 @@
-# UI/UX & Frontend Engineering Agent Skills Suite ⚡
+# UI/UX & Frontend Engineering Agent Skills Suite
 
-An elite, multi-agent frontend engineering ecosystem for Google Antigravity, Claude Code, and modern AI coding assistants. Designed by senior frontend architects to craft bespoke, award-winning web applications with **zero AI-template feel, zero AI-slop, and production-grade craftsmanship**.
+An elite, multi-agent frontend engineering ecosystem for Google Antigravity, Claude Code, and modern AI coding assistants. Designed by senior frontend architects to craft bespoke, award-winning web applications with **zero AI-template feel, zero AI-slop, and production-grade craftsmanship**, fully incorporating the `design-taste-frontend` (`tasteskill`) specification.
 
 ---
 
-## 🎨 Creative Freedom & Reference Philosophy (Not Permanent Templates)
+## Creative Freedom & Reference Philosophy (Not Permanent Templates)
 
 The color recipes, surface depths, layout blueprints, and component architectures documented in this suite and in the [Design Bible](file:///d:/uiux/designs/DESIGN-BIBLE.md) are **expansive human inspirations, not permanent or rigid templates**. Agents possess **full creative freedom** to invent bespoke compositions, calibrate tailored color temperatures, and choreograph unique micro-interactions that fit each project's unique brand, content, and mission.
 
 ---
 
-## 🏛️ Architecture Overview
+## Architecture Overview
 
-Frontend engineering requires distinct cognitive modes: from foundational token mathematics, to creative macro-layout composition, to micro-interaction choreography, to rigorous accessibility and technical SEO auditing. 
+Frontend engineering requires distinct cognitive modes: from foundational token mathematics and brief inference, to creative macro-layout composition, to micro-interaction choreography, to rigorous accessibility and technical SEO auditing. 
 
 This repository provides **four specialized domain skills** plus **one master orchestrator**:
 
 ```
-                                  ┌─────────────────────────────┐
-                                  │      /uiux Orchestrator     │
-                                  │   (frontend/PLAN.md Tracker)│
-                                  └──────────────┬──────────────┘
-                                                 │
-         ┌───────────────────────────────┬───────┴───────────────────────┬───────────────────────────────┐
-         ▼                               ▼                               ▼                               ▼
- ┌───────────────┐               ┌───────────────┐               ┌───────────────┐               ┌───────────────┐
- │    STAGE 1    │               │    STAGE 2    │               │    STAGE 3    │               │    STAGE 4    │
- │   frontend-   │               │   creative-   │               │  interactive- │               │ experience-   │
- │   architect   │               │    layout-    │               │  component-   │               │  qa-auditor   │
- │               │               │   engineer    │               │   engineer    │               │               │
- ├───────────────┤               ├───────────────┤               ├───────────────┤               ├───────────────┤
- │• Next.js 15   │               │• Macro-Layout │               │• Primitives   │               │• 404 & Errors │
- │• Plan-first   │               │• Tri-Zone Nav │               │• Colocation   │               │• Mobile 320px │
- │• Tokens & CSS │               │• Bespoke Hero │               │• Composable   │               │• Contrast AA  │
- │• Fluid clamp  │               │• Route Shells │               │• GSAP Motion  │               │• JSON-LD SEO  │
- │• Brand SVG    │               │• Design Bible │               │• Tap Fix      │               │• Finish-Gate  │
- │• Favicon      │               │• Lenis Scroll │               │• Skeletons    │               │• Verification │
- └───────────────┘               └───────────────┘               └───────────────┘               └───────────────┘
+                                  +-----------------------------+
+                                  |      /uiux Orchestrator     |
+                                  |   (frontend/PLAN.md Tracker)|
+                                  +--------------+--------------+
+                                                 |
+         +-------------------------------+-------+-----------------------+-------------------------------+
+         |                               |                               |                               |
+         v                               v                               v                               v
+ +---------------+               +---------------+               +---------------+               +---------------+
+ |    STAGE 1    |               |    STAGE 2    |               |    STAGE 3    |               |    STAGE 4    |
+ |   frontend-   |               |   creative-   |               |  interactive- |               | experience-   |
+ |   architect   |               |    layout-    |               |  component-   |               |  qa-auditor   |
+ |               |               |   engineer    |               |   engineer    |               |               |
+ +---------------+               +---------------+               +---------------+               +---------------+
+ |* Brief Read   |               |* Macro-Layout |               |* Primitives   |               |* 404 & Errors |
+ |* Three Dials  |               |* Viewport Cap |               |* Colocation   |               |* Mobile 320px |
+ |* Tokens & CSS |               |* Tri-Zone Nav |               |* Canonical    |               |* Contrast AA  |
+ |* Fluid clamp  |               |* Eyebrow Cap  |               |  GSAP Motion  |               |* JSON-LD SEO  |
+ |* Brand SVG    |               |* Route Shells |               |* Button Wrap  |               |* 40+ Item     |
+ |* Favicon      |               |* Anti-Center  |               |* Real Images  |               |  Pre-Flight   |
+ |* Lenis Scroll |               |* Rhythm Check |               |* Zero Slop    |               |* Verification |
+ +---------------+               +---------------+               +---------------+               +---------------+
 ```
 
 ---
 
-## 📝 The Plan-First Workflow (`frontend/PLAN.md`)
+## Brief Inference & The Three Dials
+
+Before touching code, the system infers what the user actually needs and outputs a one-line Design Read:
+**"Reading this as: <page kind> for <audience>, with a <vibe> language, leaning toward <design system or aesthetic family>."**
+
+### Core Configuration Dials (Scale 1-10):
+- **`DESIGN_VARIANCE: 1-10`** (1 = Perfect Symmetry, 10 = Artsy Chaos)
+- **`MOTION_INTENSITY: 1-10`** (1 = Static, 10 = Cinematic / Physics)
+- **`VISUAL_DENSITY: 1-10`** (1 = Art Gallery / Airy, 10 = Cockpit / Packed Data)
+
+---
+
+## The Plan-First Workflow (`frontend/PLAN.md`)
 
 Every agent skill creates or updates a structured plan file (`frontend/PLAN.md`) before writing any code:
 
@@ -64,52 +78,56 @@ Tasks are checked off as `- [x]` in real time, giving developers complete transp
 
 ---
 
-## 🌐 Multi-Page Pipeline Architecture
+## Multi-Page Pipeline Architecture
 
 When building applications with multiple canonical routes (e.g. `/`, `/about`, `/projects`, `/skills`, `/contact`):
 
-1. **Phase 1: Tri-Zone Shell & Shared Layout:** Configure root layout with Lenis, Google Fonts, and persistent Tri-Zone Navbar.
+1. **Phase 1: Tri-Zone Shell & Shared Layout:** Configure root layout with Lenis, Google Fonts, and persistent Navigation.
 2. **Phase 2: Canonical Route Shells (Zero Dead Links):** Generate lightweight, working shells for all routes so clicking any link immediately functions without 404s.
 3. **Phase 3: Deep Page-by-Page Construction:** Build one page at a time with full design depth, guided by `frontend/PLAN.md`.
 4. **Phase 4: Cross-Route Polish & SEO:** Audit mobile navigation, breadcrumbs, and canonical metadata.
 
 ---
 
-## 🏗️ Frontend UI Engineering Standards
+## Frontend UI Engineering Standards
 
 All skills follow rigorous production-grade engineering principles:
 
-- **Component Colocation:** Everything related to a component lives together in its own folder (`Component.tsx`, `Component.test.tsx`, `types.ts`, `useComponentMotion.ts`).
+- **Component Colocation:** Everything related to a component lives together in its own folder (`Component.tsx`, `types.ts`, `useComponentMotion.ts`).
 - **Composition Over Configuration:** Prefer composable patterns (`<Card><CardHeader>...</CardHeader></Card>`) over bloated prop configurations.
-- **Container vs. Presentation Separation:** Data and state fetching logic lives in hooks or container components; presentation components remain pure.
-- **State Hierarchy:** Use the simplest state tier possible: Local state ➔ Lifted state ➔ URL state (`searchParams`) ➔ Server state ➔ Global store. Never prop-drill deeper than 3 levels.
-- **Strict WCAG 2.1 AA Accessibility:** Native elements, explicit `aria-label`, visible keyboard focus rings (`:focus-visible`), and escape-key handling.
-- **Loading Skeletons:** Use geometry-matching skeleton loaders instead of generic spinners.
-- **Eliminating the "AI Aesthetic":** Reject default purple gradients, uniform `rounded-2xl`, generic centered heroes, and fake proof metrics.
+- **Hero Viewport Cap:** Headline max 2 lines, subtext max 20 words, top padding max `pt-24`, max 4 text elements total.
+- **Eyebrow Restraint:** Max 1 eyebrow per 3 sections. Zero section-numbering eyebrows (`01 //` banned).
+- **Button Wrap Ban & Contrast:** Button text fits on 1 line at desktop; WCAG AA contrast (>= 4.5:1).
+- **Single-Intent CTA:** Exactly one CTA label per intent across the page.
+- **Zero Em-Dashes:** Complete ban on em-dash and en-dash characters (forbidden). Use regular hyphen `-`.
+- **Serif Discipline:** Sans display default (Geist Display, Cabinet Grotesk, PP Neue Montreal). Fraunces and Instrument_Serif banned as defaults.
+- **Palette Rotation:** Banned default beige+brass+espresso hexes for luxury/consumer briefs.
+- **Real Visuals:** Image-gen first, Picsum-seed descriptive photography, Simple Icons SVGs. Div fake screenshots banned.
+- **Strict WCAG 2.1 AA Accessibility:** Native elements, visible keyboard focus rings (`:focus-visible`), and escape-key handling.
 
 ---
 
-## ⛔ No Self-Testing Policy (The User Tests)
+## No Self-Testing Policy (The User Tests)
 
 Agent skills are strictly prohibited from running `npm run dev`, starting background server processes, or using browser subagents to test. **The USER tests on localhost themselves.** The agent's duty is to write clean, syntactically correct, properly configured code and hand over control to the user.
 
 ---
 
-## 🎯 The Modern Creative Stack (Always Latest)
+## The Modern Creative Stack (Always Latest)
 
 | Technology | Standard Version | Role in Architecture |
 |---|---|---|
 | **Next.js** | `15.x` (App Router) | Server components, edge routing, image optimization, dynamic favicons |
 | **TypeScript** | `5.x` (Strict) | Compile-time correctness, strict component props, zero `any` |
-| **Tailwind CSS** | Latest | Utility-first styling bounded by semantic CSS variable design tokens |
-| **Lenis Scroll** | `@studio-freight/lenis` / `lenis` | High-fidelity smooth inertia scrolling without scroll jank |
-| **GSAP** | `3.x` + `ScrollTrigger` | Choreographed scroll reveals, sticky timelines, parallax mechanics |
-| **Framer Motion** | `12.x` | Declarative spring physics, micro-interactions, modal transitions |
-| **Lucide Icons** | `latest` | Clean, lightweight geometric vector iconography |
+| **Tailwind CSS** | Latest (v4 / v3) | Utility-first styling bounded by semantic CSS variable design tokens |
+| **Lenis Scroll** | `lenis` | High-fidelity smooth inertia scrolling without scroll jank |
+| **GSAP** | `3.x` + `ScrollTrigger` | Canonical StickyStack and HorizontalPan timelines |
+| **Motion** | `motion/react` | Declarative spring physics, whileInView reveals, micro-interactions |
+| **Icon Libraries** | `@phosphor-icons/react`, `@tabler/icons-react` | Clean, geometric vector iconography (Lucide discouraged) |
 
 ---
 
-## 📁 Standardized Directory Layout (`frontend/`)
+## Standardized Directory Layout (`frontend/`)
 
 All application code is strictly isolated inside a dedicated `frontend/` folder:
 
@@ -146,15 +164,15 @@ my-project/
 
 ---
 
-## 🤖 The 5 Agent Skills
+## The 5 Agent Skills
 
-1. [`frontend-architect`](file:///d:/uiux/.agents/skills/frontend-architect/SKILL.md) (`/frontend-architect`): Stage 1 Foundation, Next.js 15 scaffolding in `frontend/`, mandatory Tailwind verification in `globals.css`, CSS variables, fluid clamp typography, vector `BrandLogo.tsx`, and dynamic `app/icon.tsx`.
-2. [`creative-layout-engineer`](file:///d:/uiux/.agents/skills/creative-layout-engineer/SKILL.md) (`/creative-layout`): Stage 2 Macro-Layout, drawing inspiration from [Design Bible](file:///d:/uiux/designs/DESIGN-BIBLE.md), persistent Tri-Zone Navigation, bespoke display typography Hero, and working multi-page route shells.
-3. [`interactive-component-engineer`](file:///d:/uiux/.agents/skills/interactive-component-engineer/SKILL.md) (`/component-engineer`): Stage 3 Downstream Sections, strict component colocation, composition over configuration, borderless cards, sharp buttons with sticky tap-highlight fix, and GSAP/Framer motion.
-4. [`experience-qa-auditor`](file:///d:/uiux/.agents/skills/experience-qa-auditor/SKILL.md) (`/qa-audit`): Stage 4 Production Hardening, custom 404 and error UX, mobile 320px verification, WCAG AA contrast audit, and JSON-LD structured SEO.
+1. [`frontend-architect`](file:///d:/uiux/.agents/skills/frontend-architect/SKILL.md) (`/frontend-architect`): Stage 1 Foundation, Brief Inference, Three Dials, Next.js 15 scaffolding in `frontend/`, mandatory Tailwind verification in `globals.css`, CSS variables, fluid clamp typography, vector `BrandLogo.tsx`, and dynamic `app/icon.tsx`.
+2. [`creative-layout-engineer`](file:///d:/uiux/.agents/skills/creative-layout-engineer/SKILL.md) (`/creative-layout`): Stage 2 Macro-Layout, Anti-Center Bias, Hero Viewport Cap, Eyebrow Restraint (zero section numbers), persistent Navigation, and working multi-page route shells.
+3. [`interactive-component-engineer`](file:///d:/uiux/.agents/skills/interactive-component-engineer/SKILL.md) (`/component-engineer`): Stage 3 Downstream Sections, canonical GSAP StickyStack/HorizontalPan skeletons, Motion whileInView reveals, button wrap ban, single-intent CTA, and real visual assets.
+4. [`experience-qa-auditor`](file:///d:/uiux/.agents/skills/experience-qa-auditor/SKILL.md) (`/qa-audit`): Stage 4 Production Hardening, complete 40+ Pre-Flight Check, custom 404 and error UX, mobile 320px verification, WCAG AA contrast audit, and JSON-LD structured SEO.
 5. [`ui-ux`](file:///d:/uiux/.agents/skills/ui-ux/SKILL.md) (`/uiux`): Master Orchestrator coordinating all 4 stages autonomously via `frontend/PLAN.md`.
 
 ---
 
-## 📄 License
+## License
 MIT © Raja Irfan Ahmed

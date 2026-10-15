@@ -1,120 +1,155 @@
-# 02 · Motion Choreography, GSAP & Framer Micro-Interactions
-**Domain:** Interactive Component Engineering · Stage 3 Components & Motion  
-**Philosophy:** Purposeful Motion. Animations must explain spatial relationships and reward interaction, never distract or cause vestibular discomfort.
+# 02: Motion Choreography, GSAP Skeletons & Micro-Interactions
+**Domain:** Interactive Component Engineering (Stage 3)  
+**Philosophy:** Purposeful motion, hardware acceleration, and reduced-motion safety. Zero em-dashes.
 
 ---
 
-## 1. The Dual Motion Architecture
+## 1. Motion Motivation Rule
 
-We use a complementary two-tier animation system:
-1. **Framer Motion (`framer-motion`):** For declarative React component micro-interactions, spring physics, modal dialog entrances, and tab transitions.
-2. **GSAP + ScrollTrigger (`gsap`):** For complex scroll-choreographed reveals, parallax timelines, and continuous path/number animations.
+Before adding any animation, ask: "What does this animation communicate?"
+- **Valid reasons:** Hierarchy, storytelling, feedback, state transition.
+- **Invalid reason:** "It looked cool."
+Each ScrollTrigger, each marquee, each pinned section needs a one-sentence reason. If you cannot articulate the reason in one sentence, drop the animation.
 
 ---
 
-## 2. Framer Motion Best Practices
+## 2. Forbidden Animation Patterns
 
-### Spring Physics Over Linear Easing:
-Avoid rigid linear transitions. Use physical springs with deliberate damping:
+- **`window.addEventListener('scroll', ...)` is banned.** Janky and unbatched. Use Motion's `useScroll()`, GSAP's `ScrollTrigger`, IntersectionObserver, or CSS scroll-driven animations.
+- **Custom scroll progress using `window.scrollY` in React state is banned.**
+- **`requestAnimationFrame` loops touching React state are banned.** Use Motion values (`useMotionValue` + `useTransform`).
+- **Animate ONLY `transform` and `opacity`.** Never animate `top`, `left`, `width`, `height`.
+
+---
+
+## 3. Canonical Sticky-Stack GSAP Pattern
 
 ```tsx
-// frontend/src/lib/motion.ts
-export const springTransition = {
-  type: 'spring',
-  stiffness: 380,
-  damping: 30,
-};
+"use client";
+import { useRef, useEffect, useId, type ReactNode } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useReducedMotion } from "motion/react";
 
-export const gentleSpring = {
-  type: 'spring',
-  stiffness: 200,
-  damping: 24,
-};
+gsap.registerPlugin(ScrollTrigger);
 
-export const staggerContainer = (staggerChildren = 0.08) => ({
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren,
-    },
-  },
-});
-
-export const revealItem = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: springTransition,
-  },
-};
-```
-
----
-
-## 3. GSAP ScrollTrigger Choreography
-
-For downstream showcase sections and timeline reveals:
-
-```tsx
-// frontend/src/components/sections/ShowcaseSection.tsx
-'use client';
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
-export function ShowcaseSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
+export function StickyStack({ cards }: { cards: ReactNode[] }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const instanceId = useId().replace(/:/g, "");
+  const cardClass = `stack-card-${instanceId}`;
+  const innerClass = `stack-card-inner-${instanceId}`;
 
   useEffect(() => {
-    if (!containerRef.current) return;
-
+    if (reduce || !ref.current || cards.length <= 1) return;
     const ctx = gsap.context(() => {
-      gsap.from('.showcase-item', {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-        },
+      const cardEls = gsap.utils.toArray<HTMLElement>(`.${cardClass}`);
+      cardEls.forEach((card, i) => {
+        if (i === cardEls.length - 1) return;
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top top",
+          endTrigger: cardEls[cardEls.length - 1],
+          end: "top top",
+          pin: true,
+          pinSpacing: false,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        });
+        const inner = card.querySelector(`.${innerClass}`);
+        if (!inner) return;
+        gsap.to(inner, {
+          scale: 0.92,
+          opacity: 0.55,
+          ease: "none",
+          scrollTrigger: {
+            trigger: cardEls[i + 1],
+            start: "top bottom",
+            end: "top top",
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        });
       });
-    }, containerRef);
-
+    }, ref);
     return () => ctx.revert();
-  }, []);
+  }, [reduce, cards.length, cardClass, innerClass]);
 
   return (
-    <section ref={containerRef} id="work" className="py-24 max-w-7xl mx-auto px-6">
-      {/* Downstream showcase items */}
-    </section>
+    <div ref={ref} className="relative">
+      {cards.map((card, i) => (
+        <div
+          key={i}
+          style={{ zIndex: i + 1 }}
+          className={`${cardClass} relative min-h-[100dvh] flex items-center justify-center`}
+        >
+          <div className={`${innerClass} w-full flex items-center justify-center will-change-transform`}>
+            {card}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
 ```
 
+Critical: `start: "top top"`, `pin: true`. Never combine CSS `position: sticky` with `pin: true` on the same element. Pin outer card, animate inner wrapper.
+
 ---
 
-## 4. Reduced Motion & Performance Rules
+## 4. Canonical Horizontal-Pan GSAP Pattern
 
-1. **Check `prefers-reduced-motion`:**
-   Wrap all GSAP animations:
-   ```ts
-   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-   if (prefersReducedMotion) {
-     // Skip translation animations, perform instant opacity switch
-     gsap.set(elements, { opacity: 1, y: 0 });
-     return;
-   }
-   ```
-2. **Never Animate Layout Properties:**
-   Animate ONLY GPU-accelerated properties: `transform` (`x`, `y`, `scale`) and `opacity`. NEVER animate `width`, `height`, `top`, `margin`, or `padding` during scroll.
-3. **Always Clean Up Listeners:**
-   In React hooks, always call `ctx.revert()` or `ScrollTrigger.kill()` on unmount to prevent memory leaks and ghost triggers.
+```tsx
+"use client";
+import { useRef, useEffect, type ReactNode } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useReducedMotion } from "motion/react";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export function HorizontalPan({ children }: { children: ReactNode }) {
+  const wrap = useRef<HTMLElement>(null);
+  const track = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+
+  useEffect(() => {
+    if (reduce || !wrap.current || !track.current) return;
+    const ctx = gsap.context(() => {
+      const getDistance = () =>
+        Math.max(0, track.current!.scrollWidth - wrap.current!.clientWidth);
+      gsap.to(track.current, {
+        x: () => -getDistance(),
+        ease: "none",
+        scrollTrigger: {
+          trigger: wrap.current,
+          start: "top top",
+          end: () => `+=${getDistance()}`,
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+    }, wrap);
+    return () => ctx.revert();
+  }, [reduce]);
+
+  return (
+    <section
+      ref={wrap}
+      role="region"
+      aria-label="Horizontal content track"
+      tabIndex={reduce ? 0 : undefined}
+      className={`relative w-full ${reduce ? "overflow-x-auto scroll-smooth" : "overflow-hidden"}`}
+    >
+      <div
+        ref={track}
+        className={`flex h-[100dvh] w-max items-center ${reduce ? "snap-x snap-mandatory" : ""}`}
+      >
+        {children}
+      </div>
+    </section>
+  );
+}
+```

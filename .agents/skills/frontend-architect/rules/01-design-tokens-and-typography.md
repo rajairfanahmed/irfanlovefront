@@ -1,25 +1,25 @@
-# 01 · Design Tokens & Fluid Typography Architecture
-**Domain:** Frontend Architecture · Stage 1 Foundation  
-**Philosophy:** Mathematical Precision & Aesthetic Personality. Zero arbitrary magic numbers. Zero raw hex codes scattered across components.
+# 01: Design Tokens & Fluid Typography Architecture
+**Domain:** Frontend Architecture (Stage 1 Foundation)  
+**Philosophy:** Mathematical Precision & Aesthetic Personality. Zero arbitrary magic numbers. Zero raw hex codes scattered across components. Zero em-dashes.
 
 ---
 
-## 🚨 MANDATORY TAILWIND CSS DIRECTIVES (CRITICAL)
+## MANDATORY TAILWIND CSS DIRECTIVES (CRITICAL)
 
-When creating or editing `frontend/src/app/globals.css`, you **MUST** ensure the Tailwind CSS directives are at the absolute top of the file! 
+When creating or editing `frontend/src/app/globals.css`, you MUST ensure the Tailwind CSS directives are at the absolute top of the file! 
 
 Never overwrite `globals.css` with only CSS variables, as this strips Tailwind completely and breaks all styling!
+
+### For Tailwind CSS v4:
+```css
+@import "tailwindcss";
+```
 
 ### For Tailwind CSS v3:
 ```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-```
-
-### For Tailwind CSS v4:
-```css
-@import "tailwindcss";
 ```
 
 Verify that `frontend/tailwind.config.ts` includes the correct `content` paths:
@@ -78,14 +78,14 @@ Directly following the Tailwind directives in `frontend/src/app/globals.css`:
   --text-secondary: #94A3B8;
   --text-muted: #64748B;
   
-  /* Brand Accent & Accoutrements (Used surgically: <5% of viewport) */
-  --accent-primary: #F59E0B;
-  --accent-secondary: #D97706;
-  --accent-glow: rgba(245, 158, 11, 0.15);
+  /* Brand Accent & Accoutrements (Used surgically: < 5% of viewport) */
+  --accent-primary: #0EA5E9;
+  --accent-secondary: #0284C7;
+  --accent-glow: rgba(14, 165, 233, 0.15);
   
   /* Hairline Borders (1px subtle rules, no harsh dark borders) */
   --border-hairline: rgba(148, 163, 184, 0.12);
-  --border-focus: #F59E0B;
+  --border-focus: #0EA5E9;
   
   /* Radii Tokens (Consistent geometry across the app) */
   --radius-sm: 4px;
@@ -123,38 +123,59 @@ a:focus-visible {
 
 ---
 
-## 2. Six Production-Grade Curated Palettes
+## 2. Palette Rotation & Banned Premium-Consumer Hexes
 
-Select one intentional archetype for the project, or derive an intentional variation based on user input:
+### The Banned Default Palette:
+For premium-consumer briefs (wellness, cookware, artisan, luxury, DTC goods), the LLM default is warm beige/cream + brass/clay/oxblood/ochre + espresso text.
+**Concretely banned hex families as default backgrounds and accents:**
+- Backgrounds: `#f5f1ea`, `#f7f5f1`, `#fbf8f1`, `#efeae0`, `#ece6db`, `#faf7f1`, `#e8dfcb`
+- Accents: `#b08947`, `#b6553a`, `#9a2436`, `#9c6e2a`, `#bc7c3a`, `#7d5621`
+- Text: `#1a1714`, `#1a1814`, `#1b1814`
 
-1. **Swiss Monochromatic + Crimson/Cobalt Accent:** Pure `#FFFFFF` or `#09090B`, steel grey secondary, vibrant `#E11D48` or `#2563EB` accent.
-2. **Deep Obsidian Slate + Electric Amber:** Background `#0B0F17` (never pure flat `#000`), `#151B26` surface, `#F59E0B` amber accent.
-3. **Warm Architectural Cream + Terracotta:** `#FBF9F5` alabaster background, `#F3EFEA` oat surface, `#18181B` charcoal text, `#C2410C` terracotta accent.
-4. **Editorial Monospace & Deep Ink:** `#111216` deep ink background, `#ECEFF4` Nordic white, `#38BDF8` muted cyan accent (<5%).
-5. **Botanical Sage & Warm Sand:** `#F7F7F2` sand, `#1C2826` forest ink, `#2D5A46` deep botanical green.
-6. **Luxury Ivory & Dark Espresso:** `#F9F6F0` ivory silk, `#2B231D` dark espresso, `#9E7A4A` antique gold/bronze.
+### Curated Alternatives (Rotate, Do Not Reuse):
+1. **Cold Luxury:** Silver-grey (`#E2E8F0`) + chrome + smoke (`#0F172A`)
+2. **Forest:** Deep forest green (`#0F291E`) + bone (`#F8FAF8`) + amber accent (`#D97706`)
+3. **Black and Tan:** True off-black (`#0C0D0E`) + warm tan (`#C5A880`), sharp contrast, no beige
+4. **Cobalt + Cream:** Saturated cobalt blue (`#1D4ED8`) against cool off-white (`#F8FAFC`)
+5. **Terracotta + Slate:** Warm rust (`#C2410C`) against cool slate grey (`#1E293B`)
+6. **Olive + Brick + Paper:** Muted olive (`#3D4A3E`) + brick-red accent (`#991B1B`)
+7. **Pure Monochrome + Single Pop:** Off-white (`#FAFAFA`) + off-black (`#09090B`) + one vivid accent (Electric Blue `#0284C7` or Emerald `#059669`)
 
 ---
 
-## 3. Mathematical Fluid Typography with CSS `clamp()`
+## 3. Serif Discipline & Typography Rules
 
-Never use rigid pixel sizes (e.g. `font-size: 72px`) that break on small mobile viewports. Every scale must adapt continuously across viewports from 320px to 1920px.
+1. **Sans Display Default:**
+   - Default to clean sans-serif display: `Geist Display`, `Cabinet Grotesk`, `PP Neue Montreal`, `Satoshi`, `Outfit`.
+   - Serif is very discouraged as default. "It feels creative" is NOT a reason to reach for serif.
+2. **Banned Display Serifs as Defaults:**
+   - `Fraunces` and `Instrument_Serif` are strictly banned as default display fonts.
+3. **Emphasis Rule:**
+   - When emphasizing a word within a headline, use italic or bold of the **SAME font family**.
+   - NEVER inject a random serif word into a sans headline.
+4. **Italic Descender Clearance:**
+   - When italic is used in display type and contains `y g j p q`, `leading-[1]` or `leading-none` clips descenders.
+   - Use `leading-[1.1]` minimum and add `pb-1` or `mb-1` reserve on the wrapping element.
+
+---
+
+## 4. Mathematical Fluid Typography with CSS `clamp()`
 
 ```css
 :root {
   /* Fluid Typography Scale */
-  --font-hero: clamp(2.75rem, 6vw + 1rem, 5.5rem);
-  --font-h1: clamp(2.25rem, 4.5vw + 0.75rem, 4rem);
-  --font-h2: clamp(1.75rem, 3vw + 0.5rem, 2.75rem);
-  --font-h3: clamp(1.35rem, 1.8vw + 0.4rem, 2rem);
-  --font-h4: clamp(1.15rem, 1vw + 0.3rem, 1.5rem);
-  --font-body: clamp(0.95rem, 0.35vw + 0.85rem, 1.125rem);
+  --font-hero: clamp(2.5rem, 5vw + 1rem, 5rem);
+  --font-h1: clamp(2rem, 3.5vw + 0.75rem, 3.5rem);
+  --font-h2: clamp(1.5rem, 2.5vw + 0.5rem, 2.5rem);
+  --font-h3: clamp(1.25rem, 1.5vw + 0.4rem, 1.75rem);
+  --font-h4: clamp(1.1rem, 1vw + 0.3rem, 1.35rem);
+  --font-body: clamp(0.95rem, 0.35vw + 0.85rem, 1.05rem);
   --font-small: clamp(0.8rem, 0.2vw + 0.75rem, 0.875rem);
   --font-mono: clamp(0.75rem, 0.2vw + 0.7rem, 0.85rem);
 
   /* Line Heights */
   --leading-tight: 1.05;
-  --leading-heading: 1.2;
+  --leading-heading: 1.15;
   --leading-body: 1.6;
   
   /* Letter Spacing */
@@ -163,36 +184,4 @@ Never use rigid pixel sizes (e.g. `font-size: 72px`) that break on small mobile 
   --tracking-wide: 0.05em;
   --tracking-mono: 0.08em;
 }
-```
-
----
-
-## 4. Curated Font Pairings (via `next/font/google`)
-
-Avoid defaulting to Inter for every build. Select a pairing that infuses distinct identity:
-
-```typescript
-// frontend/src/app/layout.tsx
-import { Syne, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
-
-export const displayFont = Syne({
-  subsets: ['latin'],
-  variable: '--font-display',
-  weight: ['600', '700', '800'],
-  display: 'swap',
-});
-
-export const sansFont = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  weight: ['400', '500', '600'],
-  display: 'swap',
-});
-
-export const monoFont = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  weight: ['400', '500'],
-  display: 'swap',
-});
 ```

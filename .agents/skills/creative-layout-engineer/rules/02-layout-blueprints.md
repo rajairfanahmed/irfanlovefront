@@ -11,11 +11,11 @@ Senior frontend engineers create **dynamic visual rhythm** by letting the conten
 A high-impact, asymmetric composition that creates immediate tension and prestige.
 
 ### Structure:
-- **Left Column (45%–50% width, sticky or anchored):**
+- **Left Column (45%-50% width, sticky or anchored):**
   - Oversized typographic statement (`clamp(2.5rem, 6vw, 5rem)`)
   - Project identity or core manifesto
   - Subtle meta details (tags, year, role, live links) with monospace styling
-- **Right Column (50%–55% width, scrolling stream):**
+- **Right Column (50%-55% width, scrolling stream):**
   - High-resolution work showcases, narrative paragraphs, case study deep-dives
   - Borderless imagery with fine hairline dividing rules (`border-bottom: 1px solid var(--border-hairline)`)
 
@@ -117,7 +117,7 @@ Instead of 3 equal-sized cards, arrange content with intentional visual hierarch
 Replaces disjointed cards with a continuous, beautifully typeset reading experience.
 
 ### Structure:
-- Centered narrow reading column (`max-width: 680px` to `760px`) for optimal reading rhythm (55–75 characters per line).
+- Centered narrow reading column (`max-width: 680px` to `760px`) for optimal reading rhythm (55-75 characters per line).
 - Breakout elements (diagrams, pull quotes, code blocks, screenshots) expand to `max-width: 1100px`.
 - High vertical rhythm with generous whitespace (`margin-bottom: 4rem` to `6rem`).
 
@@ -140,6 +140,6 @@ Replaces disjointed cards with a continuous, beautifully typeset reading experie
 ---
 
 ## Rules for Section Flow & Rhythm:
-1. **Never repeat the same layout twice consecutively:** If Section 1 is an Asymmetric Split, Section 2 must be an Index Table or Narrative Stream — NEVER another 3-column grid!
+1. **Never repeat the same layout twice consecutively:** If Section 1 is an Asymmetric Split, Section 2 must be an Index Table or Narrative Stream - NEVER another 3-column grid!
 2. **Use whitespace for separation:** Separate sections with `clamp(4rem, 10vw, 8rem)` of padding, NOT by wrapping every section in a bordered card box.
 3. **Contrast density:** Follow a dense data section with an expansive, quiet typographic section.

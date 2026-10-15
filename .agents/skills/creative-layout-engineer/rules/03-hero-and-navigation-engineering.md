@@ -1,60 +1,43 @@
-# 03 · Hero Section & Navigation Engineering
-**Domain:** Creative Layout Engineering · Stage 2 Macro-Layout  
-**Philosophy:** Distinct First Impression. Eliminate the ubiquitous centered AI hero template. Anchor the interface with deliberate navigation and bespoke display typography.
+# 03: Hero Section & Navigation Engineering
+**Domain:** Creative Layout Engineering (Stage 2 Macro-Layout)  
+**Philosophy:** Distinct First Impression. Eliminate the ubiquitous centered AI hero template. Anchor the interface with deliberate navigation and viewport-capped display typography. Zero em-dashes.
 
 ---
 
-## 1. Bespoke Navigation Archetypes
+## 1. Navigation Engineering Directives
 
-Select an intentional navigation archetype based on the project's art direction. Never build the exact same pill navbar on every project.
-
-### Archetype 1: The Hairline Fixed Header (Minimalist & Architectural)
-- **Geometry:** Full-width fixed header with delicate hairline bottom border (`border-b border-[var(--border-hairline)]`).
-- **Layout:** Three-zone alignment:
-  - Left: `BrandLogo` (vector mark + wordmark).
-  - Center: Semantic nav links with understated hover state (opacity shift or 1.5px sliding indicator, not heavy pill bubbles).
-  - Right: Contextual status badge (e.g. `● Available for Q4 contracts`) and primary action link.
+- **Single Line on Desktop:** Navigation items MUST render on a single line on desktop (`lg` 1024px+). If items do not fit, condense labels or use a drawer.
+- **Height Cap:** Max 80px on desktop (default 64-72px).
+- **No Unmotived Scroll Listeners:** Avoid raw `window.addEventListener('scroll')`. Use CSS sticky (`sticky top-0 z-50`) with backdrop blur or Motion `useScroll()`.
+- **Tri-Zone Alignment:**
+  - Left: Container-constrained `BrandLogo`.
+  - Center: Semantic nav links (`/about`, `/projects`, `/skills`, `/contact`).
+  - Right: Single-intent action CTA (e.g. `Initiate Contact`).
+- **No Duplicate CTA Intent:** Do not put two buttons with the same intent in the nav or hero.
 
 ```tsx
 // frontend/src/components/layout/Navbar.tsx
 'use client';
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { BrandLogo } from '@/components/ui/BrandLogo';
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-[var(--bg-primary)]/85 backdrop-blur-md border-b border-[var(--border-hairline)] py-3' 
-        : 'bg-transparent py-5'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-[var(--bg-primary)]/85 backdrop-blur-md border-b border-[var(--border-hairline)] h-16 md:h-18">
+      <div className="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
         <BrandLogo />
         
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[var(--text-secondary)]">
-          <Link href="#work" className="hover:text-[var(--text-primary)] transition-colors">Selected Work</Link>
-          <Link href="#architecture" className="hover:text-[var(--text-primary)] transition-colors">Engineering</Link>
-          <Link href="#about" className="hover:text-[var(--text-primary)] transition-colors">Philosophy</Link>
-          <Link href="#contact" className="hover:text-[var(--text-primary)] transition-colors">Contact</Link>
+          <Link href="/projects" className="hover:text-[var(--text-primary)] transition-colors">Projects</Link>
+          <Link href="/skills" className="hover:text-[var(--text-primary)] transition-colors">Systems & Skills</Link>
+          <Link href="/about" className="hover:text-[var(--text-primary)] transition-colors">About</Link>
+          <Link href="/contact" className="hover:text-[var(--text-primary)] transition-colors">Contact</Link>
         </nav>
 
         <div className="flex items-center gap-4">
-          <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-surface)] px-2.5 py-1 rounded-full border border-[var(--border-hairline)]">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>SYSTEMS NOMINAL</span>
-          </div>
           <Link
-            href="#contact"
-            className="text-xs uppercase tracking-wider font-mono font-semibold px-4 py-2 rounded-md bg-[var(--text-primary)] text-[var(--bg-primary)] hover:opacity-90 transition-opacity focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--border-focus)]"
+            href="/contact"
+            className="text-xs uppercase tracking-wider font-mono font-semibold px-4 py-2 rounded-md bg-[var(--text-primary)] text-[var(--bg-primary)] hover:opacity-90 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2"
           >
             Initiate Contact
           </Link>
@@ -65,52 +48,39 @@ export function Navbar() {
 }
 ```
 
-### Archetype 2: The Split-Rail Side Navigation (High-End Technical / Showcase)
-- Positioned vertically on the left or right margin (`sticky top-24`).
-- Shows section progress dots or roman numerals (`01 / ARCHITECTURE`, `02 / WORK`).
-- Keeps the central viewport entirely open for dynamic asymmetric content.
-
-### Archetype 3: The Floating Capsule Dock
-- Use only when requested or when crafting experimental/creative apps.
-- Bounded width (`max-w-fit`), centered bottom or top dock.
-- Clean 1px border, subtle frosted glass effect.
-
 ---
 
-## 2. Bespoke Hero Section Blueprints
+## 2. Bespoke Hero Section Directives
 
-BANNED FORMULA:
-❌ Center-aligned `New Feature v2.0 →` badge.
-❌ Giant centered purple gradient headline `Empowering the Future of Web`.
-❌ Generic 2-line centered body text.
-❌ Pair of rounded pill buttons with glowing drop shadows.
-❌ Row of 3 fake stats cards underneath (`10k+ Users`, `99.9% Uptime`, `4.9 Stars`).
+### Hard Constraints:
+1. **Hero MUST fit in initial viewport:** Headline max 2 lines, subtext max **20 words** AND max 4 lines, CTAs visible without scroll.
+2. **Hero top padding cap:** Max `pt-24` (approx 6rem) at desktop.
+3. **Hero stack discipline (max 4 text elements total):**
+   - Eyebrow OR brand strip (pick zero or one)
+   - Headline (max 2 lines)
+   - Subtext (max 20 words)
+   - CTAs (1 primary + max 1 secondary)
+4. **BANNED in Hero:**
+   - Tiny tagline below CTAs
+   - Trust micro-strip inside hero (logo wall lives UNDER the hero)
+   - Section numbers (`01 //`)
+   - Scroll cues (`Scroll`, `Scroll to explore`)
+   - Decorative text strips across hero bottom (`BRAND. MOTION. SPATIAL.`)
 
 ### Permitted Hero Archetypes:
 
-#### 1. The Asymmetric Editorial Hero:
+#### 1. The Asymmetric Split Hero:
 - **Left Column:**
-  - Category label in wide tracking monospace (`01 // PRINCIPAL FRONTEND SYSTEM`).
-  - Asymmetric headline with mixed typography (e.g., Bold Serif + Light Sans, or Giant Display + Monospace sub-clause).
-  - Short, confident manifesto paragraph.
-  - Direct action trigger (e.g. "Explore Flagship Systems ↓" link with smooth scroll).
+  - Plain language eyebrow (optional, e.g. `SYSTEM ARCHITECTURE`).
+  - Asymmetric headline (max 2 lines, sans display default).
+  - Short subtext (max 20 words).
+  - Primary CTA button.
 - **Right Column:**
-  - Real, interactive artifact: code sandbox preview, live SVG interactive model, or high-fidelity project preview.
-  - No fake metrics or empty cards.
+  - Real asset: generated image, Picsum-seed descriptive photography, or live interactive preview.
+  - Div-based fake screenshots are strictly banned.
 
-#### 2. The Architectural Typographic Statement:
-- Full-bleed display typography that fills the screen width (`clamp(3rem, 10vw, 8rem)`).
-- Hairline grid overlay with coordinates or technical labels.
-- Minimalist metadata bar anchored to the bottom edge of the hero viewport.
+#### 2. The Editorial Manifesto Hero:
+- Large sans display headline, no asset, expansive whitespace, single CTA.
 
-#### 3. The Tabular Split Hero:
-- Hero headline anchored in top-left, paired directly with an interactive index of current active projects or systems.
-
----
-
-## 3. Macro-Layout Acceptance Checklist:
-- [ ] Navigation matches one of the 3 intentional archetypes, not a generic floating blob.
-- [ ] Mobile navigation drawer/menu is fully responsive, keyboard navigable (`Escape` to close), and traps focus.
-- [ ] Hero section does not follow the banned AI template formula.
-- [ ] Lenis smooth scroll connects seamlessly with section anchors.
-- [ ] Layout transitions fluidly across 320px, 768px, 1024px, and 1440px.
+#### 3. The Scroll-Pinned Hero:
+- Hero pins cleanly at `start: "top top"` while downstream content stacks.

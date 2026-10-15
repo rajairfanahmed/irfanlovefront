@@ -2,7 +2,7 @@
 **Status:** Mandatory Frontend Engineering Rule  
 **Enforcement:** Must be executed in Phase 1 before proposing design plans or generating code
 
-The `designs/` folder contains **our studio's own award-winning design portfolio** (124 curated assets). When designing a project, you must draw inspiration directly from these real visual works — extracting layout structures, typography treatments, spacing rhythm, and palette relationships.
+The `designs/` folder contains **our studio's own award-winning design portfolio** (124 curated assets). When designing a project, you must draw inspiration directly from these real visual works - extracting layout structures, typography treatments, spacing rhythm, and palette relationships.
 
 ---
 

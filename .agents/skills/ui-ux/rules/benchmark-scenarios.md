@@ -37,7 +37,7 @@ Provide a standardized suite of 18 representative design scenarios to test the c
 
 ### Scenario 8: Editorial Content-First Publication
 - **Brief:** Design a technical publication and long-form essay reader.
-- **Expected Evaluation:** High typographic legibility (65–75 character measure), generous vertical margins, footnotes/sidenotes, distraction-free reading canvas.
+- **Expected Evaluation:** High typographic legibility (65-75 character measure), generous vertical margins, footnotes/sidenotes, distraction-free reading canvas.
 
 ### Scenario 9: Single Component Scope
 - **Brief:** Design and implement an accessible multi-select dropdown component.

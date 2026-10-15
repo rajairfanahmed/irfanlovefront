@@ -91,7 +91,7 @@ These heuristics evaluate visual and compositional quality. Violations weaken th
 - **Correction:** Derive composition, typography, and visual assets directly from the authentic product context, actual source data, and user brief.
 
 ### 2.4 Natural Prose Standard
-- **Failure:** Authored copy uses generic AI marketing clichés ("empowering", "seamless", "next-gen") or em dashes (`—`) in ordinary user-facing prose.
+- **Failure:** Authored copy uses generic AI marketing clichés ("empowering", "seamless", "next-gen") or em dashes (`-`) in ordinary user-facing prose.
 - **Correction:** Rewrite copy in clear, natural language with concrete descriptions and standard punctuation.
 
 ---

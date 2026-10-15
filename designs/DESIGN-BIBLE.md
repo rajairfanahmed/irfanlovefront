@@ -17,7 +17,7 @@ Transcribed from: `150-dark-gradients-collection`, `black-website-design`, `bran
 ### Core Color Archetypes:
 
 #### Archetype 1: Obsidian Specular (High-Tech, AI, & Engineering)
-- **Canvas (Level 0):** `#07080B` to `#0B0F17` (Deep Obsidian Slate with subtle blue-violet undertones — never flat `#000000`).
+- **Canvas (Level 0):** `#07080B` to `#0B0F17` (Deep Obsidian Slate with subtle blue-violet undertones - never flat `#000000`).
 - **Surface (Level 1):** `#11141D` to `#151B26` (Subtle elevated charcoal-navy).
 - **Elevated Card (Level 2):** `#181E2B` to `#1E2636` (Tactile interactive cards).
 - **Foreground / Text Primary:** `#F8FAFC` (Crisp off-white for zero eye fatigue).
@@ -66,9 +66,9 @@ Transcribed from: `bento-grid-amp-dashboard-for-revops`, `bento-grid-design-conc
 
 ### Core Bento Engineering Principles:
 1. **Asymmetric Grid Spanning:** Human-designed bento layouts deliberately vary column and row weights. A standard 12-column grid is divided into unequal visual anchors:
-   - **Hero Anchor Cell:** `col-span-12 lg:col-span-8 row-span-2` — holds the primary flagship narrative, interactive canvas, or core feature.
-   - **Telemetry / Metric Cell:** `col-span-12 sm:col-span-6 lg:col-span-4 row-span-1` — holds live counters, animated sparklines, or status indicators.
-   - **Technical Badges Cell:** `col-span-12 sm:col-span-6 lg:col-span-4 row-span-1` — holds technology badges or certification chips.
+   - **Hero Anchor Cell:** `col-span-12 lg:col-span-8 row-span-2` - holds the primary flagship narrative, interactive canvas, or core feature.
+   - **Telemetry / Metric Cell:** `col-span-12 sm:col-span-6 lg:col-span-4 row-span-1` - holds live counters, animated sparklines, or status indicators.
+   - **Technical Badges Cell:** `col-span-12 sm:col-span-6 lg:col-span-4 row-span-1` - holds technology badges or certification chips.
 2. **Single Elevation / No Card-in-Card Nesting:** Each cell is a single structural container. Content breathes inside generous internal padding (`p-6` to `p-8`) without nested child boxes.
 3. **Corner Geometry & Hairlines:**
    - Radii: `rounded-xl` (12px) or `rounded-lg` (8px).
@@ -86,7 +86,7 @@ Transcribed from: `40-creative-portfolio-layouts`, `che-marketing-agency-landing
    Replaces monotonous 3-column cards with an authentic tabular layout:
    - Column 1: Index / Year (`01 // 2026`) in monospace.
    - Column 2: Role / Project Title (`Software Engineer Intern`) in display font.
-   - Column 3: Organization / Ecosystem (`Devsinc — Corporate Engineering`).
+   - Column 3: Organization / Ecosystem (`Devsinc - Corporate Engineering`).
    - Column 4: Focus / Architecture (`HIPAA & Fintech Marketplace`).
    - Column 5: Action Link (`View Case Study →`).
 2. **The Tri-Zone Persistent Navbar:**
