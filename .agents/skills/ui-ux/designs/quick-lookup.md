@@ -1,0 +1,30 @@
+# Design Quick-Reference (124 assets)
+
+Use this instead of loading the 92KB design-index.json. Pick designs by category, then `view_file` on the image.
+
+## Color Systems & Palettes (11)
+150-dark-gradients-collection-png-palett.jpg | brand-identity-logo-and-color-color-pale.jpg | luxury-ui-color-palette-for-premium-webs.jpg | neon-color-palette-for-brand-neon-luxe-l.jpg | neon-yellow-black-black-yellow-color-pal.jpg | space-gradients-amp-accent-colors-in-dar.jpg | studio-11-premium-dark-color-palette-bla.jpg | tech-brand-colour-palette-tech-brand-col.jpg | facebook-facebook-branding-design-minima.jpg | fitness-app-branding-ideas-techthemed-br.jpg | kontour-studiosbrand-identityampmarketin.jpg
+
+## Typography (5)
+aquire-font-futuristic-free-typeface-aqu.jpg | curated-typography-library-typography-fo.jpg | huruf-tipografi-font-huruf-desain-media-.jpg | minimal-website-with-oversize-typography.jpg | okine-sans-modern-sansserif-font-family-.jpg
+
+## Bento Grids & Modular (7)
+bento-grid-amp-dashboard-for-revops-star.jpg | bento-grid-design-concept-website-with-m.jpg | bento-grids-templates-designed-by-stephe.jpg | bento-style-website-work-environment-ide.jpg | bento-ui-design-aplikasi-konsep-inspiras.jpg | unknown-bento-grid-festival-poster-syste.jpg | website-design-bento-grid-bento-grid-sec.jpg
+
+## Developer Portfolios & Agency (13)
+40-creative-portfolio-layouts-sito-web-p.jpg | che-marketing-agency-landing-page-karina.jpg | contemporary-figma-portfolio-website-tem.jpg | kreon-by-vektora-studio-creative-agency-.jpg | landing-page-website-website-about-me-se.jpg | masoniq-by-brandbes-modello-di-sito-web.jpg | nixo-studio-by-codexzel-about-us-page-we.jpg | personal-website-footer-consulting-agenc.jpg | photographer-website-templates-steam-web.jpg | portfolio-template-progettazione-del-lay.jpg | portfolio-template-sviluppo-software-web.jpg | sidrano-by-pentaclay-black-and-red-home-.jpg | sito-web-creativit-designportfolio.jpg
+
+## Glassmorphism & Materials (12)
+dark-mode-glassmorphism-ui-liquid-glass-.jpg | design-premium-professional-glassmorphis.jpg | glass-morphism-sito-web-palestra-brandin.jpg | glassmorphic-sidebar-ui-inspiration-airb.jpg | glassmorphism-landing-page-design-best-l.jpg | guide-sur-le-verre-liquide-utiliser-des-.jpg | liquid-glass-blue-glass-icon-for-apps-bl.jpg | liquid-glass-effect-figma-ui-elements.jpg | mobile-app-ui-design-premium-glassmorphi.jpg | orion-ar-glasses-landing-page-dima-hight.jpg | stunning-glassmorphic-ui-menu-with-liqui.jpg | the-glassmorphism-design-trend-in-figma-.jpg
+
+## Fintech & Web3 (5)
+innovative-web3-agency-landing-page-conc.jpg | masterpay-crypto-card-website-design-mas.jpg | nft-ambassador-monkey-design-unique-land.jpg | taplink-website-design-business-card-sit.jpg | web3-fintech-website-designed-by-awsmd-f.jpg
+
+## Dashboards & SaaS (3)
+cost-overview-ui-diseo-de-inspiracin-dis.jpg | movie-ux-ui-web-sitesi-dzeni-yazlm-gelit.jpg | shopify-product-listing-dashboard-ui-mod.jpg
+
+## Industrial & Physical Products (5)
+modern-web-design-ideas-clean-industrial.jpg | office-desk-with-two-monitors-and-a-lapt.jpg | sustainable-farming-website-agriculture-.jpg | website-design-for-optical-store-eye-gla.jpg | website-design-overview-for-steel-indust.jpg
+
+## Editorial & Marketing Layouts (63)
+2026-web.jpg | azentos-branding-agency-landing-page-bla.jpg | black-website-design-desain-ux-sites-lay.jpg | catch-wayfinding-system-concept-aleksei-.jpg | creative-agency-wordpress-theme-obsius-l.jpg | customer-review-section-design-promo-lan.jpg | dark-mode-pitch-deck-design-modern-prese.jpg | diseo-de-pginas-web-marketing-web-design.jpg | explore-clean-modern-and-responsive-webs.jpg | fiverr-find-the-best-global-talent-webde.jpg | futuristic-tech-website-futuristic-portf.jpg | green-and-black-design-web-landing-page-.jpg | holographic-website-design-website-desig.jpg | landing-page-with-3-sections-about-secti.jpg | learning-web-design-modern-educational-w.jpg | level-up-your-web-design-futuristic-webs.jpg | loja-de-cerveja-quiropraxia-estudos-para.jpg | mangrove-branding-amp-website-on-behance.jpg | marketing-agency-website-template-web-de.jpg | modern-creative-digital-agency-landing-p.jpg | modern-digital-marketing-design-creative.jpg | modern-it-company-website-ui-design-clea.jpg | mufidul-space-web-template-space-website.jpg | neoapple-ui-design-glassy-gradients-amp-.jpg | octo-smm-agency-website-our-service-page.jpg | optimiza-tu-pgina-de-aterrizaje-para-log.jpg | outpace-by-flock-supply-black-and-gold-l.jpg | pgina-de-vendas-desafio-quoto-grande-sal.jpg | pinterest.jpg | pinterest-image-0d45a551.jpg | pinterest-image-24649d03.jpg | pinterest-image-272ae57c.jpg | pinterest-image-f1186370.jpg | playerzero-framer-website-design-gallery.jpg | premium-3d-interface-presentation-mockup.jpg | premium-agritech-landing-page-ui-dark-sa.jpg | pricing-web-design-pricing-tiers-ui-pric.jpg | reinventa-una-increble-web-funcional-rpi.jpg | reluze-music-community-landing-page-webs.jpg | science-fiction-cover-design-sci-fi-movi.jpg | sharing-a-few-of-my-top-goto-sources-whe.jpg | social-media-design-graphic-design-poste.jpg | soundcloud-redesign-soundpulse-music-web.jpg | tech-product-landing-design-concept-crea.jpg | the-websitex27s-design-is-elegant-and-so.jpg | the-websitex27s-design-is-modern-and-tre.jpg | travelmate-travel-mobile-app-uxui-design.jpg | ui-ux-projects-photos-videos-logos-illus.jpg | web-design-about-tech-products-technolog.jpg | web-design-ofdiscover-digital-art-and-co.jpg | web-design-with-gold-red-and-gold-websit.jpg | web-page-design-layout-website-inspirati.jpg | web-site-for-business-website-template-w.jpg | web.jpg | webs-limpias-y-modernas-web-design-marke.jpg | website-landing-page-template-learn-to-c.jpg | welcome-to-our-home-page-discover-everyt.jpg | wordpress-homepage-design-ideas-webdesig.jpg | zenrixa-creative-digital-agency-website-.jpg | app-design-homepage-design-inspiration-w.jpg | mouses-on-computer-screen-macbook-laptop.jpg | ab-testing-in-ux-guide-for-better-design.jpg | discover-the-perfect-typeface-for-every-.jpg
