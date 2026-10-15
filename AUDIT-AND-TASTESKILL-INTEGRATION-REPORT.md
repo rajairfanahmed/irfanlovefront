@@ -83,7 +83,7 @@ Here is the exact reconciliation table:
 | **Tailwind Verification** | Mandatory directives in `globals.css` | Supported (Tailwind v4 / v3 `@import` / `@tailwind`) | **PRESERVE (COMPULSORY):** Mandatory Tailwind verification in `globals.css`. |
 | **Testing Policy** | User tests on localhost (no self-testing) | Compatible | **PRESERVE (COMPULSORY):** Strictly ban `npm run dev` and browser subagent tests. User tests on localhost themselves. |
 | **Multi-Page Pipeline** | Canonical route shells (`/about`, `/projects`, `/skills`, `/contact`) | Multi-page routing | **PRESERVE (COMPULSORY):** Deliver complete working multi-page route shells. |
-| **Creative Freedom** | Design Bible as reference | Anti-template philosophy | **PRESERVE (COMPULSORY):** Design Bible is an inspiration catalog, never a rigid or permanent template. |
+| **Creative Freedom** | Anti-template philosophy | Anti-template philosophy | **PRESERVE (COMPULSORY):** Full creative freedom driven by the Three Dials, never rigid or permanent templates. |
 
 ---
 

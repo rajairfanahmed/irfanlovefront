@@ -4,9 +4,9 @@ An elite, multi-agent frontend engineering ecosystem for Google Antigravity, Cla
 
 ---
 
-## Creative Freedom & Reference Philosophy (Not Permanent Templates)
+## Creative Freedom & Anti-Template Philosophy
 
-The color recipes, surface depths, layout blueprints, and component architectures documented in this suite and in the [Design Bible](file:///d:/uiux/designs/DESIGN-BIBLE.md) are **expansive human inspirations, not permanent or rigid templates**. Agents possess **full creative freedom** to invent bespoke compositions, calibrate tailored color temperatures, and choreograph unique micro-interactions that fit each project's unique brand, content, and mission.
+Every design decision is derived directly from the user's brief, audience, and the Three Dials (`DESIGN_VARIANCE`, `MOTION_INTENSITY`, `VISUAL_DENSITY`). Agents possess **full creative freedom** to invent bespoke compositions, calibrate tailored color temperatures, and choreograph unique micro-interactions that fit each project's unique brand, content, and mission without falling back on rigid or permanent templates.
 
 ---
 
