@@ -1,12 +1,55 @@
-# 03 · Project Scaffolding & State Tracking Standards
+# 03 · Project Scaffolding, Scope Boundaries & Tailwind Verification
 **Domain:** Frontend Architecture · Stage 1 Foundation  
-**Philosophy:** Strict Clean Architecture. Frontend code lives strictly inside `frontend/`. State is tracked in `frontend/uiux-progress.json` so context is never lost across iterations.
+**Philosophy:** Strict Clean Architecture & Disciplined Scope. Do not jump ahead. Verify foundations before marking complete.
 
 ---
 
-## 1. Directory Structure Standards
+## ⛔ CRITICAL SCOPE BOUNDARY (STAGE 1 ONLY)
 
-All frontend code must be strictly isolated inside a dedicated `frontend/` directory.
+`frontend-architect` is strictly responsible for **Stage 1: Foundation**.
+
+### What Stage 1 DOES:
+- Scaffolds or verifies the `frontend/` directory structure.
+- Configures Tailwind CSS and ensures Tailwind directives are loaded in `frontend/src/app/globals.css`.
+- Declares design tokens, fluid clamp typography, and the tap-highlight fix in `globals.css`.
+- Implements `frontend/src/components/ui/BrandLogo.tsx`.
+- Implements dynamic `frontend/src/app/icon.tsx` and `frontend/public/icon.svg`.
+- Implements `frontend/src/components/layout/SmoothScroll.tsx` (Lenis) and connects it in `frontend/src/app/layout.tsx`.
+- Sets up `frontend/src/app/page.tsx` as a minimal foundation placeholder showcasing the BrandLogo, tokens, and font typography.
+- Initializes `frontend/uiux-progress.json`.
+
+### ❌ What Stage 1 MUST NEVER DO:
+- **DO NOT** build Hero sections, work showcases, timelines, or downstream sections! That is Stage 2 (`creative-layout-engineer`) and Stage 3 (`interactive-component-engineer`).
+- **DO NOT** attempt to finish the whole website in one turn.
+- **DO NOT** skip the intake questions.
+
+---
+
+## ⛔ LOCALHOST & TESTING POLICY (NO SELF-TESTING)
+
+- **NEVER** run `npm run dev`, `next dev`, or launch background server processes.
+- **NEVER** use browser subagents to test the site.
+- **The USER will test the application on localhost themselves.**
+- The agent's duty is to write clean, syntactically correct, properly configured code and hand over control to the user.
+
+---
+
+## 🔍 TAILWIND CSS VERIFICATION CHECKLIST
+
+Before marking Stage 1 complete, you **MUST** verify:
+1. `frontend/src/app/globals.css` starts with:
+   - `@tailwind base;\n@tailwind components;\n@tailwind utilities;` (Tailwind v3) OR
+   - `@import "tailwindcss";` (Tailwind v4)
+2. `frontend/tailwind.config.ts` exists and includes `./src/**/*.{js,ts,jsx,tsx,mdx}` in its `content` array.
+3. `frontend/postcss.config.mjs` (or `.js`) is present.
+4. CSS variables are defined in `:root` inside `globals.css`.
+5. If Tailwind directives are missing, Tailwind is NOT loaded and the entire page will render as broken, unstyled HTML!
+
+---
+
+## 📁 Standardized Directory Layout (`frontend/`)
+
+All frontend code must be strictly isolated inside a dedicated `frontend/` directory:
 
 ```
 my-project/
@@ -18,14 +61,12 @@ my-project/
 │   ├── src/
 │   │   ├── app/                  # Next.js 15 App Router
 │   │   │   ├── layout.tsx        # Root layout with Lenis smooth scroll, fonts, metadata
-│   │   │   ├── page.tsx          # Master homepage composition
-│   │   │   ├── not-found.tsx     # Custom crafted 404 experience
-│   │   │   ├── error.tsx         # Resilient error boundary
-│   │   │   └── globals.css       # Design tokens, hairlines, utilities
+│   │   │   ├── page.tsx          # Minimal Stage 1 foundation placeholder
+│   │   │   ├── globals.css       # Tailwind directives + design tokens + tap fix
 │   │   ├── components/           # Focused, colocated component architecture
-│   │   │   ├── ui/               # Primitives (Button, Input, Badge, BrandLogo)
-│   │   │   ├── layout/           # Shell elements (Navbar, Footer, SideRail)
-│   │   │   └── sections/         # Page sections (Hero, Showcase, ExperienceTimeline)
+│   │   │   ├── ui/               # Primitives (BrandLogo, Button)
+│   │   │   ├── layout/           # Shell elements (SmoothScroll)
+│   │   │   └── sections/         # Reserved for Stage 2 & Stage 3
 │   │   ├── hooks/                # Custom React hooks (useLenis, useScrollProgress)
 │   │   ├── lib/                  # Utilities (cn, animations, gsapHelper, schema)
 │   │   └── types/                # Strict TypeScript interfaces
@@ -38,59 +79,7 @@ my-project/
 
 ---
 
-## 2. Stack Requirements (Always Latest)
-
-- **Next.js:** 15.x App Router
-- **TypeScript:** Strict mode enabled
-- **Tailwind CSS:** Configured with CSS variable design tokens
-- **Lenis Smooth Scroll:** `@studio-freight/lenis` or `lenis/react` initialized in root layout
-- **GSAP:** `gsap` + `ScrollTrigger`
-- **Framer Motion:** `framer-motion`
-- **Icons:** `lucide-react`
-
-### Lenis Provider Setup in Next.js 15:
-Create `frontend/src/components/layout/SmoothScroll.tsx`:
-```tsx
-'use client';
-import { ReactNode, useEffect } from 'react';
-import Lenis from 'lenis';
-
-export function SmoothScroll({ children }: { children: ReactNode }) {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    const rafId = requestAnimationFrame(raf);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
-    };
-  }, []);
-
-  return <>{children}</>;
-}
-```
-
-Wrap the root layout with `<SmoothScroll>` inside `frontend/src/app/layout.tsx`.
-
----
-
-## 3. State Tracking File (`frontend/uiux-progress.json`)
-
-When `frontend-architect` runs, it must initialize `frontend/uiux-progress.json`:
+## 📊 State Tracking (`frontend/uiux-progress.json`)
 
 ```json
 {
@@ -111,11 +100,13 @@ When `frontend-architect` runs, it must initialize `frontend/uiux-progress.json`
   "stages": {
     "1_foundation": {
       "agent": "frontend-architect",
-      "status": "in_progress",
+      "status": "completed",
+      "tailwindLoaded": true,
       "completedItems": [
-        "Directory structure initialized in frontend/",
-        "Design tokens & fluid clamp typography in globals.css",
-        "BrandLogo SVG and favicon configured"
+        "Directory structure verified in frontend/",
+        "Tailwind directives & design tokens verified in globals.css",
+        "BrandLogo SVG and dynamic favicon configured",
+        "Lenis smooth scroll wired in layout.tsx"
       ],
       "activeDecisions": {
         "colorPalette": "Deep Obsidian Slate & Electric Amber",
@@ -147,13 +138,3 @@ When `frontend-architect` runs, it must initialize `frontend/uiux-progress.json`
   }
 }
 ```
-
----
-
-## 4. Foundation Acceptance Checklist:
-- [ ] Root folder for the app is strictly named `frontend/`.
-- [ ] `frontend/src/app/globals.css` contains all design tokens with fluid `clamp()` variables.
-- [ ] `frontend/src/components/ui/BrandLogo.tsx` is implemented with bespoke SVG.
-- [ ] `frontend/src/app/icon.tsx` and `frontend/public/icon.svg` are configured.
-- [ ] `frontend/src/components/layout/SmoothScroll.tsx` is wired into `layout.tsx`.
-- [ ] `frontend/uiux-progress.json` is initialized with Stage 1 marked complete.

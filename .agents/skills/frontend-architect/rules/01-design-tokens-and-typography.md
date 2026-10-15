@@ -4,11 +4,67 @@
 
 ---
 
+## 🚨 MANDATORY TAILWIND CSS DIRECTIVES (CRITICAL)
+
+When creating or editing `frontend/src/app/globals.css`, you **MUST** ensure the Tailwind CSS directives are at the absolute top of the file! 
+
+Never overwrite `globals.css` with only CSS variables, as this strips Tailwind completely and breaks all styling!
+
+### For Tailwind CSS v3:
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### For Tailwind CSS v4:
+```css
+@import "tailwindcss";
+```
+
+Verify that `frontend/tailwind.config.ts` includes the correct `content` paths:
+```typescript
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        background: "var(--bg-primary)",
+        surface: "var(--bg-surface)",
+        elevated: "var(--bg-elevated)",
+        foreground: "var(--text-primary)",
+        muted: "var(--text-secondary)",
+        accent: {
+          DEFAULT: "var(--accent-primary)",
+          hover: "var(--accent-secondary)",
+          glow: "var(--accent-glow)",
+        },
+        border: "var(--border-hairline)",
+      },
+      fontFamily: {
+        display: ["var(--font-display)", "sans-serif"],
+        sans: ["var(--font-sans)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
+      },
+    },
+  },
+  plugins: [],
+};
+export default config;
+```
+
+---
+
 ## 1. Architectural Token System (CSS Variables)
 
-All color tokens, surfaces, and hairlines must be defined centrally in `frontend/src/app/globals.css` using semantic CSS variables with HSL or clean hex, exposed to Tailwind via `tailwind.config.ts`.
+Directly following the Tailwind directives in `frontend/src/app/globals.css`:
 
-### Canonical Token Structure:
 ```css
 :root {
   /* Surface Layers */
@@ -45,6 +101,23 @@ All color tokens, surfaces, and hairlines must be defined centrally in `frontend
   --space-xl: 2.5rem;   /* 40px */
   --space-2xl: 4rem;    /* 64px */
   --space-3xl: 6rem;    /* 96px */
+}
+
+/* Sticky Tap-Highlight Permanent Fix */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--border-focus, currentColor);
+  outline-offset: 2px;
 }
 ```
 
@@ -123,8 +196,3 @@ export const monoFont = JetBrains_Mono({
   display: 'swap',
 });
 ```
-
-### Typographic Contrast Checklist:
-- [ ] Display font and Body font belong to different classifications or have pronounced weight disparity.
-- [ ] Reading paragraphs are bounded to `max-w-[65ch]` to guarantee readability.
-- [ ] Mono accents are used for technical metadata, badges, and timestamps with uppercase and wide letter spacing (`tracking-widest text-xs uppercase`).
