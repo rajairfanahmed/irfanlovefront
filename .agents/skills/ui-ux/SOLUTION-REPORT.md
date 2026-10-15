@@ -120,15 +120,38 @@ To ensure the skill embodies this solution in every future execution:
 
 ---
 
+---
+
+## 6. Step-by-Step Execution & Automated Progress Tracking
+
+To ensure that progress is never lost and that user changes are executed with zero regressions, every project implements the new standard:
+
+1. **Automated State Tracking (`uiux-progress.json`):**  
+   Whenever `/uiux` runs, it creates or updates `uiux-progress.json` in the project root. This file logs:
+   - Stack installation & foundation setup
+   - Design thesis, custom tokens, and palette
+   - Custom SVG brand logo & favicon generation status
+   - Page checklist (`/`, `/about`, `/projects`, `/404`, `/error`)
+   - Viewport verification records (320px, 375px, 768px, 1440px)
+   - User feedback and requested changes history
+2. **The "AI Never Forgets" Protocol:**  
+   When the user requests changes (e.g. *"tweak the hero section"* or *"adjust the typography"*), the agent reads `uiux-progress.json` first, logs the change, and modifies the targeted components without losing context or breaking existing verified pages.
+
+---
+
+## 7. Professional Best Practices & Total Creative Freedom
+
+The 6 master rulebooks in `rules/` and all specialized guidelines are framed as **living professional craft standards**:
+- **Not Rigid Handcuffs:** The engineer has **complete creative freedom** to invent unique layouts, novel scrolling effects, dynamic navbars, interactive mechanisms, and bespoke animations that make each project stand out.
+- **Active Adoption of Full Rule Library:** Specialized rules in `rules/` (e.g. accessibility & inclusive design, motion & responsive design, industry-specific patterns, and realistic data) are actively adopted for real implementation.
+- **Every Project Unique:** No two projects share the same layout fingerprint, hero structure, or palette.
+- **Mobile-First Foundation (320px ➔ Desktop):** Every project begins at 320px with fluid `clamp()` type scaling and zero horizontal overflow.
+- **Sticky Highlight Prevention:** Eliminates browser tap-highlight and persistent `:focus` rings on click.
+- **Crafted Brand Identity & Favicon:** Generates custom SVG brand logos (monograms, abstract marks, wordmarks) and favicons for every project.
+- **Resilient 404 & Error UX:** Bespoke `not-found.tsx` and `error.tsx` error boundaries.
+- **Advanced Technical SEO:** Metadata, OpenGraph cards, Twitter cards, and structured JSON-LD schema on all routes.
+
+---
+
 ## Conclusion
-By liberating the agent to exercise **human-level creative freedom** within **strict engineering craft rules**, this skill will consistently produce award-level, human-designed web experiences that leave generic AI templates far behind.
-
-also i want (e.g. for example when click on button or other components the color is always highlighted so these type of issues also dont occur, vice versa etc, for errors, 404 pages, custom cards or best practices ui/ux should be followed, always for every project advanced seo, custom favicon, custom brand human creativity/created logo(e.g. abstract/monogram/wordmark etc) should be generated, etc. )
-
-every project the sill created, it should not be alwasys same, vice versa that identifies that prject is created by AI. e.g. scrolling effects, animations, interactive elements, unique layouts, etc. that make it stand out from other projects, this is what makes a project unique and stand out from other projects.
-
-always mobile first(start from 320px) --> desktop
-
- aur hame new rules add krne hoge, all frontend pages/design/UIUX step by step execute ho(e.g. stack installed, then foundation setup, then homepage(if user requires changes then changes done but AI never forgets its progress) for that we have to come up with progress tracking files, what has done, checked etc)
-
-not only 6 rules, but i dont want that it always stick to the written rules, yes i know best practices are good, but you can rewrite the 6 rules as a best practices and professional, also remaining rules should be not only read but adopted for implementation, what do you think? it should have freedom to create (e.g. navbars, layout, animations etc each and everything, dont stick it to specific)
+By uniting **human-level creative freedom** with **automated step-by-step progress tracking (`uiux-progress.json`)** and **professional craft standards**, this skill ensures that every frontend is executed with precision, never forgets user feedback, and consistently produces award-winning, bespoke web applications that leave generic AI templates behind.

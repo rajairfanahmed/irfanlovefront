@@ -56,26 +56,28 @@ Clarify the project essence naturally:
    - Restrained color accent distribution.
 
 ### Step 3: Consult the Experienced Engineering Rules (`rules/`)
-Before designing, you MUST consult the mandatory engineering rules for your task:
-- Anti-slop & banned patterns: `view_file` on `rules/01-anti-slop-and-banned-patterns.md`
-- Layout blueprints: `view_file` on `rules/02-layout-blueprints.md`
+Before designing, you MUST consult the living engineering best practices for your task:
+- Anti-slop & craft standards: `view_file` on `rules/01-anti-slop-and-banned-patterns.md`
+- Layout blueprints & creative freedom: `view_file` on `rules/02-layout-blueprints.md`
 - Color & typography pairings: `view_file` on `rules/03-color-and-typography-systems.md`
-- Component engineering: `view_file` on `rules/04-component-engineering.md`
+- Component engineering (buttons, navbars, cards, brand logo, favicon, 404/error): `view_file` on `rules/04-component-engineering.md`
 - Production code & CWV: `view_file` on `rules/05-production-code-standards.md`
+- Step-by-step progress tracking: `view_file` on `rules/07-step-by-step-execution-and-progress-tracking.md`
 
-### Step 4: Formulate the Design Thesis & Generate Mockup Image
-Synthesize your decisions into a concrete, human-designed plan:
-1. **Design Thesis:**
-   - **Chosen Layout Blueprint:** (e.g. Asymmetric Editorial Split, Minimalist Tabular Index, Magazine Multi-Scale — NOT a centered hero + 3-card grid!).
+### Step 4: Initialize Progress Tracking, Formulate Thesis & Generate Mockup Image
+1. **Initialize `uiux-progress.json`:** Create (or update) `uiux-progress.json` in the project root to record project type, studied inspiration designs, chosen palette tokens, typography, and page checklist. This ensures the AI never forgets progress or past decisions when changes are requested.
+2. **Formulate the Design Thesis (with Total Creative Freedom):**
+   - You have complete freedom to invent unique layouts, custom navbars, scrolling animations, and interactive elements suited to the brand.
    - **Specific Color Palette:** Explicit hex codes for background, surface, text, and accent (NOT generic #0a0a0a + cyan!).
    - **Typography Pairing:** Heading font, body font, and fluid `clamp()` type scale (NOT Inter on everything!).
-   - **Component Language:** Button geometry (sharp/hairline), card treatment (borderless whitespace/hairlines), and navigation style.
-   - **Portfolio Citations:** Which specific images from `designs/` inspired which structural decisions.
-2. **Generate Homepage Mockup Image:**
+   - **Component Language:** Button geometry, borderless whitespace cards/hairlines, tailored navbars.
+   - **Portfolio Citations:** Cite 3-5 images from `designs/` that inspired your structural and visual decisions.
+3. **Generate Homepage Mockup Image:**
    - Call `generate_image` with a detailed prompt reflecting your exact thesis, layout, colors, and typography to produce a visual concept image.
-3. **Present to User & Await Confirmation:**
+4. **Present to User & Await Confirmation:**
    - Present the thesis and embed the generated mockup image.
    - Ask: *"Does this visual direction work for you, or would you like adjustments before I write the code?"*
+   - Log any user feedback into `feedbackHistory` in `uiux-progress.json`.
 
 ⛔ **STOP: Do NOT write any frontend code until the user approves the Phase 1 design direction.**
 
@@ -149,5 +151,7 @@ Always open and apply the relevant rule files in `rules/`:
 | **Component Engineering** | [04-component-engineering.md](./rules/04-component-engineering.md) | Sharp buttons, tailored navbars, borderless containers |
 | **Production Standards** | [05-production-code-standards.md](./rules/05-production-code-standards.md) | Responsive, zero-overflow, CWV, technical SEO |
 | **Portfolio Extraction** | [06-design-inspiration-workflow.md](./rules/06-design-inspiration-workflow.md) | How to inspect `designs/` and extract visual DNA |
+| **Step-by-Step Tracker** | [07-step-by-step-execution-and-progress-tracking.md](./rules/07-step-by-step-execution-and-progress-tracking.md) | `uiux-progress.json` workflow, state persistence across changes |
+| **Motion & Responsive** | [motion-and-responsive-design.md](./rules/motion-and-responsive-design.md) | Hardware-accelerated transitions, interactive animations |
 | **WCAG Accessibility** | [accessibility-and-inclusive-design.md](./rules/accessibility-and-inclusive-design.md) | Full keyboard navigation and contrast compliance |
 | **Industry Patterns** | [industry-specific-patterns.md](./rules/industry-specific-patterns.md) | Domain-specific UX conventions (SaaS, FinTech, Dev) |

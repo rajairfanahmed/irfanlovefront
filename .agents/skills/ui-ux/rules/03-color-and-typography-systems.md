@@ -1,8 +1,6 @@
-# 03 · Color Systems & Typography Rules
-**Status:** Mandatory Frontend Engineering Rule  
-**Enforcement:** Pick a deliberate palette and typography pairing from this rulebook — NEVER default to `#0a0a0a` + cyan `#00d4ff` or Inter font on everything!
-
-Senior frontend engineers don't use generic AI defaults. They select tailored color palettes and sophisticated typography pairings that reflect the specific soul and personality of the project.
+# 03 · Color Systems & Typography Guidelines
+**Status:** Professional Best Practices & Systems  
+**Philosophy:** Creative Freedom with Intentional Harmony. These 6 curated palettes and typographic pairings are battle-tested benchmarks, but you have full freedom to invent tailored color temperatures, gradients, and font pairings suited to each unique project.
 
 ---
 

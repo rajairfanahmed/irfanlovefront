@@ -1,8 +1,6 @@
-# 01 · Anti-Slop & Banned AI Patterns Rulebook
-**Status:** Mandatory Frontend Engineering Rule  
-**Enforcement:** Hard Blocker for all UI/UX outputs
-
-Every interface must look like it was designed and built by an elite senior human frontend engineer, never an automated AI template generator.
+# 01 · Anti-Slop & Professional Craft Standards
+**Status:** Professional Craft Standards & Quality Gates  
+**Philosophy:** Every interface must feel bespoke, dynamic, and designed by an elite human designer. Eliminate repetitive AI templates through unique layouts, creative animations, interactive elements, and bespoke visual personality.
 
 ---
 

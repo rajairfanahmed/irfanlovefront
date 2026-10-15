@@ -1,8 +1,8 @@
 # 02 · Layout & Composition Blueprints
-**Status:** Mandatory Frontend Engineering Rule  
-**Enforcement:** Choose one of these structural blueprints for every new page or section — NEVER default to the 3-column card grid!
+**Status:** Professional Best Practices & Architectural Archetypes  
+**Philosophy:** Total Creative Freedom with High Craft Standards. These blueprints are proven starting paradigms, but you have the complete freedom to invent unique layouts, interactive scrolling mechanisms, dynamic navbars, and bespoke animations that make each project stand out.
 
-Senior frontend engineers create **dynamic visual rhythm** by varying layouts across the page. Instead of boxing every piece of content into identical rounded cards, apply these proven architectural blueprints.
+Senior frontend engineers create **dynamic visual rhythm** by letting the content dictate the layout. Rather than forcing every section into a default formula, apply these blueprints or craft bespoke architectural structures.
 
 ---
 
