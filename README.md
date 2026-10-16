@@ -1,20 +1,20 @@
 # UI/UX & Frontend Engineering Agent Skills Suite
 
-An elite, multi-agent frontend engineering ecosystem for Google Antigravity, Claude Code, and modern AI coding assistants. Designed by senior frontend architects to craft bespoke, award-winning web applications with **zero AI-template feel, zero AI-slop, and production-grade craftsmanship**, fully incorporating the `design-taste-frontend` (`tasteskill`) specification.
+An elite, multi-agent frontend engineering ecosystem for Google Antigravity, Claude Code, and modern AI coding assistants. Designed by senior frontend architects to craft bespoke, award-winning web applications with **zero AI-template feel, zero AI-slop, and production-grade craftsmanship**, fully incorporating the latest anti-slop frontend engineering specifications.
 
 ---
 
 ## Creative Freedom & Anti-Template Philosophy
 
-Every design decision is derived directly from the user's brief, audience, and the Three Dials (`DESIGN_VARIANCE`, `MOTION_INTENSITY`, `VISUAL_DENSITY`). Agents possess **full creative freedom** to invent bespoke compositions, calibrate tailored color temperatures, and choreograph unique micro-interactions that fit each project's unique brand, content, and mission without falling back on rigid or permanent templates.
+Every design decision is derived directly from the user's brief, audience, the Deterministic Randomization Engine, and the Three Dials (`DESIGN_VARIANCE`, `MOTION_INTENSITY`, `VISUAL_DENSITY`). Agents possess **full creative freedom** to invent bespoke compositions, calibrate tailored color temperatures, and choreograph unique micro-interactions that fit each project's unique brand, content, and mission without falling back on rigid or permanent templates.
 
 ---
 
 ## Architecture Overview
 
-Frontend engineering requires distinct cognitive modes: from foundational token mathematics and brief inference, to creative macro-layout composition, to micro-interaction choreography, to rigorous accessibility and technical SEO auditing. 
+Frontend engineering requires distinct cognitive modes: from foundational token mathematics and brief inference, to creative macro-layout composition, to micro-interaction choreography, to rigorous accessibility, technical SEO auditing, rapid build resolution, and authoritative documentation.
 
-This repository provides **four specialized domain skills** plus **one master orchestrator**:
+This repository provides **five core engineering stage skills** plus **two specialized auxiliary skills**:
 
 ```
                                   +-----------------------------+
@@ -31,27 +31,52 @@ This repository provides **four specialized domain skills** plus **one master or
  |   architect   |               |    layout-    |               |  component-   |               |  qa-auditor   |
  |               |               |   engineer    |               |   engineer    |               |               |
  +---------------+               +---------------+               +---------------+               +---------------+
- |* Brief Read   |               |* Macro-Layout |               |* Primitives   |               |* 404 & Errors |
- |* Three Dials  |               |* Viewport Cap |               |* Colocation   |               |* Mobile 320px |
- |* Tokens & CSS |               |* Tri-Zone Nav |               |* Canonical    |               |* Contrast AA  |
- |* Fluid clamp  |               |* Eyebrow Cap  |               |  GSAP Motion  |               |* JSON-LD SEO  |
- |* Brand SVG    |               |* Route Shells |               |* Button Wrap  |               |* 40+ Item     |
- |* Favicon      |               |* Anti-Center  |               |* Real Images  |               |  Pre-Flight   |
- |* Lenis Scroll |               |* Rhythm Check |               |* Zero Slop    |               |* Verification |
+ |* Deterministic|               |* 2-Line H1    |               |* Double-Bezel |               |* 45+ Item     |
+ |  Seed Engine  |               |  Iron Rule    |               |  Architecture |                  Pre-Flight   |
+ |* 6 Substrates |               |* 4 Hero       |               |* Button-in-   |               |* Spatial      |
+ |* 4 Font Stacks|                  Archetypes   |                  Button Icons |                  Rhythm Check |
+ |* Double-Bezel |               |* Gapless Bento|               |* 5 Advanced   |               |* Mobile 320px |
+ |  Math Tokens  |               |  Dense Flow   |                  GSAP Timelines               |* Contrast AA  |
+ |* Safe Blur    |               |* Route Shells |               |* Overflow-X   |               |* JSON-LD SEO  |
+ |* Brand SVG    |               |* Sub-Page     |                  Protection   |               |* 404 & Errors |
+ |* Favicon      |                  Spatial Rhythm               |* Zod Forms    |               |* Build Health |
  +---------------+               +---------------+               +---------------+               +---------------+
+                                                 |
+                                 +---------------+---------------+
+                                 |                               |
+                                 v                               v
+                 +-------------------------------+-------------------------------+
+                 |        AUXILIARY SKILL        |        AUXILIARY SKILL        |
+                 |      build-error-resolver     |      github-readme-writer     |
+                 +-------------------------------+-------------------------------+
+                 |* Fast-path TypeScript fix     |* Human operator writing voice |
+                 |* Next.js 15 compilation fix   |* Zero AI clichés or slop      |
+                 |* Minimal diffs (< 5% lines)   |* Architecture & proof-first   |
+                 |* Zero architectural churn     |* Zero em-dash enforcement     |
+                 +-------------------------------+-------------------------------+
 ```
 
 ---
 
-## Brief Inference & The Three Dials
+## The Deterministic Seed Engine (Breaking LLM Default Loops)
 
-Before touching code, the system infers what the user actually needs and outputs a one-line Design Read:
-**"Reading this as: <page kind> for <audience>, with a <vibe> language, leaning toward <design system or aesthetic family>."**
+To prevent Large Language Models from generating the same dark-slate, Geist-font layouts across different projects, Stage 0 executes a mathematical entropy calculation based on prompt character length (`len(prompt) % 6`). This assigns one of six distinct creative directions:
 
-### Core Configuration Dials (Scale 1-10):
-- **`DESIGN_VARIANCE: 1-10`** (1 = Perfect Symmetry, 10 = Artsy Chaos)
-- **`MOTION_INTENSITY: 1-10`** (1 = Static, 10 = Cinematic / Physics)
-- **`VISUAL_DENSITY: 1-10`** (1 = Art Gallery / Airy, 10 = Cockpit / Packed Data)
+1. **Seed 0: Ethereal Glass:** `#050505` OLED deep black, Vantablack cards, white hairlines, radial cyan/violet ambient glow, Satoshi + Cabinet Grotesk, Cinematic Center Hero, Sticky-Stack GSAP cards.
+2. **Seed 1: Swiss Industrial Print:** `#F4F4F0` unbleached paper, `#050505` carbon ink, `#E61919` hazard red accent, rigid 90-degree blueprint rules, Archivo Black + JetBrains Mono, Tactical Blueprint Hero, Horizontal Accordion.
+3. **Seed 2: Warm Utilitarian Minimalist:** `#F7F6F3` warm bone canvas, `#FFFFFF` crisp surfaces, `#EAEAEA` borders, desaturated pastels, Newsreader Serif + PP Neue Montreal, Editorial Split Hero, Inline Typography Micro-Images.
+4. **Seed 3: Tactical Telemetry CRT:** `#0A0A0A` deactivated CRT dark grey, `#EAEAEA` white phosphor text, hazard red highlights, Space Mono + Roboto Flex, Modular Telemetry Hero, Scrubbing Sequential Text Reveal.
+5. **Seed 4: Cold Luxury Navy:** `#060B14` deep midnight slate, `#0E1726` elevated cards, ice-blue or bronze accent, Outfit + Plus Jakarta Sans, Artistic Asymmetry Hero, Image Scale & Fade Scroll.
+6. **Seed 5: Editorial Luxury:** `#FDFBF7` rich cream substrate, `#111111` off-black text, muted sage accent, 3% subtle paper noise, Playfair Display + Geist Sans, Pinned Split Gallery Hero, Card Stacking Timeline.
+
+---
+
+## Cross-Project Divergence vs Single-Project Spatial Rhythm
+
+The suite strictly enforces two complementary spatial rules:
+
+1. **Cross-Project Divergence:** Consecutive projects must never look alike. They select completely different visual archetypes, substrate palettes, typography pairings, and hero structures.
+2. **Single-Project Spatial Rhythm:** Within any individual web application, all sub-pages (`/`, `/about`, `/projects`, `/skills`, `/contact`) share a standardized page shell, identical navbar height, consistent header Y-axis alignment (`pt-28`), and zero layout shift across page transitions.
 
 ---
 
@@ -78,38 +103,24 @@ Tasks are checked off as `- [x]` in real time, giving developers complete transp
 
 ---
 
-## Multi-Page Pipeline Architecture
-
-When building applications with multiple canonical routes (e.g. `/`, `/about`, `/projects`, `/skills`, `/contact`):
-
-1. **Phase 1: Tri-Zone Shell & Shared Layout:** Configure root layout with Lenis, Google Fonts, and persistent Navigation.
-2. **Phase 2: Canonical Route Shells (Zero Dead Links):** Generate lightweight, working shells for all routes so clicking any link immediately functions without 404s.
-3. **Phase 3: Deep Page-by-Page Construction:** Build one page at a time with full design depth, guided by `frontend/PLAN.md`.
-4. **Phase 4: Cross-Route Polish & SEO:** Audit mobile navigation, breadcrumbs, and canonical metadata.
-
----
-
 ## Frontend UI Engineering Standards
 
 All skills follow rigorous production-grade engineering principles:
 
-- **Component Colocation:** Everything related to a component lives together in its own folder (`Component.tsx`, `types.ts`, `useComponentMotion.ts`).
-- **Composition Over Configuration:** Prefer composable patterns (`<Card><CardHeader>...</CardHeader></Card>`) over bloated prop configurations.
-- **Hero Viewport Cap:** Headline max 2 lines, subtext max 20 words, top padding max `pt-24`, max 4 text elements total.
-- **Eyebrow Restraint:** Max 1 eyebrow per 3 sections. Zero section-numbering eyebrows (`01 //` banned).
-- **Button Wrap Ban & Contrast:** Button text fits on 1 line at desktop; WCAG AA contrast (>= 4.5:1).
-- **Single-Intent CTA:** Exactly one CTA label per intent across the page.
-- **Zero Em-Dashes:** Complete ban on em-dash and en-dash characters (forbidden). Use regular hyphen `-`.
-- **Serif Discipline:** Sans display default (Geist Display, Cabinet Grotesk, PP Neue Montreal). Fraunces and Instrument_Serif banned as defaults.
-- **Palette Rotation:** Banned default beige+brass+espresso hexes for luxury/consumer briefs.
-- **Real Visuals:** Image-gen first, Picsum-seed descriptive photography, Simple Icons SVGs. Div fake screenshots banned.
-- **Strict WCAG 2.1 AA Accessibility:** Native elements, visible keyboard focus rings (`:focus-visible`), and escape-key handling.
+- **The 2-Line Iron Rule:** Hero headlines flow inside ultra-wide containers (`max-w-5xl/6xl` or `w-full`) with `clamp(2.75rem, 5vw, 5.5rem)` and never exceed 2 lines on desktop.
+- **Gapless Bento Grids:** All multi-card bento grids enforce Tailwind's `grid-flow-dense` and mathematically interlocking cell spans (zero dead corners).
+- **Double-Bezel Nested Architecture:** Cards are built as machined hardware with outer shells (`bg-white/5 p-1.5 rounded-[2rem]`) and inner core containers with concentric radii (`rounded-[calc(2rem-0.375rem)]`).
+- **Button-in-Button Trailing Icons:** Arrows inside primary CTA pills are nested in distinct circular wrappers with diagonal kinetic hover physics.
+- **Backdrop-Blur Safety:** `backdrop-blur` is restricted strictly to fixed/sticky navbars and modals. Never applied to scrolling containers.
+- **Horizontal Scroll Protection:** Page root is strictly wrapped in `<main className="overflow-x-hidden w-full max-w-full">`.
+- **Strict Zero Em-Dashes:** Complete ban on em-dash and en-dash characters everywhere. Use regular hyphen `-`.
+- **Eyebrow & Meta-Label Restraint:** Max 1 eyebrow per 3 sections. Zero section numbers (`01 //` banned). Zero meta-labels ("SECTION 01" banned).
 
 ---
 
 ## No Self-Testing Policy (The User Tests)
 
-Agent skills are strictly prohibited from running `npm run dev`, starting background server processes, or using browser subagents to test. **The USER tests on localhost themselves.** The agent's duty is to write clean, syntactically correct, properly configured code and hand over control to the user.
+Agent skills are strictly prohibited from running `npm run dev`, starting background server processes, or using browser subagents to test. **The USER tests on localhost themselves.** The agent's duty is to write clean, syntactically correct, properly configured code, verify static types, and hand over control to the user.
 
 ---
 
@@ -121,7 +132,7 @@ Agent skills are strictly prohibited from running `npm run dev`, starting backgr
 | **TypeScript** | `5.x` (Strict) | Compile-time correctness, strict component props, zero `any` |
 | **Tailwind CSS** | Latest (v4 / v3) | Utility-first styling bounded by semantic CSS variable design tokens |
 | **Lenis Scroll** | `lenis` | High-fidelity smooth inertia scrolling without scroll jank |
-| **GSAP** | `3.x` + `ScrollTrigger` | Canonical StickyStack and HorizontalPan timelines |
+| **GSAP** | `3.x` + `ScrollTrigger` | Canonical StickyStack, Split Pinning, Scrubbing, and Scale/Fade timelines |
 | **Motion** | `motion/react` | Declarative spring physics, whileInView reveals, micro-interactions |
 | **Icon Libraries** | `@phosphor-icons/react`, `@tabler/icons-react` | Clean, geometric vector iconography (Lucide discouraged) |
 
@@ -146,13 +157,15 @@ my-project/
 │   │   │   ├── page.tsx          # Master homepage composition
 │   │   │   ├── about/page.tsx    # Narrative route
 │   │   │   ├── projects/page.tsx # Directory route
+│   │   │   ├── skills/page.tsx   # Architecture breakdown route
+│   │   │   ├── contact/page.tsx  # Inquiries and form route
 │   │   │   ├── not-found.tsx     # Custom crafted 404 experience
 │   │   │   ├── error.tsx         # Resilient error boundary
 │   │   │   └── globals.css       # Tailwind directives + design tokens + tap fix
 │   │   ├── components/           # Colocated component architecture
-│   │   │   ├── ui/               # Primitives (Button, Input, Badge, BrandLogo)
+│   │   │   ├── ui/               # Primitives (Button, Input, Badge, BrandLogo, DoubleBezel)
 │   │   │   ├── layout/           # Shell elements (Navbar, Footer, SmoothScroll)
-│   │   │   └── sections/         # Page sections (Hero, Showcase, Experience)
+│   │   │   └── sections/         # Page sections (Hero, Bento, Showcase, Contact)
 │   │   ├── hooks/                # Custom React hooks (useLenis, useScrollProgress)
 │   │   ├── lib/                  # Utilities (cn, animations, gsapHelper, schema)
 │   │   └── types/                # Strict TypeScript interfaces
@@ -164,13 +177,18 @@ my-project/
 
 ---
 
-## The 5 Agent Skills
+## The 7 Agent Skills
 
-1. [`frontend-architect`](file:///d:/uiux/.agents/skills/frontend-architect/SKILL.md) (`/frontend-architect`): Stage 1 Foundation, Brief Inference, Three Dials, Next.js 15 scaffolding in `frontend/`, mandatory Tailwind verification in `globals.css`, CSS variables, fluid clamp typography, vector `BrandLogo.tsx`, and dynamic `app/icon.tsx`.
-2. [`creative-layout-engineer`](file:///d:/uiux/.agents/skills/creative-layout-engineer/SKILL.md) (`/creative-layout`): Stage 2 Macro-Layout, Anti-Center Bias, Hero Viewport Cap, Eyebrow Restraint (zero section numbers), persistent Navigation, and working multi-page route shells.
-3. [`interactive-component-engineer`](file:///d:/uiux/.agents/skills/interactive-component-engineer/SKILL.md) (`/component-engineer`): Stage 3 Downstream Sections, canonical GSAP StickyStack/HorizontalPan skeletons, Motion whileInView reveals, button wrap ban, single-intent CTA, and real visual assets.
-4. [`experience-qa-auditor`](file:///d:/uiux/.agents/skills/experience-qa-auditor/SKILL.md) (`/qa-audit`): Stage 4 Production Hardening, complete 40+ Pre-Flight Check, custom 404 and error UX, mobile 320px verification, WCAG AA contrast audit, and JSON-LD structured SEO.
-5. [`ui-ux`](file:///d:/uiux/.agents/skills/ui-ux/SKILL.md) (`/uiux`): Master Orchestrator coordinating all 4 stages autonomously via `frontend/PLAN.md`.
+### Core 4-Stage Engineering Suite
+1. [`ui-ux`](file:///d:/uiux/.agents/skills/ui-ux/SKILL.md) (`/uiux`): Master Orchestrator coordinating all 4 stages autonomously via `frontend/PLAN.md`, enforcing deterministic entropy, AIDA structure, and cross-project divergence.
+2. [`frontend-architect`](file:///d:/uiux/.agents/skills/frontend-architect/SKILL.md) (`/frontend-architect`): Stage 1 Foundation, Deterministic Seed Engine, 6 substrate palettes, 4 font stacks, double-bezel radii tokens, safe backdrop-blur constraints, Next.js 15 scaffolding in `frontend/`, and vector `BrandLogo.tsx`.
+3. [`creative-layout-engineer`](file:///d:/uiux/.agents/skills/creative-layout-engineer/SKILL.md) (`/creative-layout`): Stage 2 Macro-Layout, 2-Line Iron Rule (`max-w-5xl/6xl`), 4 Hero Layout Archetypes, Gapless Bento Grids (`grid-flow-dense`), Meta-label ban, persistent single-line Navigation, and working multi-page route shells.
+4. [`interactive-component-engineer`](file:///d:/uiux/.agents/skills/interactive-component-engineer/SKILL.md) (`/component-engineer`): Stage 3 Downstream Sections, Double-Bezel card primitives, Button-in-Button trailing icons, 5 advanced GSAP timelines (StickyStack, Split Pinning, Scale/Fade, Scrubbing Text), and horizontal scroll protection.
+5. [`experience-qa-auditor`](file:///d:/uiux/.agents/skills/experience-qa-auditor/SKILL.md) (`/qa-audit`): Stage 4 Production Hardening, complete 45+ Pre-Flight Check, custom 404 and error UX, mobile 320px verification, Single-Project Spatial Rhythm audit, and JSON-LD structured SEO.
+
+### Specialized Auxiliary Suite
+6. [`build-error-resolver`](file:///d:/uiux/.agents/skills/build-error-resolver/SKILL.md) (`/build-error-resolver`): Rapid, surgical resolution for TypeScript compilation errors, Next.js 15 build failures, module resolution issues, and dependency conflicts with minimal diffs and zero architectural churn.
+7. [`github-readme-writer`](file:///d:/uiux/.agents/skills/github-readme-writer/SKILL.md) (`/github-readme-writer`): Human operator documentation writer for world-class GitHub `README.md` files, launch articles, and technical breakdowns, strictly eliminating AI clichés and em-dashes.
 
 ---
 
