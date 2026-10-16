@@ -1,0 +1,48 @@
+{
+  "name": "irfanlovefront",
+  "version": "2.0.0",
+  "description": "One-command installer for irfanlovefront UI/UX agent skills across Claude Code, Antigravity, Cursor, Windsurf, and Copilot",
+  "type": "module",
+  "bin": {
+    "irfanlovefront": "./bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    ".agents/skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "ai-agents",
+    "skills",
+    "claude-code",
+    "antigravity",
+    "cursor",
+    "cursor-rules",
+    "windsurf",
+    "github-copilot",
+    "frontend-engineering",
+    "design-system",
+    "ui-ux"
+  ],
+  "author": "Raja Irfan Ahmed <https://github.com/rajairfanahmed>",
+  "license": "CC-BY-NC-SA-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rajairfanahmed/irfanlovefront.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rajairfanahmed/irfanlovefront/issues"
+  },
+  "homepage": "https://github.com/rajairfanahmed/irfanlovefront#readme",
+  "dependencies": {
+    "@clack/prompts": "^0.8.2",
+    "commander": "^13.1.0",
+    "fs-extra": "^11.3.0",
+    "picocolors": "^1.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

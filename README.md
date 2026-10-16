@@ -16,12 +16,13 @@
 /_/_//_/  /_/  \_,_/_//_/\__/_//_/\___/___/\__/ /_/ /_/  \___/_//_/\__/ 
 ```
 
-### The Autonomous 8-Agent UI/UX & Frontend Engineering Suite
+### The Autonomous 8-Agent UI/UX & Frontend Engineering Suite (v2.0)
 
 **Eliminate frontend design paralysis, generic templates, and AI-slop forever.**
 
+[![npm version](https://img.shields.io/npm/v/irfanlovefront.svg?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v1.0.0-blue.svg?style=flat-square)](RELEASE-1.0.0.md)
+[![Release](https://img.shields.io/badge/release-v2.0.0-blue.svg?style=flat-square)](RELEASE-1.0.0.md)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -37,18 +38,38 @@
 
 ---
 
-## ⚡ The Quickstart
+## ⚡ The 1-Command Quickstart (v2)
 
-Install the suite into your workspace agent skills directory in seconds:
+Install the entire 8-agent skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
 ```bash
-# Clone the suite into your project's agent skills directory
-git clone https://github.com/rajairfanahmed/irfanlovefront.git .agents/skills/irfanlovefront
+# Interactive setup (selects your agent and workspace/global scope)
+npx irfanlovefront
 ```
 
-Or install globally for all Antigravity and Claude Code projects:
+Or install with direct target flags:
 
 ```bash
+# Install specifically for Claude Code (.claude/skills + CLAUDE.md)
+npx irfanlovefront --claude
+
+# Install specifically for Cursor (.cursor/rules/*.mdc)
+npx irfanlovefront --cursor
+
+# Install specifically for Google Antigravity / Gemini
+npx irfanlovefront --antigravity
+
+# Install for all supported AI agents simultaneously
+npx irfanlovefront --all
+```
+
+### Manual Git Installation
+
+```bash
+# Clone into project workspace
+git clone https://github.com/rajairfanahmed/irfanlovefront.git .agents/skills/irfanlovefront
+
+# Or install globally for Antigravity
 git clone https://github.com/rajairfanahmed/irfanlovefront.git ~/.gemini/config/skills/irfanlovefront
 ```
 
