@@ -95,14 +95,41 @@ Never place a card flatly on the background. Machined, expensive components use 
 - Apply `backdrop-blur` ONLY to fixed or sticky elements (navbars and modal overlays).
 - NEVER apply `backdrop-blur` to scrolling containers, cards, or large content areas. This triggers continuous GPU repaints and severe mobile frame drops.
 
-### C. Fluid Clamp Typography Scale
+### C. Fluid Clamp Typography Scale & Optical Sizing
 Define responsive fluid typography in `globals.css` using mathematical `clamp()`:
-- Display H1: `clamp(2.75rem, 5vw, 5.5rem)`
-- Section H2: `clamp(2rem, 3.5vw, 3.75rem)`
+- Display H1: `clamp(2.75rem, 5vw, 5.5rem)` with tight tracking (`letter-spacing: -0.02em` to `-0.03em`)
+- Section H2: `clamp(2rem, 3.5vw, 3.75rem)` with `-0.015em` tracking
 - Subtitle: `clamp(1.125rem, 1.5vw, 1.35rem)`
 - Body: `clamp(0.95rem, 1vw, 1.05rem)` with relaxed leading `1.6` to `1.7`
+- Small Caps / Badges: `0.75rem` with positive tracking (`letter-spacing: 0.05em` to `0.08em`)
 
-### D. SVG Logo Engineering Standards (Guided Exploration & Multi-Scale Assets)
+### D. Emil Kowalski Mobile-Native & Animation Tokens
+Declare these foundational tokens and reset rules inside `globals.css`:
+```css
+/* Emil Kowalski Custom Easing Curves */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Eliminate Mobile Tap Highlight Flash */
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove 300ms tap delay on mobile */
+button, a, input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Prevent iOS Auto-Zoom on Input Focus */
+input, select, textarea {
+  font-size: 16px;
+}
+```
+
+### E. SVG Logo Engineering Standards (Guided Exploration & Multi-Scale Assets)
 - **ViewBox Sizing:** Always use `viewBox="0 0 512 512"` for icons/monograms and `viewBox="0 0 1024 512"` for combination marks without hardcoded `width`/`height` attributes on the root `<svg>`.
 - **Self-Contained:** Zero external font dependencies, zero external images, zero external `<use>` refs. All text converted to native `<path>` elements or geometric primitives.
 - **Semantic Grouping:** Group elements under `<g id="icon">`, `<g id="wordmark">`, and `<g id="tagline">` to allow clean extraction of the standalone icon for favicons and mobile navigation.

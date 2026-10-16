@@ -23,19 +23,20 @@ The framework enforces:
 
 ---
 
-## 2. The 7 Specialized Agent Skills
+## 2. The 8 Specialized Agent Skills
 
-The suite consists of **five core engineering stages** and **two specialized auxiliary skills**. All slash commands match their folder names exactly:
+The suite consists of a master orchestrator, **five core engineering stages**, and **two specialized auxiliary skills**. All slash commands match their folder names exactly:
 
 | Folder Name | Slash Command | Cognitive Role & Full Description | Key Outputs |
 |---|---|---|---|
-| **`irfanlovefront`** | `/irfanlovefront` | **Master UI/UX & Frontend Engineering Orchestrator:** Coordinates the full 4-stage lifecycle autonomously inside `frontend/`. Injects deterministic entropy, AIDA structure, and live milestone tracking. | `frontend/PLAN.md`, `uiux-progress.json`, coordinated stage progression |
-| **`frontend-architect`** | `/frontend-architect` | **Stage 1 Foundation & Architecture Engineer:** Scaffolds Next.js 15, selects 1 of 6 calibrated substrate palettes and font stacks, configures double-bezel radii math, fluid clamp type, SVG BrandLogo, and Lenis. | `globals.css` tokens, `BrandLogo.tsx`, `app/icon.tsx`, `SmoothScroll.tsx` |
-| **`creative-layout-engineer`** | `/creative-layout-engineer` | **Stage 2 Macro-Layout & Hero Craftsman:** Designs wide anti-slop hero sections meeting the 2-Line Iron Rule, 4 hero archetypes, gapless bento grids (`grid-flow-dense`), and working canonical route shells. | `Navbar.tsx`, `HeroSection.tsx`, `BentoSection.tsx`, `/about`, `/projects`, `/skills`, `/contact` |
-| **`interactive-component-engineer`** | `/interactive-component-engineer` | **Stage 3 UI Primitives & Motion Choreographer:** Builds downstream sections with machined double-bezel cards, button-in-button CTAs, 5 GSAP ScrollTrigger paradigms, and page-wide overflow protection. | `Button.tsx`, `ShowcaseSection.tsx`, `ContactSection.tsx`, GSAP timelines |
-| **`experience-qa-auditor`** | `/experience-qa-auditor` | **Stage 4 Production Hardening & SEO Auditor:** Verifies mobile 320px responsiveness, executes the mechanical 45+ Pre-Flight Check, builds custom 404/error UX, and injects JSON-LD SEO schemas. | `not-found.tsx`, `error.tsx`, OpenGraph metadata, JSON-LD structured schema |
+| **`irfanlovefront`** | `/irfanlovefront` | **Master UI/UX & Frontend Engineering Orchestrator:** Coordinates the full 5-stage lifecycle autonomously inside `frontend/`. Injects deterministic entropy, AIDA structure, Emil Kowalski design engineering rules, and live milestone tracking. | `frontend/PLAN.md`, `uiux-progress.json`, coordinated stage progression |
+| **`taste-design-engineer`** | `/taste-design-engineer` | **Stage 0 Pre-Architecture Taste & Design Engineer:** Ingests platform target, canonical routes, rough user sketches, and reference URLs. Synthesizes Emil Kowalski design engineering standards and Apple fluid interface principles before code scaffolding. | `frontend/DESIGN_ENGINEERING_BRIEF.md`, animation decision matrix |
+| **`frontend-architect`** | `/frontend-architect` | **Stage 1 Foundation & Architecture Engineer:** Scaffolds Next.js 15, selects 1 of 6 calibrated substrate palettes and font stacks, configures double-bezel radii math, fluid clamp type, mobile-native tokens, SVG BrandLogo, and Lenis. | `globals.css` tokens, `BrandLogo.tsx`, `app/icon.tsx`, `SmoothScroll.tsx` |
+| **`creative-layout-engineer`** | `/creative-layout-engineer` | **Stage 2 Macro-Layout & Hero Craftsman:** Designs wide anti-slop hero sections meeting the 2-Line Iron Rule, 4 hero archetypes, 100svh viewport stability, gapless bento grids (`grid-flow-dense`), and working canonical route shells. | `Navbar.tsx`, `HeroSection.tsx`, `BentoSection.tsx`, `/about`, `/projects`, `/skills`, `/contact` |
+| **`interactive-component-engineer`** | `/interactive-component-engineer` | **Stage 3 UI Primitives & Motion Choreographer:** Builds downstream sections with machined double-bezel cards, button-in-button CTAs, Emil Kowalski button press physics (`scale(0.97)`), 5 GSAP paradigms, and page-wide overflow protection. | `Button.tsx`, `ShowcaseSection.tsx`, `ContactSection.tsx`, GSAP timelines |
+| **`experience-qa-auditor`** | `/experience-qa-auditor` | **Stage 4 Production Hardening & SEO Auditor:** Verifies mobile 320px responsiveness, executes the mechanical 45+ Pre-Flight Check, runs Emil's mobile-native symptom audit, tests Break-UI edge cases, builds custom 404/error UX, and injects JSON-LD SEO schemas. | `not-found.tsx`, `error.tsx`, OpenGraph metadata, JSON-LD structured schema |
 | **`build-error-resolver`** | `/build-error-resolver` | **Auxiliary Build Recovery Specialist:** Rapidly resolves TypeScript compilation failures, Next.js build issues, and dependency conflicts with minimal surgical diffs (< 5% lines) and zero architectural churn. | Green build status, type annotations, zero compilation errors |
-| **`github-readme-writer`** | `/github-readme-writer` | **Auxiliary Technical Documentation Writer:** Crafts human operator-voice GitHub READMEs, release launch notes, and case studies, strictly eliminating AI clichés, throat-clearing, and em-dashes. | High-converting `README.md`, technical case studies, release guides |
+| **`github-readme-writer`** | `/github-readme-writer` | **Auxiliary Technical Documentation Writer:** Crafts human operator-voice GitHub READMEs, release launch notes, and case studies modeled after the Daytona open-source standard, strictly eliminating AI clichés and em-dashes. | High-converting `README.md`, technical case studies, release guides |
 
 ---
 
@@ -48,11 +49,12 @@ To run the full end-to-end development lifecycle automatically, invoke the maste
 /irfanlovefront Build a high-performance web platform for a real-time aerospace telemetry dashboard.
 ```
 
-The orchestrator executes the four stages sequentially:
-1. Stage 0 & 1: Runs deterministic entropy, infers design read, sets dials, scaffolds Next.js 15 inside `frontend/`, and configures design tokens and SVG brand marks.
-2. Stage 2: Builds the tri-zone navigation bar, 2-line hero section, gapless bento grid, and multi-page canonical route shells.
-3. Stage 3: Engineers downstream showcase sections with double-bezel cards, button-in-button CTAs, and GSAP motion timelines.
-4. Stage 4: Conducts mobile 320px verification, builds custom 404 and error boundaries, injects JSON-LD SEO schema, and signs off the 45+ Pre-Flight Check.
+The orchestrator executes the five stages sequentially:
+1. Stage 0: Consults with `taste-design-engineer` to define taste profile, canonical routes, and animation rules, producing `frontend/DESIGN_ENGINEERING_BRIEF.md`.
+2. Stage 1: Scaffolds Next.js 15 inside `frontend/` with tokens, SVG BrandLogo, and mobile-native CSS reset.
+3. Stage 2: Builds the tri-zone navigation bar, 2-line hero section, gapless bento grid, and multi-page canonical route shells.
+4. Stage 3: Engineers downstream showcase sections with double-bezel cards, button-in-button CTAs, and GSAP motion timelines.
+5. Stage 4: Conducts mobile 320px verification, runs Emil's mobile-native audit and Break-UI stress test, builds custom 404 and error boundaries, and injects JSON-LD SEO schema.
 
 ---
 

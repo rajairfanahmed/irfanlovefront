@@ -33,16 +33,26 @@ Never place a card or container flatly on the background. Build components as ma
 Primary interactive buttons must be fully rounded pills (`rounded-full`) with generous padding (`px-6 py-3`):
 - The trailing arrow (`↗`) NEVER sits naked next to text.
 - Nest the icon inside its own distinct circular wrapper (`w-8 h-8 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center`).
-- **Kinetic Tension:** On hover, the inner icon translates diagonally (`group-hover:translate-x-1 group-hover:-translate-y-[1px]`) and scales up slightly (`scale-105`), while `:active` scales the button down (`active:scale-[0.98]`).
+- **Kinetic Tension & Button Press Physics:**
+  - On hover, the inner icon translates diagonally (`group-hover:translate-x-1 group-hover:-translate-y-[1px]`) and scales up slightly (`scale-105`).
+  - On `:active`, apply Emil Kowalski's button press physics: `active:scale-[0.97]` with `160ms var(--ease-out)` transition. This scales label, icons, and children proportionally.
 
 ```tsx
-<button className="group relative inline-flex items-center gap-4 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black transition-all duration-300 hover:bg-neutral-100 active:scale-[0.98]">
+<button className="group relative inline-flex items-center gap-4 rounded-full bg-white px-6 py-2.5 text-sm font-medium text-black transition-transform duration-160 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-neutral-100 active:scale-[0.97]">
   <span>Explore Case Study</span>
   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black/5 transition-transform duration-300 group-hover:scale-105 group-hover:translate-x-1 group-hover:-translate-y-[1px]">
     <ArrowUpRight className="h-4 w-4" />
   </span>
 </button>
 ```
+
+### 3. Emil Kowalski Component Recipes
+- **Never `scale(0)` on Entry:** Nothing in nature appears from thin air. Always enter from `scale(0.95)` with `opacity: 0`.
+- **Origin-Aware Popovers & Menus:** Popovers must scale from their trigger: `transform-origin: var(--transform-origin)`. Modals are exempt (they remain centered: `transform-origin: center`).
+- **Tooltips Instant After First:** Tooltips delay on first hover, but once one tooltip is active, hovering adjacent triggers opens tooltips instantly with `transition-duration: 0ms`.
+- **Blur to Mask Imperfect Transitions:** When crossfading between states or tabs, add `filter: blur(2px)` and `opacity: 0.7` to seamlessly blend states without visual jarring.
+- **Pure CSS Entry with `@starting-style`:** Use `@starting-style` for popovers, toasts, and dropdowns to eliminate JavaScript `useEffect` mount delay.
+- **Hardware-Accelerated Motion in Motion (Framer Motion):** Use full `transform` string (`animate={{ transform: "translateX(100px)" }}`) instead of `x`/`y` shorthand, keeping motion on the GPU off the main thread.
 
 ---
 

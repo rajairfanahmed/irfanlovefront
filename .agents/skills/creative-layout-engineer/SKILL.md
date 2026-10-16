@@ -41,6 +41,7 @@ The Hero section is the first impression and must breathe. It must NOT be a narr
    - Subtext: max **20 words** AND max 4 lines.
    - Top padding: max `pt-24` (desktop). Hero must never float halfway down the screen.
    - CTAs: Max 2 (one primary, max one secondary), visible without scrolling.
+   - Hero Viewport Sizing: Use `min-h-[100svh]` (small viewport height) for full-screen hero sections, NEVER `100vh`, to prevent mobile browser URL-bar collapse from jumping layout.
 3. **4 Distinct Hero Layout Archetypes (Assigned via Deterministic Seed):**
    - **Archetype 1: Cinematic Center**
      Massive centered headline with wide tracking. Two high-contrast CTAs below. A subtle ambient dark radial blur or full-bleed background media behind everything.

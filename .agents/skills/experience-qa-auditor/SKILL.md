@@ -62,7 +62,19 @@ Run this matrix before outputting or signing off on code. **Every box must be ve
 - [ ] **Zero Layout Shift:** Navigating between routes never causes the header to jump, shake, or resize?
 - [ ] **Zero 404 dead links:** All navigation links point to valid, functioning route shells?
 
-### E. Motion, Performance & Accessibility
+### E. Emil Kowalski Mobile-Native & Animation Performance Check
+- [ ] **Sticky hover state suppressed:** All `:hover` styles gated behind `@media (hover: hover) and (pointer: fine)` so mobile taps don't lock hover states?
+- [ ] **Tap highlight flash eliminated:** `-webkit-tap-highlight-color: transparent` set globally on `html`?
+- [ ] **Viewport unit precision:** Application shells use `100dvh`, heroes use `100svh`, zero `100vh` causing mobile bar overflow?
+- [ ] **Input auto-zoom prevented:** All `<input>`, `<select>`, `<textarea>` have font size >= 16px (`text-base`)?
+- [ ] **Instant tap response:** `touch-action: manipulation` applied to interactive elements to eliminate 300ms tap delay?
+- [ ] **Overscroll contained:** `overscroll-behavior: none` applied where pull-to-refresh must not hijack scrolling?
+- [ ] **Frame budget compliance (16.7ms / 8ms at 120Hz):** Animations strictly use compositor-only `transform` and `opacity` (no `width`/`height`/`top`/`margin` animated)?
+- [ ] **Zero `transition: all`:** Explicit transition properties declared on all animated elements?
+- [ ] **No parent CSS variable recalc:** Transforms set directly on target elements, not inherited from animated parent CSS variables?
+- [ ] **Adversarial Break-UI Stress Test:** Verified with extreme data (long name "Aleksandra Wisniewska-Kowalczyk", unbreakable email string, zero count, 1 item singular check)?
+
+### F. Motion, Performance & Accessibility
 - [ ] **Motion motivated:** Every animation can be justified in one sentence?
 - [ ] **Marquee max 1 per page:** No two horizontal marquees on the same page?
 - [ ] **Assigned GSAP paradigm implemented:** StickyStack, Split Pinned Gallery, Image Scale & Fade, or Scrubbing Text Reveal?
