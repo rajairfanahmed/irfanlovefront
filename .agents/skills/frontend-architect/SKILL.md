@@ -5,7 +5,7 @@ description: Senior Frontend Architect & Design System Foundation Engineer. Use 
 
 # Frontend Architect (Stage 1: Architecture & Foundation)
 
-You are the **Lead Frontend Architect and Design System Engineer**. Your mission is strictly confined to laying down an impeccable, production-grade foundation for a web application inside a dedicated `frontend/` directory, derived from brief inference, the Deterministic Randomization Seed, and the Three Dials.
+You are the **Lead Frontend Architect and Design System Engineer**. Your mission is strictly confined to laying down an impeccable, production-grade foundation for a web application inside a dedicated `frontend/` directory, derived from brief inference, the Deterministic Randomization Seed, the Three Dials, and SVG Logo Engineering Standards.
 
 ---
 
@@ -102,12 +102,12 @@ Define responsive fluid typography in `globals.css` using mathematical `clamp()`
 - Subtitle: `clamp(1.125rem, 1.5vw, 1.35rem)`
 - Body: `clamp(0.95rem, 1vw, 1.05rem)` with relaxed leading `1.6` to `1.7`
 
-### D. Strict Anti-Defaults:
-- **Banned Fonts:** Inter, Roboto, Arial, Open Sans, Helvetica.
-- **Banned Palettes:** Default beige+brass+espresso hexes (`#f5f1ea`, `#b08947`, `#1a1714`). Rotate per deterministic seed.
-- **Banned AI Glows:** No purple button outer glows. Max 1 accent color (< 80% saturation).
-- **Viewport Stability:** Never use `h-screen`; always use `min-h-[100dvh]`.
-- **Zero Em-Dashes:** Completely banned everywhere in user-facing copy.
+### D. SVG Logo Engineering Standards (Guided Exploration & Multi-Scale Assets)
+- **ViewBox Sizing:** Always use `viewBox="0 0 512 512"` for icons/monograms and `viewBox="0 0 1024 512"` for combination marks without hardcoded `width`/`height` attributes on the root `<svg>`.
+- **Self-Contained:** Zero external font dependencies, zero external images, zero external `<use>` refs. All text converted to native `<path>` elements or geometric primitives.
+- **Semantic Grouping:** Group elements under `<g id="icon">`, `<g id="wordmark">`, and `<g id="tagline">` to allow clean extraction of the standalone icon for favicons and mobile navigation.
+- **Small-Size Legibility (16px / 32px Favicon Test):** Prefer solid geometric fills. Minimum stroke width on a 512x512 canvas must be 12px or greater for any line that must survive at 32px resolution. Intricate micro-details that disappear at 16px are strictly forbidden.
+- **Multi-Scale Brand Exports:** Standardize asset scaling for `favicon.ico` (48px), `icon-16.png`, `icon-32.png`, `apple-touch-icon.png` (180px), `pwa-192.png`, `pwa-512.png`, and `og-preview.png` (1200x630).
 
 ---
 
@@ -116,10 +116,10 @@ Define responsive fluid typography in `globals.css` using mathematical `clamp()`
 Before writing configuration or component code, create or update `frontend/PLAN.md` with your Stage 1 plan block:
 
 ```markdown
-# 01: Core Platform Skeleton & Design System Foundation
+# 01: Core Platform Skeleton, Design Tokens & Vector Brand Assets
 
 **What to build:**
-[Concise description of Next.js App Router setup with TypeScript and Tailwind CSS, deterministic seed selection, declared Three Dials, Double-Bezel tokens, fluid clamp typography, Lenis smooth scrolling provider, container-constrained BrandLogo, and dynamic favicon]
+[Concise description of Next.js App Router setup with TypeScript and Tailwind CSS, deterministic seed selection, declared Three Dials, Double-Bezel tokens, fluid clamp typography, Lenis smooth scrolling provider, container-constrained BrandLogo with SVG standards, and dynamic favicon]
 
 **Blocked by:**
 None (can start immediately)
@@ -132,7 +132,8 @@ None (can start immediately)
 - [ ] Tailwind directives verified at top of globals.css (@import "tailwindcss";)
 - [ ] Theme tokens, Double-Bezel concentric radii, and fluid clamp typography configured
 - [ ] Sticky tap-highlight button fix configured in globals.css
-- [ ] Container-constrained BrandLogo.tsx and dynamic app/icon.tsx implemented
+- [ ] Self-contained SVG BrandLogo.tsx built with semantic #icon and #wordmark grouping
+- [ ] Dynamic retina app/icon.tsx and static public/icon.svg implemented with 16px/32px legibility
 - [ ] Lenis smooth momentum scrolling provider implemented and wired in layout.tsx
 - [ ] Minimal Stage 1 foundation confirmation preview rendered in page.tsx
 - [ ] State tracker uiux-progress.json initialized with Stage 1 complete
@@ -195,9 +196,14 @@ You are **STAGE 1 ONLY**.
   ```
 
 ### Step 4: Implement Container-Constrained Brand Logo & Favicon
-- Create `frontend/src/components/ui/BrandLogo.tsx`. The brand mark must be structural and container-constrained (never unconstrained floating SVGs).
+- Create `frontend/src/components/ui/BrandLogo.tsx`:
+  - Enforce bounded container positioning (never unaligned floating absolute elements).
+  - Use `viewBox="0 0 512 512"` (or `1024 512` for combination marks).
+  - Group SVG elements semantically into `<g id="icon">` and `<g id="wordmark">`.
+  - Guarantee small-size legibility at 16px and 32px (stroke width >= 12 or solid fills, no fragile micro-details).
+  - Ensure zero external font dependencies.
 - Create `frontend/src/app/icon.tsx` using Next.js `ImageResponse` for dynamic retina favicons.
-- Create `frontend/public/icon.svg` as a clean fallback.
+- Create `frontend/public/icon.svg` as a clean fallback matching the `#icon` geometry.
 
 ### Step 5: Configure Lenis Smooth Scrolling & Fonts in `layout.tsx`
 - Create `frontend/src/components/layout/SmoothScroll.tsx` initializing Lenis.
