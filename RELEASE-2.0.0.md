@@ -1,15 +1,15 @@
-# Release 1.2.0 (v2): Universal npx Installer & Conversion Foundations
+# Release 2.0.0: Universal npx Installer & Conversion Foundations
 
-**Release Version:** `1.2.0` (Suite v2)  
+**Release Version:** `2.0.0`  
 **Author:** Raja Irfan Ahmed  
 **Status:** General Availability  
 **License:** Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)  
 
 ---
 
-## What Is New in v2.0 (Release 1.2.0)
+## What Is New in Release 2.0.0
 
-Release 1.2.0 evolves `irfanlovefront` into a cross-platform, one-command AI agent skill ecosystem with expanded pre-architecture taste engineering and conversion design rules.
+Release 2.0.0 evolves `irfanlovefront` into a cross-platform, one-command AI agent skill ecosystem with expanded pre-architecture taste engineering and conversion design rules.
 
 ---
 

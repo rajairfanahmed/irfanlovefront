@@ -7,7 +7,7 @@
   <a href="LICENSE"><strong>License</strong></a> •
   <a href="SECURITY.md"><strong>Security</strong></a> •
   <a href="RELEASE-1.0.0.md"><strong>Release 1.0.0</strong></a> •
-  <a href="RELEASE-1.2.0.md"><strong>Release 1.2.0 (v2)</strong></a>
+  <a href="RELEASE-2.0.0.md"><strong>Release 2.0.0</strong></a>
 </p>
 
 ```
@@ -23,7 +23,7 @@
 
 [![npm version](https://img.shields.io/npm/v/irfanlovefront.svg?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v1.2.0--v2-blue.svg?style=flat-square)](RELEASE-1.2.0.md)
+[![Release](https://img.shields.io/badge/release-v2.0.0-blue.svg?style=flat-square)](RELEASE-2.0.0.md)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
