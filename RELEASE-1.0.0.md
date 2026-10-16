@@ -29,7 +29,7 @@ The suite consists of **five core engineering stages** and **two specialized aux
 
 | Folder Name | Slash Command | Cognitive Role & Full Description | Key Outputs |
 |---|---|---|---|
-| **`ui-ux`** | `/ui-ux` | **Master UI/UX & Frontend Engineering Orchestrator:** Coordinates the full 4-stage lifecycle autonomously inside `frontend/`. Injects deterministic entropy, AIDA structure, and live milestone tracking. | `frontend/PLAN.md`, `uiux-progress.json`, coordinated stage progression |
+| **`irfanlovefront`** | `/irfanlovefront` | **Master UI/UX & Frontend Engineering Orchestrator:** Coordinates the full 4-stage lifecycle autonomously inside `frontend/`. Injects deterministic entropy, AIDA structure, and live milestone tracking. | `frontend/PLAN.md`, `uiux-progress.json`, coordinated stage progression |
 | **`frontend-architect`** | `/frontend-architect` | **Stage 1 Foundation & Architecture Engineer:** Scaffolds Next.js 15, selects 1 of 6 calibrated substrate palettes and font stacks, configures double-bezel radii math, fluid clamp type, SVG BrandLogo, and Lenis. | `globals.css` tokens, `BrandLogo.tsx`, `app/icon.tsx`, `SmoothScroll.tsx` |
 | **`creative-layout-engineer`** | `/creative-layout-engineer` | **Stage 2 Macro-Layout & Hero Craftsman:** Designs wide anti-slop hero sections meeting the 2-Line Iron Rule, 4 hero archetypes, gapless bento grids (`grid-flow-dense`), and working canonical route shells. | `Navbar.tsx`, `HeroSection.tsx`, `BentoSection.tsx`, `/about`, `/projects`, `/skills`, `/contact` |
 | **`interactive-component-engineer`** | `/interactive-component-engineer` | **Stage 3 UI Primitives & Motion Choreographer:** Builds downstream sections with machined double-bezel cards, button-in-button CTAs, 5 GSAP ScrollTrigger paradigms, and page-wide overflow protection. | `Button.tsx`, `ShowcaseSection.tsx`, `ContactSection.tsx`, GSAP timelines |
@@ -45,7 +45,7 @@ The suite consists of **five core engineering stages** and **two specialized aux
 To run the full end-to-end development lifecycle automatically, invoke the master orchestrator:
 
 ```text
-/ui-ux Build a high-performance web platform for a real-time aerospace telemetry dashboard.
+/irfanlovefront Build a high-performance web platform for a real-time aerospace telemetry dashboard.
 ```
 
 The orchestrator executes the four stages sequentially:
