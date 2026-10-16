@@ -1,6 +1,6 @@
 ---
 name: ui-ux
-description: Master UI/UX & Frontend Engineering Orchestrator. Coordinates the full 4-stage frontend engineering lifecycle (Architecture, Creative Layout, Interactive Components & Motion, QA & SEO). Uses Next.js 15, TypeScript, Tailwind CSS, GSAP, Framer Motion, and Lenis inside frontend/. Use when invoking /uiux or requesting complete, bespoke, anti-slop frontend web applications.
+description: Master UI/UX & Frontend Engineering Orchestrator. Coordinates the full 4-stage frontend engineering lifecycle (Architecture, Creative Layout, Interactive Components & Motion, QA & SEO). Uses Next.js 15, TypeScript, Tailwind CSS, GSAP, Framer Motion, and Lenis inside frontend/. Use when invoking /ui-ux or requesting complete, bespoke, anti-slop frontend web applications.
 ---
 
 # UI/UX Master Frontend Engineering Orchestrator

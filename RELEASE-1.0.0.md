@@ -25,17 +25,17 @@ The framework enforces:
 
 ## 2. The 7 Specialized Agent Skills
 
-The suite consists of **five core engineering stages** and **two specialized auxiliary skills**:
+The suite consists of **five core engineering stages** and **two specialized auxiliary skills**. All slash commands match their folder names exactly:
 
-| Skill Name | Invocation Slash Command | Cognitive Role | Key Outputs |
+| Folder Name | Slash Command | Cognitive Role & Full Description | Key Outputs |
 |---|---|---|---|
-| **ui-ux** | `/uiux` | Master Orchestrator | Plans and coordinates Stages 1 through 4 via `frontend/PLAN.md` |
-| **frontend-architect** | `/frontend-architect` | Stage 1 Foundation & Architecture | Scaffold Next.js 15, tokens, clamp type, SVG BrandLogo, Lenis scroll |
-| **creative-layout-engineer** | `/creative-layout` | Stage 2 Macro-Layout & Hero Craft | 2-line hero, 4 hero archetypes, gapless bento, route shells |
-| **interactive-component-engineer** | `/component-engineer` | Stage 3 Components & Motion | Double-bezel cards, button-in-button CTAs, 5 GSAP paradigms |
-| **experience-qa-auditor** | `/qa-audit` | Stage 4 Production Hardening | 45+ Pre-Flight Check, custom 404/error UX, mobile 320px, JSON-LD SEO |
-| **build-error-resolver** | `/build-error-resolver` | Auxiliary Build Recovery | Zero-refactor fixes for TypeScript and Next.js compilation errors |
-| **github-readme-writer** | `/github-readme-writer` | Auxiliary Technical Documentation | Operator-voice READMEs, launch articles, case studies, zero clichés |
+| **`ui-ux`** | `/ui-ux` | **Master UI/UX & Frontend Engineering Orchestrator:** Coordinates the full 4-stage lifecycle autonomously inside `frontend/`. Injects deterministic entropy, AIDA structure, and live milestone tracking. | `frontend/PLAN.md`, `uiux-progress.json`, coordinated stage progression |
+| **`frontend-architect`** | `/frontend-architect` | **Stage 1 Foundation & Architecture Engineer:** Scaffolds Next.js 15, selects 1 of 6 calibrated substrate palettes and font stacks, configures double-bezel radii math, fluid clamp type, SVG BrandLogo, and Lenis. | `globals.css` tokens, `BrandLogo.tsx`, `app/icon.tsx`, `SmoothScroll.tsx` |
+| **`creative-layout-engineer`** | `/creative-layout-engineer` | **Stage 2 Macro-Layout & Hero Craftsman:** Designs wide anti-slop hero sections meeting the 2-Line Iron Rule, 4 hero archetypes, gapless bento grids (`grid-flow-dense`), and working canonical route shells. | `Navbar.tsx`, `HeroSection.tsx`, `BentoSection.tsx`, `/about`, `/projects`, `/skills`, `/contact` |
+| **`interactive-component-engineer`** | `/interactive-component-engineer` | **Stage 3 UI Primitives & Motion Choreographer:** Builds downstream sections with machined double-bezel cards, button-in-button CTAs, 5 GSAP ScrollTrigger paradigms, and page-wide overflow protection. | `Button.tsx`, `ShowcaseSection.tsx`, `ContactSection.tsx`, GSAP timelines |
+| **`experience-qa-auditor`** | `/experience-qa-auditor` | **Stage 4 Production Hardening & SEO Auditor:** Verifies mobile 320px responsiveness, executes the mechanical 45+ Pre-Flight Check, builds custom 404/error UX, and injects JSON-LD SEO schemas. | `not-found.tsx`, `error.tsx`, OpenGraph metadata, JSON-LD structured schema |
+| **`build-error-resolver`** | `/build-error-resolver` | **Auxiliary Build Recovery Specialist:** Rapidly resolves TypeScript compilation failures, Next.js build issues, and dependency conflicts with minimal surgical diffs (< 5% lines) and zero architectural churn. | Green build status, type annotations, zero compilation errors |
+| **`github-readme-writer`** | `/github-readme-writer` | **Auxiliary Technical Documentation Writer:** Crafts human operator-voice GitHub READMEs, release launch notes, and case studies, strictly eliminating AI clichés, throat-clearing, and em-dashes. | High-converting `README.md`, technical case studies, release guides |
 
 ---
 
@@ -45,7 +45,7 @@ The suite consists of **five core engineering stages** and **two specialized aux
 To run the full end-to-end development lifecycle automatically, invoke the master orchestrator:
 
 ```text
-/uiux Build a high-performance web platform for a real-time aerospace telemetry dashboard.
+/ui-ux Build a high-performance web platform for a real-time aerospace telemetry dashboard.
 ```
 
 The orchestrator executes the four stages sequentially:
@@ -58,7 +58,7 @@ The orchestrator executes the four stages sequentially:
 
 ### Option B: Step-by-Step Stage Execution
 
-For maximum manual control, invoke each specialist independently:
+For maximum manual control, invoke each specialist independently using their exact slash command:
 
 #### Step 1: Initialize Foundation & Scaffolding
 ```text
@@ -72,7 +72,7 @@ For maximum manual control, invoke each specialist independently:
 
 #### Step 2: Craft Macro-Layout & Navigation
 ```text
-/creative-layout
+/creative-layout-engineer
 ```
 - Implements persistent single-line `Navbar.tsx` (desktop height <= 80px).
 - Builds the bespoke Hero Section enforcing the 2-Line Iron Rule (`max-w-5xl/6xl`, top padding <= `pt-24`).
@@ -81,17 +81,17 @@ For maximum manual control, invoke each specialist independently:
 
 #### Step 3: Implement Interactive Components & Motion
 ```text
-/component-engineer
+/interactive-component-engineer
 ```
 - Constructs `Button.tsx` with nested trailing icon pills and diagonal hover physics.
 - Builds downstream sections (`ShowcaseSection.tsx`, `ExperienceSection.tsx`, `ContactSection.tsx`).
 - Wraps cards in Double-Bezel hardware enclosures.
-- Adds GSAP ScrollTrigger timelines (Sticky-Stack, Split Pinned Gallery, Image Scale & Fade, or Scrubbing Text).
+- Adds GSAP ScrollTrigger timelines (Sticky-Stack, Split Pinned Gallery, Image Scale and Fade, or Scrubbing Text).
 - Enforces page-wide overflow protection: `<main className="overflow-x-hidden w-full max-w-full">`.
 
 #### Step 4: Production Hardening, 404 & SEO
 ```text
-/qa-audit
+/experience-qa-auditor
 ```
 - Implements custom, branded `not-found.tsx` and client `error.tsx` boundary with `reset()` handler.
 - Audits mobile responsiveness down to 320px viewport width (zero horizontal scrollbars).
@@ -136,7 +136,7 @@ seed = len(user_prompt) % 6
 | **1** | Swiss Industrial Print | `#F4F4F0` Paper + Red | Archivo Black + JetBrains Mono | Tactical Blueprint | Horizontal Accordion |
 | **2** | Warm Utilitarian Minimalist | `#F7F6F3` Bone + Pastels | Newsreader + Neue Montreal | Editorial Split | Inline Typography Images |
 | **3** | Tactical Telemetry CRT | `#0A0A0A` CRT + Phosphor | Space Mono + Roboto Flex | Telemetry Frame | Scrubbing Sequential Text |
-| **4** | Cold Luxury Navy | `#060B14` Midnight Slate | Outfit + Plus Jakarta Sans | Artistic Asymmetry | Image Scale & Fade |
+| **4** | Cold Luxury Navy | `#060B14` Midnight Slate | Outfit + Plus Jakarta Sans | Artistic Asymmetry | Image Scale and Fade |
 | **5** | Editorial Luxury | `#FDFBF7` Cream + Sage | Playfair Display + Geist Sans | Pinned Split Gallery | Card Stacking Timeline |
 
 ---

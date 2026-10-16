@@ -2,7 +2,7 @@
 
 > An elite, multi-agent frontend engineering suite for Google Antigravity, Claude Code, and modern AI coding assistants. Crafted by senior frontend architects to build bespoke, human-grade web applications with zero AI-template feel, zero AI-slop, and production-grade craftsmanship.
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=flat-square)](file:///d:/uiux/RELEASE-1.0.md)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=flat-square)](file:///d:/uiux/RELEASE-1.0.0.md)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](file:///d:/uiux/LICENSE)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/ui-ux-skill?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/ui-ux-skill/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/ui-ux-skill?style=flat-square&color=blue)](https://github.com/rajairfanahmed/ui-ux-skill/network/members)
@@ -15,6 +15,16 @@
 
 ---
 
+## Repository Description & Tagline
+
+**Tagline:**  
+*Bespoke, anti-slop frontend engineering agent skills for Next.js 15, TypeScript, Tailwind CSS, GSAP, and Lenis.*
+
+**Description:**  
+*A modular suite of seven specialized agent skills for Google Antigravity and Claude Code that coordinates the complete 4-stage frontend engineering lifecycle. Enforces deterministic visual entropy to break repetitive AI templates, single-project spatial consistency across routes, the 2-Line Iron Rule for headlines, gapless bento grid auto-flow, machined double-bezel cards, kinetic button-in-button CTAs, surgical build error recovery, and human operator documentation.*
+
+---
+
 ## Architecture Overview
 
 Frontend engineering requires distinct cognitive modes: from foundational token mathematics and brief inference, to creative macro-layout composition, to micro-interaction choreography, to rigorous accessibility, technical SEO auditing, rapid build resolution, and authoritative documentation.
@@ -23,7 +33,7 @@ This repository provides **five core engineering stage skills** plus **two speci
 
 ```
                                   +-----------------------------+
-                                  |      /uiux Orchestrator     |
+                                  |     /ui-ux Orchestrator     |
                                   |   (frontend/PLAN.md Tracker)|
                                   +--------------+--------------+
                                                  |
@@ -65,27 +75,31 @@ This repository provides **five core engineering stage skills** plus **two speci
 
 ## The 7 Agent Skills: How to Use Them
 
-Each skill operates in its own dedicated cognitive domain. You can invoke the master orchestrator to run the complete 4-stage lifecycle automatically, or invoke individual specialists step by step.
+All slash commands match their folder names exactly in `.agents/skills/`. You can invoke the master orchestrator to run the complete 4-stage lifecycle autonomously, or invoke individual specialists step by step.
 
 ### 1. Master Orchestrator: `ui-ux`
-- **Slash Command:** `/uiux`
+- **Folder Name:** `ui-ux`
+- **Exact Slash Command:** `/ui-ux`
+- **Description:** Master UI/UX & Frontend Engineering Orchestrator. Coordinates the full 4-stage frontend engineering lifecycle (Architecture, Creative Layout, Interactive Components & Motion, QA & SEO). Uses Next.js 15, TypeScript, Tailwind CSS, GSAP, Framer Motion, and Lenis inside `frontend/`.
 - **When to Use:** When you want to build a complete, end-to-end web application, dashboard, or portfolio from a single prompt.
 - **How it Works:** Coordinates Stages 1 through 4 sequentially. It tracks live milestone progress in `frontend/PLAN.md`, calculates the deterministic entropy seed, and manages state in `frontend/uiux-progress.json`.
 - **Usage Example:**
   ```text
-  /uiux Build a high-performance web platform for an aerospace avionics telemetry dashboard with live metrics, data stream, and hardware status.
+  /ui-ux Build a high-performance web platform for an aerospace avionics telemetry dashboard with live metrics, data stream, and hardware status.
   ```
 
 ---
 
 ### 2. Stage 1: `frontend-architect`
-- **Slash Command:** `/frontend-architect`
+- **Folder Name:** `frontend-architect`
+- **Exact Slash Command:** `/frontend-architect`
+- **Description:** Senior Frontend Architect & Design System Foundation Engineer. Use when setting up a new frontend project, architecting design tokens, fluid clamp typography scales, bespoke vector brand logos, favicons, Lenis smooth scrolling, or initializing the `frontend/` directory and state tracking.
 - **When to Use:** Setting up a new frontend project, declaring tokens, selecting typography, creating vector logos, configuring Lenis smooth scrolling, or initializing the `frontend/` directory.
 - **How it Works:** 
   1. Calculates the deterministic entropy seed (`len(prompt) % 6`) to select one of six calibrated substrate palettes and font stacks.
   2. Scaffolds Next.js 15 inside `frontend/` with TypeScript, Tailwind CSS, and Lenis.
   3. Establishes Double-Bezel concentric radii tokens (`rounded-[2rem]` outer, `rounded-[calc(2rem-p)]` inner).
-  4. Generates a container-constrained `BrandLogo.tsx`, dynamic `app/icon.tsx`, and `public/icon.svg`.
+  4. Generates a container-constrained `BrandLogo.tsx`, dynamic `app/icon.tsx`, and `public/icon.svg` following SVG logo engineering standards.
   5. Renders a minimal foundation preview card in `page.tsx` confirming Tailwind and tokens are working.
 - **Usage Example:**
   ```text
@@ -95,7 +109,9 @@ Each skill operates in its own dedicated cognitive domain. You can invoke the ma
 ---
 
 ### 3. Stage 2: `creative-layout-engineer`
-- **Slash Command:** `/creative-layout`
+- **Folder Name:** `creative-layout-engineer`
+- **Exact Slash Command:** `/creative-layout-engineer`
+- **Description:** Senior Creative Technologist & Macro-Layout Craftsman. Use when designing bespoke page layouts, navigation systems, anti-slop hero sections, visual rhythm, editorial asymmetric splits, or drawing inspiration from design reference collections.
 - **When to Use:** Designing page layouts, persistent navigation bars, anti-slop hero sections, gapless bento grids, and multi-page canonical route shells.
 - **How it Works:**
   1. Enforces the **2-Line Iron Rule:** H1 headlines flow in wide containers (`max-w-5xl/6xl` or `w-full`) with `clamp(2.75rem, 5vw, 5.5rem)`, never exceeding 2 lines on desktop.
@@ -105,13 +121,15 @@ Each skill operates in its own dedicated cognitive domain. You can invoke the ma
   5. Bans cheap meta-labels ("SECTION 01", "QUESTION 05").
 - **Usage Example:**
   ```text
-  /creative-layout Design the macro-layout, persistent navbar, and bespoke hero section for our engineering studio.
+  /creative-layout-engineer Design the macro-layout, persistent navbar, and bespoke hero section for our engineering studio.
   ```
 
 ---
 
 ### 4. Stage 3: `interactive-component-engineer`
-- **Slash Command:** `/component-engineer`
+- **Folder Name:** `interactive-component-engineer`
+- **Exact Slash Command:** `/interactive-component-engineer`
+- **Description:** Senior UI Component Engineer & Motion Choreographer. Use when building downstream page sections, interactive UI primitives, sharp buttons, borderless cards, GSAP ScrollTrigger timelines, Framer Motion springs, accessible forms, or fixing the sticky tap-highlight button bug.
 - **When to Use:** Building downstream page sections, UI primitives, Double-Bezel cards, button-in-button CTAs, GSAP timelines, and accessible forms.
 - **How it Works:**
   1. Builds machined Double-Bezel cards with outer shells and inner core containers.
@@ -120,13 +138,15 @@ Each skill operates in its own dedicated cognitive domain. You can invoke the ma
   4. Enforces page-wide overflow protection: `<main className="overflow-x-hidden w-full max-w-full">` to eliminate horizontal scrollbars.
 - **Usage Example:**
   ```text
-  /component-engineer Build the showcase gallery, interactive project cards, and animated contact section.
+  /interactive-component-engineer Build the showcase gallery, interactive project cards, and animated contact section.
   ```
 
 ---
 
 ### 5. Stage 4: `experience-qa-auditor`
-- **Slash Command:** `/qa-audit`
+- **Folder Name:** `experience-qa-auditor`
+- **Exact Slash Command:** `/experience-qa-auditor`
+- **Description:** Frontend QA, SEO & Accessibility Specialist. Use when auditing mobile-first responsiveness (320px to 1440px), WCAG AA accessibility, building custom 404 not-found.tsx and error.tsx pages, implementing advanced JSON-LD SEO, or verifying project production readiness.
 - **When to Use:** Final production hardening, custom 404/error boundary generation, mobile-first 320px verification, WCAG AA accessibility auditing, and technical SEO.
 - **How it Works:**
   1. Builds branded, custom `not-found.tsx` and resilient `error.tsx` boundary with `reset()` handler.
@@ -135,13 +155,15 @@ Each skill operates in its own dedicated cognitive domain. You can invoke the ma
   4. Runs the mechanical 45+ item Pre-Flight Check across all routes and provides a final production sign-off.
 - **Usage Example:**
   ```text
-  /qa-audit Perform full production hardening, 404 error page setup, and complete 45+ pre-flight audit.
+  /experience-qa-auditor Perform full production hardening, 404 error page setup, and complete 45+ pre-flight audit.
   ```
 
 ---
 
 ### 6. Auxiliary Specialist: `build-error-resolver`
-- **Slash Command:** `/build-error-resolver`
+- **Folder Name:** `build-error-resolver`
+- **Exact Slash Command:** `/build-error-resolver`
+- **Description:** Build and TypeScript error resolution specialist. Use proactively when build fails or type errors occur. Fixes build/type errors only with minimal diffs, zero architectural edits. Focuses on getting the build green quickly.
 - **When to Use:** Proactively whenever a build fails, TypeScript compilation errors occur, or module imports break.
 - **How it Works:**
   1. Executes `npx tsc --noEmit` and static build analysis to isolate exact error lines.
@@ -155,7 +177,9 @@ Each skill operates in its own dedicated cognitive domain. You can invoke the ma
 ---
 
 ### 7. Auxiliary Specialist: `github-readme-writer`
-- **Slash Command:** `/github-readme-writer`
+- **Folder Name:** `github-readme-writer`
+- **Exact Slash Command:** `/github-readme-writer`
+- **Description:** Authoritative GitHub README and technical article writer. Creates compelling, human-crafted project documentation, launch posts, technical case studies, and release guides with zero generic AI clichés and zero em-dashes.
 - **When to Use:** Writing high-converting GitHub README.md files, technical launch posts, architecture breakdowns, or case studies.
 - **How it Works:**
   1. Leads with concrete architecture, code snippets, and benchmark metrics instead of vague marketing adjectives.
@@ -216,7 +240,7 @@ The suite strictly enforces two complementary spatial rules:
 ## Release Documentation
 
 For complete, detailed release notes, stage-by-stage architecture guides, and technical walkthroughs, see:
-- [RELEASE-1.0.md](file:///d:/uiux/RELEASE-1.0.md): The official Release 1.0.0 reference documentation.
+- [RELEASE-1.0.0.md](file:///d:/uiux/RELEASE-1.0.0.md): The official Release 1.0.0 reference documentation.
 
 ---
 
