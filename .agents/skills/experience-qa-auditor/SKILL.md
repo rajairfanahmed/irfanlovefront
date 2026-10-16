@@ -29,14 +29,21 @@ Run this matrix before outputting or signing off on code. **Every box must be ve
 - [ ] **Shape Consistency Lock:** One corner-radius scale applied consistently?
 
 ### B. Typography & Surfaces
+- [ ] **Hero 4-Element Mini-Site:** Does the hero act as a complete mini-site with all 4 elements visible above fold: (1) clear headline, (2) supporting context, (3) social proof, (4) specific CTA?
 - [ ] **Hero 2-Line Iron Rule:** H1 width container is `max-w-5xl`, `max-w-6xl`, or `w-full` with `clamp(2.75rem, 5vw, 5.5rem)`, and headline <= 2 lines at desktop?
 - [ ] **Hero fits viewport:** Subtext <= 20 words AND <= 4 lines, CTAs visible without scroll?
 - [ ] **Hero top padding:** Max `pt-24` at desktop, hero does not float halfway down viewport?
 - [ ] **Hero stack discipline:** Max 4 text elements total in hero?
+- [ ] **Visual Hierarchy & Squint Test:** Does the squint test confirm a clear path from Headline (boldest/largest) -> Context -> Proof -> CTA?
+- [ ] **White Space & Visual Restraint:** Does the design breathe with generous negative space (`py-28 md:py-40`), avoiding crammed sections?
+- [ ] **1 to 2 Fonts Ceiling:** Strictly 1 or 2 font families loaded across the entire project? Body copy prioritizes pure readability over decorative styling?
 - [ ] **Double-Bezel concentric radii:** All primary cards and feature containers use nested outer shell and inner core with concentric radius math?
 - [ ] **Button-in-Button CTA architecture:** Trailing arrows are nested in dedicated circular pill wrappers with diagonal hover physics?
+- [ ] **High-Contrast CTA Pop:** Every primary CTA button pops vigorously with high contrast against the restrained background?
 - [ ] **Button Contrast Check:** Every CTA text is readable against its background (WCAG AA min 4.5:1)?
 - [ ] **CTA Button Wrap:** No CTA label wraps to 2+ lines at desktop?
+- [ ] **Point-of-Doubt Social Proof:** Testimonials, client logos, and ratings positioned directly at conversion moments (hero, pricing, contact form), never buried on separate unvisited pages?
+- [ ] **Mobile Thumb Ergonomics:** All primary interactive buttons comfortably tappable with a thumb (>= 44x44px in natural thumb sweep zone) with zero horizontal scrolling?
 - [ ] **Form Contrast Check:** Inputs, placeholders, focus rings, labels all pass WCAG AA against section background?
 - [ ] **Serif discipline:** If serif is used, it matches the assigned seed (Newsreader, Playfair, Fraunces)? No unmotivated default serifs?
 - [ ] **Premium-consumer palette check:** Palette is rotated per seed, NOT default beige+brass+espresso?

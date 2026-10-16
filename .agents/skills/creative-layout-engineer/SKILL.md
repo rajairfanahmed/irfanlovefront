@@ -31,27 +31,45 @@ While different projects must look radically unique, within any individual proje
 
 ## 🏛️ HERO ARCHITECTURE & THE 2-LINE IRON RULE
 
-The Hero section is the first impression and must breathe. It must NOT be a narrow, 4-line to 6-line text wall.
+The Hero section is the first impression and must breathe. It must act as a complete **"Mini-Site"** that tells the entire value story above the fold.
 
-1. **The Container Width Fix:**
+1. **The 4-Element "Mini-Site" Requirement (Above the Fold):**
+   The hero must present four essential elements visible without scrolling:
+   - **Clear Headline:** Bold, authoritative headline following the 2-Line Iron Limit.
+   - **Supporting Context:** Concise explainer (<= 20 words, <= 4 lines).
+   - **Social Proof at Point of Doubt:** Client logos, verified metrics, or user avatar rating stack positioned directly near the conversion point.
+   - **Specific Call to Action:** High-contrast primary CTA button with clear action intent.
+
+2. **The Container Width & 2-Line Limit:**
    - You MUST use ultra-wide containers for the H1 (`max-w-5xl`, `max-w-6xl`, or `w-full`).
    - Pair with fluid typography `clamp(2.75rem, 5vw, 5.5rem)`.
    - **The 2-Line Iron Limit:** The H1 must NEVER exceed 2 lines on desktop. 3 lines is discouraged; 4 or more lines is an instant failure.
-2. **Subtext and CTA Restraint:**
-   - Subtext: max **20 words** AND max 4 lines.
    - Top padding: max `pt-24` (desktop). Hero must never float halfway down the screen.
-   - CTAs: Max 2 (one primary, max one secondary), visible without scrolling.
    - Hero Viewport Sizing: Use `min-h-[100svh]` (small viewport height) for full-screen hero sections, NEVER `100vh`, to prevent mobile browser URL-bar collapse from jumping layout.
-3. **4 Distinct Hero Layout Archetypes (Assigned via Deterministic Seed):**
+
+3. **Visual Hierarchy & The Squint Test:**
+   - Purposefully guide the eye by making the most important elements largest and boldest, then decreasing size and weight for less important content.
+   - **The Squint Test:** Squint at the screen. If secondary labels or decorative elements compete with the headline or CTA, decrease their visual prominence immediately.
+
+4. **White Space & Visual Restraint:**
+   - Empty space gives elements room to breathe. Restraint is the foundation of an expensive, high-end appearance.
+   - Avoid cramming sections with too much copy or too many cards. Use generous macro-spacing (`py-28 md:py-40`).
+
+5. **Social Proof at the Point of Doubt:**
+   - Never bury client logos, reviews, and testimonials on separate, unvisited pages.
+   - Position proof directly at the point of doubt: right below the hero CTA, adjacent to pricing cards, and right beside contact/inquiry forms.
+
+6. **4 Distinct Hero Layout Archetypes (Assigned via Deterministic Seed):**
    - **Archetype 1: Cinematic Center**
-     Massive centered headline with wide tracking. Two high-contrast CTAs below. A subtle ambient dark radial blur or full-bleed background media behind everything.
+     Massive centered headline with wide tracking. Two high-contrast CTAs below flanked by social proof logos. A subtle ambient dark radial blur or full-bleed background media behind everything.
    - **Archetype 2: Artistic Asymmetry**
-     Headline offset to the left, paired with an artistic floating media element or interactive visual overlapping from the bottom-right.
+     Headline offset to the left with social proof avatar stack, paired with an artistic floating media element or interactive visual overlapping from the bottom-right.
    - **Archetype 3: Editorial Split**
-     50/50 desktop split. Massive high-contrast typography on the left half, interactive horizontal image pills or staggered preview cards on the right.
+     50/50 desktop split. Massive high-contrast typography on the left half with proof metrics, interactive horizontal image pills or staggered preview cards on the right.
    - **Archetype 4: Tactical Modular Blueprint**
      Rigid 90-degree blueprint grid tracks, visible 1px rules, technical telemetry metadata, and zero border-radius.
-4. **Inline Typography Micro-Images:**
+
+7. **Inline Typography Micro-Images:**
    - You are empowered to embed small, rounded pill-shaped images directly inside massive headlines as visual punctuation:
      ```tsx
      <h1 className="text-4xl md:text-6xl font-bold tracking-tight">

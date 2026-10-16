@@ -95,15 +95,34 @@ Never place a card flatly on the background. Machined, expensive components use 
 - Apply `backdrop-blur` ONLY to fixed or sticky elements (navbars and modal overlays).
 - NEVER apply `backdrop-blur` to scrolling containers, cards, or large content areas. This triggers continuous GPU repaints and severe mobile frame drops.
 
-### C. Fluid Clamp Typography Scale & Optical Sizing
-Define responsive fluid typography in `globals.css` using mathematical `clamp()`:
-- Display H1: `clamp(2.75rem, 5vw, 5.5rem)` with tight tracking (`letter-spacing: -0.02em` to `-0.03em`)
-- Section H2: `clamp(2rem, 3.5vw, 3.75rem)` with `-0.015em` tracking
-- Subtitle: `clamp(1.125rem, 1.5vw, 1.35rem)`
-- Body: `clamp(0.95rem, 1vw, 1.05rem)` with relaxed leading `1.6` to `1.7`
-- Small Caps / Badges: `0.75rem` with positive tracking (`letter-spacing: 0.05em` to `0.08em`)
+### C. Fluid Clamp Typography Scale & 1-2 Font Discipline
+- **Strict 1 to 2 Font Ceiling:** Never load more than 2 font families. One display font for titles/headlines, one neutral, highly legible sans or monospace font for body and data. Decorative fonts are strictly banned for body copy.
+- **Strict Size Hierarchy:** Maintain an unambiguous scale (Display > H2 > H3 > Subtitle > Body > Label).
+- **Fluid Clamp Values (globals.css):**
+  - Display H1: `clamp(2.75rem, 5vw, 5.5rem)` with tight tracking (`letter-spacing: -0.02em` to `-0.03em`)
+  - Section H2: `clamp(2rem, 3.5vw, 3.75rem)` with `-0.015em` tracking
+  - Subtitle: `clamp(1.125rem, 1.5vw, 1.35rem)`
+  - Body: `clamp(0.95rem, 1vw, 1.05rem)` with relaxed leading `1.6` to `1.7`
+  - Small Caps / Badges: `0.75rem` with positive tracking (`letter-spacing: 0.05em` to `0.08em`)
 
-### D. Emil Kowalski Mobile-Native & Animation Tokens
+### D. High-Contrast CTA Pop Tokens
+Ensure primary call-to-action buttons pop with extreme contrast against the restrained substrate palette:
+```css
+/* High-Contrast CTA Pop Tokens */
+:root {
+  --cta-bg: #FFFFFF;
+  --cta-text: #050505;
+  --cta-hover-bg: #F4F4F5;
+}
+
+[data-theme="light"] {
+  --cta-bg: #050505;
+  --cta-text: #FFFFFF;
+  --cta-hover-bg: #18181B;
+}
+```
+
+### E. Emil Kowalski Mobile-Native & Animation Tokens
 Declare these foundational tokens and reset rules inside `globals.css`:
 ```css
 /* Emil Kowalski Custom Easing Curves */
@@ -129,7 +148,7 @@ input, select, textarea {
 }
 ```
 
-### E. SVG Logo Engineering Standards (Guided Exploration & Multi-Scale Assets)
+### F. SVG Logo Engineering Standards (Guided Exploration & Multi-Scale Assets)
 - **ViewBox Sizing:** Always use `viewBox="0 0 512 512"` for icons/monograms and `viewBox="0 0 1024 512"` for combination marks without hardcoded `width`/`height` attributes on the root `<svg>`.
 - **Self-Contained:** Zero external font dependencies, zero external images, zero external `<use>` refs. All text converted to native `<path>` elements or geometric primitives.
 - **Semantic Grouping:** Group elements under `<g id="icon">`, `<g id="wordmark">`, and `<g id="tagline">` to allow clean extraction of the standalone icon for favicons and mobile navigation.

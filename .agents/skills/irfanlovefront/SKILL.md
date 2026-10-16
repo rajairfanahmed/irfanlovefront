@@ -51,15 +51,22 @@ You must strictly separate two distinct spatial and design modes:
 
 ---
 
-## 🏛️ AIDA PAGE ARCHITECTURE & MACRO-SPACING
+## 🏛️ AIDA PAGE ARCHITECTURE & CONVERSION FOUNDATIONS
 
 Every landing page, marketing site, or portfolio MUST follow the AIDA macro-structure:
-1. **Attention (Hero Section):** Cinematic, clean, wide layout. Enforce the 2-Line Iron Rule with ultra-wide containers (`max-w-5xl`, `max-w-6xl`, or `w-full`).
+1. **Attention (Hero "Mini-Site"):** Acts as a self-contained mini-site with four elements visible above the fold without scrolling: (1) clear headline (<= 2 lines at desktop), (2) supporting context (<= 20 words), (3) social proof at point of doubt, and (4) specific high-contrast CTA.
 2. **Interest (Bento / Core Value):** High-density, gapless Bento Grid using Tailwind `grid-flow-dense` and interlocking spans, or interactive typographic components.
 3. **Desire (GSAP Media / Case Studies):** Dynamic interactive choreography (Sticky-Stack, Scroll Pinning Split, Scrubbing Text, or Horizontal Accordions).
 4. **Action (Footer / Contact):** High-contrast CTA and clean navigation links.
 
-**Macro-Spacing Standard:** Add massive vertical padding between all major sections (`py-28 md:py-40`). Sections must feel like distinct, cinematic chapters. Do not cramp elements together.
+### 🎯 7 Core Conversion & Visual Hierarchy Directives
+1. **Hero Mini-Site:** 4 elements above fold (Headline + Context + Social Proof + Specific CTA).
+2. **Visual Hierarchy & Squint Test:** Guide the eye from boldest/largest to secondary. Pass the squint test with zero visual ambiguity.
+3. **White Space & Restraint:** Generous negative space (`py-28 md:py-40`). Restraint is the signature of high-end engineering; never cram sections.
+4. **Contrast & Color Pop:** Use high-contrast colors specifically for primary CTA buttons so they pop decisively against the restrained palette.
+5. **Social Proof at Point of Doubt:** Place client logos, star ratings, and reviews directly beside conversion points (Hero CTA, Pricing, Contact), never buried on separate unvisited pages.
+6. **Typography Discipline (1 to 2 Fonts Max):** Limit the entire site to 1 or 2 font families. Maintain strict hierarchy and prioritize body readability.
+7. **Mobile-First Thumb Ergonomics:** Build for mobile from the outset. Buttons must be comfortably thumb-tappable (>= 44x44px) without horizontal scrolling.
 
 ---
 
@@ -77,6 +84,7 @@ The autonomous engineering pipeline coordinates five specialized stages sequenti
 
 ### 🚀 STAGE 1: Architecture & Foundation (`frontend-architect`)
 - **Deterministic Modulo Seed:** Injects assigned substrate palette, typography stack, and radii math.
+- **1 to 2 Fonts Discipline & High-Contrast Tokens:** Declares Display + Body fonts and high-contrast CTA pop variables.
 - **Scaffolds Next.js 15:** Sets up `frontend/` with TypeScript, Tailwind CSS, Lenis, and GSAP.
 - **Mobile-Native Tokens:** Injects `-webkit-tap-highlight-color: transparent`, `touch-action: manipulation`, `100svh`/`100dvh` tokens, and Apple display tracking into `globals.css`.
 - **SVG Logo Engineering:** Crafts mathematically balanced `BrandLogo.tsx` and dynamic `icon.tsx`.
@@ -86,9 +94,10 @@ The autonomous engineering pipeline coordinates five specialized stages sequenti
 
 ### 🎨 STAGE 2: Macro-Layout & Hero Craft (`creative-layout-engineer`)
 - **Tri-Zone Navigation:** Persistent single-line `Navbar.tsx` (height <= 80px).
-- **2-Line Iron Rule:** Ultra-wide hero (`max-w-5xl/6xl`, `clamp(2.75rem, 5vw, 5.5rem)`).
+- **Hero Mini-Site & 2-Line Iron Rule:** Ultra-wide hero (`max-w-5xl/6xl`, `clamp(2.75rem, 5vw, 5.5rem)`) with 4 elements above fold.
 - **Gapless Bento Grid:** Tailwind `grid-flow-dense` with zero dead cell gaps.
 - **Canonical Route Shells:** Lightweight route shells (`/about`, `/projects`, `/skills`, `/contact`) with identical header Y-axis (`pt-28`).
+- **Point-of-Doubt Social Proof:** Integrates client logos and verified metrics directly adjacent to primary conversion triggers.
 
 ---
 

@@ -46,7 +46,25 @@ Primary interactive buttons must be fully rounded pills (`rounded-full`) with ge
 </button>
 ```
 
-### 3. Emil Kowalski Component Recipes
+### 3. Point-of-Doubt Social Proof Primitives & High-Contrast CTA Pop
+Never isolate social proof to a lonely unvisited sub-page. Attach trust primitives directly to conversion triggers:
+- **High-Contrast Pop:** Primary CTA buttons must utilize high-contrast tokens (`bg-[var(--cta-bg)] text-[var(--cta-text)]`) so they pop vigorously against dark or muted substrates.
+- **Micro-Avatar Proof Stack:** Beside or beneath primary CTAs, render an overlapping avatar group with a star rating or verified customer count:
+  ```tsx
+  <div className="flex items-center gap-3 pt-2">
+    <div className="flex -space-x-2">
+      <img className="inline-block h-7 w-7 rounded-full ring-2 ring-background" src="/avatar1.jpg" alt="User 1" />
+      <img className="inline-block h-7 w-7 rounded-full ring-2 ring-background" src="/avatar2.jpg" alt="User 2" />
+      <img className="inline-block h-7 w-7 rounded-full ring-2 ring-background" src="/avatar3.jpg" alt="User 3" />
+    </div>
+    <div className="text-xs text-muted-foreground">
+      <span className="font-semibold text-foreground">4.9/5</span> from 1,200+ engineers
+    </div>
+  </div>
+  ```
+- **Mobile-First Thumb Ergonomics:** On mobile (`< 768px`), expand CTA touch targets to full width or minimum 44px by 44px located within the natural thumb sweep zone, with zero horizontal overflow.
+
+### 4. Emil Kowalski Component Recipes
 - **Never `scale(0)` on Entry:** Nothing in nature appears from thin air. Always enter from `scale(0.95)` with `opacity: 0`.
 - **Origin-Aware Popovers & Menus:** Popovers must scale from their trigger: `transform-origin: var(--transform-origin)`. Modals are exempt (they remain centered: `transform-origin: center`).
 - **Tooltips Instant After First:** Tooltips delay on first hover, but once one tooltip is active, hovering adjacent triggers opens tooltips instantly with `transition-duration: 0ms`.

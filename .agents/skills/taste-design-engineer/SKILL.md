@@ -108,6 +108,36 @@ Eliminate the telltale signs that make a web app feel like an embedded browser p
 
 ---
 
+## 🎯 Core Conversion & Visual Hierarchy Foundations
+
+1. **The Hero Mini-Site Rule:**
+   The hero section must act as a complete, self-contained mini-site. It requires four distinct elements visible without scrolling (above the fold):
+   - A clear, bold headline (<= 2 lines at desktop).
+   - Supporting context (<= 20 words, explaining the core value).
+   - Social proof (client logos, user avatar stacks, star rating, or verified metric).
+   - A specific call to action (high-contrast, unambiguous action verb).
+
+2. **Visual Hierarchy & The Squint Test:**
+   Purposefully guide the reader's eye by making the most critical elements the largest and boldest, then decreasing font size and visual weight for secondary content.
+   Apply the Squint Test: when squinting at the screen, is the path from Headline to Context to Proof to CTA instantly legible? If secondary tags compete with the headline, reduce them.
+
+3. **White Space & Visual Restraint:**
+   Generous negative space gives elements room to breathe. Restraint is the secret behind an expensive, premium aesthetic. Never cram sections with excessive cards or copy.
+
+4. **Contrast & Color Pop:**
+   Ensure baseline text easily passes WCAG AA contrast against backgrounds. Use high-contrast colors specifically for the primary call-to-action button so it pops vividly against an otherwise restrained color palette.
+
+5. **Social Proof at the Point of Doubt:**
+   Never bury testimonials, client logos, and reviews on separate, unvisited pages. Position social proof directly at the point of doubt or decision (immediately beneath the hero CTA, adjacent to pricing cards, and next to contact/checkout forms).
+
+6. **Typography Discipline (1 to 2 Fonts Max):**
+   Strictly limit the site to one or two fonts across the entire application. Maintain a rigorous size hierarchy (Display > Heading > Subheading > Body > Label). Prioritize readability over decorative fonts for body text.
+
+7. **Mobile-First Thumb Ergonomics:**
+   Build for mobile from the very beginning. Ensure all interactive buttons are comfortably tappable with a thumb (minimum 44x44px touch targets in natural reach zone) without horizontal scrolling.
+
+---
+
 ## 🛡️ Adversarial Break-UI Defense
 
 Anticipate edge cases before a single line of markup is rendered:
