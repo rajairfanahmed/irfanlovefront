@@ -1,6 +1,6 @@
 ---
 name: irfanlovefront
-description: Master UI/UX & Frontend Engineering Orchestrator. Coordinates the full 5-stage frontend engineering lifecycle (Taste & Design Engineering, Architecture, Creative Layout, Interactive Components & Motion, QA & SEO). Uses Next.js 15, TypeScript, Tailwind CSS, GSAP, Framer Motion, and Lenis inside frontend/. Use when invoking /irfanlovefront or requesting complete, bespoke, anti-slop frontend web applications.
+description: Master UI/UX & Frontend Engineering Orchestrator. Coordinates the full 5-stage frontend engineering lifecycle (Taste & Design Engineering with 2-step discovery, Architecture, Creative Layout with 1-page-at-a-time responsive craft, Interactive Components & Motion, QA, AIO & 100 Lighthouse Verification). Uses Next.js 15, TypeScript, Tailwind CSS, GSAP, Framer Motion, and Lenis inside frontend/. Use when invoking /irfanlovefront or requesting complete, bespoke, anti-slop frontend web applications.
 ---
 
 # IrfanLoveFront Master Frontend Engineering Orchestrator
@@ -62,7 +62,7 @@ Every landing page, marketing site, or portfolio MUST follow the AIDA macro-stru
 ### 🎯 7 Core Conversion & Visual Hierarchy Directives
 1. **Hero Mini-Site:** 4 elements above fold (Headline + Context + Social Proof + Specific CTA).
 2. **Visual Hierarchy & Squint Test:** Guide the eye from boldest/largest to secondary. Pass the squint test with zero visual ambiguity.
-3. **White Space & Restraint:** Generous negative space (`py-28 md:py-40`). Restraint is the signature of high-end engineering; never cram sections.
+3. **White Space & Restraint:** Generous negative space (`clamp(4rem, 10vw, 9rem)` section gaps). Restraint is the signature of high-end engineering; never cram sections.
 4. **Contrast & Color Pop:** Use high-contrast colors specifically for primary CTA buttons so they pop decisively against the restrained palette.
 5. **Social Proof at Point of Doubt:** Place client logos, star ratings, and reviews directly beside conversion points (Hero CTA, Pricing, Contact), never buried on separate unvisited pages.
 6. **Typography Discipline (1 to 2 Fonts Max):** Limit the entire site to 1 or 2 font families. Maintain strict hierarchy and prioritize body readability.
@@ -75,14 +75,17 @@ Every landing page, marketing site, or portfolio MUST follow the AIDA macro-stru
 The autonomous engineering pipeline coordinates five specialized stages sequentially:
 
 ### 🎯 STAGE 0: Taste & Design Engineering (`taste-design-engineer`)
-- **Interactive Brief & Sketches:** Ingests platform targets, canonical routes, rough user sketches, and reference URLs.
+- **2-Step Discovery Protocol:**
+  - **Run 1:** Displays concise brief prompt, generates `frontend/DESIGN_ENGINEERING_BRIEF.md` template, and stops for user input.
+  - **Run 2:** Reads user inputs. Employs the 8-step human design-engineer cognition sequence (Understand, Research, Interpret, Invent, Compare, Design, Engineer, Inspect, Critique, Refine, Verify) to fill all missing gaps with creative authority. Formulates hero and section imagery/media requirements.
 - **Emil Kowalski Philosophy:** Enforces that unseen details compound, taste is trained, and beauty is leverage.
 - **Animation Decision Framework:** Gates motion by frequency (100+/day = zero animation), sets purpose, assigns custom cubic beziers, and configures Apple spring damping ratios.
-- **Produces:** `frontend/DESIGN_ENGINEERING_BRIEF.md`.
+- **Produces:** Final synthesized `frontend/DESIGN_ENGINEERING_BRIEF.md`.
 
 ---
 
 ### 🚀 STAGE 1: Architecture & Foundation (`frontend-architect`)
+- **Reads Specification:** Reads `frontend/DESIGN_ENGINEERING_BRIEF.md` for tokens, fonts, and routes.
 - **Deterministic Modulo Seed:** Injects assigned substrate palette, typography stack, and radii math.
 - **1 to 2 Fonts Discipline & High-Contrast Tokens:** Declares Display + Body fonts and high-contrast CTA pop variables.
 - **Scaffolds Next.js 15:** Sets up `frontend/` with TypeScript, Tailwind CSS, Lenis, and GSAP.
@@ -92,16 +95,22 @@ The autonomous engineering pipeline coordinates five specialized stages sequenti
 
 ---
 
-### 🎨 STAGE 2: Macro-Layout & Hero Craft (`creative-layout-engineer`)
-- **Tri-Zone Navigation:** Persistent single-line `Navbar.tsx` (height <= 80px).
-- **Hero Mini-Site & 2-Line Iron Rule:** Ultra-wide hero (`max-w-5xl/6xl`, `clamp(2.75rem, 5vw, 5.5rem)`) with 4 elements above fold.
-- **Gapless Bento Grid:** Tailwind `grid-flow-dense` with zero dead cell gaps.
-- **Canonical Route Shells:** Lightweight route shells (`/about`, `/projects`, `/skills`, `/contact`) with identical header Y-axis (`pt-28`).
-- **Point-of-Doubt Social Proof:** Integrates client logos and verified metrics directly adjacent to primary conversion triggers.
+### 🎨 STAGE 2: Macro-Layout & Responsive Page Craft (`creative-layout-engineer`)
+- **1-Page-at-a-Time Incremental Construction:** Builds ONE page per run (e.g. `homepage`, then `aboutpage`, then `projectspage`). Stops after each page for user review and confirmation before advancing.
+- **Sole Responsibility for Responsiveness:** Implements complete mobile-first layout during page creation:
+  - Container queries (`@container`, `cqi`, `cqw`) on all cards, widgets, and multi-column wrappers.
+  - Fluid clamp typography and fluid spacing scales.
+  - Dynamic viewport units (`100svh` hero, `100dvh` app shell).
+  - CSS Grid auto-fit (`repeat(auto-fit, minmax(min(100%, 300px), 1fr))`) with `grid-flow-dense`.
+  - Minimum 44x44px touch targets on mobile.
+  - Defensive zero-overflow CSS (`overflow-x-hidden`, `min-w-0`, `break-words`).
+- **Hero Mini-Site & 2-Line Iron Rule:** Ultra-wide hero with 4 elements visible above the fold.
+- **Gapless Bento Grid:** Multi-card grids with zero dead cell gaps.
 
 ---
 
 ### ⚡ STAGE 3: Components & Motion Choreography (`interactive-component-engineer`)
+- **Reads Specification:** Reads `frontend/DESIGN_ENGINEERING_BRIEF.md` to extract component requirements, media directives, and animation tables.
 - **Double-Bezel Hardware Surfaces:** Concentric outer and inner radii card containers.
 - **Button Press Golden Rule:** Tactile `:active` `scale(0.97)` on all pressables with 160ms transition.
 - **Button-in-Button CTAs:** Nested trailing icon pill circles with diagonal hover physics.
@@ -111,11 +120,14 @@ The autonomous engineering pipeline coordinates five specialized stages sequenti
 
 ---
 
-### 🛡️ STAGE 4: Production Hardening, 404 & SEO (`experience-qa-auditor`)
-- **Mechanical 45+ Pre-Flight Check:** Verifies every box before sign-off.
+### 🛡️ STAGE 4: Production Hardening, AIO & 100 Lighthouse Verification (`experience-qa-auditor`)
+- **Reads Specification:** Reads `frontend/DESIGN_ENGINEERING_BRIEF.md` to benchmark against initial design brief.
+- **Artificial Engine Optimization (AIO / GEO):** Direct-answer summary blocks, comprehensive JSON-LD schemas (`WebSite`, `Organization`/`SoftwareApplication`, `FAQPage`, `BreadcrumbList`), and semantic HTML5 outline for AI search engines (Perplexity, ChatGPT, Claude, Gemini).
+- **Full 100/100 Lighthouse Score Preservation:** Performance, Accessibility, Best Practices, and SEO audited to 100 WITHOUT deleting any animations, GSAP motion, or Lenis smooth scrolling (using GPU-composited properties, non-blocking script mounts, zero CLS, and LCP preloading).
+- **Mechanical 45+ Pre-Flight Check:** Verifies every box before production sign-off.
 - **Mobile-Native Symptom Audit:** Verifies sticky hover suppression, tap highlight removal, 100vh overflow fix, input zoom prevention.
 - **Adversarial Break-UI Stress Test:** Tests worst-case strings, extreme names, and empty lists.
-- **Technical SEO & Error UX:** Branded `not-found.tsx`, resilient `error.tsx`, and structured JSON-LD.
+- **Technical SEO & Error UX:** Branded `not-found.tsx`, resilient `error.tsx` boundary with `reset()` handler.
 
 ---
 

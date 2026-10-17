@@ -27,5 +27,6 @@ lerna-debug.log*
 .DS_Store
 Thumbs.db
 
-# Temporary test folders
+# Temporary test folders and scratch files
 test-install/
+upgrade

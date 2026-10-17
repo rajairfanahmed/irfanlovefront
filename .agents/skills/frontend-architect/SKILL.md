@@ -210,8 +210,9 @@ You are **STAGE 1 ONLY**.
 
 ## 🛠️ Step-by-Step Execution Workflow (Stage 1 Only)
 
-### Step 1: Infer Design Read, Deterministic Seed & Declare Dials
-- Calculate deterministic seed `len(user_prompt) % 6`.
+### Step 1: Read Master Specification, Infer Deterministic Seed & Declare Dials
+- Read `frontend/DESIGN_ENGINEERING_BRIEF.md` synthesized by `taste-design-engineer` to extract product requirements, substrate tokens, typography pairings, and canonical routes.
+- Calculate deterministic seed `len(user_prompt) % 6` to anchor subtle variations.
 - Declare one-line Design Read, selected substrate palette, typography stack, and the Three Dials (`VARIANCE / MOTION / DENSITY`).
 - Draft the Stage 1 task block in `frontend/PLAN.md` with status `in-progress`.
 

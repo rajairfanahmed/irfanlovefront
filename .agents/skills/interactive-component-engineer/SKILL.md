@@ -286,8 +286,9 @@ You are **STAGE 3 ONLY**.
 ### Step 1: Write Stage 3 Plan to `frontend/PLAN.md`
 - Append the Stage 3 task block with status `in-progress`.
 
-### Step 2: Verify Stage 1 & 2 Milestones
-- Check `frontend/uiux-progress.json` to ensure Stages 1 and 2 are `completed`.
+### Step 2: Read Master Specification & Verify Prior Milestones
+- Read `frontend/DESIGN_ENGINEERING_BRIEF.md` to extract component requirements, media/image assets, animation tables, and substrate tokens.
+- Check `frontend/uiux-progress.json` to ensure Stage 1 and Stage 2 are marked `completed`.
 
 ### Step 3: Implement UI Primitives
 - Create `frontend/src/components/ui/Button.tsx`: minimum 44px tap target, single-line text, WCAG AA contrast, button-in-button nested trailing icon, sticky tap-highlight fix.
