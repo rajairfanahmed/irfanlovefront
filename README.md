@@ -10,12 +10,11 @@
   <a href="RELEASES/RELEASE-2.0.0.md"><strong>Release 2.0.0</strong></a>
 </p>
 
-```
-   ___       ___              __                  ____                 __ 
-  / (_)____ / _/__ ____  ____/ /  ___ _  _____   / __/______  ___  / /_
- / / // __// _/ _ `/ _ \/ __/ _ \/ _ \ |/ / -_) / _// __/ _ \/ _ \/ __/
-/_/_//_/  /_/  \_,_/_//_/\__/_//_/\___/___/\__/ /_/ /_/  \___/_//_/\__/ 
-```
+<a href="https://github.com/rajairfanahmed/irfanlovefront">
+  <img src="logo/icon.svg" alt="irfanlovefront logo" width="180" height="180" />
+</a>
+
+# irfanlovefront
 
 ### The Autonomous 8-Agent UI/UX & Frontend Engineering Suite (v2.0)
 

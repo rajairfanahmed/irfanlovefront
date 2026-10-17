@@ -1,4 +1,11 @@
-<svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .stem { stroke: #0F172A; }
+    @media (prefers-color-scheme: dark) {
+      .stem { stroke: #F8FAFC; }
+    }
+  </style>
+
   <!-- Top Heart Arch (Vibrant Red) -->
   <path
     d="M 27.5 33.5 C 29 23 37 17.5 44 19 C 47.5 20 49.2 23 50 25.5 C 50.8 23 52.5 20 56 19 C 63 17.5 71 23 72.5 33.5"
@@ -21,18 +28,20 @@
     fill="#EF4444"
   />
 
-  <!-- Monoline 'if' Stem with U-turn Loop (Surface Dark Slate) -->
+  <!-- Monoline 'if' Stem with U-turn Loop (Adaptive Surface Slate) -->
   <path
     d="M 42 47.5 L 42 62.5 C 42 69 53.5 69 53.5 62.5 L 53.5 41 C 53.5 35.5 60.5 34.5 63.5 38"
+    class="stem"
     stroke="#0F172A"
     stroke-width="7"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
 
-  <!-- 'f' Crossbar (Surface Dark Slate) -->
+  <!-- 'f' Crossbar (Adaptive Surface Slate) -->
   <path
     d="M 48 51.5 L 63.5 51.5"
+    class="stem"
     stroke="#0F172A"
     stroke-width="7"
     stroke-linecap="round"
