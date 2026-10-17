@@ -7,7 +7,8 @@
   <a href="LICENSE"><strong>License</strong></a> •
   <a href="SECURITY.md"><strong>Security</strong></a> •
   <a href="RELEASES/RELEASE-1.0.0.md"><strong>Release 1.0.0</strong></a> •
-  <a href="RELEASES/RELEASE-2.0.0.md"><strong>Release 2.0.0</strong></a>
+  <a href="RELEASES/RELEASE-2.0.0.md"><strong>Release 2.0.0</strong></a> •
+  <a href="RELEASES/RELEASE-3.0.0.md"><strong>Release 3.0.0</strong></a>
 </p>
 
 <a href="https://github.com/rajairfanahmed/irfanlovefront">
@@ -16,13 +17,13 @@
 
 # irfanlovefront
 
-### The Autonomous 8-Agent UI/UX & Frontend Engineering Suite (v2.0)
+### The Autonomous 9-Agent UI/UX & Frontend Engineering Suite (v3.0)
 
 **Eliminate frontend design paralysis, generic templates, and AI-slop forever.**
 
 [![npm version](https://img.shields.io/npm/v/irfanlovefront.svg?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v2.0.0-blue.svg?style=flat-square)](RELEASES/RELEASE-2.0.0.md)
+[![Release](https://img.shields.io/badge/release-v3.0.0-blue.svg?style=flat-square)](RELEASES/RELEASE-3.0.0.md)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -38,9 +39,9 @@
 
 ---
 
-## ⚡ The 1-Command Quickstart (v2)
+## ⚡ The 1-Command Quickstart (v3)
 
-Install the entire 8-agent skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
+Install the entire 9-agent skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
 ```bash
 # Interactive setup (selects your agent and workspace/global scope)
@@ -91,8 +92,10 @@ Most AI assistants produce generic, repetitive slop:
 - Bento grids have awkward blank holes and mismatched heights.
 - Buttons lack tactile hover feedback.
 - Sub-pages jitter and shift vertical position when switching routes.
+- Performance fails Core Web Vitals due to render-blocking fonts.
+- Contrast tests fail WCAG AA accessibility standards.
 
-**IrfanLoveFront permanently solves this.** It is an autonomous 8-agent engineering suite that enforces deterministic design entropy, Emil Kowalski design engineering principles, Apple WWDC fluid motion, machined double-bezel surfaces, 2-line headline discipline, fluid clamp typography, and production QA auditing.
+**IrfanLoveFront permanently solves this.** It is an autonomous 9-agent engineering suite powered by an authoritative library of 84+ brand token systems in `design-refs/` (Apple, Stripe, Linear, Notion, Vercel, Supabase, Ferrari), zero render-blocking font architecture, container queries, Apple fluid physics, 100/100 Lighthouse verification, and 3/3 Agentic Browsing.
 
 ---
 
@@ -104,20 +107,20 @@ Most AI assistants produce generic, repetitive slop:
 
 ---
 
-## 🏛️ Visual Architecture: The 8 Autonomous Agents
+## 🏛️ Visual Architecture: The 9 Autonomous Agents
 
 ```
                                   +---------------------------------------+
                                   |         /irfanlovefront               |
                                   |   Master Lifecycle Orchestrator       |
-                                  |    (frontend/PLAN.md State Engine)    |
+                                  |   (84+ Brand Token System Ingestion)  |
                                   +-------------------+-------------------+
                                                       |
                                                       v
                                   +---------------------------------------+
                                   |       STAGE 0: taste-design-engineer  |
                                   |   Pre-Architecture Consultation       |
-                                  |   (Emil Kowalski Taste & Motion Brief)|
+                                  |   (design-refs/ Audit, 3 Directions)  |
                                   +-------------------+-------------------+
                                                       |
          +--------------------------------------------+-------------------------------------------+
@@ -129,16 +132,16 @@ Most AI assistants produce generic, repetitive slop:
  |   architect   |                            |    layout-    |                           |  component-   |
  |               |                            |   engineer    |                           |   engineer    |
  +---------------+                            +---------------+                           +---------------+
- |* Deterministic|                            |* 2-Line H1    |                           |* Double-Bezel |
- |  Seed Engine  |                            |  Iron Rule    |                           |  Architecture |
- |* 6 Substrates |                            |* 4 Hero       |                           |* Emil Kowalski|
- |* 4 Font Stacks|                               Archetypes   |                              scale(0.97)  |
- |* Double-Bezel |                            |* 100svh Hero  |                           |* Button-in-   |
- |  Math Tokens  |                            |* Gapless Bento|                              Button CTAs  |
- |* SVG Logo Eng |                            |  Dense Flow   |                           |* 5 Advanced   |
- |* Mobile-Native|                            |* Route Shells |                              GSAP Timelines
- |  CSS Reset    |                            |* Sub-Page     |                           |* Overflow-X   |
- |* Favicon      |                               Spatial Y    |                              Protection   |
+ |* Tokens from  |                            |* 2-Line H1    |                           |* Container    |
+ |  design-refs  |                            |  Iron Rule    |                              Geometry     |
+ |* Zero-Blocking|                            |* 1-Page-at-a- |                           |* Emil Kowalski|
+ |  next/font    |                               Time Flow    |                              scale(0.97)  |
+ |* Preconnects  |                            |* 100svh Hero  |                           |* Button-in-   |
+ |* SVG Clean Arc|                            |* Container Qs |                              Button CTAs  |
+ |* Mobile-Native|                            |* 320px Zero-  |                           |* 5 Advanced   |
+ |  CSS Reset    |                               Overflow     |                              GSAP Timelines
+ |* Favicon      |                            |* Sub-Page     |                           |* Accessible   |
+ |  app/icon.tsx |                               Spatial Y    |                              Form Controls|
  +---------------+                            +---------------+                           +---------------+
          |                                            |                                           |
          +--------------------------------------------+-------------------------------------------+
@@ -149,42 +152,42 @@ Most AI assistants produce generic, repetitive slop:
                                               |  experience-  |
                                               |   qa-auditor  |
                                               +---------------+
-                                              |* 45+ Item     |
-                                              |  Pre-Flight   |
-                                              |* Mobile-Native|
-                                              |  Symptom Audit|
-                                              |* Break-UI     |
-                                              |  Stress Test  |
-                                              |* Mobile 320px |
-                                              |* Contrast AA  |
-                                              |* JSON-LD SEO  |
+                                              |* 100/100 Perf |
+                                              |* 100/100 A11y |
+                                              |* 100/100 BP   |
+                                              |* 100/100 SEO  |
+                                              |* 3/3 Agentic  |
+                                              |  Browsing     |
+                                              |* llms.txt Link|
+                                              |  Tree Standard|
+                                              |* WebMCP Forms |
                                               |* 404 & Errors |
                                               +---------------+
                                                       |
-                                      +---------------+---------------+
-                                      |                               |
-                                      v                               v
                       +-------------------------------+-------------------------------+
-                      |        AUXILIARY SKILL        |        AUXILIARY SKILL        |
-                      |      build-error-resolver     |      github-readme-writer     |
-                      +-------------------------------+-------------------------------+
-                      |* Fast-path TypeScript fixes   |* Daytona open-source standard |
-                      |* Next.js 15 compilation fix   |* Zero AI clichés or slop      |
-                      |* Minimal surgical diffs (<5%) |* Architecture and proof-first |
-                      |* Zero architectural churn     |* Zero em-dash enforcement     |
-                      +-------------------------------+-------------------------------+
+                      |                               |                               |
+                      v                               v                               v
+      +-------------------------------+---------------+---------------+---------------+---------------+
+      |        AUXILIARY SKILL        |        AUXILIARY SKILL        |        AUXILIARY SKILL        |
+      |       design-system-md        |      build-error-resolver     |      github-readme-writer     |
+      +-------------------------------+-------------------------------+-------------------------------+
+      |* 84+ brand token library      |* Fast-path TypeScript fixes   |* Daytona open-source standard |
+      |* getdesign CLI integration    |* Next.js 15 compilation fix   |* Zero AI clichés or slop      |
+      |* Structured 9-section spec    |* Minimal surgical diffs (<5%) |* Architecture and proof-first |
+      |* Instant token generation     |* Zero architectural churn     |* Zero em-dash enforcement     |
+      +-------------------------------+-------------------------------+-------------------------------+
 ```
 
 ---
 
-## 🛠️ The 8 Agent Skills: Detailed Guide
+## 🛠️ The 9 Agent Skills: Detailed Guide
 
-All slash commands match their directory names exactly in `.agents/skills/`.
+All slash commands match their directory names exactly in `.agents/skills/`. Every agent operates with an authoritative 20+ years Principal / Staff specialist persona.
 
 ### 1. Master Orchestrator: `irfanlovefront`
 - **Folder Name:** `irfanlovefront`
 - **Slash Command:** `/irfanlovefront`
-- **Role:** Master UI/UX & Frontend Engineering Orchestrator. Coordinates the complete 5-stage lifecycle autonomously inside `frontend/`. Injects deterministic entropy, AIDA macro-structure, and live milestone tracking.
+- **Role:** Master UI/UX & Frontend Engineering Orchestrator with 20+ years of elite experience. Coordinates the complete 5-stage lifecycle autonomously inside `frontend/`. Injects deterministic entropy, AIDA macro-structure, and live milestone tracking.
 - **When to Use:** When you want a complete, full-stack, production-grade web application generated from start to finish.
 - **Workflow:**
   ```text
@@ -196,75 +199,84 @@ All slash commands match their directory names exactly in `.agents/skills/`.
 ### 2. Stage 0: `taste-design-engineer`
 - **Folder Name:** `taste-design-engineer`
 - **Slash Command:** `/taste-design-engineer` (alias: `/taste-design-engineering`)
-- **Role:** Principal Taste & Design Engineering Specialist.
+- **Role:** Principal Taste & Design Engineering Specialist with 20+ years of elite experience.
 - **Capabilities:**
-  1. **Pre-Architecture Consultation:** Ingests platform targets, canonical routes, rough user sketches, and reference URLs before scaffolding.
-  2. **Emil Kowalski Philosophy:** Enforces that unseen details compound, taste is trained, and beauty is leverage.
-  3. **The Animation Decision Framework:** Frequency audit (100+/day = zero animation, keyboard actions = zero animation), sets purpose, assigns custom cubic beziers (`--ease-out`, `--ease-in-out`, `--ease-drawer`).
-  4. **Apple WWDC Fluid Interfaces:** Damping ratio `1.0` default, direct manipulation, instant pointer-down response, and interruptibility.
-  5. **Produces:** `frontend/DESIGN_ENGINEERING_BRIEF.md`.
+  1. **Operational Reference Audit:** Inspects actual files in `design-refs/` and user media, logging exact paths in a Reference-to-Decision Mapping Table.
+  2. **Automatic Gap Filling from Reality:** Where user specifications leave gaps, adopts real tokens from category-relevant brands in `design-refs/` (no guessing or inventing arbitrary colors/fonts).
+  3. **Mandatory 3 Distinct Creative Directions:** Evaluates three materially different concepts (Editorial Broadsheet, Machined Technical Console, Modernist Canvas) and documents trade-offs before locking the brief.
+  4. **Elimination of Forced Templates:** Double-bezel cards, bento grids, and button physics are strictly optional tools.
+  5. **Context-Aware Proof:** Replaces fake testimonials with real GitHub repos, architecture schematics, and code diffs for technical tools.
+  6. **Produces:** `frontend/DESIGN_ENGINEERING_BRIEF.md`.
 
 ---
 
 ### 3. Stage 1: `frontend-architect`
 - **Folder Name:** `frontend-architect`
 - **Slash Command:** `/frontend-architect`
-- **Role:** Foundation Architect & Design System Engineer.
+- **Role:** Staff Frontend Architect & Design System Foundation Engineer with 20+ years of experience.
 - **Capabilities:**
-  1. **Deterministic Entropy Engine:** Runs `seed = len(prompt) % 6` to mathematically select one of six calibrated substrates and font stacks, preventing repetitive dark themes.
-  2. **Double-Bezel Math Tokens:** Declares `--radius-outer` (20px/24px) and concentric inner radius tokens (`calc(var(--radius-outer) - 4px)`).
-  3. **Mobile-Native CSS Reset:** Injects `-webkit-tap-highlight-color: transparent`, `touch-action: manipulation`, and input zoom protection (>= 16px font size) into `globals.css`.
-  4. **Fluid Typography & Optical Sizing:** Implements CSS `clamp()` font scales and negative display tracking.
-  5. **SVG Logo Engineering:** Crafts a custom, mathematically balanced vector brand mark (512x512 viewBox with semantic `#icon` and `#wordmark` groups) and generates `app/icon.tsx`.
-  6. **Lenis Smooth Scroll:** Initializes momentum scrolling with native reduced-motion safety.
+  1. **Token Ingestion from design-refs:** Reads `frontend/DESIGN_ENGINEERING_BRIEF.md` and maps exact brand tokens into `globals.css`.
+  2. **Zero Render-Blocking Font Architecture:** Uses `next/font` with `display: 'swap'` and origin preconnects, eliminating 830ms+ render delays.
+  3. **Clean SVG Hygiene:** Enforces valid SVG `<path d="...">` arc syntax to eliminate browser console errors.
+  4. **Mobile-Native CSS Reset:** Injects `-webkit-tap-highlight-color: transparent`, `touch-action: manipulation`, and input zoom protection (>= 16px font size) into `globals.css`.
+  5. **Favicon & Logo Systems:** Generates dynamic retina `app/icon.tsx` and container-constrained `BrandLogo.tsx`.
 
 ---
 
 ### 4. Stage 2: `creative-layout-engineer`
 - **Folder Name:** `creative-layout-engineer`
 - **Slash Command:** `/creative-layout-engineer`
-- **Role:** Macro-Layout & Hero Craftsman.
+- **Role:** Senior Creative Technologist & Macro-Layout Craftsman with 20+ years of experience.
 - **Capabilities:**
-  1. **The 2-Line Iron Rule:** Mandates wide container constraints (`max-w-5xl/6xl`) so headlines never wrap onto 3 or 4 lines on desktop.
-  2. **4 Distinct Hero Archetypes:** Deploys Cinematic Center, Tactical Blueprint, Editorial Asymmetric Split, or Modular Telemetry based on project seed.
-  3. **100svh Viewport Sizing:** Uses small viewport height (`min-h-[100svh]`) for heroes to eliminate mobile browser URL-bar collapse jump.
-  4. **Gapless Bento Grids:** Enforces Tailwind `grid-flow-dense` and interlocking cell spans so zero awkward dead gaps exist.
-  5. **Single-Project Spatial Rhythm:** Standardizes page shell Y-axis (`pt-28`) across canonical sub-pages (`/about`, `/projects`, `/skills`, `/contact`) for zero layout shift during navigation.
+  1. **1-Page-at-a-Time Incremental Construction:** Builds ONE page per run and stops for user review before proceeding.
+  2. **The 2-Line Iron Limit:** Mandates wide container constraints (`max-w-5xl/6xl`) so headlines never wrap onto 3 or 4 lines on desktop.
+  3. **Mobile-First Container Queries:** Uses `@container` queries and fluid clamp math (`clamp()`) for layout elements.
+  4. **Dynamic Viewport Units:** `min-h-[100svh]` for heroes to eliminate mobile browser URL-bar collapse jump.
+  5. **Zero Horizontal Overflow:** Wraps all pages in `<main className="overflow-x-hidden w-full max-w-full">` with zero overflow at 320px.
 
 ---
 
 ### 5. Stage 3: `interactive-component-engineer`
 - **Folder Name:** `interactive-component-engineer`
 - **Slash Command:** `/interactive-component-engineer`
-- **Role:** UI Primitives & Motion Choreographer.
+- **Role:** Lead Interactive Component Engineer & Motion Choreographer with 20+ years of experience.
 - **Capabilities:**
-  1. **Machined Hardware Surfaces:** Encloses cards in double-bezel concentric containers with subtle inset borders.
-  2. **Emil Kowalski Button Press Physics:** Implements tactile `:active` `scale(0.97)` on buttons and pressable elements with 160ms ease-out transitions.
-  3. **Button-in-Button Kinetic CTAs:** Implements primary buttons featuring nested trailing icon pill circles that translate diagonally on hover.
-  4. **Emil's Component Recipes:** Never `scale(0)` (always enter from `scale(0.95)` with opacity), origin-aware popovers (`transform-origin: var(--transform-origin)`), tooltips instant after first, and blur-assisted crossfades.
-  5. **5 Advanced GSAP ScrollTrigger Paradigms:** Implements Sticky-Stack Stacking, Pinning Split Showcase, Scrubbing Kinetic Text Reveal, Horizontal Accordion, and Parallax Depth.
-  6. **Zero Horizontal Overflow:** Wraps all pages in `<main className="overflow-x-hidden w-full max-w-full">` to eliminate mobile scroll bugs.
+  1. **Container Geometry Toolkit:** Deploys Double-Bezel, Hairline Border, or Recessed Well based on the brief.
+  2. **Emil Kowalski Button Press Physics:** Implements tactile `:active` `scale(0.97)` with 160ms ease-out transitions.
+  3. **Button-in-Button Kinetic CTAs:** Implements primary buttons featuring nested trailing icon pill circles with diagonal hover physics.
+  4. **Accessible Forms & Controls:** Accessible names on all buttons/links, unique IDs, and visible `<label htmlFor="[id]">`.
+  5. **5 Advanced GSAP ScrollTrigger Paradigms:** Implements Sticky-Stack, Split Pinned Gallery, Scrubbing Text Reveal, Horizontal Tracks, and Node Inspectors.
 
 ---
 
 ### 6. Stage 4: `experience-qa-auditor`
 - **Folder Name:** `experience-qa-auditor`
 - **Slash Command:** `/experience-qa-auditor`
-- **Role:** Production Hardening, Mobile Verification & SEO Auditor.
+- **Role:** Principal Frontend QA, Accessibility, AIO & Technical SEO Specialist with 20+ years of experience.
 - **Capabilities:**
-  1. **Mechanical 45+ Item Pre-Flight Check:** Verifies font rendering, image aspect ratios, touch targets, and contrast ratios.
-  2. **Mobile-Native Symptom Audit:** Checks sticky hover suppression, tap highlight removal, 100vh overflow fix, input zoom prevention, and overscroll containment.
-  3. **Adversarial Break-UI Stress Test:** Tests worst-case strings ("Aleksandra Wisniewska-Kowalczyk", unbreakable emails, zero counts) to ensure layout resilience.
-  4. **Mobile 320px Viewport Audit:** Tests all components down to 320px viewport width with zero text clipping or horizontal spill.
-  5. **WCAG AA Compliance:** Validates minimum 4.5:1 text contrast and accessible ARIA attributes.
-  6. **Bespoke Error States & SEO:** Builds custom `not-found.tsx`, resilient `error.tsx`, and injects JSON-LD structured rich snippets.
+  1. **100/100 Lighthouse Performance:** Zero render-blocking requests, LCP < 1.2s, CLS = 0, DOM depth < 12.
+  2. **100/100 Lighthouse Accessibility:** Strict WCAG AAA/AA contrast checks, accessible button names, `<label for>` associations, visible focus rings.
+  3. **100/100 Lighthouse Best Practices:** Zero console errors, clean SVG paths, secure headers guidelines (CSP, COOP).
+  4. **100/100 Lighthouse SEO:** Metadata API, OpenGraph, JSON-LD schemas, canonical tags, valid robots.txt.
+  5. **3/3 Agentic Browsing:** Fully compliant `public/llms.txt` with `# Title` H1 and structured markdown link tree, WebMCP form annotations, and `public/ai-catalog.json`.
 
 ---
 
-### 7. Auxiliary: `build-error-resolver`
+### 7. Auxiliary: `design-system-md`
+- **Folder Name:** `design-system-md`
+- **Slash Command:** `/design-system-md`
+- **Role:** Principal Design System Architect & Brand Systems Engineer with 20+ years of experience.
+- **Capabilities:**
+  1. Connects to `getdesign` CLI to pull structured `DESIGN.md` files from 84+ world-class brands.
+  2. Enforces the 9-section DESIGN.md standard (colors, typography, components, layout, elevation, guardrails).
+  3. Powers the permanent `design-refs/` library and enforces token discipline across downstream agents.
+
+---
+
+### 8. Auxiliary: `build-error-resolver`
 - **Folder Name:** `build-error-resolver`
 - **Slash Command:** `/build-error-resolver`
-- **Role:** Surgical Build Recovery Specialist.
+- **Role:** Principal Build & TypeScript Error Resolution Specialist with 20+ years of compiler experience.
 - **Capabilities:**
   1. Resolves TypeScript compiler errors, Next.js build failures, and missing type definitions in seconds.
   2. Changes fewer than 5% of lines with zero architectural refactoring.
@@ -272,10 +284,10 @@ All slash commands match their directory names exactly in `.agents/skills/`.
 
 ---
 
-### 8. Auxiliary: `github-readme-writer`
+### 9. Auxiliary: `github-readme-writer`
 - **Folder Name:** `github-readme-writer`
 - **Slash Command:** `/github-readme-writer`
-- **Role:** Technical Documentation & Daytona Open-Source Framework Specialist.
+- **Role:** Principal Technical Documentation & GitHub README Specialist with 20+ years of experience.
 - **Capabilities:**
   1. Crafts human operator-voice README files, technical case studies, and launch posts.
   2. Implements Daytona's open-source launch blueprint: Top Navigation Bar, Centered Logo, Badges, Visual Feast, Project Hygiene, and mini-docs.
@@ -289,9 +301,10 @@ You can instruct `/irfanlovefront` or individual specialists to use your preferr
 
 ```text
 /irfanlovefront Build a portfolio with these custom preferences:
+- Reference: design-refs/linear.app-DESIGN.md
 - Colors: Deep midnight navy (#050b14) with electric amber (#f59e0b) accents
 - Typography: Plus Jakarta Sans for headings, Inter for body copy
-- Motion: GSAP sticky-stack cards with spring damping
+- Motion: GSAP split pinned gallery with spring damping
 - Pages: Home, About, Case Studies, Contact
 ```
 
