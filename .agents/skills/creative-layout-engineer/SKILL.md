@@ -11,6 +11,17 @@ You hold **direct, primary responsibility for responsive design** across all scr
 
 ---
 
+## 🎨 Creative Freedom & Layout Diversity
+
+Every layout is derived directly from `frontend/DESIGN_ENGINEERING_BRIEF.md` synthesized by `taste-design-engineer` (anchored by `design-refs/` brand systems and the selected creative direction). You possess **full creative freedom** to invent bespoke compositions, editorial broadsheets, split technical architecture layouts, or asymmetric catalogs without falling back on rigid or repetitive card templates.
+
+### Core Layout Law (from `design-system-md`):
+- **NEVER invent colors or fonts** outside `DESIGN_ENGINEERING_BRIEF.md` or the selected `design-refs/`.
+- **ALWAYS use the spacing system defined** (typically an 8px or 4px base increment).
+- **No Forced Templates:** Bento grids, double-bezel cards, and split heroes are optional tools. Only deploy them if explicitly called for in the master brief.
+
+---
+
 ## 🛑 THE 1-PAGE-AT-A-TIME INCREMENTAL PROTOCOL
 
 You **MUST NOT** build all frontend pages at once. Generating multiple pages simultaneously leads to superficial templates, missed responsiveness, and low craft fidelity.
@@ -47,7 +58,7 @@ You engineer responsive design from line 1 of code using modern CSS and Tailwind
 ### 1. Mobile-First Breakpoint Architecture
 Start with clean base styles for mobile (< 640px), then progressively enhance for larger screens:
 - **Base (Mobile < 640px):** Single-column vertical stacks, full-width cards, 44x44px minimum touch targets, fluid padding.
-- **`sm:` (640px):** Landscape phones and small tablets. Dual-column bento grids.
+- **`sm:` (640px):** Landscape phones and small tablets. Dual-column layouts.
 - **`md:` (768px):** Tablets. Horizontal navigation and split layouts.
 - **`lg:` (1024px):** Laptops and small desktops. Multi-column grids and expanded hero spreads.
 - **`xl:` (1280px):** Standard desktops. Constrained containers (`max-w-6xl` or `max-w-7xl`).
@@ -82,7 +93,7 @@ Avoid rigid column numbers. Use auto-wrapping grids with boundary clamps:
 ```css
 grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
 ```
-Pair with Tailwind `grid-flow-dense` to prevent dead gaps in bento grids.
+Pair with Tailwind `grid-flow-dense` to prevent dead gaps in multi-card grids.
 
 ### 6. Defensive Overflow Protection (Zero Horizontal Scroll at 320px)
 - Wrap pages in `<main className="overflow-x-hidden w-full max-w-full">`.
@@ -104,7 +115,7 @@ The Hero section acts as a complete **Mini-Site** telling the entire value story
 1. **The 4-Element Mini-Site Requirement:**
    - **Clear Headline:** Bold, authoritative headline following the 2-Line Iron Limit.
    - **Supporting Context:** Concise explainer (<= 20 words).
-   - **Social Proof at Point of Doubt:** Client logos, verified metrics, or user avatar rating stack positioned right near the primary action.
+   - **Context-Aware Proof at Point of Doubt:** Real technical evidence (architecture schematic, GitHub link, code diff, or verified benchmarks for developer/tech tools; client logos or metrics for commercial SaaS).
    - **Specific Call to Action:** High-contrast primary CTA button popping against the background.
 
 2. **The 2-Line Iron Limit:**
@@ -122,15 +133,6 @@ The Hero section acts as a complete **Mini-Site** telling the entire value story
 
 ---
 
-## 🧩 THE GAPLESS BENTO GRID
-
-1. **Dense Auto-Flow:** Enforce `grid-flow-dense` on every multi-card grid.
-2. **Interlocking Math:** Calculate column spans to eliminate dead corners (e.g. `col-span-8` + `col-span-4` = 12 columns).
-3. **Card Restraint:** Use 3 to 5 high-impact cards instead of 8 cluttered boxes.
-4. **Visual Variation:** At least 2-3 cells must contain real visual diversity (image, interactive preview, code terminal, or gradient).
-
----
-
 ## 🚫 HARD ANTI-SLOP & BANNED PATTERNS
 
 - **Zero Em-Dashes:** Strictly zero em-dash and zero en-dash characters anywhere in copy.
@@ -145,7 +147,7 @@ The Hero section acts as a complete **Mini-Site** telling the entire value story
 ## 🛠️ Step-by-Step Execution Workflow (One Page at a Time)
 
 ### Step 1: Read Brief & Check Progress Tracker
-- Read `frontend/DESIGN_ENGINEERING_BRIEF.md` to identify all canonical routes.
+- Read `frontend/DESIGN_ENGINEERING_BRIEF.md` to identify all canonical routes and section contracts.
 - Read `frontend/uiux-progress.json` to determine the current active page.
 
 ### Step 2: Write Single-Page Plan to `frontend/PLAN.md`
@@ -157,7 +159,7 @@ The Hero section acts as a complete **Mini-Site** telling the entire value story
   - Mobile hamburger toggle with sliding drawer, focus trap, and touch-friendly links.
 
 ### Step 4: Construct the Target Page with Mobile-First Responsiveness
-- Build the page file (e.g. `frontend/src/app/page.tsx` for home, or `frontend/src/app/about/page.tsx` for about).
+- Build the page file (e.g. `frontend/src/app/page.tsx` for home, or `frontend/src/app/about/page.tsx` for sub-routes).
 - Construct the hero section using the 4-element mini-site rule and assigned archetype.
 - Construct downstream section layouts with `@container` queries, fluid clamp typography, and auto-fit grids.
 - Ensure all images have explicit aspect ratios (`aspect-video`, `aspect-square`) and fluid bounds.
