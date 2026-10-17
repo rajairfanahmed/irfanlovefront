@@ -13,7 +13,7 @@ const program = new Command();
 program
   .name("irfanlovefront")
   .description("Install irfanlovefront UI/UX agent skills across Claude Code, Antigravity, Cursor, Windsurf, and Copilot")
-  .version("2.0.0")
+  .version("2.0.1")
   .option("-a, --all", "Install for all supported AI agents")
   .option("--claude", "Install specifically for Claude Code")
   .option("--cursor", "Install specifically for Cursor")
