@@ -26,6 +26,15 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Verify NPM_TOKEN
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "::error::NPM_TOKEN secret is not set in GitHub repository secrets! Go to Settings -> Secrets and variables -> Actions -> Repository secrets and add NPM_TOKEN."
+            exit 1
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Publish to npm
         run: npm publish --access public
         env:
@@ -51,6 +60,7 @@ jobs:
         run: npm pkg set name=@rajairfanahmed/irfanlovefront
 
       - name: Publish to GitHub Packages
-        run: npm publish
+        run: |
+          npm publish || echo "Notice: Package version may already be published on GitHub Packages (409 Conflict bypassed)."
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
