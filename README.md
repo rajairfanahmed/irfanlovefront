@@ -6,7 +6,7 @@
   <a href="CODE_OF_CONDUCT.md"><strong>Code of Conduct</strong></a> •
   <a href="LICENSE"><strong>License</strong></a> •
   <a href="SECURITY.md"><strong>Security</strong></a> •
-  <a href="RELEASES/RELEASE-2.0.0.md"><strong>Release 2.0.0</strong></a> •
+  <a href="RELEASES/RELEASE-3.1.0.md"><strong>Release 3.1.0</strong></a> •
   <a href="RELEASES/RELEASE-1.0.5.md"><strong>Release 1.0.5</strong></a>
 </p>
 
@@ -16,13 +16,13 @@
 
 # irfanlovefront
 
-### The Autonomous 7-Specialist UI/UX & Frontend Engineering Suite (v2.0.0)
+### The Autonomous 7-Specialist UI/UX & Frontend Engineering Suite (v3.1.0)
 
 **Eliminate frontend design paralysis, repetitive templates, and AI slop forever.**
 
 [![npm version](https://img.shields.io/npm/v/irfanlovefront.svg?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v2.0.0-blue.svg?style=flat-square)](RELEASES/RELEASE-2.0.0.md)
+[![Release](https://img.shields.io/badge/release-v3.1.0-blue.svg?style=flat-square)](RELEASES/RELEASE-3.1.0.md)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -38,7 +38,7 @@
 
 ---
 
-## The 1-Command Quickstart (v2.0.0)
+## The 1-Command Quickstart (v3.1.0)
 
 Install the entire 7-specialist skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
@@ -65,7 +65,7 @@ npx irfanlovefront --all
 
 ---
 
-## Why irfanlovefront v2.0.0?
+## Why irfanlovefront v3.1.0?
 
 Standard AI coding assistants suffer from severe statistical biases and token exhaustion:
 - Every generated site defaults to identical dark obsidian slate `#0B0F17`.
@@ -74,7 +74,7 @@ Standard AI coding assistants suffer from severe statistical biases and token ex
 - Primary buttons lack tactile states and fail WCAG AA contrast standards.
 - QA agents blindly rubber-stamp checklists, declaring broken sites production-ready.
 
-**Release 2.0.0 introduces the Modular Reference Architecture:**
+**Release 3.1.0 introduces the Modular Reference Architecture:**
 1. **Under 180-Line LLM Attention Ceiling:** Master skills (~100 lines) load focused companion references on-demand, preserving over 85% of model context for code execution.
 2. **85 Brand Design Token Ecosystem:** Concrete design systems in `taste-design-engineer/design-refs/` (Apple, Stripe, Linear, Notion, Supabase, Vercel, Ferrari, etc.).
 3. **Semantic Substrate Hierarchy:** Token substrate layered from `--canvas-base` through `--canvas-raised` to `--canvas-overlay`.

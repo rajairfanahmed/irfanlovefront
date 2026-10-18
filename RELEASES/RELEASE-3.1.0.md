@@ -1,15 +1,15 @@
-# Release 2.0.0: Modular Reference Architecture, Zero-Dash Standard & Dedicated Specialist Suite
+# Release 3.1.0: Modular Reference Architecture, Zero-Dash Standard & Dedicated Specialist Suite
 
-**Release Version:** `2.0.0`  
+**Release Version:** `3.1.0`  
 **Author:** Raja Irfan Ahmed  
 **Status:** General Availability  
 **License:** Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)  
 
 ---
 
-## What Is New in Release 2.0.0
+## What Is New in Release 3.1.0
 
-Release 2.0.0 is a complete architectural overhaul of the `irfanlovefront` frontend engineering skills suite. It solves model context freezing, repetitive card layouts, contrast failures, and premature production claims by introducing a modular reference architecture, strict anti-slop quality gates, and clear domain separation across all specialist stages.
+Release 3.1.0 is a complete architectural overhaul of the `irfanlovefront` frontend engineering skills suite. It solves model context freezing, repetitive card layouts, contrast failures, and premature production claims by introducing a modular reference architecture, strict anti-slop quality gates, and clear domain separation across all specialist stages.
 
 ---
 
@@ -54,7 +54,7 @@ Previous versions relied on monolithic multi-thousand-line rule files that cause
 
 ## Installation & Upgrade
 
-To run Release 2.0.0 directly via npx:
+To run Release 3.1.0 directly via npx:
 
 ```bash
 npx irfanlovefront@latest
