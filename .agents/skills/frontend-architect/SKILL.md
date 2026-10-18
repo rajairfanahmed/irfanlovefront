@@ -114,14 +114,29 @@ button:focus-visible, a:focus-visible {
 
 ---
 
-## 🛡️ SECTION 3: SVG LOGO ENGINEERING & VECTOR HYGIENE
+## 🛡️ SECTION 3: STANDALONE SVG LOGO ENGINEERING & VECTOR HYGIENE
 
-- **ViewBox Geometry:** Always use `viewBox="0 0 512 512"` for icons/monograms and `viewBox="0 0 1024 512"` for combination marks without hardcoded `width`/`height` on the root `<svg>`.
+All logo designs in Stage 1 must follow the mandatory **4-Pillar Standalone Logo System**:
+1. **Core Metaphor (The "Why"):** Merge 2-3 concepts (e.g. Creator 'i' + Output 'md' + Action '↓').
+2. **Negative Space & Monoline Merging:** Use keywords: `"Negative space"`, `"Continuous line"` / `"Monoline"`, `"Cleverly combined"` / `"Integrated"`. Carve secondary shapes out of negative space.
+3. **Explicit Color Psychology:** Assign distinct functional reasons to every color (e.g. emerald `#00F5A0` for fetch/download, crisp white for typography, orange `#FF7A00` for creative accents).
+4. **Layout Constraints & Anti-Containment (Zero-Box Rule):** 
+   - Keywords: `"Minimalist"`, `"Sleek"`, `"Modern"`, `"Flat design"`, `"Vector style"`.
+   - **CRITICAL BAN:** Strictly enforce: **"Do NOT enclose the logo in any shapes like circles, squares, rounded rectangles, or badges. Let the logo stand alone."**
+
+- **ViewBox Geometry:** Always use `viewBox="0 0 512 512"` for standalone icons and `viewBox="0 0 1024 512"` for combination marks without hardcoded `width`/`height` on the root `<svg>`.
 - **Clean SVG Syntax:** Ensure all `<path d="...">` coordinates have valid arc flags (`0` or `1`) to prevent browser console errors.
 - **Self-Contained:** Zero external font dependencies, zero external images.
-- **Semantic Grouping:** Group elements under `<g id="icon">` and `<g id="wordmark">` to allow clean extraction for favicons.
+- **Semantic Grouping:** Group elements under `<g id="icon">` (standalone glyph) and `<g id="wordmark">` to allow clean extraction for favicons.
 - **Small-Size Legibility (16px / 32px Favicon Test):** Solid geometric fills or stroke widths >= 12px on a 512x512 canvas. Intricate micro-details are forbidden.
 - **Multi-Scale Assets:** Deploy `frontend/src/app/icon.tsx` (dynamic retina favicon) and `frontend/public/icon.svg`.
+
+---
+
+## 🔒 SECTION 4: STRICT WORKSPACE ISOLATION (ZERO CODE IN ROOT OR .AGENTS)
+
+- **Mandatory Isolation:** All web application code, configs, components, and assets must live **EXCLUSIVELY inside `frontend/`**.
+- **Forbidden:** Never create web application files or directories in the project root or inside `.agents/`. `.agents/` is strictly reserved for agent skills and rules.
 
 ---
 

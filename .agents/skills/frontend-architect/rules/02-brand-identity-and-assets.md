@@ -33,6 +33,10 @@ Logos must maintain visual clarity at 16px and 32px favicon resolutions:
 - Gradient fills are allowed only when explicitly called for by the brand aesthetic.
 - The logo must be legible on both light and dark backgrounds. Use `currentColor` with Tailwind utilities or provide automatic theme adaptation.
 
+### E. The Standalone Shape Rule (Anti-Box Mandate)
+- **NEVER enclose the logo in shapes:** Absolutely NO surrounding boxes, squares, circles, badges, or rounded tiles unless explicitly demanded by the user.
+- **Let the logo stand alone:** The glyph or monogram must breathe as a pure, unconstrained vector silhouette. Clipart-in-a-box is strictly banned.
+
 ---
 
 ## 2. Structural BrandLogo Component (`frontend/src/components/ui/BrandLogo.tsx`)
@@ -58,32 +62,42 @@ export function BrandLogo({
   size = "md" 
 }: BrandLogoProps) {
   const iconSizes = {
-    sm: "w-7 h-7",
-    md: "w-9 h-9",
-    lg: "w-11 h-11",
+    sm: "w-6 h-6",
+    md: "w-8 h-8",
+    lg: "w-10 h-10",
   };
 
   return (
     <Link 
       href="/" 
-      className={`inline-flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-offset-2 ${className}`}
+      className={`inline-flex items-center gap-2.5 group focus-visible:outline-2 focus-visible:outline-offset-2 ${className}`}
       aria-label="Home"
     >
-      {/* Container-Constrained Machined Icon Container */}
-      <div className={`${iconSizes[size]} rounded-lg bg-surface border border-hairline flex items-center justify-center transition-transform group-hover:scale-105 shadow-sm`}>
-        <svg 
-          viewBox="0 0 512 512" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5 text-accent"
-        >
-          <g id="icon">
-            <rect x="96" y="96" width="320" height="320" rx="64" stroke="currentColor" strokeWidth="36" />
-            <path d="M192 320L256 192L320 320" stroke="currentColor" strokeWidth="36" strokeLinecap="round" strokeLinejoin="round" />
-            <circle cx="256" cy="272" r="16" fill="currentColor" />
-          </g>
-        </svg>
-      </div>
+      {/* Pure Standalone Vector Mark (Zero enclosing boxes, zero badges) */}
+      <svg 
+        viewBox="0 0 512 512" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+        className={`${iconSizes[size]} transition-transform group-hover:scale-105`}
+      >
+        <g id="icon">
+          {/* Example: Integrated Monoline / Negative Space Glyph */}
+          <path 
+            d="M128 128H256C326.69 128 384 185.31 384 256C384 326.69 326.69 384 256 384H128V128Z" 
+            stroke="currentColor" 
+            strokeWidth="48" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+          />
+          <path 
+            d="M256 220V320M220 284L256 320L292 284" 
+            stroke="#00F5A0" 
+            strokeWidth="40" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+          />
+        </g>
+      </svg>
 
       {/* Semantic Wordmark */}
       {showWordmark && (
@@ -153,16 +167,40 @@ When exporting production brand packages, generate assets at the standard digita
 
 ---
 
-## 5. Guided Logo Exploration Workflow (When User Requests Logo Design)
+## 5. Guided Logo Exploration Workflow & 4-Pillar Design System
 
-When a brief requires logo conception or refinement:
+When engineering a brand mark, monogram, or logo, follow this mandatory 4-pillar blueprint:
+
+### Pillar 1: Define the Core Metaphor (The "Why")
+Before drafting SVG coordinates, identify the 2 or 3 distinct concepts you are merging:
+- **The Creator / Entity:** The primary initial, letterform, or brand identifier (e.g. Creator "Irfan" letter `i`).
+- **The Output / Substrate:** The format, medium, or deliverable (e.g. `md` or Markdown format).
+- **The Core Action:** The functional verb or motion (e.g. Extracting/Fetching represented by a downward arrow `↓`).
+
+### Pillar 2: Negative Space & Clever Shape Merging
+To prevent the logo from looking like clipart or a fragmented collage, force integrated blending of shapes:
+- **Mandatory Creative Directives:**
+  - `"Negative space"`: Carve secondary letterforms out of the negative space of primary shapes (e.g. *Make the 'i' out of the negative space of the 'd'*).
+  - `"Continuous line"` or `"Monoline"`: Form adjacent letterforms with a unified continuous vector stroke (e.g. *Draw the 'm' and 'd' with a single continuous stroke*).
+  - `"Cleverly combined"` or `"Integrated"`: Synthesize actions directly into letter stems (e.g. *Integrate a downward arrow into the stem of the 'i'*).
+  - `"Standalone shape"` / `"No background/containment"`: Standalone geometry with zero artificial enclosures.
+
+### Pillar 3: Specify Color Psychology Explicitly
+Never assign arbitrary colors. Define the psychological and functional rationale for every hue:
+- e.g. *"Make the action arrow vibrant emerald (#00F5A0) to represent 'Successful Extraction/Fetch', while the structural letterform uses minimal crisp ink (#FFFFFF)."*
+- e.g. *"If the letter 'i' features a tittle/dot, make the dot a subtle orange (#FF7A00) to represent creativity, while the body uses technical carbon."*
+
+### Pillar 4: Layout & Style Constraints (Zero-Box Mandate)
+- **Aesthetic Descriptors:** `"Minimalist"`, `"Sleek"`, `"Modern"`, `"Flat design"`, `"Vector style"`.
+- **The Anti-Containment Rule:** Explicitly enforce: **"Do NOT enclose the logo in any shapes like circles, squares, rounded rectangles, or badges. Let the logo stand alone."**
+
+### Exploration & Locking Workflow:
 1. **Explore 3 Distinct Concepts:**
-   - Direction 1: Minimal Geometric Letterform / Monogram
-   - Direction 2: Abstract Structural / Architectural Symbol
-   - Direction 3: High-Tech Telemetry / Mechanical Glyph
-2. **Side-by-Side Verification:**
-   - Present concepts side-by-side on both dark (`#11141D`) and light (`#FFFFFF`) surfaces.
-   - Include a 64px, 32px, and 16px size check strip to verify small-size legibility.
+   - Concept A: Monoline Negative Space Fusion (Letter + Negative Space Secondary Concept).
+   - Concept B: Continuous Geometric Glyph with Integrated Action.
+   - Concept C: High-Precision Minimalist Monogram.
+2. **Side-by-Side Surface Verification:**
+   - Verify on both dark (`#09090B`) and light (`#FFFFFF`) canvases.
+   - Include a 64px, 32px, and 16px size check strip to guarantee favicon legibility.
 3. **Refine & Lock:**
-   - Apply user feedback with incrementing revisions (`iteration-1.svg`, `iteration-2.svg`).
-   - Extract the locked `#icon` group for `BrandLogo.tsx`, `icon.tsx`, and `public/icon.svg`.
+   - Extract the locked standalone `#icon` group for `BrandLogo.tsx`, `icon.tsx`, and `public/icon.svg`.

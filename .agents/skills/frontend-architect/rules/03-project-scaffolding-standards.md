@@ -6,7 +6,11 @@
 
 ## 1. Dedicated Workspace Directory (`frontend/`)
 
-All code files, configs, and assets MUST live strictly inside `frontend/`:
+All web application code files, configs, and assets MUST live strictly inside `frontend/`. 
+- **CRITICAL BAN:** NEVER create web application files or folders in the root directory or inside `.agents/`.
+- `.agents/` is strictly quarantined for agent skills, rules, and customization metadata.
+- Workspace root is reserved for repository-level metadata (`README.md`, `LICENSE`, etc.).
+
 ```
 frontend/
   PLAN.md                 # Live plan with real-time checkboxes

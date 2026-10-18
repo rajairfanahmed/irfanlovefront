@@ -74,19 +74,20 @@ Every landing page, marketing site, or portfolio follows the AIDA macro-structur
 The autonomous engineering pipeline coordinates five specialized stages sequentially:
 
 ### 🎯 STAGE 0: Taste & Design Engineering (`taste-design-engineer`)
-- **2-Step Discovery Protocol:**
-  - **Run 1:** Displays concise brief prompt, generates `frontend/DESIGN_ENGINEERING_BRIEF.md` template, and stops for user input.
-  - **Run 2:** Reads user inputs. Executes the **Operational Reference Protocol** scanning `design-refs/` and user media, records exact paths in a mapping table, fills gaps by adopting real brand tokens, formulates 3 distinct creative directions, and writes the route-by-route and section-by-section contract.
+- **2-Step Discovery & Master MD Ingestion Protocol:**
+  - **Run 1:** Displays concise brief prompt, accepts 1 or more external `DESIGN.md` files (from our private extractor tool or local designs), generates `frontend/DESIGN_ENGINEERING_BRIEF.md` template, and stops for user input.
+  - **Run 2:** Reads user inputs and ingested `.md` specifications. Executes the **Operational Reference Protocol** scanning `design-refs/` and user media, records exact paths in a mapping table, resolves multi-reference token conflicts, fills gaps by adopting real brand tokens, formulates 3 distinct creative directions, and writes the route-by-route and section-by-section contract.
 - **Produces:** Final synthesized `frontend/DESIGN_ENGINEERING_BRIEF.md`.
 
 ---
 
 ### 🚀 STAGE 1: Architecture & Foundation (`frontend-architect`)
+- **Strict Folder Isolation Mandate:** Scaffolds the web application **EXCLUSIVELY inside `frontend/`**. Strictly forbidden from creating web app files or folders in `.agents/` or the root directory.
 - **Reads Specification:** Reads `frontend/DESIGN_ENGINEERING_BRIEF.md` to ingest tokens adopted from `design-refs/`.
 - **Zero Render-Blocking Font Architecture:** Uses `next/font` with `display: 'swap'` and origin preconnects. Prohibits external CSS `@import` (saving 830ms+ FCP/LCP delay).
 - **Scaffolds Next.js 15:** Sets up `frontend/` with TypeScript, Tailwind CSS, Lenis, and GSAP.
 - **Mobile-Native Tokens & Reset:** Injects tap-highlight fix (`-webkit-tap-highlight-color: transparent`), `touch-action: manipulation`, `100svh`/`100dvh` units, and focus-visible styling into `globals.css`.
-- **SVG Logo Hygiene:** Crafts mathematically balanced `BrandLogo.tsx` with clean `<path d>` syntax (zero arc flag errors) and dynamic `icon.tsx`.
+- **4-Pillar Standalone Logo System:** Crafts a pure standalone vector `BrandLogo.tsx` (Core Metaphor, Negative Space / Monoline, Explicit Color Psychology, Standalone Geometry with zero enclosing boxes or badges) and dynamic `icon.tsx`.
 - **Produces:** `frontend/PLAN.md`, `globals.css`, `BrandLogo.tsx`, `SmoothScroll.tsx`.
 
 ---
