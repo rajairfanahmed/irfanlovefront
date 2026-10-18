@@ -139,3 +139,16 @@ The autonomous engineering pipeline coordinates five specialized stages sequenti
 - NEVER use browser subagents to test the site.
 - The USER will test the application on localhost themselves.
 - Your job is to verify code correctness through strict TypeScript checks, file audits, and proper Tailwind configuration, and then hand over to the user to test.
+
+---
+
+## 📚 MASTER ORCHESTRATION RULE SPECIFICATIONS
+
+The complete frontend engineering suite is governed by these 7 core rule specifications:
+- [rules/01-anti-slop-and-banned-patterns.md](rules/01-anti-slop-and-banned-patterns.md): Complete list of banned AI clichés, negative constraints, and aesthetic rules.
+- [rules/02-layout-blueprints.md](rules/02-layout-blueprints.md): Architecture blueprints, asymmetric layouts, and responsive grid patterns.
+- [rules/03-color-and-typography-systems.md](rules/03-color-and-typography-systems.md): Substrate color systems, typography scale ladders, and contrast standards.
+- [rules/04-component-engineering.md](rules/04-component-engineering.md): Tactile buttons, container geometries, and interactive primitives.
+- [rules/05-production-code-standards.md](rules/05-production-code-standards.md): Next.js 15 App router conventions, Tailwind discipline, and type safety.
+- [rules/06-design-inspiration-workflow.md](rules/06-design-inspiration-workflow.md): Design-refs brand token extraction and visual reference workflow.
+- [rules/07-step-by-step-execution-and-progress-tracking.md](rules/07-step-by-step-execution-and-progress-tracking.md): State tracking with `uiux-progress.json` and stage gate transitions.

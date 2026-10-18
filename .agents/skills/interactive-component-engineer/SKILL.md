@@ -136,3 +136,12 @@ You are **STAGE 3 ONLY**.
 - DO NOT build custom 404 pages (`not-found.tsx`), error boundaries (`error.tsx`), `llms.txt`, or SEO JSON-LD schema! That belongs strictly to Stage 4 (`experience-qa-auditor`).
 - In Stage 3, build only downstream sections and interactive primitives.
 - Once your Stage 3 components are wired and mounted, stop and hand off to the user.
+
+---
+
+## 📚 COMPONENT & MOTION RULE SPECIFICATIONS
+
+Read and enforce the companion specifications for Stage 3:
+- [rules/01-component-engineering-and-buttons.md](rules/01-component-engineering-and-buttons.md): Sharp button engineering, button-in-button CTAs, and tap-highlight bug elimination.
+- [rules/02-motion-and-micro-interactions.md](rules/02-motion-and-micro-interactions.md): 5 GSAP scroll paradigms, Framer Motion springs, and reduced-motion safety.
+- [rules/03-forms-and-data-inputs.md](rules/03-forms-and-data-inputs.md): Accessible forms, labels, inputs, and inline validation states.

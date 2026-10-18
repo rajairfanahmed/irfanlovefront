@@ -175,3 +175,12 @@ You are **STAGE 1 ONLY**.
 - DO NOT build Hero sections, work showcases, timelines, or downstream sections! That is Stage 2 (`creative-layout-engineer`) and Stage 3 (`interactive-component-engineer`).
 - In Stage 1, `page.tsx` must only contain a clean, minimalist foundation test card confirming that font pairings, Tailwind CSS, and `BrandLogo` are rendering properly.
 - Stop and hand off cleanly to Stage 2.
+
+---
+
+## 📚 ARCHITECTURAL RULE SPECIFICATIONS
+
+Read and enforce the companion specifications for Stage 1:
+- [rules/01-design-tokens-and-typography.md](rules/01-design-tokens-and-typography.md): Token systems, contrast ratios, and font scales.
+- [rules/02-brand-identity-and-assets.md](rules/02-brand-identity-and-assets.md): 4-pillar standalone logo system, anti-box rule, and multi-scale favicon family.
+- [rules/03-project-scaffolding-standards.md](rules/03-project-scaffolding-standards.md): Dedicated `frontend/` directory quarantine and `uiux-progress.json` state tracking.

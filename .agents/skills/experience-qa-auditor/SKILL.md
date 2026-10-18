@@ -204,3 +204,12 @@ Run this matrix before signing off. Every item must be verified:
 - Run the full 50+ Pre-Flight Check.
 - Update `frontend/uiux-progress.json`, set `stages.4_qa_and_seo.status` to `completed`.
 - STOP. Deliver a concise production sign-off report with verified Core Web Vitals and Lighthouse metrics.
+
+---
+
+## 📚 QUALITY ASSURANCE & AIO RULE SPECIFICATIONS
+
+Read and enforce the companion specifications for Stage 4:
+- [rules/01-production-qa-and-error-ux.md](rules/01-production-qa-and-error-ux.md): 50+ pre-flight checklist, error boundary design, and clean console audit.
+- [rules/02-responsive-and-accessibility-standards.md](rules/02-responsive-and-accessibility-standards.md): Mobile-first responsive gates (320px to 1440px), WCAG AAA/AA contrast, and keyboard navigation.
+- [rules/03-advanced-seo-and-metadata.md](rules/03-advanced-seo-and-metadata.md): 100/100 Technical SEO, OpenGraph tags, JSON-LD schemas, and LLM text protocols.

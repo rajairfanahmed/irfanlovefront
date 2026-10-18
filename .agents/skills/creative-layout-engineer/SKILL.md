@@ -172,3 +172,13 @@ The Hero section acts as a complete **Mini-Site** telling the entire value story
 ### Step 6: Update State & Hand Off to User
 - Mark the current page as completed in `frontend/uiux-progress.json`.
 - STOP. Present the completed page to the user, invite them to test on localhost, and await confirmation before starting the next page.
+
+---
+
+## 📚 MACRO-LAYOUT RULE SPECIFICATIONS
+
+Read and enforce the companion specifications for Stage 2:
+- [rules/01-anti-slop-and-banned-patterns.md](rules/01-anti-slop-and-banned-patterns.md): Banned AI clichés, eyebrow limits, and negative constraints.
+- [rules/02-layout-blueprints.md](rules/02-layout-blueprints.md): Blueprint architectures, asymmetric ratios, and container query grids.
+- [rules/03-hero-and-navigation-engineering.md](rules/03-hero-and-navigation-engineering.md): 4-element hero mini-site rules and mobile-responsive navigation.
+- [rules/04-design-inspiration-workflow.md](rules/04-design-inspiration-workflow.md): Design-refs pattern ingestion and asset integration.
