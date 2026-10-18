@@ -6,9 +6,10 @@
   <a href="CODE_OF_CONDUCT.md"><strong>Code of Conduct</strong></a> •
   <a href="LICENSE"><strong>License</strong></a> •
   <a href="SECURITY.md"><strong>Security</strong></a> •
-  <a href="RELEASES/RELEASE-1.0.0.md"><strong>Release 1.0.0</strong></a> •
-  <a href="RELEASES/RELEASE-2.0.0.md"><strong>Release 2.0.0</strong></a> •
-  <a href="RELEASES/RELEASE-3.0.0.md"><strong>Release 3.0.0</strong></a>
+  <a href="RELEASES/RELEASE-1.0.1.md"><strong>Release 1.0.1</strong></a> •
+  <a href="RELEASES/RELEASE-1.0.2.md"><strong>Release 1.0.2</strong></a> •
+  <a href="RELEASES/RELEASE-1.0.3.md"><strong>Release 1.0.3</strong></a> •
+  <a href="RELEASES/RELEASE-1.0.4.md"><strong>Release 1.0.4</strong></a>
 </p>
 
 <a href="https://github.com/rajairfanahmed/irfanlovefront">
@@ -17,13 +18,13 @@
 
 # irfanlovefront
 
-### The Autonomous 9-Agent UI/UX & Frontend Engineering Suite (v3.0)
+### The Autonomous 9-Agent UI/UX & Frontend Engineering Suite (v1.0.4)
 
 **Eliminate frontend design paralysis, generic templates, and AI-slop forever.**
 
 [![npm version](https://img.shields.io/npm/v/irfanlovefront.svg?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v3.0.0-blue.svg?style=flat-square)](RELEASES/RELEASE-3.0.0.md)
+[![Release](https://img.shields.io/badge/release-v1.0.4-blue.svg?style=flat-square)](RELEASES/RELEASE-1.0.4.md)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -39,7 +40,7 @@
 
 ---
 
-## ⚡ The 1-Command Quickstart (v3)
+## ⚡ The 1-Command Quickstart (v1.0.4)
 
 Install the entire 9-agent skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
@@ -202,11 +203,12 @@ All slash commands match their directory names exactly in `.agents/skills/`. Eve
 - **Role:** Principal Taste & Design Engineering Specialist with 20+ years of elite experience.
 - **Capabilities:**
   1. **Operational Reference Audit:** Inspects actual files in `design-refs/` and user media, logging exact paths in a Reference-to-Decision Mapping Table.
-  2. **Automatic Gap Filling from Reality:** Where user specifications leave gaps, adopts real tokens from category-relevant brands in `design-refs/` (no guessing or inventing arbitrary colors/fonts).
-  3. **Mandatory 3 Distinct Creative Directions:** Evaluates three materially different concepts (Editorial Broadsheet, Machined Technical Console, Modernist Canvas) and documents trade-offs before locking the brief.
-  4. **Elimination of Forced Templates:** Double-bezel cards, bento grids, and button physics are strictly optional tools.
-  5. **Context-Aware Proof:** Replaces fake testimonials with real GitHub repos, architecture schematics, and code diffs for technical tools.
-  6. **Produces:** `frontend/DESIGN_ENGINEERING_BRIEF.md`.
+  2. **Multi-Reference Ingestion & Conflict Resolution:** Supports multiple ingested `DESIGN.md` files or reverse-engineered systems, reconciling color and typography conflicts in a structured trade-off matrix.
+  3. **Automatic Gap Filling from Reality:** Where user specifications leave gaps, adopts real tokens from category-relevant brands in `design-refs/` (no guessing or inventing arbitrary colors/fonts).
+  4. **Mandatory 3 Distinct Creative Directions:** Evaluates three materially different concepts (Editorial Broadsheet, Machined Technical Console, Modernist Canvas) and documents trade-offs before locking the brief.
+  5. **Elimination of Forced Templates:** Double-bezel cards, bento grids, and button physics are strictly optional tools.
+  6. **Context-Aware Proof:** Replaces fake testimonials with real GitHub repos, architecture schematics, and code diffs for technical tools.
+  7. **Produces:** `frontend/DESIGN_ENGINEERING_BRIEF.md`.
 
 ---
 
@@ -215,11 +217,13 @@ All slash commands match their directory names exactly in `.agents/skills/`. Eve
 - **Slash Command:** `/frontend-architect`
 - **Role:** Staff Frontend Architect & Design System Foundation Engineer with 20+ years of experience.
 - **Capabilities:**
-  1. **Token Ingestion from design-refs:** Reads `frontend/DESIGN_ENGINEERING_BRIEF.md` and maps exact brand tokens into `globals.css`.
-  2. **Zero Render-Blocking Font Architecture:** Uses `next/font` with `display: 'swap'` and origin preconnects, eliminating 830ms+ render delays.
-  3. **Clean SVG Hygiene:** Enforces valid SVG `<path d="...">` arc syntax to eliminate browser console errors.
-  4. **Mobile-Native CSS Reset:** Injects `-webkit-tap-highlight-color: transparent`, `touch-action: manipulation`, and input zoom protection (>= 16px font size) into `globals.css`.
-  5. **Favicon & Logo Systems:** Generates dynamic retina `app/icon.tsx` and container-constrained `BrandLogo.tsx`.
+  1. **Strict Workspace Isolation:** Scaffolds Next.js strictly inside `frontend/` with zero root or `.agents/` pollution.
+  2. **4-Pillar Standalone Logo System:** Implements Core Metaphor, Negative Space/Monoline, Explicit Color Psychology, and Anti-Containment (zero enclosing boxes).
+  3. **Token Ingestion from design-refs:** Reads `frontend/DESIGN_ENGINEERING_BRIEF.md` and maps exact brand tokens into `globals.css`.
+  4. **Zero Render-Blocking Font Architecture:** Uses `next/font` with `display: 'swap'` and origin preconnects, eliminating 830ms+ render delays.
+  5. **Clean SVG Hygiene:** Enforces valid SVG `<path d="...">` arc syntax to eliminate browser console errors.
+  6. **Mobile-Native CSS Reset:** Injects `-webkit-tap-highlight-color: transparent`, `touch-action: manipulation`, and input zoom protection (>= 16px font size) into `globals.css`.
+  7. **Favicon & Dynamic Assets:** Generates dynamic retina `app/icon.tsx` and container-constrained `BrandLogo.tsx`.
 
 ---
 

@@ -25,7 +25,7 @@ Call `view_file` on `designs/quick-lookup.md`. This compact catalog organizes al
 ### Step 2: Select 3 to 5 Relevant Works & View Them
 Call `view_file` on the exact image paths:
 ```
-view_file(AbsolutePath="d:/uiux/.agents/skills/ui-ux/designs/<filename>.jpg")
+view_file(AbsolutePath="d:/uiux/.agents/skills/irfanlovefront/designs/<filename>.jpg")
 ```
 Choose designs that match the client's industry, audience, or desired mood.
 

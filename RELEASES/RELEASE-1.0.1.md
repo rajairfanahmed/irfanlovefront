@@ -1,6 +1,6 @@
-# Release 1.0.0: UI/UX & Frontend Engineering Agent Suite Documentation
+# Release 1.0.1: UI/UX & Frontend Engineering Agent Suite Documentation
 
-**Release Version:** `1.0.0`  
+**Release Version:** `1.0.1`  
 **Author:** Raja Irfan Ahmed  
 **Status:** General Availability  
 **License:** Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)  

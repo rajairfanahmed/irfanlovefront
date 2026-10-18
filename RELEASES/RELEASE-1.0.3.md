@@ -1,15 +1,15 @@
-# Release 3.0.0: The 84+ Brand Token Ecosystem, Operational Taste Engineering & 100/100 Lighthouse + 3/3 Agentic Verification
+# Release 1.0.3: The 84+ Brand Token Ecosystem, Operational Taste Engineering & 100/100 Lighthouse + 3/3 Agentic Verification
 
-**Release Version:** `3.0.0`  
+**Release Version:** `1.0.3`  
 **Author:** Raja Irfan Ahmed  
 **Status:** General Availability  
 **License:** Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)  
 
 ---
 
-## What Is New in Release 3.0.0
+## What Is New in Release 1.0.3
 
-Release 3.0.0 is the most comprehensive upgrade in the history of `irfanlovefront`. It directly integrates the 84+ brand token library in `design-refs/`, reinforces every agent with an authoritative 20+ years elite persona, resolves all contradictions in pre-architecture taste engineering, and establishes verifiable 100/100 Lighthouse scores alongside full 3/3 Agentic Browsing.
+Release 1.0.3 is the most comprehensive upgrade in the history of `irfanlovefront`. It directly integrates the 84+ brand token library in `design-refs/`, reinforces every agent with an authoritative 20+ years elite persona, resolves all contradictions in pre-architecture taste engineering, and establishes verifiable 100/100 Lighthouse scores alongside full 3/3 Agentic Browsing.
 
 ---
 
@@ -92,13 +92,13 @@ The complete ecosystem now contains 9 coordinated skills:
 
 ### 7. Zero Em-Dash Policy
 
-In accordance with strict technical documentation and anti-slop guidelines, Release 3.0.0 enforces **zero em-dashes (U+2014)** and **zero en-dashes (U+2013)** across all code, markdown files, and skill instructions.
+In accordance with strict technical documentation and anti-slop guidelines, Release 1.0.3 enforces **zero em-dashes (U+2014)** and **zero en-dashes (U+2013)** across all code, markdown files, and skill instructions.
 
 ---
 
 ## Upgrade Guide
 
-To update your project or global environment to Release 3.0.0:
+To update your project or global environment to Release 1.0.3:
 
 ```bash
 # Update via npx
