@@ -1,6 +1,9 @@
 import { intro, outro, multiselect, select, spinner, isCancel, cancel, note } from "@clack/prompts";
 import color from "picocolors";
 import { Command } from "commander";
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 import { printBanner } from "./utils/banner.js";
 import { installAntigravity } from "./agents/antigravity.js";
 import { installClaude } from "./agents/claude.js";
@@ -8,12 +11,16 @@ import { installCursor } from "./agents/cursor.js";
 import { installWindsurf } from "./agents/windsurf.js";
 import { installCopilot } from "./agents/copilot.js";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const pkg = JSON.parse(readFileSync(join(__dirname, "../package.json"), "utf8"));
+
 const program = new Command();
 
 program
   .name("irfanlovefront")
   .description("Install irfanlovefront UI/UX agent skills across Claude Code, Antigravity, Cursor, Windsurf, and Copilot")
-  .version("2.0.1")
+  .version(pkg.version)
   .option("-a, --all", "Install for all supported AI agents")
   .option("--claude", "Install specifically for Claude Code")
   .option("--cursor", "Install specifically for Cursor")
