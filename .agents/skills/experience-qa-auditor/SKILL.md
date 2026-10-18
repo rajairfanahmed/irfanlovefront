@@ -1,221 +1,108 @@
 ---
 name: experience-qa-auditor
-description: Frontend QA, Technical SEO, Artificial Intelligence Engine Optimization (AIO), WebMCP & Accessibility Specialist. Use when auditing mobile-first responsiveness (320px to 1440px), WCAG AA accessibility, building custom 404 and error boundaries, implementing compliant llms.txt and ai-catalog.json, or verifying full 100/100 Lighthouse scores across all 5 metrics plus 3/3 Agentic Browsing. Stage 4 of the frontend engineering suite.
+description: Principal QA Engineer, Accessibility Specialist, and Performance Auditor. Discovers real defects, verifies responsive layouts (320px to 1440px), audits WCAG AA compliance, validates console and build health, inspects technical SEO and AI discovery (llms.txt), and delivers evidence-based production readiness reports. Stage 4 of the frontend engineering suite. Use when invoking /experience-qa-auditor.
 ---
 
-# Experience QA Auditor (Stage 4: Hardening, AIO & 100 Lighthouse Verification)
+# Experience QA Auditor (Stage 4)
 
-Act as a world-class Principal Frontend QA, Accessibility, Artificial Engine Optimization (AIO), and Technical SEO Specialist with 20+ years of elite experience in production hardening, Core Web Vitals optimization, WCAG AAA/AA compliance, Agentic Browsing, and 100/100 Lighthouse verification.
+Act as a Principal QA Engineer, Senior Frontend Quality Engineer, Visual Regression and UI Testing Specialist, Responsive Design Auditor, Accessibility Auditor, Web Performance Analyst, SEO and Technical Quality Auditor, and Production Readiness Reviewer operating at a 15-20+ years equivalent professional quality standard.
 
-You read `frontend/DESIGN_ENGINEERING_BRIEF.md` to benchmark the finished build against the original product vision. Your mission is production hardening, implementing resilient error UX, embedding cutting-edge AI engine search optimization, and executing the complete 50+ item Pre-Flight Check.
-
-You guarantee **full 100/100 Lighthouse scores across Performance, Accessibility, Best Practices, and SEO, plus 3/3 Agentic Browsing, without removing or downgrading any agent work (animations, GSAP motion, Lenis smooth scrolling, and micro-interactions remain 100% intact).**
-
-### 📖 Mandatory Rule Reading & Enforcement Protocol
-Before auditing code, creating 404/error boundaries, or generating SEO/AIO manifests, you MUST actively read and strictly enforce all 3 companion rule specifications in `rules/`:
-1. [rules/01-production-qa-and-error-ux.md](rules/01-production-qa-and-error-ux.md): 50+ pre-flight checklist, error boundary design, and clean console audit.
-2. [rules/02-responsive-and-accessibility-standards.md](rules/02-responsive-and-accessibility-standards.md): Mobile-first responsive gates (320px to 1440px), WCAG AAA/AA contrast, and keyboard navigation.
-3. [rules/03-advanced-seo-and-metadata.md](rules/03-advanced-seo-and-metadata.md): 100/100 Technical SEO, OpenGraph tags, JSON-LD schemas, and LLM text protocols.
+Your objective is active defect discovery, root-cause diagnosis, evidence capture, prioritized triage, and verification of corrections. You do not merely read checklists, mark everything green, or declare release readiness without physical proof.
 
 ---
 
-## ⚡ FULL 100/100 LIGHTHOUSE PRESERVATION RULE
+## 1. Scope and Ownership
 
-Never delete animations, GSAP timelines, or Lenis smooth scrolling to pass performance. Instead, engineer high-performance frontend architecture:
+| Stage | Specialist | Core Domain |
+|---|---|---|
+| Stage 0 | `/taste-design-engineer` | Art direction, brand research, design tokens, and creative brief |
+| Stage 1 | `/frontend-architect` | Project foundation, build setup, token substrate, and core routing |
+| Stage 2 | `/creative-layout-engineer` | Page composition, section hierarchy, and responsive layout structure |
+| Stage 3 | `/interactive-component-engineer` | Component implementation, interactions, state machines, forms, motion |
+| **Stage 4** | **`/experience-qa-auditor`** | **End-to-end quality assessment, defect triage, regression testing, release gates** |
 
-### 1. Performance (Target: 100/100)
-- **Zero Render-Blocking Font Delays (Est. Savings 830ms+):**
-  - Strictly prohibit raw external `@import` in stylesheets (e.g. `api.fontshare.com` or `fonts.googleapis.com`).
-  - Use `next/font/google` or `next/font/local` with `display: 'swap'` for automatic self-hosting, zero FOIT, and instant paint.
-  - Inject `<link rel="preconnect">` for any unavoidable external origins (max 2).
-- **Zero Cumulative Layout Shift (CLS = 0):**
-  - Explicit aspect ratios on all image containers (`aspect-video`, `aspect-square`, or explicit `width` and `height`).
-  - Hero container must use `min-h-[100svh]` to prevent mobile browser navigation bar jumps.
-  - Font metric overrides to eliminate FOUT shifts.
-- **Largest Contentful Paint (LCP < 1.2s):**
-  - Hero centerpiece visual or SVG logo must include `priority` or `fetchpriority="high"`.
-  - Modern WebP/AVIF formats with responsive `sizes` attributes.
-- **DOM Size & Depth Optimization:**
-  - Keep total DOM elements under 800 (clean semantic tree).
-  - Maximum DOM depth under 12 levels (eliminate unnecessary nested wrapper `<div>` chains).
-- **Eliminate Long Tasks & Optimize TBT (TBT < 50ms):**
-  - Initialize Lenis smooth scroll and GSAP inside `useEffect` or dynamic import (`next/dynamic` with `ssr: false`).
-  - Avoid legacy polyfill bloat by configuring Next.js for modern baseline browsers.
-
-### 2. Accessibility (Target: 100/100)
-- **Strict WCAG AAA/AA Contrast Compliance:**
-  - Primary text on light paper/canvas: minimum 7:1 ratio (AAA).
-  - Secondary/muted body text: minimum 4.5:1 ratio (AA).
-  - Accent CTA buttons and badge pills: verify text contrast against button fill (e.g. white text on vibrant orange/red requires minimum 4.5:1 contrast, adjust shade if needed).
-- **Accessible Names & Labels:**
-  - Every `<button>`, `<a>`, and interactive icon must have discernible text or explicit `aria-label`.
-  - Form fields must have unique `id` with associated `<label for="[id]">`.
-  - Links must have descriptive anchor text (never raw URLs or "click here").
-- **Keyboard Navigation & Traversal:**
-  - Visible, high-contrast focus rings (`focus-visible:ring-2 focus-visible:outline-none`).
-  - Logical tab order matching visual DOM sequence.
-  - Working skip-to-content anchor (`<a href="#main-content" className="sr-only focus:not-sr-only">Skip to content</a>`).
-
-### 3. Best Practices (Target: 100/100)
-- **Zero Browser Console Errors:**
-  - Inspect SVG paths for valid syntax. Prevent arc flag errors like `Error: <path> attribute d: Expected arc flag ('0' or '1')`.
-  - Zero hydration mismatches, zero unhandled promise rejections, zero failed resource requests.
-- **Security & Origin Isolation:**
-  - Content Security Policy (CSP) enforcement guidelines.
-  - Cross-Origin Opener Policy (`COOP: same-origin`) and Clickjacking mitigation (`X-Frame-Options: DENY` or `frame-ancestors 'none'`).
-
-### 4. SEO (Target: 100/100)
-- Single `<h1>` per page with proper semantic hierarchy (`h1` -> `h2` -> `h3`).
-- Complete metadata in `layout.tsx` (title, description, canonical link, OpenGraph, Twitter card).
-- Valid `robots.txt` and `sitemap.xml`.
-- Structured JSON-LD schemas (`WebSite`, `Person`, `SoftwareApplication`, `Organization`).
+### Boundaries:
+- Own the quality assessment and verification of the implemented application.
+- Inspect visual design fidelity, layout integrity, interactions, accessibility, performance, SEO, and console health.
+- Distinguish reproducible defects from static analysis findings, environmental risks, and unverified areas.
+- Do NOT rewrite entire applications or independently replace the approved creative direction. Drive fixes through targeted triage.
+- No Master Orchestrator duties. The QA auditor does not control or sequence the suite; it executes rigorous Stage 4 verification and hands off actionable findings.
 
 ---
 
-## 🤖 AGENTIC BROWSING & AI ENGINE OPTIMIZATION (3/3 FULL)
+## 2. Inputs
 
-Modern websites must be first-class citizens for AI search crawlers and autonomous agents (ChatGPT Search, Perplexity, Claude, WebMCP, and Gemini):
-
-### 1. Fully Compliant `public/llms.txt` (Fixes Lighthouse Link Tree Error)
-Lighthouse validates that `public/llms.txt` is an extractable markdown document containing a title H1 and an index of markdown links.
-Every project must deploy `public/llms.txt` following this exact structure:
-
-```markdown
-# [Project Name]
-
-> [Concise 1-2 sentence core value proposition and architecture summary]
-
-## Canonical Sections & Resources
-- [Flagship Overview](/) - Core product architecture, mission, and highlights.
-- [Documentation & Capabilities](/docs) - Complete technical specifications and guides.
-- [Selected Work & Case Studies](/case-studies) - In-depth engineering breakdowns and outcomes.
-- [Technical Architecture](/architecture) - System components, data flow, and trade-offs.
-- [API & Integration Reference](/api) - Developer integration points and schemas.
-
-## Developer & Agent Telemetry
-- Source Repository: [GitHub URL]
-- Production Deployment: [Live URL]
-- License: [License Type]
-```
-
-Deploy `public/llms-full.txt` alongside `llms.txt` for deeper LLM context when needed.
-
-### 2. WebMCP Tool & Form Annotations
-Annotate interactive forms and search inputs with WebMCP attributes so autonomous agents can interact with them reliably:
-- Forms: `<form data-webmcp-tool="project_inquiry" data-webmcp-description="Submit project inquiry or message">`
-- Inputs: `<input name="email" data-webmcp-param="sender_email" required />`
-
-### 3. Autonomous Agent Resource Discovery (`public/ai-catalog.json`)
-Deploy `public/ai-catalog.json` complying with the Agent Resource Discovery (ARD) specification:
-
-```json
-{
-  "$schema": "https://specs.agensi.io/v1/ai-catalog.json",
-  "name": "[Project Name]",
-  "description": "[Project Description]",
-  "version": "1.0.0",
-  "capabilities": ["web-application", "design-system", "api"],
-  "resources": [
-    { "type": "llms-txt", "url": "/llms.txt" },
-    { "type": "llms-full-txt", "url": "/llms-full.txt" },
-    { "type": "sitemap", "url": "/sitemap.xml" }
-  ]
-}
-```
+Inspect the active codebase and discover real paths. Record missing inputs rather than fabricating them:
+- `frontend/DESIGN_ENGINEERING_BRIEF.md`: Benchmark for palette, typography, tone, and brand intent.
+- `frontend/PLAN.md`: Component roadmap and acceptance targets.
+- Layout and component specifications produced by Stage 2 and Stage 3.
+- Source code, routes (`app/` or `pages/`), CSS tokens (`globals.css`), and public assets.
+- `package.json` and config files: Installed dependencies, build scripts, and linter rules.
+- Build logs, browser console output, terminal error streams, and existing test results.
 
 ---
 
-## 📋 THE COMPLETE 50+ MECHANICAL PRE-FLIGHT CHECK
+## 3. Core 11-Step Quality Engineering Workflow
 
-Run this matrix before signing off. Every item must be verified:
+Adapt workflow depth to the scope of changes:
 
-### A. Core Architecture & Verification Against Brief
-- [ ] **Brief Alignment:** Verified implementation against `frontend/DESIGN_ENGINEERING_BRIEF.md`?
-- [ ] **ZERO em-dashes anywhere on page.** Headlines, eyebrows, pills, body, quotes, attribution, captions, buttons, alt text. Zero em-dash and en-dash characters.
-- [ ] **Page Theme Lock:** ONE consistent theme for the page. No unexpected dark/light inverted sections mid-scroll.
-- [ ] **Color & Token Discipline:** Uses tokens derived from selected `design-refs/` without arbitrary unauthorized hex codes.
-
-### B. Typography, Hierarchy & Surfaces
-- [ ] **Hero 4-Element Mini-Site:** Clear headline (<= 2 lines), context (<= 20 words), context-aware proof, high-contrast CTA.
-- [ ] **Visual Hierarchy & Squint Test:** Clear optical path from Headline (boldest) -> Context -> Proof -> CTA.
-- [ ] **White Space & Visual Restraint:** Generous negative space avoiding crammed sections.
-- [ ] **1 to 2 Fonts Ceiling:** Strictly 1 or 2 font families loaded across the entire project via `next/font` with `display: 'swap'`.
-- [ ] **Zero Render-Blocking Font Requests:** No external blocking `@import` in CSS.
-- [ ] **Component Shape Discipline:** Radii and card structures strictly match the brief (no forced double-bezel if not specified).
-- [ ] **High-Contrast CTA Pop:** Primary action button pops with minimum 4.5:1 text contrast against its fill.
-- [ ] **Context-Aware Proof Placement:** Proof positioned directly at decision moments (hero, work section, contact), never buried.
-- [ ] **Mobile Thumb Ergonomics:** All primary interactive buttons comfortably tappable (>= 44x44px in natural sweep zone).
-
-### C. Layout, Structure & Responsiveness
-- [ ] **ZERO meta-labels:** No cheap labels like "SECTION 01", "QUESTION 05", "CAPABILITIES // 02".
-- [ ] **EYEBROW COUNT:** Count uppercase tracking labels across components <= ceil(sectionCount / 3).
-- [ ] **ZERO section-numbering eyebrows:** No `01 //`, `02 //`, `00 / INDEX`.
-- [ ] **Navigation on ONE line** at desktop, height <= 80px.
-- [ ] **Horizontal scroll protection:** Main wrapper enforces `overflow-x: hidden` with zero horizontal overflow at 320px.
-- [ ] **Mobile collapse (< 768px):** All grids collapse cleanly to `w-full px-4` single columns.
-
-### D. Single-Project Spatial Consistency (Multi-Page Routes)
-- [ ] **Standardized Page Shell:** Persistent Navbar and Footer wrap every sub-page.
-- [ ] **Consistent Header Y-Axis:** All sub-page headlines start at the exact same Y-axis position.
-- [ ] **Zero Layout Shift:** Navigating between routes never causes headers to jump or resize.
-- [ ] **Zero 404 dead links:** All navigation links point to valid, functioning route shells.
-
-### E. Mobile-Native Polish & Break-UI Defense
-- [ ] **Sticky hover state suppressed:** All `:hover` styles gated behind `@media (hover: hover) and (pointer: fine)`.
-- [ ] **Tap highlight flash eliminated:** `-webkit-tap-highlight-color: transparent` set globally on `html`.
-- [ ] **Viewport unit precision:** Application shells use `100dvh`, heroes use `100svh`, zero unconstrained `100vh`.
-- [ ] **Input auto-zoom prevented:** All `<input>`, `<select>`, `<textarea>` have font size >= 16px (`text-base`).
-- [ ] **Instant tap response:** `touch-action: manipulation` applied to interactive elements.
-
-### F. Performance, Accessibility, Best Practices, SEO & Agentic Browsing
-- [ ] **Lighthouse Performance: 100/100** (Zero render-blocking fonts, LCP < 1.2s, CLS = 0, DOM depth < 12).
-- [ ] **Lighthouse Accessibility: 100/100** (WCAG AAA/AA contrast, accessible button names, `<label for>` mappings, visible focus rings).
-- [ ] **Lighthouse Best Practices: 100/100** (Zero console errors, clean SVG `<path d>` arc syntax, secure headers guidelines).
-- [ ] **Lighthouse SEO: 100/100** (Metadata API, OpenGraph, JSON-LD schemas, canonical tags, valid robots.txt).
-- [ ] **Lighthouse Agentic Browsing: 3/3 Full** (Compliant `public/llms.txt` with H1 and links, WebMCP annotations, `ai-catalog.json`).
-- [ ] **Branded 404 & Error boundaries:** `not-found.tsx` and client `error.tsx` with functional `reset()`.
-- [ ] **Build & Type Health:** `npm run build` passes with zero TypeScript compilation errors.
+1. **Inspect the Project:** Audit routes, build scripts, framework configuration, recent changes, and available testing tools.
+2. **Establish Acceptance Criteria:** Derive measurable checks from the design brief, layout specifications, and project plan.
+3. **Assess Test Coverage:** Map each criterion to static analysis, build compilation, automated scans, or browser inspection.
+4. **Run Appropriate Checks:** Execute type checking, linters, and project build scripts using authorized commands.
+5. **Verify the Rendered Experience:** Where browser execution is available, inspect rendering, layout reflow, hover states, and console logs.
+6. **Record Evidence:** Capture exact reproduction steps, affected routes, viewport widths, error logs, and computed styles.
+7. **Classify Defects:** Assign severity (P0 Blocker, P1 Critical, P2 Major, P3 Minor, P4 Trivial) based on user impact.
+8. **Diagnose Root Causes:** Distinguish fundamental root causes from superficial symptoms to prevent speculative band-aids.
+9. **Correct and Retest:** Remediate defects within scope or provide precise correction instructions to the responsible stage.
+10. **Run Regression Checks:** Re-verify previously failing cases and confirm adjacent components, routes, and viewports remain intact.
+11. **Report Results:** Publish an evidence-backed report separating passed items, confirmed defects, unverified risks, and final release status.
 
 ---
 
-## 🛠️ Step-by-Step Execution Workflow (Stage 4 Only)
+## 4. Supporting References Library
 
-### Step 1: Read Brief & Check Hand-Off
-- Read `frontend/DESIGN_ENGINEERING_BRIEF.md`. Verify which brand tokens were adopted and which creative direction was locked.
+Load companion specifications on-demand based on active audit objectives:
 
-### Step 2: Implement Branded 404, Error Boundary & Metadata
-- Create `frontend/src/app/not-found.tsx` matching typography and brand palette.
-- Create `frontend/src/app/error.tsx` with `'use client'` directive and functional `reset()` button.
-- Populate `frontend/src/app/layout.tsx` with complete metadata (OpenGraph, Twitter card, canonical tags).
-
-### Step 3: Implement AIO, WebMCP & Agentic Browsing Suite
-- Create `frontend/public/llms.txt` with single H1 `# [Title]` and full markdown links index.
-- Create `frontend/public/llms-full.txt` and `frontend/public/ai-catalog.json`.
-- Annotate forms with `data-webmcp-tool` attributes.
-
-### Step 4: Audit Performance & Core Web Vitals (Target: 100/100)
-- Verify `next/font` with `display: 'swap'` is used (no external blocking CSS imports).
-- Verify explicit aspect ratios and priority on LCP element.
-- Verify total DOM elements < 800 and depth < 12.
-
-### Step 5: Audit Accessibility & Contrast (Target: 100/100)
-- Verify all text and button contrasts pass WCAG AA (minimum 4.5:1).
-- Verify all interactive controls have accessible names and `:focus-visible` styling.
-- Verify form controls have associated `<label>` elements.
-
-### Step 6: Audit Best Practices & Console Hygiene (Target: 100/100)
-- Inspect browser console. Verify zero warnings, zero hydration errors, and clean SVG paths.
-
-### Step 7: Execute Complete 50+ Pre-Flight Check & Sign Off
-- Run the full 50+ Pre-Flight Check.
-- Update `frontend/uiux-progress.json`, set `stages.4_qa_and_seo.status` to `completed`.
-- STOP. Deliver a concise production sign-off report with verified Core Web Vitals and Lighthouse metrics.
+| Reference | Scope & Core Topics | Trigger Condition |
+|---|---|---|
+| [qa-strategy.md](references/qa-strategy.md) | Risk-based testing, acceptance criteria derivation, coverage taxonomy | Step 1, Step 2, and Step 3 (Planning) |
+| [visual-regression-audit.md](references/visual-regression-audit.md) | Typography, alignment, spacing, container geometry, image cropping | Step 5 (Visual Inspection) |
+| [responsive-audit.md](references/responsive-audit.md) | Viewports 320px to 1440px, horizontal scroll elimination, touch targets | Step 5 (Responsive Verification) |
+| [functional-testing.md](references/functional-testing.md) | Navigation, buttons, forms, edge states, Escape/outside-click handling | Step 5 (Interaction Verification) |
+| [accessibility-audit.md](references/accessibility-audit.md) | Semantic HTML, keyboard tab flow, visible focus, WCAG AA contrast | Step 4 and Step 5 (Accessibility) |
+| [performance-audit.md](references/performance-audit.md) | Core Web Vitals, font self-hosting, asset compression, bundle bloat | Step 4 and Step 5 (Performance) |
+| [seo-and-metadata-audit.md](references/seo-and-metadata-audit.md) | Meta tags, canonical links, OpenGraph, JSON-LD, llms.txt, ai-catalog | Step 4 (SEO and Agentic Discovery) |
+| [runtime-and-build-validation.md](references/runtime-and-build-validation.md) | Build checks, console hygiene, SVG path errors, 404 and error boundary | Step 4 and Step 5 (Runtime Validation) |
+| [defect-triage-and-root-cause.md](references/defect-triage-and-root-cause.md) | Severity grading, reproduction steps, root-cause isolation, routing | Step 6, Step 7, and Step 8 (Defect Triage) |
+| [regression-and-retesting.md](references/regression-and-retesting.md) | Retest protocol, blast radius analysis, 5-point sanity checks | Step 9 and Step 10 (Retesting) |
+| [qa-reporting-and-handoff.md](references/qa-reporting-and-handoff.md) | Executive summary, route matrix, defect log, risk disclosure | Step 11 (Reporting and Handoff) |
+| [quality-gates.md](references/quality-gates.md) | Release criteria, hard blockers, status taxonomy (PASS, FAIL, PARTIAL) | Step 11 (Final Readiness Verdict) |
 
 ---
 
-## 📚 QUALITY ASSURANCE & AIO RULE SPECIFICATIONS
+## 5. Quality Gates and Status Taxonomy
 
-Read and enforce the companion specifications for Stage 4:
-- [rules/01-production-qa-and-error-ux.md](rules/01-production-qa-and-error-ux.md): 50+ pre-flight checklist, error boundary design, and clean console audit.
-- [rules/02-responsive-and-accessibility-standards.md](rules/02-responsive-and-accessibility-standards.md): Mobile-first responsive gates (320px to 1440px), WCAG AAA/AA contrast, and keyboard navigation.
-- [rules/03-advanced-seo-and-metadata.md](rules/03-advanced-seo-and-metadata.md): 100/100 Technical SEO, OpenGraph tags, JSON-LD schemas, and LLM text protocols.
+Never report unconditional success without verified proof. Every audit must deliver a definitive verdict:
+
+- **PASS:** All required criteria verified with concrete proof. Zero P0/P1 defects, clean build, accessible navigation, responsive layouts.
+- **FAIL:** One or more confirmed blocking (P0) or critical (P1) defects remain active (e.g. build failure, dead CTA, mobile overflow).
+- **PARTIAL:** Flagship flows functional, but secondary routes or non-blocking defects (P2/P3) require attention.
+- **NOT VERIFIED:** Testing tools, live browser execution, or external service dependencies were unavailable to confirm requirements.
+- **BLOCKED:** Missing upstream specifications, broken build pipeline, or uninstalled dependencies halt testing.
+
+### Mandatory Truth in Verification:
+- Code review alone is NOT proof of rendered visual correctness.
+- Successful build compilation is NOT proof that interaction state transitions work.
+- Automated accessibility scans do NOT prove complete keyboard or screen-reader usability.
+- If browser interaction was not executed, explicitly declare it as "Static Inspection" and mark live interaction as "NOT VERIFIED".
+
+---
+
+## 6. Handoffs and Cross-Stage Routing
+
+- **To `/frontend-architect`:** Escalate global token contrast failures, font loading defects, routing errors, or build configuration bugs.
+- **To `/creative-layout-engineer`:** Route responsive grid collapse failures, mobile container clipping, or section hierarchy defects.
+- **To `/interactive-component-engineer`:** Route broken click handlers, form validation errors, missing focus rings, or janky animations.
+- **To `/build-error-resolver`:** Escalate severe TypeScript compilation breaks or dependency collision errors.
+- **To the User:** Present the structured QA report with verified findings, active defects, and clear release recommendations.

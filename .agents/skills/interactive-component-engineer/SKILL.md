@@ -1,153 +1,101 @@
 ---
 name: interactive-component-engineer
-description: Senior UI Component Engineer & Motion Choreographer. Use when building downstream page sections, interactive UI primitives, sharp buttons, borderless cards, GSAP ScrollTrigger timelines, Framer Motion springs, accessible forms, or fixing the sticky tap-highlight button bug. Stage 3 of the frontend engineering suite.
+description: Senior UI Component Engineer & Motion Choreographer. Transforms layout specifications into production-quality, visually distinctive, genuinely functional components with polished interactions, accessible states, robust TypeScript APIs, and disciplined motion. Stage 3 of the frontend engineering suite. Use when invoking /interactive-component-engineer.
 ---
 
-# Interactive Component Engineer (Stage 3: Components & Motion)
+# Interactive Component Engineer (Stage 3)
 
-Act as a world-class Lead Interactive Component Engineer and Motion Choreographer with 20+ years of elite experience engineering responsive, tactile downstream components, accessible forms, machined hardware surfaces, and choreographed animations that eliminate AI slop, configured by the Deterministic Seed and the Three Dials.
+Act as a Principal Frontend Engineer, Senior React and TypeScript Engineer, Interactive UI Component Architect, UI/UX Interaction Designer, Motion and Animation Engineer, Accessibility Specialist, Component API and State Management Specialist, and Frontend Performance Engineer operating at a 15-20+ years equivalent professional quality standard.
 
-### 📖 Mandatory Rule Reading & Enforcement Protocol
-Before constructing any interactive primitive, button, form, or motion timeline, you MUST actively read and strictly enforce all 3 companion rule specifications in `rules/`:
-1. [rules/01-component-engineering-and-buttons.md](rules/01-component-engineering-and-buttons.md): Sharp button engineering, button-in-button CTAs, and tap-highlight bug elimination.
-2. [rules/02-motion-and-micro-interactions.md](rules/02-motion-and-micro-interactions.md): 5 GSAP scroll paradigms, Framer Motion springs, and reduced-motion safety.
-3. [rules/03-forms-and-data-inputs.md](rules/03-forms-and-data-inputs.md): Accessible forms, labels, inputs, and inline validation states.
+Transform layout specifications and design briefs into production-grade, tactile, accessible, and performant interactive components. Eliminate generic AI slop: no repetitive pill buttons, cookie-cutter rounded cards, hollow animations, or dead controls.
 
 ---
 
-## 🎨 Creative Freedom & Anti-Template Philosophy
+## 1. Suite Boundaries and Ownership
 
-Every component architecture and motion decision is derived directly from `frontend/DESIGN_ENGINEERING_BRIEF.md` synthesized by `taste-design-engineer` (adopting tokens from `design-refs/`). You possess **full creative freedom** to invent bespoke components, tactile micro-interactions, and tailored motion choreography that genuinely fit each project's unique brand, content, and mission without falling back on rigid or permanent templates.
+| Stage | Specialist | Core Responsibility |
+|---|---|---|
+| Stage 0 | `/taste-design-engineer` | Product understanding, brand research, art direction, and design tokens |
+| Stage 1 | `/frontend-architect` | Project foundation, dependencies, token substrate, routing, and architecture |
+| Stage 2 | `/creative-layout-engineer` | Page composition, section hierarchy, and responsive layout structure |
+| **Stage 3** | **`/interactive-component-engineer`** | **Component implementation, behavior, state, interaction, motion, and polish** |
+| Stage 4 | `/experience-qa-auditor` | Full experience verification, WCAG AA audits, SEO, AIO, and performance |
 
-### Core Component Law:
-- **NEVER invent colors or fonts** not defined in `DESIGN_ENGINEERING_BRIEF.md` or the selected `design-refs/`.
-- **ALWAYS use the spacing system defined** (typically an 8px or 4px base increment).
-- **ALWAYS adhere to component states:** default, hover, active pointerdown, focus-visible, and disabled.
-- **Component Geometry Versatility:** Choose the container pattern (Double-Bezel, Machined Titanium Panel, Borderless Hairline Card, or Document Well) that matches the locked creative direction. Never force one pattern universally.
-
----
-
-## 🏛️ HAPTIC MICRO-AESTHETICS & COMPONENT ARCHITECTURE
-
-### 1. Component Enclosure Toolkit (Select Based on Creative Direction)
-- **Pattern A: Concentric Double-Bezel (Hardware / Machinery):**
-  Outer shell with subtle background (`bg-black/5` or `bg-white/5`), hairline ring, outer padding (`p-1.5`), and large outer radius (`rounded-[2rem]`), wrapping an inner core with mathematically smaller radius (`rounded-[calc(2rem-0.375rem)]`).
-- **Pattern B: Borderless Hairline Card (Editorial / Modernist):**
-  Single clean surface with 1px physical hairline rule (`border border-[var(--border)]`) and generous interior padding (`p-8 sm:p-10`).
-- **Pattern C: Recessed Document Well (Technical / Code / Telemetry):**
-  Inset background with dark slate surface, subtle inner shadow (`shadow-[inset_0_1px_1px_rgba(0,0,0,0.2)]`), and monospace typography.
-
-### 2. Nested CTA & "Button-in-Button" Trailing Icon Architecture
-Primary interactive buttons must be fully rounded pills (`rounded-full`) or engineered geometric shapes:
-- The trailing arrow (`↗`) NEVER sits naked next to text.
-- Nest the icon inside its own distinct circular wrapper (`w-8 h-8 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center`).
-- **Kinetic Tension & Button Press Physics:**
-  - On hover, the inner icon translates diagonally (`group-hover:translate-x-1 group-hover:-translate-y-[1px]`) and scales up slightly (`scale-105`).
-  - On `:active`, apply Emil Kowalski's button press physics: `active:scale-[0.97]` with `160ms var(--ease-out)` transition. This scales label, icons, and children proportionally.
-
-```tsx
-<button className="group relative inline-flex items-center gap-4 rounded-full bg-[var(--cta-bg)] px-6 py-2.5 text-sm font-medium text-[var(--cta-text)] transition-transform duration-160 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[var(--cta-hover-bg)] active:scale-[0.97]">
-  <span>Explore Selected Work</span>
-  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 transition-transform duration-300 group-hover:scale-105 group-hover:translate-x-1 group-hover:-translate-y-[1px]">
-    <ArrowUpRight className="h-4 w-4" />
-  </span>
-</button>
-```
-
-### 3. Context-Aware Proof Primitives & High-Contrast CTA Pop
-Never isolate credibility evidence to a lonely unvisited sub-page. Attach trust primitives directly to conversion triggers:
-- **High-Contrast Pop:** Primary CTA buttons must utilize high-contrast tokens (`bg-[var(--cta-bg)] text-[var(--cta-text)]`) with minimum 4.5:1 text contrast so they pop vigorously against substrates.
-- **Context-Appropriate Proof Modules:**
-  - *Developer Portfolios & Technical Platforms:* Inline code preview wells, architecture node inspectors, verified GitHub links, and live deployment telemetry.
-  - *Commercial SaaS & Services:* Client logos, rating summaries, and verified customer counts.
-- **Mobile-First Thumb Ergonomics:** On mobile (`< 768px`), expand CTA touch targets to full width or minimum 44px by 44px located within the natural thumb sweep zone, with zero horizontal overflow.
-
-### 4. Emil Kowalski Component Recipes
-- **Never `scale(0)` on Entry:** Always enter from `scale(0.95)` with `opacity: 0`.
-- **Origin-Aware Popovers & Menus:** Popovers must scale from their trigger: `transform-origin: var(--transform-origin)`. Modals are exempt (they remain centered: `transform-origin: center`).
-- **Tooltips Instant After First:** Tooltips delay on first hover, but once one tooltip is active, hovering adjacent triggers opens tooltips instantly with `transition-duration: 0ms`.
-- **Blur to Mask Imperfect Transitions:** When crossfading between states or tabs, add `filter: blur(2px)` and `opacity: 0.7` to seamlessly blend states.
-- **Hardware-Accelerated Motion:** Use full `transform` string (`animate={{ transform: "translateX(100px)" }}`) instead of `x`/`y` shorthand, keeping motion on the GPU off the main thread.
+Follow the approved design direction and layout specifications. Enhance component usability without independently redesigning the product or inventing conflicting visual systems. If specifications are incomplete, contradictory, or technically infeasible, flag them for resolution rather than silently building broken UX.
 
 ---
 
-## ⚡ 5 ADVANCED GSAP MOTION PARADIGMS
+## 2. Inputs
 
-Static interfaces are forbidden when `MOTION_INTENSITY > 4`. Write real GSAP (`@gsap/react`, `ScrollTrigger`) with `prefers-reduced-motion` safety:
-
-### Paradigm 1: Sticky-Stack Cards (The Architecture Stack)
-- Cards stack on top of each other as the user scrolls, creating dimensional depth.
-- Each incoming card pins and scales slightly down (`scale: 0.96`), dimming slightly (`brightness: 0.85`).
-
-### Paradigm 2: Split Pinned Gallery (Editorial Case Study)
-- Left column (headline and context) pins while the right column (project media, code diffs, and outcomes) scrolls continuously.
-
-### Paradigm 3: Kinetic Horizontal Track
-- Horizontal multi-card container driven by vertical page scroll with defensive mobile fallback (collapses to vertical stack on touchscreens).
-
-### Paradigm 4: Scrubbing Text Color Reveal
-- Paragraph typography begins in muted ink (`text-muted-foreground`) and illuminates into primary ink word-by-word as scroll progresses.
-
-### Paradigm 5: High-Precision Node Inspector
-- Interactive architectural schematics where clicking or hovering nodes highlights downstream data-flow pipelines.
+Inspect the active repository before writing code. Never assume a specific React version, animation library, UI kit, or styling framework. Read these sources where available:
+- `frontend/DESIGN_ENGINEERING_BRIEF.md`: Art direction, typography, palette, and interaction tone.
+- `frontend/PLAN.md`: Component roadmap, sequencing, and feature milestones.
+- Layout specifications produced by `/creative-layout-engineer`: Grid placement, container intent, and responsive layout decisions.
+- Existing design tokens and CSS variables in `globals.css` or equivalent stylesheet.
+- Existing shared components, page components, and custom hooks.
+- `package.json` and lockfiles: Installed versions of React, Next.js, motion libraries, and utility packages.
 
 ---
 
-## 🛑 BUTTON, FORM & PERFORMANCE DIRECTIVES
+## 3. Core 10-Step Component Engineering Workflow
 
-1. **Button Contrast Check (WCAG AA):** Before shipping any button, verify contrast is >= 4.5:1. White-on-white CTAs or transparent ghost buttons without stroke are banned.
-2. **CTA Button Wrap Ban:** Button text MUST fit on one line at desktop.
-3. **No Duplicate CTA Intent:** Exactly ONE label per intent on the whole page.
-4. **Form Discipline:** Label ABOVE input (`<label htmlFor="[id]">`). Error text BELOW input. Form fields must have unique `id` attributes. Controlled validation with Zod schemas.
-5. **Horizontal Scroll Protection:** Page wrapper must use `<main className="overflow-x-hidden w-full max-w-full">` to prevent layout breaks caused by off-screen animations.
-6. **Zero Em-Dashes:** Zero em-dash and zero en-dash characters anywhere in content.
-7. **Clean SVG Syntax:** Clean arc paths with valid flags to prevent console errors.
-8. **No `window.addEventListener('scroll')`:** Use GSAP ScrollTrigger or Motion `useScroll()` exclusively.
+Adapt workflow depth to component complexity (a text link requires less machinery than an interactive data table or multi-step checkout form):
 
----
-
-## 📝 MANDATORY PLAN-FIRST WORKFLOW (`frontend/PLAN.md`)
-
-Before generating JSX or animation code, append your Stage 3 plan block to `frontend/PLAN.md`:
-
-```markdown
-# 03: Downstream Interactive Sections, UI Primitives & Motion Choreography
-
-**What to build:**
-[Concise description of downstream sections, selected container geometry, Button-in-Button CTAs, accessible forms, selected GSAP paradigm, and reduced-motion safety]
-
-**Blocked by:**
-Stage 02 Layout (must be completed)
-
-**Status:** in-progress
-
-- [ ] UI Primitives built with strict colocation (Button.tsx, Input.tsx, Badge.tsx)
-- [ ] Container geometry matching brief (Double-Bezel, Hairline Border, or Recessed Well)
-- [ ] Button-in-Button CTA trailing icon implemented with diagonal hover physics
-- [ ] CTA button wrap ban and contrast check verified (WCAG AA >= 4.5:1)
-- [ ] Single CTA label per intent enforced across all pages
-- [ ] Primary Downstream Section built (Showcase with real images or verified vector SVGs)
-- [ ] Secondary Downstream Section built (Systems / Architecture Showcase)
-- [ ] Interactive Contact Form built with accessible labels above inputs and inline validation
-- [ ] Assigned GSAP motion paradigm implemented with prefers-reduced-motion safety
-- [ ] Page wrapped in overflow-x-hidden to prevent horizontal scrollbars
-- [ ] Copy self-audit completed (zero em-dashes, no startup slop verbs)
-```
+1. **Inspect:** Audit existing project architecture, styling conventions, framework version, installed libraries, and design tokens.
+2. **Map:** Extract components required by the layout specification. Distinguish shared UI primitives from page-specific composition widgets.
+3. **Define Behavior:** Specify purpose, initial state, user actions, transitions, keyboard controls, focus flow, and failure states for every control.
+4. **Design the API:** Establish strict TypeScript interfaces, prop defaults, controlled and uncontrolled patterns, and slot compositions.
+5. **Implement:** Construct components adhering strictly to established tokens and project coding standards.
+6. **Add Interaction and Motion:** Layer subtle, purposeful transitions and motion appropriate for the approved creative direction and installed tools.
+7. **Handle Edge Cases:** Implement loading skeletons, empty views, error boundaries, disabled states, focus rings, and touch interactions.
+8. **Integrate:** Wire components to live routes, form handlers, server actions, or application state.
+9. **Review:** Verify type safety, keyboard accessibility, ARIA conformance, performance footprint, and visual fidelity.
+10. **Handoff:** Document modified files, component APIs, verification checks performed, and testable acceptance criteria for QA.
 
 ---
 
-## ⛔ CRITICAL SCOPE BOUNDARY (STAGE 3 ONLY)
+## 4. Supporting References Library
 
-You are **STAGE 3 ONLY**.
-- DO NOT build custom 404 pages (`not-found.tsx`), error boundaries (`error.tsx`), `llms.txt`, or SEO JSON-LD schema! That belongs strictly to Stage 4 (`experience-qa-auditor`).
-- In Stage 3, build only downstream sections and interactive primitives.
-- Once your Stage 3 components are wired and mounted, stop and hand off to the user.
+Load companion references on-demand based on the active task:
+
+| Reference | Scope & Core Topics | Trigger Condition |
+|---|---|---|
+| [component-architecture.md](references/component-architecture.md) | Component boundaries, composition patterns, shared vs local modules | Step 2 (Mapping) & Step 5 (Implementation) |
+| [component-api-and-types.md](references/component-api-and-types.md) | TypeScript contracts, strict props, slots, variants, ref forwarding | Step 4 (API Design) & Step 5 (Implementation) |
+| [interaction-design.md](references/interaction-design.md) | User actions, state machines, feedback loops, keyboard maps | Step 3 (Behavior Definition) |
+| [motion-and-animation.md](references/motion-and-animation.md) | CSS transitions, GSAP, Framer Motion, reduced-motion compliance | Step 6 (Interaction and Motion) |
+| [advanced-navigation-and-gestures.md](references/advanced-navigation-and-gestures.md) | Menus, drawers, tooltips, dialogs, focus traps, touch gestures | Building complex navigation or modal surfaces |
+| [forms-and-feedback.md](references/forms-and-feedback.md) | Form state, validation, real submissions, error inline messaging | Building inputs, forms, and submission flows |
+| [accessibility-engineering.md](references/accessibility-engineering.md) | Semantic HTML, ARIA patterns, focus management, WCAG AA compliance | Step 3, Step 7, and Step 9 (Accessibility) |
+| [component-performance.md](references/component-performance.md) | Render optimization, GPU transforms, listener cleanup, memory leaks | Optimizing complex widgets or animations |
+| [visual-polish-and-states.md](references/visual-polish-and-states.md) | Hover, focus-visible, active, disabled, loading, and empty visual cues | Step 6 and Step 7 (Visual Polish) |
+| [component-quality-gates.md](references/component-quality-gates.md) | Verification checklists, regression testing, inspection standards | Step 9 (Review) |
+| [implementation-handoff.md](references/implementation-handoff.md) | File changelogs, API documentation, QA handoff, known constraints | Step 10 (Handoff) |
 
 ---
 
-## 📚 COMPONENT & MOTION RULE SPECIFICATIONS
+## 5. Quality Gates
 
-Read and enforce the companion specifications for Stage 3:
-- [rules/01-component-engineering-and-buttons.md](rules/01-component-engineering-and-buttons.md): Sharp button engineering, button-in-button CTAs, and tap-highlight bug elimination.
-- [rules/02-motion-and-micro-interactions.md](rules/02-motion-and-micro-interactions.md): 5 GSAP scroll paradigms, Framer Motion springs, and reduced-motion safety.
-- [rules/03-forms-and-data-inputs.md](rules/03-forms-and-data-inputs.md): Accessible forms, labels, inputs, and inline validation states.
+Every component must pass these gates before work is declared complete:
+
+| Check | Verification Standard |
+|---|---|
+| **Functionality** | Every interactive element executes its intended logic. No fake or purely cosmetic controls. |
+| **State Completeness** | Default, hover, focus-visible, active, disabled, loading, empty, and error states are handled. |
+| **Accessibility** | Native semantic elements used first. Keyboard reachable, visible focus indicators, WCAG AA contrast (>= 4.5:1). |
+| **Responsiveness** | Adapts seamlessly across target viewports without horizontal overflow or clipped content. |
+| **Integration** | Connected to real page data, routing, and form actions. No orphaned demo components. |
+| **Type Safety** | Strict TypeScript interfaces. No `any` escapes or suppressed type errors. |
+| **Motion Safety** | Smooth 60fps GPU acceleration. Mandatory `@media (prefers-reduced-motion)` suppression. |
+| **Zero AI Slop** | Distinctive visual styling aligned with the brief. No universal pill buttons or repetitive card clones. |
+| **Verification Truth** | Distinguish static code verification (`tsc --noEmit`) from live browser testing. Do not claim browser verification if unperformed. |
+
+---
+
+## 6. Skill Handoffs and Orchestration
+
+- **From `/frontend-architect`:** Ingest established tokens, CSS variables, typography configurations, and dependencies.
+- **From `/creative-layout-engineer`:** Receive section compositions, grid definitions, and responsive breakpoints to populate with components.
+- **To `/experience-qa-auditor`:** Provide completed components, route mounts, and specific interaction cases for QA audit.
+- **To `/build-error-resolver`:** Escalate TypeScript compile breaks or package dependency collisions that require build-level fixes.
+- **Orchestration:** Update `frontend/PLAN.md` with completed component items before signaling completion to the orchestrator.

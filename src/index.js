@@ -129,9 +129,9 @@ async function main() {
   );
 
   outro(
-    color.green("Ready to craft bespoke frontends! Type ") +
-    color.bold(color.yellow("/irfanlovefront")) +
-    color.green(" in your agent chat to initiate the 5-stage pipeline.")
+    color.green("Ready to craft bespoke frontends! Invoke ") +
+    color.bold(color.yellow("/taste-design-engineer")) +
+    color.green(" in your agent chat to begin Stage 0.")
   );
 }
 

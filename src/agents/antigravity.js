@@ -18,6 +18,6 @@ export async function installAntigravity({ scope, cwd }) {
   return {
     agent: "Google Antigravity / Gemini",
     path: targetDir,
-    filesCount: 8,
+    filesCount: 7,
   };
 }

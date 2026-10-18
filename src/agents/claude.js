@@ -26,12 +26,11 @@ export async function installClaude({ scope, cwd }) {
 This project is supercharged with the irfanlovefront 5-stage frontend engineering lifecycle.
 
 ## Available Slash Commands & Skills
-- \`/irfanlovefront\`: Master orchestrator coordinating the full 5-stage lifecycle.
-- \`/taste-design-engineer\`: Stage 0 taste formulation, Apple fluid principles, and conversion rules.
-- \`/frontend-architect\`: Stage 1 design system, 1 to 2 fonts ceiling, and high-contrast CTA tokens.
-- \`/creative-layout-engineer\`: Stage 2 bespoke hero mini-site, squint test, and white space restraint.
-- \`/interactive-component-engineer\`: Stage 3 motion choreography, point-of-doubt trust proof, and thumb ergonomics.
-- \`/experience-qa-auditor\`: Stage 4 responsive audit (320px to 1440px), WCAG AA, 404, and SEO JSON-LD.
+- \`/taste-design-engineer\`: Stage 0 taste formulation, brand reference analysis, and creative direction.
+- \`/frontend-architect\`: Stage 1 design system tokens, 1 to 2 fonts ceiling, and Next.js 15 architecture.
+- \`/creative-layout-engineer\`: Stage 2 bespoke layout composition, 4-element hero, squint test, and visual rhythm.
+- \`/interactive-component-engineer\`: Stage 3 tactile component engineering, real state handling, and thumb ergonomics.
+- \`/experience-qa-auditor\`: Stage 4 responsive audit (320px to 1440px), WCAG AA, defect triage, and truth in verification.
 - \`/build-error-resolver\`: TypeScript error healing with zero architectural regressions.
 - \`/github-readme-writer\`: Authoritative documentation and launch copy.
 
@@ -50,6 +49,6 @@ Detailed skill instructions are stored in \`.claude/skills/<skill-name>/SKILL.md
   return {
     agent: "Claude Code",
     path: skillsTargetDir,
-    filesCount: 8,
+    filesCount: 7,
   };
 }
