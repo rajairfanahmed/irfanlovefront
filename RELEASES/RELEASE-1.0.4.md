@@ -68,7 +68,7 @@ In strict alignment with the Daytona documentation framework, Release 1.0.4 enfo
 
 ---
 
-## The Complete 9-Agent Suite Directory
+## The Complete 8-Agent Suite Directory
 
 | Phase | Skill Name | Slash Command | Role |
 |---|---|---|---|
@@ -78,7 +78,6 @@ In strict alignment with the Daytona documentation framework, Release 1.0.4 enfo
 | **Stage 2** | `creative-layout-engineer` | `/creative-layout-engineer` | Macro-layout craft, container queries, 320px mobile |
 | **Stage 3** | `interactive-component-engineer` | `/interactive-component-engineer` | Tactile primitives, accessible forms, motion springs |
 | **Stage 4** | `experience-qa-auditor` | `/experience-qa-auditor` | 100/100 Lighthouse verification & 3/3 Agentic Browsing |
-| **Auxiliary** | `design-system-md` | `/design-system-md` | 84+ brand token library & getdesign CLI |
 | **Auxiliary** | `build-error-resolver` | `/build-error-resolver` | Surgical, zero-churn TypeScript compilation fixes |
 | **Auxiliary** | `github-readme-writer` | `/github-readme-writer` | Daytona open-source documentation with zero em-dashes |
 

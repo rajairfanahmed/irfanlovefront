@@ -18,7 +18,7 @@
 
 # irfanlovefront
 
-### The Autonomous 9-Agent UI/UX & Frontend Engineering Suite (v1.0.4)
+### The Autonomous 8-Agent UI/UX & Frontend Engineering Suite (v1.0.4)
 
 **Eliminate frontend design paralysis, generic templates, and AI-slop forever.**
 
@@ -42,7 +42,7 @@
 
 ## ⚡ The 1-Command Quickstart (v1.0.4)
 
-Install the entire 9-agent skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
+Install the entire 8-agent skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
 ```bash
 # Interactive setup (selects your agent and workspace/global scope)
@@ -96,7 +96,7 @@ Most AI assistants produce generic, repetitive slop:
 - Performance fails Core Web Vitals due to render-blocking fonts.
 - Contrast tests fail WCAG AA accessibility standards.
 
-**IrfanLoveFront permanently solves this.** It is an autonomous 9-agent engineering suite powered by an authoritative library of 84+ brand token systems in `design-refs/` (Apple, Stripe, Linear, Notion, Vercel, Supabase, Ferrari), zero render-blocking font architecture, container queries, Apple fluid physics, 100/100 Lighthouse verification, and 3/3 Agentic Browsing.
+**IrfanLoveFront permanently solves this.** It is an autonomous 8-agent engineering suite powered by an authoritative library of 84+ brand token systems in `design-refs/` (Apple, Stripe, Linear, Notion, Vercel, Supabase, Ferrari), zero render-blocking font architecture, container queries, Apple fluid physics, 100/100 Lighthouse verification, and 3/3 Agentic Browsing.
 
 ---
 
@@ -108,7 +108,7 @@ Most AI assistants produce generic, repetitive slop:
 
 ---
 
-## 🏛️ Visual Architecture: The 9 Autonomous Agents
+## 🏛️ Visual Architecture: The 8 Autonomous Agents
 
 ```
                                   +---------------------------------------+
@@ -165,23 +165,23 @@ Most AI assistants produce generic, repetitive slop:
                                               |* 404 & Errors |
                                               +---------------+
                                                       |
+                                      +---------------+---------------+
+                                      |                               |
+                                      v                               v
+                      +-------------------------------+---------------+-------------------------------+
+                      |        AUXILIARY SKILL        |        AUXILIARY SKILL        |
+                      |      build-error-resolver     |      github-readme-writer     |
                       +-------------------------------+-------------------------------+
-                      |                               |                               |
-                      v                               v                               v
-      +-------------------------------+---------------+---------------+---------------+---------------+
-      |        AUXILIARY SKILL        |        AUXILIARY SKILL        |        AUXILIARY SKILL        |
-      |       design-system-md        |      build-error-resolver     |      github-readme-writer     |
-      +-------------------------------+-------------------------------+-------------------------------+
-      |* 84+ brand token library      |* Fast-path TypeScript fixes   |* Daytona open-source standard |
-      |* getdesign CLI integration    |* Next.js 15 compilation fix   |* Zero AI clichés or slop      |
-      |* Structured 9-section spec    |* Minimal surgical diffs (<5%) |* Architecture and proof-first |
-      |* Instant token generation     |* Zero architectural churn     |* Zero em-dash enforcement     |
-      +-------------------------------+-------------------------------+-------------------------------+
+                      |* Fast-path TypeScript fixes   |* Daytona open-source standard |
+                      |* Next.js 15 compilation fix   |* Zero AI clichés or slop      |
+                      |* Minimal surgical diffs (<5%) |* Architecture and proof-first |
+                      |* Zero architectural churn     |* Zero em-dash enforcement     |
+                      +-------------------------------+-------------------------------+
 ```
 
 ---
 
-## 🛠️ The 9 Agent Skills: Detailed Guide
+## 🛠️ The 8 Agent Skills: Detailed Guide
 
 All slash commands match their directory names exactly in `.agents/skills/`. Every agent operates with an authoritative 20+ years Principal / Staff specialist persona.
 
@@ -266,18 +266,7 @@ All slash commands match their directory names exactly in `.agents/skills/`. Eve
 
 ---
 
-### 7. Auxiliary: `design-system-md`
-- **Folder Name:** `design-system-md`
-- **Slash Command:** `/design-system-md`
-- **Role:** Principal Design System Architect & Brand Systems Engineer with 20+ years of experience.
-- **Capabilities:**
-  1. Connects to `getdesign` CLI to pull structured `DESIGN.md` files from 84+ world-class brands.
-  2. Enforces the 9-section DESIGN.md standard (colors, typography, components, layout, elevation, guardrails).
-  3. Powers the permanent `design-refs/` library and enforces token discipline across downstream agents.
-
----
-
-### 8. Auxiliary: `build-error-resolver`
+### 7. Auxiliary: `build-error-resolver`
 - **Folder Name:** `build-error-resolver`
 - **Slash Command:** `/build-error-resolver`
 - **Role:** Principal Build & TypeScript Error Resolution Specialist with 20+ years of compiler experience.
@@ -288,7 +277,7 @@ All slash commands match their directory names exactly in `.agents/skills/`. Eve
 
 ---
 
-### 9. Auxiliary: `github-readme-writer`
+### 8. Auxiliary: `github-readme-writer`
 - **Folder Name:** `github-readme-writer`
 - **Slash Command:** `/github-readme-writer`
 - **Role:** Principal Technical Documentation & GitHub README Specialist with 20+ years of experience.

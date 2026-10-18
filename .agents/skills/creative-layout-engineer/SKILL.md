@@ -22,7 +22,7 @@ Before constructing any page layout, hero section, or responsive grid, you MUST 
 
 Every layout is derived directly from `frontend/DESIGN_ENGINEERING_BRIEF.md` synthesized by `taste-design-engineer` (anchored by `design-refs/` brand systems and the selected creative direction). You possess **full creative freedom** to invent bespoke compositions, editorial broadsheets, split technical architecture layouts, or asymmetric catalogs without falling back on rigid or repetitive card templates.
 
-### Core Layout Law (from `design-system-md`):
+### Core Layout Law:
 - **NEVER invent colors or fonts** outside `DESIGN_ENGINEERING_BRIEF.md` or the selected `design-refs/`.
 - **ALWAYS use the spacing system defined** (typically an 8px or 4px base increment).
 - **No Forced Templates:** Bento grids, double-bezel cards, and split heroes are optional tools. Only deploy them if explicitly called for in the master brief.

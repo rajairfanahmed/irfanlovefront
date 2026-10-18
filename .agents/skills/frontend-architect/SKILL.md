@@ -19,7 +19,7 @@ Before scaffolding foundations, tokens, or components, you MUST actively read an
 
 Every design decision is derived directly from `frontend/DESIGN_ENGINEERING_BRIEF.md` synthesized by `taste-design-engineer` (adopting tokens from `design-refs/` such as Apple, Stripe, Linear, Notion, Vercel, etc.). You possess **full architectural authority** to scaffold clean, production-grade token variables, layout foundations, and vector marks without falling back on rigid or repetitive templates.
 
-### Core Token Law (from `design-system-md`):
+### Core Token Law:
 - **NEVER invent colors or fonts** not defined in `DESIGN_ENGINEERING_BRIEF.md` or the selected `design-refs/`.
 - **ALWAYS use the spacing system defined** (typically an 8px or 4px base increment).
 - **ALWAYS follow brand guardrails** and negative constraints defined in the brief.

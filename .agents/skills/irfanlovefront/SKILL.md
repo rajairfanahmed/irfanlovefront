@@ -27,9 +27,9 @@ Every design, layout, and component decision is derived directly from the user's
 
 ## 📚 The `design-refs/` Brand Token Ecosystem
 
-The repository maintains an authoritative library of 84+ world-class brand specifications in `design-refs/` (Apple, Stripe, Linear, Notion, Vercel, Supabase, Ferrari, etc.) powered by `design-system-md`:
+The repository maintains an authoritative library of 84+ world-class brand specifications in `design-refs/` (Apple, Stripe, Linear, Notion, Vercel, Supabase, Ferrari, etc.):
 - **Gaps Filled from Reality:** Where user specifications have gaps or leave colors/fonts unspecified, agents never guess or invent arbitrary tokens out of thin air. They adopt concrete tokens directly from category-relevant specifications in `design-refs/`.
-- **Permanent Library:** The `design-refs/` library is preserved permanently and grows continuously as new brand systems are fetched via `npx getdesign add <brand>`.
+- **Permanent Library:** The `design-refs/` library is preserved permanently in the repository.
 
 ---
 
@@ -137,7 +137,6 @@ The autonomous engineering pipeline coordinates five specialized stages sequenti
 ---
 
 ## 🛠️ AUXILIARY SPECIALISTS
-- **`design-system-md`:** Brand design system provider connecting `getdesign` CLI and the 84+ brand `design-refs/` library.
 - **`build-error-resolver`:** Surgical, zero-refactoring resolution for TypeScript and Next.js compilation failures (< 5% lines changed).
 - **`github-readme-writer`:** Daytona open-source README specialist, launch posts, and project hygiene with zero em-dashes.
 

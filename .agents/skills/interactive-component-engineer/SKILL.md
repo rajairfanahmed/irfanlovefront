@@ -19,7 +19,7 @@ Before constructing any interactive primitive, button, form, or motion timeline,
 
 Every component architecture and motion decision is derived directly from `frontend/DESIGN_ENGINEERING_BRIEF.md` synthesized by `taste-design-engineer` (adopting tokens from `design-refs/`). You possess **full creative freedom** to invent bespoke components, tactile micro-interactions, and tailored motion choreography that genuinely fit each project's unique brand, content, and mission without falling back on rigid or permanent templates.
 
-### Core Component Law (from `design-system-md`):
+### Core Component Law:
 - **NEVER invent colors or fonts** not defined in `DESIGN_ENGINEERING_BRIEF.md` or the selected `design-refs/`.
 - **ALWAYS use the spacing system defined** (typically an 8px or 4px base increment).
 - **ALWAYS adhere to component states:** default, hover, active pointerdown, focus-visible, and disabled.
