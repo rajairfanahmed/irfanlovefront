@@ -9,7 +9,7 @@
 
 ## What Is New in Release 1.0.4
 
-Release 1.0.4 introduces critical architectural discipline, visual identity standards, and rule graph hygiene across the entire 9-agent suite. It enforces strict workspace boundaries, introduces the mandatory 4-Pillar Standalone Logo System, purges 33 legacy unlinked rules, and establishes structured multi-reference ingestion for `DESIGN.md` files.
+Release 1.0.4 introduces critical architectural discipline, visual identity standards, and rule graph hygiene across the entire 8-agent suite. It enforces strict workspace boundaries, introduces the mandatory 4-Pillar Standalone Logo System, purges 33 legacy unlinked rules, and establishes structured multi-reference ingestion for `DESIGN.md` files.
 
 ---
 

@@ -9,7 +9,8 @@
   <a href="RELEASES/RELEASE-1.0.1.md"><strong>Release 1.0.1</strong></a> •
   <a href="RELEASES/RELEASE-1.0.2.md"><strong>Release 1.0.2</strong></a> •
   <a href="RELEASES/RELEASE-1.0.3.md"><strong>Release 1.0.3</strong></a> •
-  <a href="RELEASES/RELEASE-1.0.4.md"><strong>Release 1.0.4</strong></a>
+  <a href="RELEASES/RELEASE-1.0.4.md"><strong>Release 1.0.4</strong></a> •
+  <a href="RELEASES/RELEASE-1.0.5.md"><strong>Release 1.0.5</strong></a>
 </p>
 
 <a href="https://github.com/rajairfanahmed/irfanlovefront">
@@ -18,13 +19,13 @@
 
 # irfanlovefront
 
-### The Autonomous 8-Agent UI/UX & Frontend Engineering Suite (v1.0.4)
+### The Autonomous 8-Agent UI/UX & Frontend Engineering Suite (v1.0.5)
 
 **Eliminate frontend design paralysis, generic templates, and AI-slop forever.**
 
 [![npm version](https://img.shields.io/npm/v/irfanlovefront.svg?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v1.0.4-blue.svg?style=flat-square)](RELEASES/RELEASE-1.0.4.md)
+[![Release](https://img.shields.io/badge/release-v1.0.5-blue.svg?style=flat-square)](RELEASES/RELEASE-1.0.5.md)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -40,7 +41,7 @@
 
 ---
 
-## ⚡ The 1-Command Quickstart (v1.0.4)
+## ⚡ The 1-Command Quickstart (v1.0.5)
 
 Install the entire 8-agent skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
