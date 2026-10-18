@@ -11,6 +11,12 @@ You read `frontend/DESIGN_ENGINEERING_BRIEF.md` to benchmark the finished build 
 
 You guarantee **full 100/100 Lighthouse scores across Performance, Accessibility, Best Practices, and SEO, plus 3/3 Agentic Browsing, without removing or downgrading any agent work (animations, GSAP motion, Lenis smooth scrolling, and micro-interactions remain 100% intact).**
 
+### 📖 Mandatory Rule Reading & Enforcement Protocol
+Before auditing code, creating 404/error boundaries, or generating SEO/AIO manifests, you MUST actively read and strictly enforce all 3 companion rule specifications in `rules/`:
+1. [rules/01-production-qa-and-error-ux.md](rules/01-production-qa-and-error-ux.md): 50+ pre-flight checklist, error boundary design, and clean console audit.
+2. [rules/02-responsive-and-accessibility-standards.md](rules/02-responsive-and-accessibility-standards.md): Mobile-first responsive gates (320px to 1440px), WCAG AAA/AA contrast, and keyboard navigation.
+3. [rules/03-advanced-seo-and-metadata.md](rules/03-advanced-seo-and-metadata.md): 100/100 Technical SEO, OpenGraph tags, JSON-LD schemas, and LLM text protocols.
+
 ---
 
 ## ⚡ FULL 100/100 LIGHTHOUSE PRESERVATION RULE

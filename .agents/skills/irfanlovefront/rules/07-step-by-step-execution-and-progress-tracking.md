@@ -4,39 +4,44 @@
 
 ---
 
-## 1. The `uiux-progress.json` State Tracker
+## 1. The `frontend/uiux-progress.json` State Tracker
 
-Whenever `/uiux` is initiated on any project, the agent creates (or updates) a state tracking file in the project root: `uiux-progress.json` (or `.agents/uiux-progress.json`).
+Whenever `/irfanlovefront` is initiated on any project, the agent creates (or updates) a state tracking file in the dedicated frontend workspace: `frontend/uiux-progress.json`.
 
 This file records exact milestone completion, design decisions, token values, page inventories, and user feedback history.
 
-### Schema Blueprint (`uiux-progress.json`):
+### Schema Blueprint (`frontend/uiux-progress.json`):
 
 ```json
 {
   "project": {
-    "name": "Muhammad Zain-Ul-Abideen Portfolio",
-    "type": "Software Engineer & Distributed Systems Portfolio",
-    "updatedAt": "2026-10-15T10:45:00Z"
+    "name": "Developer Tooling Platform",
+    "type": "High-Performance Distributed Systems & Cloud Infrastructure",
+    "updatedAt": "2026-10-18T12:00:00Z"
   },
   "currentPhase": "PHASE_2_BUILD",
+  "dials": {
+    "DESIGN_VARIANCE": "0.85",
+    "MOTION_INTENSITY": "0.60",
+    "VISUAL_DENSITY": "0.75"
+  },
   "milestones": {
     "01_requirements_discovery": {
       "status": "COMPLETED",
       "brandTone": "Architectural Precision & High-Concurrency Systems",
-      "primaryAudience": "Tech recruiters, engineering leaders, research labs"
+      "primaryAudience": "Staff software engineers, infrastructure leads, research teams"
     },
-    "02_portfolio_inspiration": {
+    "02_brand_inspiration": {
       "status": "COMPLETED",
-      "studiedDesigns": [
-        "contemporary-figma-portfolio-website-tem.jpg",
-        "black-website-design-desain-ux-sites-lay.jpg",
-        "portfolio-template-sviluppo-software-web.jpg"
+      "studiedBrandReferences": [
+        "design-refs/linear.app-DESIGN.md",
+        "design-refs/stripe-DESIGN.md"
       ],
       "extractedDNA": "Asymmetric 5fr/7fr hero statement, tabular project index with hairlines, zero card-in-card nesting"
     },
-    "03_design_thesis_mockup": {
+    "03_design_thesis": {
       "status": "COMPLETED",
+      "thesisPath": "frontend/DESIGN_ENGINEERING_BRIEF.md",
       "palette": {
         "background": "#0B0F17",
         "surface": "#151B26",
@@ -47,8 +52,7 @@ This file records exact milestone completion, design decisions, token values, pa
         "display": "Space Grotesk",
         "body": "Geist Sans",
         "mono": "JetBrains Mono"
-      },
-      "mockupImagePath": "artifacts/mockup_v1.png"
+      }
     },
     "04_user_confirmation": {
       "status": "APPROVED",
@@ -58,10 +62,11 @@ This file records exact milestone completion, design decisions, token values, pa
     },
     "05_stack_and_foundation": {
       "status": "COMPLETED",
-      "framework": "Next.js 15 (App Router)",
-      "tokenFile": "src/app/globals.css",
-      "customLogo": "src/components/BrandLogo.tsx (SVG Monogram)",
-      "customFavicon": "public/icon.svg"
+      "framework": "Next.js 15 (App Router inside frontend/)",
+      "tokenFile": "frontend/src/app/globals.css",
+      "customLogo": "frontend/src/components/ui/BrandLogo.tsx (4-Pillar Standalone Logo)",
+      "customFavicon": "frontend/public/icon.svg",
+      "appIcon": "frontend/src/app/icon.tsx"
     },
     "06_pages_and_components": {
       "status": "IN_PROGRESS",
@@ -69,8 +74,8 @@ This file records exact milestone completion, design decisions, token values, pa
         "/": { "status": "COMPLETED", "inspectedViewports": ["320px", "375px", "768px", "1440px"] },
         "/about": { "status": "IN_PROGRESS" },
         "/projects": { "status": "PENDING" },
-        "/404": { "status": "COMPLETED", "component": "src/app/not-found.tsx" },
-        "/error": { "status": "COMPLETED", "component": "src/app/error.tsx" }
+        "/404": { "status": "COMPLETED", "component": "frontend/src/app/not-found.tsx" },
+        "/error": { "status": "COMPLETED", "component": "frontend/src/app/error.tsx" }
       }
     },
     "07_mobile_first_zero_overflow": {
@@ -80,8 +85,9 @@ This file records exact milestone completion, design decisions, token values, pa
     "08_seo_and_accessibility": {
       "status": "COMPLETED",
       "wcagContrast": "PASSED_AA",
-      "jsonLdSchema": "Person",
-      "openGraphMeta": true
+      "jsonLdSchema": "SoftwareApplication",
+      "openGraphMeta": true,
+      "agenticBrowsing": "3/3_VERIFIED"
     }
   }
 }
@@ -96,19 +102,19 @@ Every project strictly advances through these sequential gates:
 ```
 [1. Requirements & Discovery]
               ↓
-[2. Inspiration from designs/] ──> Records 3-5 images in tracker
+[2. Ingest Brand References from design-refs/] ──> Records 1-3 brand specs in tracker
               ↓
-[3. Design Thesis & Mockup Image] ──> Generates visual concept
+[3. Design Thesis Specification] ──> Generates frontend/DESIGN_ENGINEERING_BRIEF.md
               ↓
-[4. User Confirmation Gate] ──> User approves or requests tweaks
+[4. User Confirmation Gate] ──> User approves or requests direction tweaks
               ↓
-[5. Foundation Setup] ──> CSS Tokens, Custom SVG Logo, Custom Favicon
+[5. Foundation Setup inside frontend/] ──> CSS Tokens, 4-Pillar SVG Logo, Dynamic Favicon
               ↓
-[6. Component & Route Build] ──> Mobile-First (320px ➔ Desktop), Custom 404, Error UX
+[6. 1-Page-at-a-Time Construction] ──> Mobile-First (320px to Desktop), Custom 404, Error UX
               ↓
-[7. Browser Subagent Preview] ──> Verify 320px to 1440px, zero overflow, zero sticky focus
+[7. Production Audit & Code Verification] ──> Verify 320px to 1440px, zero overflow, tap-highlight fix
               ↓
-[8. SEO & A11y Verification] ──> JSON-LD, WCAG AA, Core Web Vitals
+[8. SEO, A11y & Agentic Verification] ──> JSON-LD, WCAG AA, 100/100 Lighthouse & 3/3 AIO
 ```
 
 ---
@@ -117,11 +123,11 @@ Every project strictly advances through these sequential gates:
 
 When a user requests modifications during or after implementation (e.g. *"change the hero section"* or *"make the cards feel lighter"*):
 
-1. **Read `uiux-progress.json` First:**  
+1. **Read `frontend/uiux-progress.json` First:**  
    The agent inspects the progress tracker to identify what was previously decided, locked tokens, existing routes, and prior feedback.
 2. **Log the New Change Request:**  
-   Add the user's request to `feedbackHistory` inside `uiux-progress.json`.
+   Add the user's request to `feedbackHistory` inside `frontend/uiux-progress.json`.
 3. **Execute Targeted Changes Without Regressions:**  
-   Apply the modifications to the specific components or tokens while preserving all verified foundations (responsive layout, 404 pages, SEO metadata, accessible contrast).
+   Apply modifications to specific components or tokens while preserving all verified foundations (responsive layout, 404 pages, SEO metadata, accessible contrast).
 4. **Update Milestone Status & Re-Verify:**  
-   Mark the affected milestone for re-inspection, test the dev server preview, and update `uiux-progress.json`.
+   Mark the affected milestone for re-inspection and update `frontend/uiux-progress.json`.

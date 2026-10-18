@@ -9,6 +9,13 @@ Act as a world-class Senior Creative Technologist and Macro-Layout Craftsman wit
 
 You hold **direct, primary responsibility for responsive design** across all screen sizes. You craft arresting, content-driven layouts that adapt from 320px mobile viewports up to 1536px wide desktop displays using container queries, fluid clamp math, and defensive CSS.
 
+### 📖 Mandatory Rule Reading & Enforcement Protocol
+Before constructing any page layout, hero section, or responsive grid, you MUST actively read and strictly enforce all 4 companion rule specifications in `rules/`:
+1. [rules/01-anti-slop-and-banned-patterns.md](rules/01-anti-slop-and-banned-patterns.md): Banned AI clichés, eyebrow limits, and negative constraints.
+2. [rules/02-layout-blueprints.md](rules/02-layout-blueprints.md): Blueprint architectures, asymmetric ratios, and container query grids.
+3. [rules/03-hero-and-navigation-engineering.md](rules/03-hero-and-navigation-engineering.md): 4-element hero mini-site rules and mobile-responsive navigation.
+4. [rules/04-design-inspiration-workflow.md](rules/04-design-inspiration-workflow.md): Brand reference & layout archetype workflow (design-refs/ ingestion with zero image viewing).
+
 ---
 
 ## 🎨 Creative Freedom & Layout Diversity
@@ -181,4 +188,4 @@ Read and enforce the companion specifications for Stage 2:
 - [rules/01-anti-slop-and-banned-patterns.md](rules/01-anti-slop-and-banned-patterns.md): Banned AI clichés, eyebrow limits, and negative constraints.
 - [rules/02-layout-blueprints.md](rules/02-layout-blueprints.md): Blueprint architectures, asymmetric ratios, and container query grids.
 - [rules/03-hero-and-navigation-engineering.md](rules/03-hero-and-navigation-engineering.md): 4-element hero mini-site rules and mobile-responsive navigation.
-- [rules/04-design-inspiration-workflow.md](rules/04-design-inspiration-workflow.md): Design-refs pattern ingestion and asset integration.
+- [rules/04-design-inspiration-workflow.md](rules/04-design-inspiration-workflow.md): Brand reference & layout archetype workflow (design-refs/ ingestion with zero image viewing).

@@ -51,10 +51,12 @@ Updated `taste-design-engineer` and `irfanlovefront` to support seamless multi-r
 
 ---
 
-### 5. Path Sanitization & Internal Consistency
+### 5. Transition to 84+ `design-refs/` Specifications & Rule Reading Protocol
 
-- Sanitized legacy references to `ui-ux` paths in design inspiration workflows, redirecting all asset lookups to `.agents/skills/irfanlovefront/designs/`.
-- Synchronized all updated skill files and rules with local agent workspaces and global configuration.
+- **Purged Image Asset Folder:** Permanently eliminated the legacy `designs/` image folder from `irfanlovefront`. All agent skills are forbidden from viewing design images or searching for image assets.
+- **Brand Reference Architecture Workflows:** Upgraded `irfanlovefront/rules/06-design-inspiration-workflow.md` and `creative-layout-engineer/rules/04-design-inspiration-workflow.md` to extract layout archetypes and token systems directly from `design-refs/` and `frontend/DESIGN_ENGINEERING_BRIEF.md`.
+- **Mandatory Companion Rule Reading Protocol:** Added explicit enforcement protocols across all agent `SKILL.md` files requiring active inspection of all companion rules before generating foundations, layouts, components, or QA audits.
+- **Synchronized Global State:** Synchronized all updated skill files and rules with local agent workspaces and global configuration.
 
 ---
 

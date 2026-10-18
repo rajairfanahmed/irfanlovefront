@@ -1,48 +1,41 @@
-# 06 · Design Inspiration & Portfolio Extraction Workflow
+# 06 · Brand Token & Reference Architecture Workflow
 **Status:** Mandatory Frontend Engineering Rule  
 **Enforcement:** Must be executed in Phase 1 before proposing design plans or generating code
 
-The `designs/` folder contains **our studio's own award-winning design portfolio** (124 curated assets). When designing a project, you must draw inspiration directly from these real visual works - extracting layout structures, typography treatments, spacing rhythm, and palette relationships.
+When designing a project, agents must draw inspiration directly from the **84+ authoritative brand specifications in `design-refs/`** (Apple, Stripe, Linear, Notion, Vercel, Supabase, Ferrari, etc.) and the master brief in `frontend/DESIGN_ENGINEERING_BRIEF.md`. Never guess, invent arbitrary colors, or rely on generic AI template weights.
 
 ---
 
-## 1. Why Inspecting Our Portfolio Works
+## 1. Why Inspecting Brand Specifications Works
 
-When you skip looking at visual references, your neural weights fall back to the most common generic code from GitHub: a dark background with cyan glow and centered cards.
+When you skip looking at structured design system references, neural weights default to generic GitHub code: obsidian dark slate `#0B0F17`, electric cyan glow, and centered card grids.
 
-By actively viewing real design work in `designs/`, you immediately absorb:
-- Unconventional hero arrangements (e.g. giant typography with offset imagery)
-- Sophisticated section pacing (e.g. alternating wide and narrow widths)
-- Elegant micro-details (e.g. hairline borders, monospace tags, understated action links)
+By actively inspecting battle-tested specifications in `design-refs/`, you immediately absorb:
+- **Unconventional Hero Compositions:** High-impact editorial splits, asymmetric column ratios, and tabular indexes.
+- **Sophisticated Section Pacing:** Intentional density contrast, generous whitespace (`clamp(4rem, 8vw, 8rem)`), and alternating macro-layouts.
+- **Master Micro-Details:** 1px physical hairline dividers, monospace metadata tags, and tactile button depression physics.
 
 ---
 
 ## 2. The 3-Step Extraction Protocol
 
-### Step 1: Open the Portfolio Catalog
-Call `view_file` on `designs/quick-lookup.md`. This compact catalog organizes all 124 design works by aesthetic genre and layout archetype.
+### Step 1: Identify 1 to 3 Category-Relevant Brand Specifications
+Open and inspect the relevant `design-refs/<brand>-DESIGN.md` file based on the client's industry, audience, or desired aesthetic mood:
+- **Developer Tools / Infrastructure / AI:** `design-refs/linear.app-DESIGN.md`, `design-refs/stripe-DESIGN.md`, `design-refs/supabase-DESIGN.md`, `design-refs/warp-DESIGN.md`.
+- **Luxury / Architecture / Editorial:** `design-refs/apple-DESIGN.md`, `design-refs/ferrari-DESIGN.md`, `design-refs/monocle-DESIGN.md`.
+- **Modern Minimal SaaS / Productivity:** `design-refs/notion-DESIGN.md`, `design-refs/vercel-DESIGN.md`, `design-refs/resend-DESIGN.md`.
 
-### Step 2: Select 3 to 5 Relevant Works & View Them
-Call `view_file` on the exact image paths:
-```
-view_file(AbsolutePath="d:/uiux/.agents/skills/irfanlovefront/designs/<filename>.jpg")
-```
-Choose designs that match the client's industry, audience, or desired mood.
+### Step 2: Extract the 4 Core Architectural DNA Pillars
+From the inspected brand markdown files, extract and log concrete design tokens:
+1. **Macro-Layout Archetype:** How is space structured? (Asymmetric editorial split, tabular directory, multi-scale magazine grid, or linear narrative stream).
+2. **Typographic Scale & Ratios:** What is the display headline scale? What is the size ratio between headline and body? What tracking values are specified?
+3. **Substrate & Surface Palette:** What is the primary canvas background? How is accent color deployed? (Surgical and restrained, under 5% of total viewport area).
+4. **Interaction Geometry:** How are button borders, corner radii, and elevation shadows engineered?
 
-### Step 3: Extract the Visual DNA (Do NOT Clone Templates!)
-From each viewed image, analyze and record 4 concrete attributes:
-1. **Macro-Layout:** How is the space divided? (e.g. 50/50 split, asymmetric column, magazine grid, tabular directory).
-2. **Typographic Hierarchy:** What is the relationship between the headline and the body? What is the size ratio? How are labels/tags styled?
-3. **Palette & Contrast:** What is the background surface tone? How is the accent color distributed? (Is it surgical and restrained, or broad?)
-4. **Interactive Treatment:** How are links, buttons, and section transitions constructed?
+### Step 3: Synthesize into the Project Design Thesis
+Document the adopted parameters into `frontend/DESIGN_ENGINEERING_BRIEF.md`:
+- Example: *"Adopting Linear typography rhythm with negative tracking (`-2.5px` on display) and 1px hairline divider rules instead of boxed cards."*
+- Example: *"Adopting Stripe substrate depth (`#0A2540` navy canvas with `#635BFF` primary accent) for technical authority."*
+- Example: *"Adopting Apple fluid physics (`scale(0.97)` active depression, 160ms cubic-bezier easing) across all interactive primitives."*
 
----
-
-## 3. Synthesizing into the Project Design Thesis
-
-Translate the extracted DNA into a project-specific plan:
-- *"Inspired by `che-marketing-agency-landing-page-karina.jpg`, we will use an asymmetric 5fr/7fr editorial split for the Hero and About sections."*
-- *"Inspired by `minimal-website-with-oversize-typography.jpg`, we will pair Space Grotesk display headers with Plus Jakarta Sans body copy and a Swiss high-contrast monochrome palette."*
-- *"Inspired by `contemporary-figma-portfolio-website-tem.jpg`, we will present featured work in a tabular index with hairline divider rules instead of boxed cards."*
-
-This guarantees a **custom, human-designed result** every single time, with zero template feel!
+This guarantees an authentic, human-grade frontend application with zero template slop and zero image viewing dependencies.

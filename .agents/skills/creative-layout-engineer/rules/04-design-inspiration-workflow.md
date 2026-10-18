@@ -1,48 +1,41 @@
-# 06 · Design Inspiration & Portfolio Extraction Workflow
-**Status:** Mandatory Frontend Engineering Rule  
-**Enforcement:** Must be executed in Phase 1 before proposing design plans or generating code
+# 04: Brand Reference & Layout Archetype Workflow
+**Status:** Mandatory Stage 2 Macro-Layout Rule  
+**Enforcement:** Must be executed during Stage 2 before composing section layouts or writing page code
 
-The `designs/` folder contains **our studio's own award-winning design portfolio** (124 curated assets). When designing a project, you must draw inspiration directly from these real visual works - extracting layout structures, typography treatments, spacing rhythm, and palette relationships.
-
----
-
-## 1. Why Inspecting Our Portfolio Works
-
-When you skip looking at visual references, your neural weights fall back to the most common generic code from GitHub: a dark background with cyan glow and centered cards.
-
-By actively viewing real design work in `designs/`, you immediately absorb:
-- Unconventional hero arrangements (e.g. giant typography with offset imagery)
-- Sophisticated section pacing (e.g. alternating wide and narrow widths)
-- Elegant micro-details (e.g. hairline borders, monospace tags, understated action links)
+Creative layout engineers derive macro-layout arrangements and spatial rhythm directly from `frontend/DESIGN_ENGINEERING_BRIEF.md` and the 84+ brand token systems in `design-refs/` (Apple, Stripe, Linear, Notion, Vercel, Supabase, etc.). Never rely on generic AI template structures.
 
 ---
 
-## 2. The 3-Step Extraction Protocol
+## 1. Why Inspecting Brand Specifications Works
 
-### Step 1: Open the Portfolio Catalog
-Call `view_file` on `designs/quick-lookup.md`. This compact catalog organizes all 124 design works by aesthetic genre and layout archetype.
+Without inspecting concrete brand specifications, layout engineering defaults to generic three-card columns and centered hero blocks.
 
-### Step 2: Select 3 to 5 Relevant Works & View Them
-Call `view_file` on the exact image paths:
-```
-view_file(AbsolutePath="d:/uiux/.agents/skills/irfanlovefront/designs/<filename>.jpg")
-```
-Choose designs that match the client's industry, audience, or desired mood.
-
-### Step 3: Extract the Visual DNA (Do NOT Clone Templates!)
-From each viewed image, analyze and record 4 concrete attributes:
-1. **Macro-Layout:** How is the space divided? (e.g. 50/50 split, asymmetric column, magazine grid, tabular directory).
-2. **Typographic Hierarchy:** What is the relationship between the headline and the body? What is the size ratio? How are labels/tags styled?
-3. **Palette & Contrast:** What is the background surface tone? How is the accent color distributed? (Is it surgical and restrained, or broad?)
-4. **Interactive Treatment:** How are links, buttons, and section transitions constructed?
+By inspecting structured specifications in `design-refs/`, you immediately absorb:
+- **Asymmetric Spatial Distribution:** 5fr/7fr or 45%/55% editorial splits that create tension and elegance.
+- **Tabular Directories:** Clean hairline-divided indices that replace bulky cards with high-density typographic tables.
+- **Multi-Scale Editorial Grids:** Intentional hero cards spanning multiple columns alongside compact supporting nodes.
 
 ---
 
-## 3. Synthesizing into the Project Design Thesis
+## 2. The 3-Step Layout Extraction Protocol
 
-Translate the extracted DNA into a project-specific plan:
-- *"Inspired by `che-marketing-agency-landing-page-karina.jpg`, we will use an asymmetric 5fr/7fr editorial split for the Hero and About sections."*
-- *"Inspired by `minimal-website-with-oversize-typography.jpg`, we will pair Space Grotesk display headers with Plus Jakarta Sans body copy and a Swiss high-contrast monochrome palette."*
-- *"Inspired by `contemporary-figma-portfolio-website-tem.jpg`, we will present featured work in a tabular index with hairline divider rules instead of boxed cards."*
+### Step 1: Ingest the Master Design Brief
+Read `frontend/DESIGN_ENGINEERING_BRIEF.md` to identify:
+1. The locked brand reference (e.g. `design-refs/linear.app-DESIGN.md`, `design-refs/apple-DESIGN.md`).
+2. The chosen creative direction (e.g. Editorial Broadsheet, Machined Technical Console, or Modernist Canvas).
+3. The canonical routes list and section-by-section layout contract.
 
-This guarantees a **custom, human-designed result** every single time, with zero template feel!
+### Step 2: Select the Layout Archetype for Each Section
+For each page section, map the content to a distinct layout blueprint (see [rules/02-layout-blueprints.md](rules/02-layout-blueprints.md)):
+- **Flagship Hero:** 4-element mini-site composition with single-intent CTA and wide container bounds (`max-w-5xl/6xl`).
+- **Feature Showcase:** Asymmetric editorial split or multi-scale magazine grid.
+- **Capabilities / System Index:** Tabular directory with fine hairlines (`border-b border-[var(--border-hairline)]`).
+- **Case Study / Deep Dive:** Narrative linear stream (`max-w-[720px]`) with breakout diagrams.
+
+### Step 3: Implement Container Queries & Responsive Guardrails
+Transform the extracted layout into mobile-first code:
+- Use `@container` queries for self-adapting responsive components.
+- Wrap all page roots in defensive containers with zero horizontal scroll at 320px.
+- Enforce strict whitespace separation (`clamp(4rem, 8vw, 8rem)`) between sections without wrapping everything in card boxes.
+
+This guarantees bespoke, content-tailored layouts with zero generic template feel and zero image viewing dependencies.
