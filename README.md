@@ -6,8 +6,8 @@
   <a href="CODE_OF_CONDUCT.md"><strong>Code of Conduct</strong></a> •
   <a href="LICENSE"><strong>License</strong></a> •
   <a href="SECURITY.md"><strong>Security</strong></a> •
-  <a href="RELEASES/RELEASE-3.1.0.md"><strong>Release 3.1.0</strong></a> •
-  <a href="RELEASES/RELEASE-1.0.5.md"><strong>Release 1.0.5</strong></a>
+  <a href="RELEASES/RELEASE-3.2.0.md"><strong>Release 3.2.0</strong></a> •
+  <a href="RELEASES/RELEASE-3.1.0.md"><strong>Release 3.1.0</strong></a>
 </p>
 
 <a href="https://github.com/rajairfanahmed/irfanlovefront">
@@ -16,13 +16,13 @@
 
 # irfanlovefront
 
-### The Autonomous 7-Specialist UI/UX & Frontend Engineering Suite (v3.1.0)
+### The Autonomous 7-Specialist UI/UX & Frontend Engineering Suite (v3.2.0)
 
 **Eliminate frontend design paralysis, repetitive templates, and AI slop forever.**
 
 [![npm version](https://img.shields.io/npm/v/irfanlovefront.svg?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v3.1.0-blue.svg?style=flat-square)](RELEASES/RELEASE-3.1.0.md)
+[![Release](https://img.shields.io/badge/release-v3.2.0-blue.svg?style=flat-square)](RELEASES/RELEASE-3.2.0.md)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -38,7 +38,7 @@
 
 ---
 
-## The 1-Command Quickstart (v3.1.0)
+## The 1-Command Quickstart (v3.2.0)
 
 Install the entire 7-specialist skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
@@ -65,20 +65,21 @@ npx irfanlovefront --all
 
 ---
 
-## Why irfanlovefront v3.1.0?
+## Why irfanlovefront v3.2.0?
 
 Standard AI coding assistants suffer from severe statistical biases and token exhaustion:
 - Every generated site defaults to identical dark obsidian slate `#0B0F17`.
+- Agents build only a single hero section and halt prematurely, leaving secondary routes and footers missing.
 - Monolithic multi-thousand-line rule files consume model context, triggering execution freezing and truncated outputs.
 - Repetitive double-bezel cards and pill buttons get forced onto every interface regardless of brand.
 - Primary buttons lack tactile states and fail WCAG AA contrast standards.
 - QA agents blindly rubber-stamp checklists, declaring broken sites production-ready.
 
-**Release 3.1.0 introduces the Modular Reference Architecture:**
-1. **Under 180-Line LLM Attention Ceiling:** Master skills (~100 lines) load focused companion references on-demand, preserving over 85% of model context for code execution.
-2. **85 Brand Design Token Ecosystem:** Concrete design systems in `taste-design-engineer/design-refs/` (Apple, Stripe, Linear, Notion, Supabase, Vercel, Ferrari, etc.).
-3. **Semantic Substrate Hierarchy:** Token substrate layered from `--canvas-base` through `--canvas-raised` to `--canvas-overlay`.
-4. **Anti-Template Layouts:** Distinct structural compositions (Editorial Asymmetric, Split Console, Kinetic Rail, Monastic Document).
+**Release 3.2.0 introduces the Deterministic Architecture & Full-Site Engine:**
+1. **Stage 1 Project Triage:** Automatically classifies Mode A (New Website) vs Mode B (Improve Existing Website) and product category without redundant questions.
+2. **Recursive 4-Role Design Reference Ingestion:** Scans 85+ brand design files for Category, Layout, Visual, and Interaction references, with a concrete Adopt/Adapt/Avoid decision matrix.
+3. **Full-Site Multi-Route Coverage Matrix:** Purged the single-page stop gate; enforces full-site section coverage across all routes inside `frontend/PLAN.md`.
+4. **Under 180-Line LLM Attention Ceiling:** Master skills (~100 lines) load focused companion references on-demand, preserving over 85% of model context for code execution.
 5. **Truth in Verification:** Stage 4 strictly separates code inspection from live rendered browser testing with explicit status verdicts (`PASS`, `FAIL`, `PARTIAL`, `NOT VERIFIED`, `BLOCKED`).
 6. **Zero-Dash Anti-Slop Policy:** Zero em-dash characters (U+2014) and zero en-dash characters (U+2013) anywhere in skills, copy, or code.
 
@@ -128,9 +129,9 @@ All slash commands match their directory names exactly in `.agents/skills/`.
 - **Slash Command:** `/taste-design-engineer` (alias: `/taste-design-engineering`)
 - **Role:** Principal Taste & Design Engineering Specialist.
 - **Key Capabilities:**
-  1. **Operational Reference Audit:** Inspects concrete files in `taste-design-engineer/design-refs/` and user media, logging exact paths.
-  2. **Multi-Reference Ingestion:** Reconciles color and typography conflicts in a structured trade-off matrix.
-  3. **Mandatory 3 Distinct Creative Directions:** Evaluates three materially different concepts (e.g. Modernist Canvas, Machined Technical Console, Editorial Broadsheet).
+  1. **Project Mode & Category Triage:** Automatically identifies Mode A (New Website) vs Mode B (Improve Existing Website) and product category without redundant questions.
+  2. **Recursive 4-Role Reference Ingestion:** Recursively scans `design-refs/` for Category, Layout, Visual, and Interaction references with category-appropriateness safeguards.
+  3. **Adopt, Adapt & Avoid Decision Matrix:** Formulates concrete decisions with reasons, resolving conflicts against approved art direction.
   4. **Output:** Synthesizes `frontend/DESIGN_ENGINEERING_BRIEF.md`.
 
 ---
@@ -150,10 +151,10 @@ All slash commands match their directory names exactly in `.agents/skills/`.
 - **Slash Command:** `/creative-layout-engineer`
 - **Role:** Senior Creative Technologist & Macro-Layout Craftsman.
 - **Key Capabilities:**
-  1. **Page-by-Page Construction:** Builds one complete page at a time with full responsive fidelity before proceeding.
-  2. **4-Element Hero Mini-Site:** Clear headline (<= 2 lines), concise context, context-aware proof, and high-contrast CTA.
-  3. **Visual Squint Test:** Enforces prominent optical hierarchy from headline down to supporting elements.
-  4. **Horizontal Scroll Elimination:** Enforces `overflow-x: hidden` with zero horizontal overflow at 320px width.
+  1. **Full-Site Page Inventory:** Audits all required routes (Greenfield vs Existing code audit) with zero premature single-page halt.
+  2. **Route & Section Coverage Matrix:** Measurable completion gate in `frontend/PLAN.md` validating top-to-bottom section sequence and shared shells.
+  3. **Category-Driven Hierarchy:** Composition and spacing driven by project requirements rather than universal templates.
+  4. **True Overflow Root-Cause Elimination:** Eliminates horizontal scroll at root cause rather than relying on defensive clipping.
 
 ---
 
