@@ -1,76 +1,85 @@
-# Layout Implementation Handoff & Downstream Integration
+# Layout Implementation Handoff & Full-Site Coverage Matrix
 
-**Scope:** Downstream Engineering Contracts, Component Requirements & State Handoff  
+**Scope:** Downstream Engineering Contracts, Route Coverage Matrix & Multi-Route Completion  
 **Owner:** `creative-layout-engineer`  
-**Load Condition:** Loaded during Step 8 & 10 of Stage 2 when handing off to component engineering  
+**Load Condition:** Loaded during Phase 5 & 6 of Stage 2 when validating coverage and handing off to Stage 3  
 
 ---
 
 ## 1. Purpose & Problem Solved
-When a layout engineer finishes page scaffolding, component engineers frequently have to guess component boundaries, responsive rules, or intended animation hooks. This reference establishes the implementation handoff protocol: documenting exact affected file paths, component requirements, and responsive contracts for Stage 3 (`interactive-component-engineer`).
+Previously, layout agents would halt after generating only the home page hero, falsely declaring the project finished. This reference establishes the multi-route execution standard: requiring full-site section coverage, maintaining a Route & Section Coverage Matrix, and handing off complete layout contracts to `interactive-component-engineer`.
 
 ---
 
 ## 2. When to Load This Reference
-- Loaded upon completing the layout and responsive structure for the active target page.
-- Loaded to prepare the handoff contract and update progress tracking.
+- Loaded during Phase 5 (Coverage Audit) and Phase 6 (Handoff & Verification).
+- Loaded to prepare downstream component requirements and state handoffs.
 
 ---
 
-## 3. The 1-Page-at-a-Time Incremental Construction Protocol
+## 3. Multi-Route Continuous Execution Protocol
 
-To ensure deep craft and prevent token exhaustion or superficial output:
-1. **Build One Page Per Run:** Focus the entire execution on a single target route (e.g. `homepage`, then `/features`, then `/about`).
-2. **Implement Complete Layout & Responsive Defenses:** Full mobile-first responsiveness (320px to 1440px), container queries, and fluid clamp typography are built directly into the page.
-3. **Stop & Await User Confirmation:** Once the single target page is completed, display the milestone summary, update state, and halt execution. Do NOT rush ahead to the next page until the user confirms.
+1. **Continuous Multi-Route Construction:**
+   The agent constructs the structural layout across all required routes in the inventory without halting after each individual page by default.
+2. **When to Pause:**
+   The agent pauses only when:
+   - A genuine technical blocker occurs that requires user decision.
+   - The user explicitly requested in their prompt to pause after a specific page for review.
+3. **Skeleton & Section Implementation:**
+   Where code implementation is requested, the agent generates actual structural files for all required routes (e.g. `app/page.tsx`, `app/features/page.tsx`, `app/contact/page.tsx`), wiring shared navigation and persistent footer.
 
 ---
 
-## 4. Downstream Component Contract Specification
+## 4. The Route and Section Coverage Matrix
 
-For every page completed, document the component implementation requirements in `frontend/PLAN.md`:
+Before declaring completion, `creative-layout-engineer` must populate and verify this coverage matrix in `frontend/PLAN.md`:
+
+| Route | Required Sections | Layout Complete | Responsive Check | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| `/` | Nav, 4-Element Hero, Value Showcase, Interactive Demo, Proof, Footer | Yes | Pass (320px-1440px) | Complete |
+| `/features` | Nav, Sub-Header, Feature Deep-Dive Grid, Architecture Diagram, Footer | Yes | Pass (320px-1440px) | Complete |
+| `/about` | Nav, Sub-Header, Team Narrative, Milestones, Contact CTA, Footer | Yes | Pass (320px-1440px) | Complete |
+| `/contact` | Nav, Sub-Header, Interactive Form Well, Support Channels, Footer | Yes | Pass (320px-1440px) | Complete |
+
+### Coverage Integrity Rules:
+- **No Partial Claims:** If a route requires 5 sections and only the hero is implemented, the route status MUST be marked `Incomplete`.
+- **Explicit Omissions:** If any section or route could not be built due to missing information, record it explicitly as an assumption or pending item in the completion report. Never silently omit required pages.
+
+---
+
+## 5. Downstream Component Contract Specification
+
+For every completed route, document the interactive component requirements for `interactive-component-engineer`:
 
 ```markdown
 ### Component Contract for [Page Name] ([Route])
 - **Page File:** `frontend/src/app/[route]/page.tsx`
-- **Required Components:**
-  1. `<HeroAsymmetricSplit />`:
+- **Required Interactive Components:**
+  1. `<HeroSection />`:
      - Container: `min-h-[100svh] w-full max-w-7xl mx-auto px-6`
-     - Motion Hook: GSAP ScrollTrigger timeline for sticky left rail and right snap track.
-     - State Requirements: Tactile button press (`scale(0.97)`), responsive drawer toggle.
-  2. `<MetricTelemetryRow />`:
-     - Container: `@container border-t border-[var(--border-subtle)]`
-     - State Requirements: Number counter scrub or live status ping.
+     - Expected Behavior: Mobile drawer toggle, tactile CTA button press (`scale(0.97)`).
+  2. `<InteractiveContactForm />`:
+     - Container: `w-full max-w-2xl mx-auto @container`
+     - Expected Behavior: Inline validation on blur, disabled state during submission.
 ```
 
 ---
 
-## 5. State Tracking Update (`frontend/uiux-progress.json`)
+## 6. State Tracking Update (`frontend/uiux-progress.json`)
 
-Update the active route status in `frontend/uiux-progress.json`:
+Update `frontend/uiux-progress.json` reflecting all completed routes:
 
 ```json
 {
   "currentStage": 2,
   "stageName": "Macro-Layout & Responsive Page Craft",
-  "status": "IN_PROGRESS",
-  "activeRoute": "/",
-  "completedRoutes": ["/"],
-  "pendingRoutes": ["/about", "/features", "/pricing", "/contact"]
+  "status": "COMPLETED",
+  "completedRoutes": ["/", "/features", "/about", "/contact"],
+  "pendingRoutes": []
 }
 ```
 
 ---
 
-## 6. Terminal Milestone Display
-
-Display a clear milestone message to the user and halt:
-```text
-Layout Completed: [Page Name] ([Route])
-- Mobile-first responsiveness implemented (320px to 1440px)
-- Container queries and fluid clamp typography active
-- Zero horizontal overflow verified
-
-Please inspect this page on localhost.
-Confirm when you are ready, then run /creative-layout-engineer to build the next page: [Next Route].
-```
+## 7. Downstream Handoff Notice
+Deliver a structured completion report to the user and instruct them to run `/interactive-component-engineer` to implement interactions, forms, and motion choreography.

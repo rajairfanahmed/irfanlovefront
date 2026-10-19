@@ -43,16 +43,24 @@ The output file `frontend/DESIGN_ENGINEERING_BRIEF.md` must follow this exact sc
 ```markdown
 # Design Engineering Master Specification
 
-## 1. Product Understanding & Visual Thesis
+## 1. Project Mode & Category
+- Project Mode: [New Website (Mode A) | Improve Existing Website (Mode B)]
+- Website Category: [e.g. Developer Portfolio, SaaS Platform, E-Commerce, etc.]
 - Product Mission & Problem Solved
 - Target Audience & Emotional Tone
-- Category & Domain Classification
 
-## 2. Operational Reference Audit & Token Adoption
-- Primary Reference Path (e.g. design-refs/linear.app-DESIGN.md)
-- Secondary Reference Path (Optional)
-- User Assets / Image References Audited
-- Reference-to-Decision Mapping Table (Exact derivations)
+## 2. Operational Reference Audit & Multi-Role Selection
+- Selected References (3 to 4 exact paths from .agents/skills/taste-design-engineer/design-refs/):
+  1. Category Reference: [exact path]
+  2. Layout Reference: [exact path]
+  3. Visual Reference: [exact path]
+  4. Interaction Reference: [exact path]
+- Multi-Role Adopt, Adapt, Avoid Decision Matrix:
+  - Reference 1: Lessons, What to Adopt, What to Adapt, What to Avoid, Why
+  - Reference 2: Lessons, What to Adopt, What to Adapt, What to Avoid, Why
+  - Reference 3: Lessons, What to Adopt, What to Adapt, What to Avoid, Why
+  - Reference 4 (if applicable): Lessons, What to Adopt, What to Adapt, What to Avoid, Why
+- User Assets / Image References Audited (if provided)
 
 ## 3. Creative Direction Selection
 - Three Materially Distinct Concepts (Evaluated)

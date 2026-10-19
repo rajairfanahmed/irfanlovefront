@@ -1,98 +1,82 @@
-# Design Reference Research: Brand Systems, Image Inspection & Category Gate
+# Design Reference Research: Recursive Scan, Multi-Role Selection & Decision Extraction
 
-**Scope:** Operational Reference Extraction, Visual Inspection & Interactive Selection Gate  
+**Scope:** Operational Reference Extraction, Multi-Role Selection & Adopt/Adapt/Avoid Protocol  
 **Owner:** `taste-design-engineer`  
-**Load Condition:** Loaded during Step 2 of Stage 0 or whenever references are being evaluated  
+**Load Condition:** Loaded during Step 2 of Stage 0 when scanning and evaluating design references  
 
 ---
 
 ## 1. Purpose & Problem Solved
-AI agents frequently hallucinate arbitrary hex colors and generic layout templates out of thin air. This reference enforces an operational, verifiable reference protocol: the agent actively inspects battle-tested brand specifications from local `design-refs/`, ingests user-provided `.md` files or visual images, and halts execution if references are missing or unconfirmed.
+AI models typically hallucinate arbitrary hex codes or blindly copy a single famous brand (like Apple) onto unrelated products (like developer portfolios). This reference enforces a structured 3-stage protocol: recursively scanning local `design-refs/`, selecting 3 to 4 genuinely relevant references across key architectural roles, and converting those references into explicit Adopt, Adapt, and Avoid decisions.
 
 ---
 
 ## 2. When to Load This Reference
-- Loaded immediately after project domain classification.
-- Loaded whenever the user provides an external `.md` design spec or image reference.
+- Loaded immediately after establishing Project Mode and Website Category.
+- Loaded whenever evaluating user-provided `.md` design specs or visual screenshots.
 
 ---
 
 ## 3. Inputs & Prerequisites
-- Local repository of 85+ brand specifications in `./design-refs/` (co-located inside skill).
-- User-provided reference files (`.md` design briefs or brand guidelines).
-- User-provided image references (screenshots, UI mockups, or inspiration photos).
-- Output from `references/discovery-protocol.md`.
+- Local repository of 85+ brand specifications in `.agents/skills/taste-design-engineer/design-refs/`.
+- Established Project Mode (New Website vs Improve Existing) and Website Category from `discovery-protocol.md`.
+- User-provided reference files or UI screenshots (if provided).
 
 ---
 
-## 4. The Interactive Category Gate (Proactive Selection & Hard Pause)
+## 4. Stage 2: Recursive Scan and Multi-Role Reference Selection
 
-Before synthesizing tokens or writing code, `taste-design-engineer` must execute this deterministic gate:
+### Step 1: Deep Recursive Scan of `design-refs/`
+The agent must recursively inspect the actual `.agents/skills/taste-design-engineer/design-refs/` directory.
+- **NEVER pick based on filenames alone.** The agent must inspect internal section contents, layout structures, and design tokens to verify relevance.
+- Filter files by relevance to the project mode, website category, and technical requirements.
 
-### Step 1: Proactive Category Matching from `design-refs/`
-Match the classified domain against the local `design-refs/` library:
-- **SaaS & Developer Tools:** `linear.app-DESIGN.md`, `stripe-DESIGN.md`, `supabase-DESIGN.md`, `warp-DESIGN.md`.
-- **Awwwards & High-Craft Portfolio:** `apple-DESIGN.md`, `framer-DESIGN.md`, `raycast-DESIGN.md`, `webflow-DESIGN.md`.
-- **E-Commerce & Showcase:** `nike-DESIGN.md`, `shopify-DESIGN.md`, `ferrari-DESIGN.md`, `oura-DESIGN.md`.
-- **Editorial & Minimalist:** `notion-DESIGN.md`, `wired-DESIGN.md`, `theverge-DESIGN.md`, `cal-DESIGN.md`.
+### Step 2: Select 3 to 4 Relevant Reference Files
+Select 3 to 4 suitable `.md` files that collectively cover these design dimensions:
+1. **Category Reference:** The product structure, user mental models, and industry-specific UX patterns matching this category.
+2. **Layout Reference:** Page composition, section hierarchy, macro-layout wireframes, and narrative sequence.
+3. **Visual Reference:** Color palettes, contrast tokens, typography pairings, and aesthetic substrate.
+4. **Interaction Reference:** Navigation patterns, micro-interactions, responsive transformations, and state feedback.
 
-### Step 2: Proactive User Inquiry & Recommendation
-The agent presents its diagnosis and asks for explicit alignment:
-```text
-Platform Domain Identified: [e.g. High-Craft Portfolio / SaaS Platform]
-Recommended Reference: .agents/skills/taste-design-engineer/design-refs/[brand]-DESIGN.md
+*(Note: These 4 roles are flexible guidelines, not rigid file slots. Select the genuinely best files available in the directory).*
 
-Available Options:
-1. Confirm the recommended reference from design-refs/.
-2. Provide your own design specification file (.md).
-3. Provide your own visual reference images / screenshots.
-4. Request a different category reference from design-refs/.
-```
-
-### Step 3: The Hard Stop Gate
-**If no reference is confirmed by the user and no existing specification file is present:**
-The agent **MUST STOP IMMEDIATELY**. It is strictly forbidden from guessing tokens or continuing without a confirmed visual reference anchor.
+### Step 3: Selection Safeguards & Quality Rules
+- **Category Appropriateness:** For a developer portfolio, selecting an Apple hardware e-commerce store reference is incorrect, even if Apple typography is detailed. Choose developer-relevant references (e.g. `linear.app-DESIGN.md`, `raycast-DESIGN.md`, `warp-DESIGN.md`).
+- **Safeguard on Availability:** If fewer than 3 genuinely relevant references exist in the directory for a niche category, **do not pick unrelated files just to fulfill a number**. Select only the truly relevant files and supplement with custom category principles.
 
 ---
 
-## 5. Visual Reference & Image Inspection Protocol
+## 5. Stage 3: From References to Concrete Design Decisions
 
-When the user provides visual images or UI screenshots:
-1. **Visual Inspection:** The agent must inspect the image asset directly using available viewing tools.
-2. **Multi-Image Rigor (Up to 10 Images):** For major new designs where multiple images are provided, inspect up to 10 relevant images.
-3. **Deconstruction Elements:**
-   - Extract exact canvas substrate (light, dark, OLED, warm paper).
-   - Extract primary display typography hierarchy and weight contrast.
-   - Extract macro-layout geometry (column ratios, asymmetric splits, white space density).
-   - Extract tactile component treatments (hairline borders, shadow depth, corner radii).
-4. **Failure Handling:** If image inspection tools are unavailable or an image cannot be parsed, the agent must explicitly state this limitation in the brief and request text/hex specifications rather than hallucinating visual details.
+Reading references is meaningless unless they translate into verified architectural decisions. For every selected reference file, the agent must document:
+
+1. **Exact File Path:** Record the exact relative path (e.g. `.agents/skills/taste-design-engineer/design-refs/linear.app-DESIGN.md`).
+2. **Relevant Principles:** What specific patterns or guidelines this file provides for this project.
+3. **What to Adopt:** Exact tokens, rules, or patterns to carry over directly (e.g. typography hierarchy, spacing scale, high-contrast button tokens).
+4. **What to Adapt:** Principles modified to suit the active project (e.g. adapting hardware product showcase photography into software case study screenshots).
+5. **What to Avoid:** Irrelevant or brand-specific patterns to reject (e.g. avoiding Apple product-store navigation bars or fixed hardware spec grids).
+6. **Conflict Resolution:** If Reference A prescribes dark canvas and Reference B prescribes warm paper, resolve the conflict against the approved creative direction and record the trade-off.
 
 ---
 
-## 6. The Verifiable Reference-to-Decision Mapping Table
+## 6. The Adopt, Adapt, Avoid Reference Matrix
 
-Every brief generated must include a populated audit table documenting concrete derivations:
+Populate this structured contract in Section 2 of `frontend/DESIGN_ENGINEERING_BRIEF.md`:
 
-| Reference File / Asset Path | Extracted Principle / Visual Token | Concrete Decision Applied in This Project |
-| :--- | :--- | :--- |
-| `design-refs/linear.app-DESIGN.md` | Dark obsidian canvas `#0B0F17`, 1px hairline border | Applied to global `--canvas` and elevated panel dividers |
-| `design-refs/apple-DESIGN.md` | Display typography negative kerning, generous whitespace | Applied to hero masthead scale and section padding |
-| `[User-Provided Asset / Image]` | Asymmetric 60/40 sticky column layout | Applied to desktop hero and project showcase grid |
+| Selected Reference Path | Primary Role | What to Adopt | What to Adapt | What to Avoid |
+| :--- | :--- | :--- | :--- | :--- |
+| `design-refs/linear.app-DESIGN.md` | Layout & Visual | 1px hairline border dividers, dark substrate tokens | Adapt issue-tracking telemetry into project metric cards | Avoid complex issue keyboard shortcut system |
+| `design-refs/stripe-DESIGN.md` | Interaction & UX | Micro-interaction timing, high-contrast CTA pop | Adapt checkout button feedback to portfolio contact form | Avoid multi-currency payment selectors |
+| `design-refs/raycast-DESIGN.md` | Category UX | Monospace metadata accents, command-driven clarity | Adapt extension directory into case study grid | Avoid desktop launcher overlay mechanics |
 
 ---
 
 ## 7. Output Artifact
-- Populates Section 2 (Operational Reference Audit & Token Adoption) in `frontend/DESIGN_ENGINEERING_BRIEF.md`.
+- Fully populates Section 2 (Operational Reference Audit & Decision Matrix) in `frontend/DESIGN_ENGINEERING_BRIEF.md`.
 
 ---
 
 ## 8. Validation Criteria
-- At least 1 primary and up to 2 secondary references are explicitly cited with exact local paths.
-- The Reference-to-Decision table connects every cited reference to a concrete downstream architectural choice.
-- Zero invented colors or arbitrary fonts: all tokens are grounded in verified reference data.
-
----
-
-## 9. Downstream Dependencies
-- Feeds `references/creative-direction.md` to establish the 3 visual directions.
-- Feeds `references/visual-system.md` to construct the unified substrate tokens.
+- 3 to 4 references selected with exact `.md` paths (unless fewer genuinely relevant files exist).
+- Every selected reference has concrete Adopt, Adapt, and Avoid entries with explicit rationale.
+- Zero blind application of brand-specific rules that do not belong to the project category.

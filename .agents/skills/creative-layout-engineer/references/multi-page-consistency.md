@@ -24,12 +24,12 @@ Within any individual multi-page web application, all routes must share three fo
 1. **The Standardized Page Shell:**
    - The navigation bar (`Navbar.tsx`) and persistent footer frame every single sub-page identically.
    - The global `--canvas` substrate remains consistent across all routes.
-2. **The Constant Y-Axis Vertical Baseline:**
-   - On every sub-page, the breadcrumb trail or page title must sit at the exact same vertical Y-axis position as the homepage header.
-   - Navigating between `/about` and `/pricing` must NEVER cause the header or page title to jump up or down.
+2. **Controlled Header Baseline & Purposeful Structural Variation:**
+   - Navigating between sibling pages should feel cohesive without disorienting header jumps.
+   - However, allow appropriate structural variation where page intent calls for it (e.g. a documentation page with a sidebar rail, a compact contact masthead, or an expansive narrative case study). Do not artificially force every page into an identical header height.
 3. **Standardized Margin Boundaries:**
    - All pages share the same maximum layout container (e.g. `max-w-6xl` or `max-w-7xl mx-auto px-6 lg:px-8`).
-   - Gutter margins and horizontal paddings must not arbitrarily widen or narrow between routes.
+   - Gutter margins and horizontal paddings maintain consistent token spacing between routes.
 
 ---
 

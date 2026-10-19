@@ -22,8 +22,8 @@ AI models have an overwhelming statistical bias toward repeating the same visual
 Before approving any page composition, the layout engineer must check for these 8 telltale AI template traps:
 
 ### 1. The Centered Headline + Two-Button Trap
-- **The Pattern:** A big centered H1, centered 2-line paragraph directly below it, and two rounded buttons side-by-side ("Get Started" and "Learn More").
-- **Correction:** Ask: Does this product benefit from an asymmetric split? An off-center display headline with a right-aligned telemetry monitor? An editorial masthead? A full-canvas visual anchor?
+- **The Pattern:** A big centered H1, centered 2-line paragraph directly below it, and two generic rounded buttons side-by-side ("Get Started" and "Learn More") applied mindlessly to every project.
+- **Correction:** Treat this as a template trap, not a universal ban. If a centered entry is contextually best for the product, execute it with distinctive typography and authentic proof. Otherwise, explore: Does this product benefit from an asymmetric split? An off-center display headline with a right-aligned telemetry monitor? An editorial masthead? A full-canvas visual anchor?
 
 ### 2. The Obligatory Floating Pill Navbar
 - **The Pattern:** A tiny rounded pill floating in the top center with heavy backdrop blur, regardless of whether the site is an enterprise console or an editorial journal.

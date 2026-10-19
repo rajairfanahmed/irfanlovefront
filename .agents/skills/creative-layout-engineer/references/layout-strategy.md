@@ -1,76 +1,76 @@
-# Layout Strategy: Product-First Architecture & Composition Choice
+# Layout Strategy: Product-First Architecture & Full-Site Composition
 
-**Scope:** Macro-Layout Selection, Content Alignment & Anti-Template Strategy  
+**Scope:** Macro-Layout Selection, Full-Site Inventory & Anti-Template Strategy  
 **Owner:** `creative-layout-engineer`  
-**Load Condition:** Loaded during Step 2 of Stage 2 when determining overall page strategy  
+**Load Condition:** Loaded during Phase 1 & 2 of Stage 2 when scoping routes and determining layout architecture  
 
 ---
 
 ## 1. Purpose & Problem Solved
-AI agents perpetually default to the exact same predictable sequence: sticky navbar, centered hero with two buttons, a 3-column card grid, generic testimonials, and a standard footer. This reference teaches the layout engineer how to select macro-layouts based on real product needs, audience psychology, and content models, rather than defaulting to generic SaaS landing page formulas.
+AI agents frequently produce a single polished hero section, declare the layout complete, and leave secondary routes, sub-pages, footers, and mobile reflows completely missing. This reference governs how `creative-layout-engineer` establishes a complete multi-route website inventory and selects bespoke compositions dictated by product category, rather than defaulting to generic SaaS formulas.
 
 ---
 
 ## 2. When to Load This Reference
 - Loaded immediately after reading `frontend/DESIGN_ENGINEERING_BRIEF.md`.
-- Loaded before drafting the section sequence or wireframe for any page.
+- Loaded before drafting the section sequence or wireframes for any required route.
 
 ---
 
-## 3. Product-Driven Layout Strategy Matrix
+## 3. Full-Site Page Inventory Protocol
 
-The layout structure must directly reflect the specific operational domain of the product:
+Every layout engagement must begin by scoping the complete set of required routes:
 
-### 1. Developer Tools, Infrastructure & Engineering Systems
-- **Core Priority:** Immediate technical credibility, architecture clarity, and operational density.
-- **Layout Mechanics:** Docked telemetry masthead, split terminal viewports, side-by-side code diffs, interactive sandboxes.
-- **Banned:** Fluffy marketing copy with floating cards and illustrated abstract badges.
+### A. Greenfield (New Website)
+Derive the complete route inventory from requirements and brief (e.g. `/`, `/features`, `/case-studies`, `/pricing`, `/about`, `/contact`). Document each route purpose upfront before writing code.
 
-### 2. High-Craft Portfolios & Creative Studios
-- **Core Priority:** Memorable visual pacing, distinctive spatial rhythm, and narrative immersion.
-- **Layout Mechanics:** Asymmetric 60/40 splits, oversized fluid typography cutting across margins, kinetic vertical snap decks, horizontal pinned galleries.
-- **Banned:** Generic 3-card feature grids with centered icons.
-
-### 3. B2C & E-Commerce Flagships
-- **Core Priority:** Immediate product desire, clear visual hierarchy, and frictionless conversion.
-- **Layout Mechanics:** High-impact full-canvas stage, staggered editorial product masonry, sticky bottom quick-action triggers.
-- **Banned:** Excessive textual explanations before the user sees the real product.
-
-### 4. Editorial Portals & Long-Form Publishing
-- **Core Priority:** Long-form readability, typographic scale, and structural pacing.
-- **Layout Mechanics:** Multi-column broadsheet grids, 1px physical hairline dividers, pull-quote callouts, structured article feeds.
-- **Banned:** Tech-style glassmorphism cards and neon glow borders.
+### B. Existing Website Improvement
+Inspect the existing codebase, routes, navigation menus, and sub-pages:
+- **Audit Existing Inventory:** List all active routes and functional features.
+- **Categorize Each Route:** Decide explicitly what to **Preserve**, what to **Improve**, what to **Replace**, and what to **Add**.
+- **Scope Rule:** Polishing only the homepage does NOT constitute an existing website improvement unless the user explicitly requested a homepage-only scope.
 
 ---
 
-## 4. Content-First vs Visual-First Composition
+## 4. Product-Driven Layout Options (No Universal Defaults)
 
-Never generate a layout and then cram random placeholder copy into it:
-1. **Content-First Mode:** When high-fidelity copy or data exists (e.g. detailed case studies, pricing tiers, API parameters), the content dictates column widths, container heights, and reading flow.
-2. **Visual-First Mode:** For experiential, brand-defining hero sections where emotional impact precedes technical details, the composition establishes the visual anchor and supporting copy conforms to the rhythm.
+Layout patterns must serve the specific content and category. Never force a single pattern universally:
+
+| Product Category | Primary Layout Dynamics | Applicable Layout Options |
+| :--- | :--- | :--- |
+| **Developer Tools & Infra** | Operational density, architecture diagrams, live code diffs | Docked telemetry rail, split terminal console, modular telemetry grid |
+| **High-Craft Portfolios** | Narrative flow, immersive project showcases, fluid pacing | Editorial asymmetric split, horizontal case-study reel, sticky column deck |
+| **SaaS Platforms** | Clear value proof, feature validation, interactive workflows | Asymmetric 60/40 stage, tabbed product inspector, contextual proof row |
+| **E-Commerce & Retail** | Product desire, visual clarity, instant conversion triggers | Editorial product masonry, high-impact showcase stage, sticky purchase triggers |
+| **Editorial & Content** | Typographic pacing, long-form readability, high content density | Multi-column broadsheet, 1px physical hairline dividers, pull-quote callouts |
+
+### Avoiding the AI Template Trap vs Contextual Appropriateness:
+- The classic "centered H1 + two pill buttons" is an overused AI cliché when applied blindly across every project. However, where a clean, focused, single-action entry is genuinely the best design choice, it is allowed.
+- Do not force 60/40 splits or telemetry rails where simple, elegant single-column hierarchies or clean broadsheet grids are more readable.
 
 ---
 
-## 5. Breaking the Mandatory Section Sequence
+## 5. Route-by-Route Specification Requirements
 
-There is NO universal section sequence:
-- A portfolio does not need a "Features" section.
-- A technical console does not need a "Testimonials" avatar carousel.
-- An e-commerce page does not need an "About Us" paragraph before product categories.
-
-Structure the section order strictly around the user's conversion pathway:
-```text
-[Attention Anchor] -> [Core Value Proof] -> [Interactive Exploration] -> [Primary Action]
-```
+For every required route in the inventory, the layout specification must define:
+1. **Page Purpose:** The specific user need this route addresses.
+2. **Section Sequence:** Complete top-to-bottom order from header to footer.
+3. **Content Structure:** Information hierarchy and actual data fields.
+4. **Required Components:** Navigation, cards, forms, galleries, data displays, CTAs.
+5. **Interactive Behavior:** Clicks, drawers, tab switches, and state transitions.
+6. **Visual Rhythm:** Composition, spacing multiples, proportions, and focal points.
+7. **Responsive Adaptation:** Exact reflow for desktop, tablet, and 320px mobile.
+8. **Page Endings:** Shared footer, next steps, and closing sections.
+9. **Edge Cases:** Empty states, loading views, and error boundaries where applicable.
 
 ---
 
 ## 6. Output Artifact
-- Documents chosen layout strategy and section order in `frontend/PLAN.md`.
+- Establishes the Route Inventory and section sequence in `frontend/PLAN.md`.
 
 ---
 
 ## 7. Validation Criteria
-- Section sequence is tailored specifically to the product category.
-- Standard 5-part AI boilerplate sequence is deliberately broken.
-- Rationale for chosen layout strategy is recorded in the plan.
+- Every required route is accounted for with a defined top-to-bottom section sequence.
+- Compositions match category context without forcing universal template splits.
+- Existing features are preserved or deliberately upgraded rather than accidentally deleted.

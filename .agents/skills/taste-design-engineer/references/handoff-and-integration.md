@@ -33,8 +33,8 @@ The brief delegates responsibilities across four sequential downstream specialis
 - **Trigger:** `/frontend-architect`.
 
 ### 2. Stage 2: `creative-layout-engineer`
-- **Reads:** Section 6 (Structural Layout Blueprint) and Section 4 (Canonical Routes).
-- **Executes:** Constructs responsive CSS Grid page layouts, bespoke heroes, and container queries (one page at a time).
+- **Reads:** Section 6 (Structural Layout Blueprint), Section 4 (Canonical Routes), and Section 2 (Multi-Role References).
+- **Executes:** Constructs complete site layout structure across all required routes with full section coverage, responsive CSS Grid, and verified mobile reflow.
 - **Trigger:** `/creative-layout-engineer`.
 
 ### 3. Stage 3: `interactive-component-engineer`
