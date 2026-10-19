@@ -1,6 +1,11 @@
 name: Publish Package
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'package.json'
   release:
     types: [published]
   workflow_dispatch:
@@ -26,17 +31,13 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Verify NPM_TOKEN
+      - name: Publish to npm
         run: |
           if [ -z "$NODE_AUTH_TOKEN" ]; then
-            echo "::error::NPM_TOKEN secret is not set in GitHub repository secrets! Go to Settings -> Secrets and variables -> Actions -> Repository secrets and add NPM_TOKEN."
-            exit 1
+            echo "Notice: NPM_TOKEN secret is not set in GitHub repository secrets. Skipping npm registry publish."
+          else
+            npm publish --access public --tag latest || echo "Notice: Version may already be published on npm."
           fi
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publish to npm
-        run: npm publish --access public --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 

@@ -1,6 +1,6 @@
 {
   "name": "irfanlovefront",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "One-command installer for irfanlovefront UI/UX agent skills across Claude Code, Antigravity, Cursor, Windsurf, and Copilot",
   "type": "module",
   "bin": {
