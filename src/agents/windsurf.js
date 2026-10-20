@@ -29,7 +29,7 @@ export async function installWindsurf({ scope, cwd }) {
   // Create root .windsurfrules summary if local workspace
   if (scope !== "global") {
     const summaryFile = path.join(cwd, ".windsurfrules");
-    const summaryText = `# irfanlovefront Windsurf Rules\n\nThis workspace enforces the irfanlovefront 5-stage UI/UX lifecycle:\n- Stage 0: taste-design-engineer (Fluid gestures, conversion principles, 4-element hero)\n- Stage 1: frontend-architect (Design tokens, 1 to 2 fonts ceiling, CTA pop)\n- Stage 2: creative-layout-engineer (Squint test, white space restraint, bespoke layouts)\n- Stage 3: interactive-component-engineer (Point-of-doubt proof, 44px tap targets)\n- Stage 4: experience-qa-auditor (320px to 1440px responsiveness, WCAG AA, SEO)\n\nDetailed specifications are located in .windsurf/rules/.\n`;
+    const summaryText = `# irfanlovefront Windsurf Rules\n\nThis workspace enforces the irfanlovefront frontend engineering suite:\n- /master-prompt-generator: Interactive product discovery, 4 progressive phases, 29 categories, and locked MASTER_PROMPT.md\n- /master-implementer: Progressive 4-batch frontend implementation (Foundation, Nav & Hero, Sections & Footer, Motion & QA Audit)\n- /github-readme-writer: Authoritative Daytona-framework documentation with zero em-dashes\n\nDetailed specifications are located in .windsurf/rules/.\n`;
     if (!(await fs.pathExists(summaryFile))) {
       await fs.writeFile(summaryFile, summaryText, "utf-8");
     }

@@ -98,7 +98,7 @@ async function main() {
   }
 
   const s = spinner();
-  s.start("Installing irfanlovefront v2 skills suite...");
+  s.start("Installing irfanlovefront skills suite...");
 
   const cwd = process.cwd();
   const results = [];
@@ -130,8 +130,8 @@ async function main() {
 
   outro(
     color.green("Ready to craft bespoke frontends! Invoke ") +
-    color.bold(color.yellow("/taste-design-engineer")) +
-    color.green(" in your agent chat to begin Stage 0.")
+    color.bold(color.yellow("/master-prompt-generator")) +
+    color.green(" in your agent chat to begin.")
   );
 }
 

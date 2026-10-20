@@ -6,8 +6,8 @@
   <a href="CODE_OF_CONDUCT.md"><strong>Code of Conduct</strong></a> •
   <a href="LICENSE"><strong>License</strong></a> •
   <a href="SECURITY.md"><strong>Security</strong></a> •
-  <a href="RELEASES/RELEASE-3.2.0.md"><strong>Release 3.2.0</strong></a> •
-  <a href="RELEASES/RELEASE-3.1.0.md"><strong>Release 3.1.0</strong></a>
+  <a href="RELEASES/RELEASE-3.2.1.md"><strong>Release 3.2.1</strong></a> •
+  <a href="RELEASES/RELEASE-3.2.0.md"><strong>Release 3.2.0</strong></a>
 </p>
 
 <a href="https://github.com/rajairfanahmed/irfanlovefront">
@@ -16,13 +16,13 @@
 
 # irfanlovefront
 
-### The Autonomous 7-Specialist UI/UX & Frontend Engineering Suite (v3.2.0)
+### Unified 2-Skill UI/UX & Frontend Engineering Suite (v3.2.1)
 
 **Eliminate frontend design paralysis, repetitive templates, and AI slop forever.**
 
 [![npm version](https://img.shields.io/npm/v/irfanlovefront.svg?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v3.2.0-blue.svg?style=flat-square)](RELEASES/RELEASE-3.2.0.md)
+[![Release](https://img.shields.io/badge/release-v3.2.1-blue.svg?style=flat-square)](RELEASES/RELEASE-3.2.1.md)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -38,9 +38,9 @@
 
 ---
 
-## The 1-Command Quickstart (v3.2.0)
+## The 1-Command Quickstart (v3.2.1)
 
-Install the entire 7-specialist skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
+Install the entire skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
 ```bash
 # Interactive setup (selects your agent and workspace or global scope)
@@ -59,138 +59,93 @@ npx irfanlovefront --cursor
 # Install specifically for Google Antigravity / Gemini (.agents/skills/)
 npx irfanlovefront --antigravity
 
+# Install specifically for Windsurf (.windsurf/rules/ + .windsurfrules)
+npx irfanlovefront --windsurf
+
 # Install for all supported AI agents simultaneously
 npx irfanlovefront --all
 ```
 
 ---
 
-## Why irfanlovefront v3.2.0?
+## Why irfanlovefront v3.2.1?
 
-Standard AI coding assistants suffer from severe statistical biases and token exhaustion:
+Standard AI coding assistants suffer from severe statistical biases and attention decay:
 - Every generated site defaults to identical dark obsidian slate `#0B0F17`.
 - Agents build only a single hero section and halt prematurely, leaving secondary routes and footers missing.
 - Monolithic multi-thousand-line rule files consume model context, triggering execution freezing and truncated outputs.
 - Repetitive double-bezel cards and pill buttons get forced onto every interface regardless of brand.
 - Primary buttons lack tactile states and fail WCAG AA contrast standards.
-- QA agents blindly rubber-stamp checklists, declaring broken sites production-ready.
+- Animations are omitted or reduced to plain CSS `scroll-behavior: smooth`.
 
-**Release 3.2.0 introduces the Deterministic Architecture & Full-Site Engine:**
-1. **Stage 1 Project Triage:** Automatically classifies Mode A (New Website) vs Mode B (Improve Existing Website) and product category without redundant questions.
-2. **Recursive 4-Role Design Reference Ingestion:** Scans 85+ brand design files for Category, Layout, Visual, and Interaction references, with a concrete Adopt/Adapt/Avoid decision matrix.
-3. **Full-Site Multi-Route Coverage Matrix:** Purged the single-page stop gate; enforces full-site section coverage across all routes inside `frontend/PLAN.md`.
-4. **Under 180-Line LLM Attention Ceiling:** Master skills (~100 lines) load focused companion references on-demand, preserving over 85% of model context for code execution.
-5. **Truth in Verification:** Stage 4 strictly separates code inspection from live rendered browser testing with explicit status verdicts (`PASS`, `FAIL`, `PARTIAL`, `NOT VERIFIED`, `BLOCKED`).
-6. **Zero-Dash Anti-Slop Policy:** Zero em-dash characters (U+2014) and zero en-dash characters (U+2013) anywhere in skills, copy, or code.
+**Release 3.2.1 solves this permanently with a 2-Skill Unified Engine:**
+1. **Skill 1 (`master-prompt-generator`)**: Progressive 4-phase product discovery, 29-category taxonomy, 85 brand design specifications in `design-refs/`, and zero-ambiguity `MASTER_PROMPT.md` compilation.
+2. **Skill 2 (`master-implementer`)**: Progressive 4-batch frontend construction (Foundation, Nav & Hero, Sections & Footer, Motion & QA Audit) with a strict anti-template lock.
+3. **Auxiliary Specialist (`github-readme-writer`)**: Daytona open-source framework documentation and launch copy specialist with zero em-dashes.
+4. **Under 195-Line Anti-Skip Architecture**: Every skill and companion reference is strictly bounded between 95 and 195 lines, preserving over 85% of model context for production code.
+5. **Truth in Quality Verification**: Batch 4 requires real terminal compilation (`npm run build`) and responsive verification (`375px`, `768px`, `1440px`).
+6. **Zero-Dash Anti-Slop Policy**: Zero em-dash characters (U+2014) and zero en-dash characters (U+2013) anywhere in skills, copy, or code.
 
 ---
 
-## The 5-Stage Engineering Lifecycle + 2 Auxiliaries
-
-Each skill operates with an authoritative 15-20+ years Principal Specialist persona with clear boundaries and peer handoffs:
+## The 2-Skill Architecture + Documentation Specialist
 
 ```text
   +-------------------------------------------------------------------------------+
-  |                        5-STAGE FRONTEND LIFECYCLE                             |
+  |                     IRFANLOVEFRONT 2-SKILL LIFECYCLE                          |
   +-------------------------------------------------------------------------------+
   |                                                                               |
-  |  [Stage 0: /taste-design-engineer]                                            |
-  |  Brand reference audit, 2-step discovery, token synthesis                     |
+  |  [Skill 1: /master-prompt-generator]                                          |
+  |  - Phase 1: Category triage (29 options), Project mode, Routes, Real data    |
+  |  - Phase 2: Brand references (85 design-refs), Colors, Surfaces, Typography   |
+  |  - Phase 3: Desktop navbar archetypes, Hamburger overlay, Layered hero        |
+  |  - Phase 4: Section sequence, Numbered rows, Glowing cards, Motion specs      |
+  |  - Output: Complete zero-ambiguity MASTER_PROMPT.md                           |
   |               |                                                               |
   |               v                                                               |
-  |  [Stage 1: /frontend-architect]                                               |
-  |  Project scaffolding, design tokens, font system, Next.js 15 routing           |
-  |               |                                                               |
-  |               v                                                               |
-  |  [Stage 2: /creative-layout-engineer]                                         |
-  |  Bespoke page composition, 4-element hero, squint test, visual rhythm         |
-  |               |                                                               |
-  |               v                                                               |
-  |  [Stage 3: /interactive-component-engineer]                                   |
-  |  Tactile components, genuine state machines, form validation, motion          |
-  |               |                                                               |
-  |               v                                                               |
-  |  [Stage 4: /experience-qa-auditor]                                            |
-  |  Responsive audit (320px to 1440px), WCAG AA contrast, defect triage          |
+  |  [Skill 2: /master-implementer]                                               |
+  |  - Batch 1: Stack preflight, Font loading, CSS variables, Keyframes, Lenis    |
+  |  - Batch 2: Desktop navbar, Hamburger curtain state, Layered hero, Marquee    |
+  |  - Batch 3: Numbered rows, Radial glow cards, Contact wizard, Footer watermark |
+  |  - Batch 4: Scroll reveals, Responsive checks (375/768/1440), npm run build   |
   |                                                                               |
   +-------------------------------------------------------------------------------+
-  |  [Auxiliary: /build-error-resolver]    |  [Auxiliary: /github-readme-writer]  |
-  |  Surgical TypeScript & build healing  |  Authoritative launch documentation  |
-  +---------------------------------------+---------------------------------------+
+  |  [Auxiliary Specialist: /github-readme-writer]                                |
+  |  Daytona 4,000-star launch framework, project hygiene, zero em-dashes        |
+  +-------------------------------------------------------------------------------+
 ```
 
 ---
 
-## The 7 Specialist Skills: Detailed Guide
+## Detailed Skill Specifications
 
 All slash commands match their directory names exactly in `.agents/skills/`.
 
-### 1. Stage 0: `taste-design-engineer`
-- **Slash Command:** `/taste-design-engineer` (alias: `/taste-design-engineering`)
-- **Role:** Principal Taste & Design Engineering Specialist.
+### 1. Skill 1: `master-prompt-generator`
+- **Slash Command:** `/master-prompt-generator`
+- **Role:** Principal Product Discovery, UX Architecture & Creative Direction Specialist.
 - **Key Capabilities:**
-  1. **Project Mode & Category Triage:** Automatically identifies Mode A (New Website) vs Mode B (Improve Existing Website) and product category without redundant questions.
-  2. **Recursive 4-Role Reference Ingestion:** Recursively scans `design-refs/` for Category, Layout, Visual, and Interaction references with category-appropriateness safeguards.
-  3. **Adopt, Adapt & Avoid Decision Matrix:** Formulates concrete decisions with reasons, resolving conflicts against approved art direction.
-  4. **Output:** Synthesizes `frontend/DESIGN_ENGINEERING_BRIEF.md`.
+  1. **Phase 1 (Scope & Data):** Classifies project mode (New build vs Existing upgrade), categorizes into 29 domains, defines route sitemap, and collects real copy/assets.
+  2. **Phase 2 (Brand, Theme & Type):** Inspects 85 brand references in `design-refs/` (Awwwards, Linear, Stripe, Apple, Vercel, Framer, Robinsweb), custom color token tables, surface physics, and typography pairings.
+  3. **Phase 3 (Nav, Hero & Layout):** Selects navbar archetype (Minimal Split Bar, Floating Glass Island, Docked SaaS, Mega-Menu, E-Commerce), morphing hamburger overlay curtain, and layered hero z-index stack.
+  4. **Phase 4 (Sections, Cards & Motion):** Specifies section order, full-width numbered rows (`01-04`), radial glow cards, multi-step contact wizard, giant interactive footer watermark, and infinite marquee loops.
+  5. **Output:** Compiles 100% of decisions into a locked `MASTER_PROMPT.md` in the workspace root.
 
 ---
 
-### 2. Stage 1: `frontend-architect`
-- **Slash Command:** `/frontend-architect`
-- **Role:** Principal Frontend Architect & Design System Foundation Engineer.
+### 2. Skill 2: `master-implementer`
+- **Slash Command:** `/master-implementer`
+- **Role:** Principal Frontend Architecture, Layout, Component & Motion Implementation Engineer.
 - **Key Capabilities:**
-  1. **Semantic Substrate Foundation:** Maps adopted tokens into `globals.css` with a cohesive `--canvas` depth scale.
-  2. **Zero Render-Blocking Font System:** Uses `next/font` with `display: 'swap'`, eliminating blocking external CSS imports.
-  3. **Standalone Vector Brand Identity:** Crafts bespoke vector logos with semantic color theory and zero enclosing boxes.
-  4. **Next.js 15 App Scaffolding:** Clean project setup strictly inside `frontend/`.
+  1. **`MASTER_PROMPT.md` Is Law:** Enforces strict anti-template lock; never substitutes generic 64px bars, flat cards, or plain smooth scroll.
+  2. **Batch 1 (Foundation & Tokens):** Framework scaffolding, font loading, `:root` CSS custom properties, `@keyframes marquee-left`, and Lenis smooth scroll provider.
+  3. **Batch 2 (Navigation & Hero):** Exact desktop navbar, working hamburger curtain overlay state machine, layered hero (`z-0` glow, `z-10` display title, `z-20` overlapping portrait, `z-30` CTA), and true infinite marquee strip.
+  4. **Batch 3 (Sections, Cards & Footer):** Numbered interactive service rows, radial glow cards, bento cells, multi-step contact progress wizard, and giant brand footer watermark with rest contrast and hover glow.
+  5. **Batch 4 (Motion & QA Audit):** Scroll-triggered reveals (`GSAP` / `Framer Motion`), responsive checks across `375px`, `768px`, and `1440px`, and production build verification (`npm run build`).
 
 ---
 
-### 3. Stage 2: `creative-layout-engineer`
-- **Slash Command:** `/creative-layout-engineer`
-- **Role:** Senior Creative Technologist & Macro-Layout Craftsman.
-- **Key Capabilities:**
-  1. **Full-Site Page Inventory:** Audits all required routes (Greenfield vs Existing code audit) with zero premature single-page halt.
-  2. **Route & Section Coverage Matrix:** Measurable completion gate in `frontend/PLAN.md` validating top-to-bottom section sequence and shared shells.
-  3. **Category-Driven Hierarchy:** Composition and spacing driven by project requirements rather than universal templates.
-  4. **True Overflow Root-Cause Elimination:** Eliminates horizontal scroll at root cause rather than relying on defensive clipping.
-
----
-
-### 4. Stage 3: `interactive-component-engineer`
-- **Slash Command:** `/interactive-component-engineer`
-- **Role:** Senior UI Component Engineer & Motion Choreographer.
-- **Key Capabilities:**
-  1. **Genuinely Functional Components:** Every interactive control performs a defined action with full state coverage.
-  2. **Real Form Validation:** Inline error messages beneath invalid inputs; never fakes success if backend is unconfigured.
-  3. **Tactile Button Physics:** Emil Kowalski button press physics (`:active scale(0.97)` with 160ms ease-out transitions).
-  4. **Disciplined Motion:** Hardware-accelerated GPU transforms with mandatory `@media (prefers-reduced-motion)` suppression.
-
----
-
-### 5. Stage 4: `experience-qa-auditor`
-- **Slash Command:** `/experience-qa-auditor`
-- **Role:** Principal QA Engineer, Accessibility Specialist, and Performance Auditor.
-- **Key Capabilities:**
-  1. **Defect Discovery & Triage:** Structured defect logs (P0 Blocker to P4 Trivial) with reproduction steps and root-cause analysis.
-  2. **Mobile-First Responsive Audit:** Verifies layouts from 320px compact screens up to 1440px+ ultra-wide monitors.
-  3. **WCAG AA Compliance:** Strict contrast audits (>= 4.5:1 text, >= 3:1 controls) and full keyboard tab traversal.
-  4. **Truth in Verification:** Explicit release status taxonomy (`PASS`, `FAIL`, `PARTIAL`, `NOT VERIFIED`, `BLOCKED`).
-
----
-
-### 6. Auxiliary: `build-error-resolver`
-- **Slash Command:** `/build-error-resolver`
-- **Role:** Principal Build & TypeScript Error Resolution Specialist.
-- **Key Capabilities:**
-  1. Resolves TypeScript compiler errors, Next.js build failures, and module conflicts.
-  2. Surgical edits affecting fewer than 5% of lines with zero architectural refactoring.
-  3. Restores green build status quickly without altering component design.
-
----
-
-### 7. Auxiliary: `github-readme-writer`
+### 3. Auxiliary: `github-readme-writer`
 - **Slash Command:** `/github-readme-writer`
 - **Role:** Principal Technical Documentation Specialist.
 - **Key Capabilities:**
@@ -202,32 +157,23 @@ All slash commands match their directory names exactly in `.agents/skills/`.
 
 ## Step-by-Step Project Execution
 
-Run the lifecycle sequentially by invoking each specialist in your AI agent chat:
+Run the complete pipeline in two clean stages:
 
 ```text
-Step 1:
-/taste-design-engineer Formulate design brief for an AI developer platform. Use Stripe and Linear as references.
+Stage 1 (Discovery & Blueprint):
+/master-prompt-generator Build a high-craft developer portfolio inspired by robinsweb.net with orange atmospheric glow and center overlapping portrait.
 
-Step 2:
-/frontend-architect Scaffold Next.js 15 project foundation with semantic CSS tokens and standalone brand mark.
-
-Step 3:
-/creative-layout-engineer Build bespoke flagship landing page layout with 4-element hero and asymmetric visual rhythm.
-
-Step 4:
-/interactive-component-engineer Implement interactive controls, accessible contact form, and tactile micro-motion.
-
-Step 5:
-/experience-qa-auditor Execute end-to-end QA audit across 320px to 1440px viewports, WCAG AA, and build health.
+Stage 2 (Production Codebase Construction):
+/master-implementer
 ```
 
 ---
 
 ## Contributing & Community
 
-We welcome suggestions, feedback, and contributions from developers and designers worldwide!
+We welcome suggestions, feedback, and contributions from developers and designers worldwide:
 - **Suggest Improvements:** Share your ideas on typography, colors, animations, and responsive patterns in GitHub Issues.
-- **Contribute References:** Have an inspiring website? Submit a reference specification to expand our design ecosystem.
+- **Contribute References:** Have an inspiring website? Submit a reference specification to expand our 85-brand design ecosystem.
 - **Contributing Guide:** See [CONTRIBUTING.md](CONTRIBUTING.md) for pull request guidelines.
 
 ---
