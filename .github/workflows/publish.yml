@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'package.json'
+      - '.github/workflows/publish.yml'
   release:
     types: [published]
   workflow_dispatch:
@@ -34,12 +35,12 @@ jobs:
       - name: Publish to npm
         run: |
           if [ -z "$NODE_AUTH_TOKEN" ]; then
-            echo "::error::NPM_TOKEN secret is not set in GitHub repository secrets! Go to Settings -> Secrets and variables -> Actions -> Repository secrets and add NPM_TOKEN."
+            echo "::error::NPM_TOKEN_IRFANLOVEFRONT secret is not set in GitHub repository secrets!"
             exit 1
           fi
           npm publish --access public --tag latest
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_IRFANLOVEFRONT || secrets.NPM_TOKEN }}
 
   publish-github:
     name: Publish to GitHub Packages
