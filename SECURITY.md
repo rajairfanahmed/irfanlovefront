@@ -2,22 +2,32 @@
 
 ## Supported Versions
 
-We actively maintain and provide updates for the latest major version of IrfanLoveFront:
+We actively maintain, patch, and provide security updates for current and recent versions of irfanlovefront:
 
 | Version | Supported |
 |---|---|
-| 1.0.x | Yes |
-| < 1.0 | No |
+| 3.2.x | Yes (Active development) |
+| 3.1.x | Security fixes only |
+| < 3.1 | No |
 
 ---
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability or potential risk in any of our agent skills or workflows, please report it responsibly:
+If you discover a security vulnerability, prompt injection vector, unintended code execution risk, or sensitive information leak in any of our agent skills, CLI tooling, or workflow templates, please report it responsibly:
 
-1. **Do Not Open a Public Issue:** To protect users, do not submit vulnerability details to public issue trackers.
-2. **Contact Maintainers Privately:** Please submit a private security advisory through GitHub Security Advisories on the repository:
+1. **Do Not Open a Public Issue**: To protect users and downstream projects, do not submit vulnerability details to public issue trackers or discussions.
+2. **Contact Maintainers Privately**: Submit a private advisory through GitHub Security Advisories:
    https://github.com/rajairfanahmed/irfanlovefront/security/advisories
-3. **Include Reproduction Steps:** Provide a clear description of the vulnerability, steps to reproduce, and any relevant logs or prompt triggers.
+   Or email the maintainer directly at: `rajairfana551@gmail.com`
+3. **Include Reproduction Steps**:
+   - Detailed description of the security risk or vulnerability.
+   - Affected tool, skill file, or CLI command.
+   - Step-by-step reproduction guide and sample input prompts or payloads.
+   - Potential impact on client projects or developer environments.
 
-We will acknowledge receipt within 48 hours and work with you on a coordinated fix and public disclosure.
+## Response Commitment
+
+- **Acknowledgment**: Within 24 to 48 hours of receipt.
+- **Triage & Remediation**: Coordinated patch within 7 business days for high-severity issues.
+- **Coordinated Disclosure**: Public security notice and release credit upon verified patch deployment.
