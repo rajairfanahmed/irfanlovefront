@@ -34,10 +34,10 @@ jobs:
       - name: Publish to npm
         run: |
           if [ -z "$NODE_AUTH_TOKEN" ]; then
-            echo "Notice: NPM_TOKEN secret is not set in GitHub repository secrets. Skipping npm registry publish."
-          else
-            npm publish --access public --tag latest || echo "Notice: Version may already be published on npm."
+            echo "::error::NPM_TOKEN secret is not set in GitHub repository secrets! Go to Settings -> Secrets and variables -> Actions -> Repository secrets and add NPM_TOKEN."
+            exit 1
           fi
+          npm publish --access public --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
