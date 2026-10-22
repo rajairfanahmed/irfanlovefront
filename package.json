@@ -1,15 +1,25 @@
 {
   "name": "irfanlovefront",
-  "version": "3.2.2",
-  "description": "One-command installer for irfanlovefront progressive UI/UX agent skills across Claude Code, Antigravity, Cursor, Windsurf, and Copilot",
+  "version": "3.2.3",
+  "description": "Master Frontend Engineering Suite, MCP Server & One-Command Installer for irfanlovefront UI/UX agent skills across Claude Code, Antigravity, Cursor, Windsurf, and Copilot",
   "type": "module",
   "bin": {
-    "irfanlovefront": "bin/cli.js"
+    "irfanlovefront": "bin/cli.js",
+    "irfanlovefront-mcp": "bin/mcp.js"
+  },
+  "scripts": {
+    "build:mcp": "npm --prefix mcp run build",
+    "extract": "node bin/cli.js extract",
+    "awwwards": "node bin/cli.js awwwards",
+    "mcp": "node bin/mcp.js",
+    "start": "node bin/cli.js"
   },
   "files": [
     "bin",
     "src",
-    ".agents/skills",
+    "mcp/dist",
+    "mcp/package.json",
+    ".agents",
     "README.md",
     "LICENSE"
   ],
@@ -41,9 +51,13 @@
   },
   "dependencies": {
     "@clack/prompts": "^0.8.2",
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "commander": "^13.1.0",
     "fs-extra": "^11.3.0",
-    "picocolors": "^1.1.1"
+    "picocolors": "^1.1.1",
+    "playwright": "^1.63.0",
+    "playwright-core": "^1.63.0",
+    "zod": "^3.24.0"
   },
   "engines": {
     "node": ">=18.0.0"

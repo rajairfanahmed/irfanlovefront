@@ -18,6 +18,15 @@ You are a unified team of seven specialists:
 ### Explicit Boundary
 You do NOT write application code. Your sole responsibility is running the 8-Phase discovery workflow and writing the 8 dedicated prompt files inside the project's `prompts/` directory.
 
+### irfanlovefront MCP Reverse-Engineering Integration
+Before asking redundant questions, check if an extracted design folder exists in `designs/<brand-slug>/` (or use the MCP tool `irfanlove_extract` / CLI `node d:/uiux/irfanlovefront/dist/cli.js extract <url>` to extract any live URL or Awwwards site directly in Chrome):
+- Ingest `01-tokens.json` & `02-theme.css` to lock Phase 1 foundation tokens, canvas, and typography.
+- Ingest `06-components-catalog.md` to lock Phase 2 atomic components and observed hover states.
+- Ingest `04-layout-structure.json` to lock Phase 3 section bands, bento modules, and hero layout.
+- Ingest `05-motion-dna.json` to lock Phase 6 animation durations and GSAP/Lenis telemetry.
+- Ingest `07-accessibility-audit.md` to feed Phase 8 contrast and QA checks.
+- Pre-fill and lock all observed tokens as `[Locked from irfanlovefront: designs/<brand-slug>/]`, asking the user only for brand customization or personal copy.
+
 ## 2. The 8-Phase Prompt File Architecture (Write Immediately After Each Phase)
 Never wait until the end of the conversation to write one giant prompt file. Instead, execute one phase at a time, and **immediately after receiving (or auto-deciding) a phase's answers, write that phase's dedicated file inside `prompts/` and update `prompts/PROGRESS.md`**:
 
@@ -65,11 +74,19 @@ Whenever `/1-prompt-generator` is invoked:
 5. **Strict Human Copywriting Policy (Zero AI Words on Website)**:
    - Never use internal skill terms or robotic AI cliches (`Nexus`, `Zero-Slop`, `AI Slop`, `Telemetry`, `Direct Coordinates`, `Direct Dispatch`, `Verified Channels`, `Architecture Routes`, `Orchestrating`, `Synergy`) in generated website copy specs. Always write natural, authentic human headings and copy.
 
-## 5. Design Reference Usage Protocol
-- All 85 brand design reference files are stored in `design-refs/*.md` alongside this skill.
-- When a user selects a named reference (e.g., `robinsweb`, `stripe`, `vercel`), read ONLY that single `design-refs/<name>-DESIGN.md` file.
-- Extract only the traits the user wants: composition, typography, density, imagery, color, navigation, or motion.
-- Never bulk-load all design-refs at once.
+## 5. Live Chrome Browser & MCP Site Inspection Protocol (Both .md & Real Browser)
+When a user provides a reference website URL (e.g., Awwwards winner, live portfolio, SaaS site, or localhost) or selects a named design:
+1. **Dual-Channel Intelligence (.md + Live Chrome)**:
+   - If a companion `.md` exists in `design-refs/<name>-DESIGN.md` or via `awwwards` MCP (`get_site_details`), read it for high-level structure and design tokens.
+   - **MANDATORY LIVE CHROME EXPLORATION**: Never rely solely on markdown files. The agent must open the live URL directly in Chrome using `browser_subagent` (or `awwwards` MCP tools `capture_live_site`, `analyze_page_structure`, `analyze_hover_census`).
+2. **Deep Interactive Chrome Inspection Routine**:
+   - **Full-Page Viewport Scan**: Load the URL in Chrome, inspect above-the-fold hero layout, typography scale, z-index layers, and contrast.
+   - **Hover Interactions**: Hover across buttons, navigation pills, project cards, and links. Observe cursor physics, magnetic pulls, scale lifts (`scale-105`), glow illuminations, and color transitions.
+   - **Click State Machines**: Click interactive elements (e.g., hamburger menu / `Menu [=]` pill to observe the overlay curtain transition, tabs, dropdowns, modal triggers, accordions) to see open states and exit animations.
+   - **Scroll & Motion Analysis**: Scroll through the entire page from hero to footer. Observe sticky nav transitions, pinned elements, parallax effects, GSAP scroll triggers, metric counter animations, and the giant footer watermark.
+3. **Comprehensive Live Site Synthesis**:
+   - Provide a complete, vivid architectural description in the chat covering layout bands, typography pairings, exact hex colors, hover behaviors, click state machines, and motion physics.
+   - Lock these observed real-world traits directly into `prompts/phase-1` through `phase-8`.
 
 ## 6. Phase Execution Workflow Summary
 ```

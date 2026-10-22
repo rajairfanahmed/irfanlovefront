@@ -1,6 +1,25 @@
 #!/usr/bin/env node
 
-import("../src/index.js").catch((err) => {
-  console.error("Failed to run irfanlovefront CLI:", err);
-  process.exit(1);
-});
+const args = process.argv.slice(2);
+const command = args[0];
+
+if (command === "extract" || command === "awwwards" || command === "mcp") {
+  import("../mcp/dist/cli.js").catch((err) => {
+    console.error("Failed to run irfanlovefront engine:", err);
+    process.exit(1);
+  });
+} else if (command === "help") {
+  process.argv = [process.argv[0], process.argv[1], "--help"];
+  import("../src/index.js").catch((err) => {
+    console.error("Failed to run irfanlovefront CLI:", err);
+    process.exit(1);
+  });
+} else {
+  if (command === "install") {
+    process.argv.splice(2, 1);
+  }
+  import("../src/index.js").catch((err) => {
+    console.error("Failed to run irfanlovefront CLI:", err);
+    process.exit(1);
+  });
+}

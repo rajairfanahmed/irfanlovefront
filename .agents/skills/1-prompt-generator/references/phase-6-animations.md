@@ -22,6 +22,7 @@ Never leave a website with plain CSS `scroll-behavior: smooth` when high-craft m
 - `E) [Keep Existing Animations]`: Preserve current project animation setup.
 - `F) [Custom User Input]`: Describe your exact motion engine, easing curves, and scroll feel.
 - `G) [AI Recommended]`: Let AI select the optimal motion architecture for your category and reference.
+*(When inspecting a live reference in Chrome, scroll through sections to observe scroll velocity, momentum damping, parallax depth, pin triggers, and count-up animations).*
 
 ### Q2. Hero Entrance & Typography Animation Sequence
 Ask how the Hero section should animate on initial page load (`0.0s` to `1.2s`):

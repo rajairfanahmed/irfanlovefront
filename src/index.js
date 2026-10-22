@@ -19,7 +19,7 @@ const program = new Command();
 
 program
   .name("irfanlovefront")
-  .description("Install irfanlovefront UI/UX agent skills across Claude Code, Antigravity, Cursor, Windsurf, and Copilot")
+  .description("Master Frontend Engineering Suite, MCP Server & One-Command Installer for irfanlovefront progressive UI/UX agent skills")
   .version(pkg.version)
   .option("-a, --all", "Install for all supported AI agents")
   .option("--claude", "Install specifically for Claude Code")
@@ -29,7 +29,21 @@ program
   .option("--copilot", "Install specifically for GitHub Copilot")
   .option("-g, --global", "Install globally instead of current project workspace")
   .option("-y, --yes", "Skip interactive prompts and install with defaults")
-  .parse(process.argv);
+  .addHelpText("after", `
+Commands:
+  extract <url>     Extract live website design system into DTCG tokens & blueprint
+  awwwards [query]  Search Awwwards award-winning websites & motion DNA
+  mcp               Start Model Context Protocol (MCP) server over stdio
+  install           Interactive installer for Claude, Antigravity, Cursor, Windsurf, Copilot
+
+Examples:
+  npx irfanlovefront extract https://linear.app --mobile
+  npx irfanlovefront awwwards "portfolio"
+  npx irfanlovefront mcp
+  npx irfanlovefront --all
+`);
+
+program.parse(process.argv);
 
 const options = program.opts();
 

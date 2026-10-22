@@ -35,6 +35,7 @@ Ask how the hamburger button and open menu experience should look and behave (on
 - `F)` **Mobile Bottom Sheet Drawer**: Touch-friendly swipeable bottom sheet anchored to the thumb zone on mobile (`<768px`).
 - `G) [Custom User Input]`: Describe your exact hamburger trigger, open/close animation, menu background, and link layout.
 - `H) [AI Recommended]`: Let AI pair the ideal overlay menu with your chosen desktop navbar.
+*(When inspecting a live reference in Chrome, click the menu trigger to observe the real open curtain transition, backdrop blur, staggered link reveal, and body scroll lock).*
 
 ### Q3. Contact Section & Inquiry Form Architecture
 Ask how the Contact / Inquiry section (`src/components/layout/ContactSection.tsx`) should be structured:

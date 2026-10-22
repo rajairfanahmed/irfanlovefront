@@ -7,8 +7,8 @@
   <a href="CODE_OF_CONDUCT.md"><strong>Code of Conduct</strong></a> •
   <a href="LICENSE"><strong>License</strong></a> •
   <a href="SECURITY.md"><strong>Security</strong></a> •
-  <a href="RELEASES/RELEASE-3.2.2.md"><strong>Release 3.2.2</strong></a> •
-  <a href="RELEASES/RELEASE-3.2.1.md"><strong>Release 3.2.1</strong></a>
+  <a href="RELEASES/RELEASE-3.2.2.md"><strong>Release History</strong></a> •
+  <a href="https://github.com/rajairfanahmed/irfanlovefront/releases"><strong>Latest Release v3.2.3</strong></a>
 </p>
 
 <a href="https://github.com/rajairfanahmed/irfanlovefront">
@@ -17,7 +17,7 @@
 
 # irfanlovefront
 
-### Progressive 9-Step UI/UX & Frontend Engineering Suite (v3.2.2)
+### Master Frontend Engineering Suite, Universal MCP Server & Progressive Agent Skills (v3.2.3)
 
 **Eliminate frontend design paralysis, repetitive templates, and AI slop forever.**
 
@@ -25,7 +25,7 @@
 [![GitHub Packages](https://img.shields.io/badge/GitHub_Packages-@rajairfanahmed/irfanlovefront-24292e.svg?style=flat-square&logo=github)](https://github.com/rajairfanahmed/irfanlovefront/packages)
 [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Documentation-22c55e.svg?style=flat-square&logo=github)](https://rajairfanahmed.github.io/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v3.2.2-blue.svg?style=flat-square)](RELEASES/RELEASE-3.2.2.md)
+[![Release](https://img.shields.io/badge/release-v3.2.3-blue.svg?style=flat-square)](https://github.com/rajairfanahmed/irfanlovefront/releases)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -41,7 +41,7 @@
 
 ---
 
-## The 1-Command Quickstart (v3.2.2)
+## The 1-Command Quickstart (v3.2.3)
 
 Install the entire skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
@@ -77,6 +77,49 @@ npx irfanlovefront --copilot
 
 # Install for all supported AI agents simultaneously
 npx irfanlovefront --all
+```
+
+### Live Website Extraction & MCP Server (v3.2.3)
+
+Reverse-engineer any live website or launch the stdio MCP server for AI agents:
+
+```bash
+# Extract design system into designs/<brand-slug>/ (W3C DTCG tokens, theme.css, blueprint)
+npx irfanlovefront extract https://linear.app --mobile
+
+# Search Awwwards award-winning references & motion DNA
+npx irfanlovefront awwwards "portfolio"
+
+# Start Model Context Protocol (MCP) server over stdio
+npx irfanlovefront mcp
+```
+
+#### Universal Agent MCP Configuration (`mcpServers`)
+
+Add this to `.agents/mcp_config.json`, `.cursor/mcp.json`, or `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "irfanlovefront": {
+      "command": "npx",
+      "args": ["-y", "irfanlovefront", "mcp"]
+    }
+  }
+}
+```
+
+Or for local development inside this repository:
+
+```json
+{
+  "mcpServers": {
+    "irfanlovefront": {
+      "command": "node",
+      "args": ["./mcp/dist/index.js"]
+    }
+  }
+}
 ```
 
 ---
@@ -204,6 +247,18 @@ All slash commands match their directory names in `.agents/skills/`.
 ### 10. `/github-readme-writer`
 - **Role:** Technical Documentation Specialist.
 - **Workflow:** Crafts authoritative README files, case studies, and launch posts modeled after the Daytona open-source framework with zero em-dashes.
+
+### 11. `/irfanlove-extract`
+- **Role:** Website Reverse-Engineering & W3C DTCG Token Extractor.
+- **Workflow:** Renders live websites via visible Google Chrome, executes pre-scroll lazy loading triggers, conducts live hover testing on buttons/cards, captures overlay state machines, and emits 10 structured architecture files into `designs/<brand-slug>/`.
+
+### 12. `/irfanlove-awwwards`
+- **Role:** Awwwards Motion Intelligence & Award-Winning Inspiration.
+- **Workflow:** Searches Awwwards winning designs by award type, category, or color. Extracts motion DNA, transition curves, and component geometry.
+
+### 13. `/irfanlovefront`
+- **Role:** Master Frontend Engineering & Extraction Suite.
+- **Workflow:** Orchestrates end-to-end design intelligence, mathematical color hierarchy, and the progressive 8-phase website implementation pipeline.
 
 ---
 
