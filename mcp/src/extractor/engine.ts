@@ -58,8 +58,53 @@ export async function extractDesignFromUrl(
     // 1. Navigate to target URL
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: timeoutMs });
 
-    // Wait for fonts, stylesheets, and scripts to settle
-    await page.waitForTimeout(2000);
+    // 1.1 Active Preloader Dismissal Wait (poll until animated counting preloader completes or fades out)
+    await page.evaluate(async () => {
+      const preloaderSelectors = [
+        ".preloader",
+        '[class*="preloader" i]',
+        '[id*="preloader" i]',
+        ".loader",
+        '[class*="loader" i]',
+        '[id*="loader" i]',
+        '[class*="curtain" i]',
+        "[data-preloader]",
+        "#loading",
+        ".loading-screen",
+      ];
+      const startTime = Date.now();
+      while (Date.now() - startTime < 8000) {
+        let active = false;
+        for (const sel of preloaderSelectors) {
+          const el = document.querySelector(sel);
+          if (el) {
+            const s = window.getComputedStyle(el);
+            if (s.display !== "none" && s.visibility !== "hidden" && parseFloat(s.opacity || "1") > 0.05) {
+              active = true;
+              break;
+            }
+          }
+        }
+        if (!active) break;
+        await new Promise((r) => setTimeout(r, 200));
+      }
+    });
+
+    // 1.2 Dismiss Cookie Consent Popups if visible
+    try {
+      const cookieBtn = await page.$(
+        'button[id*="cookie" i], button[class*="cookie" i], button:has-text("Accept"), button:has-text("Allow"), button:has-text("I agree"), [aria-label*="cookie" i] button'
+      );
+      if (cookieBtn && (await cookieBtn.isVisible())) {
+        await cookieBtn.click().catch(() => {});
+        await page.waitForTimeout(400);
+      }
+    } catch {
+      // Cookie banner dismissal handled gracefully
+    }
+
+    // Wait for fonts and hero elements to settle
+    await page.waitForTimeout(1200);
 
     // Page metadata
     const pageTitle = (await page.title()) || new URL(url).hostname;
@@ -69,22 +114,31 @@ export async function extractDesignFromUrl(
     const brandSlug = new URL(url).hostname.replace(/^www\./, "").replace(/[^a-zA-Z0-9_-]/g, "-").toLowerCase();
     const brandName = pageTitle.split(/[-|\u2014\u2013\u00B7]/)[0].trim() || brandSlug;
 
-    // 2. Interactive Full-Page Smooth Scroll (triggers lazy loads, GSAP ScrollTriggers, and reach footer)
+    // 2. Interactive Full-Page Smooth Scroll (triggers lazy loads, GSAP ScrollTriggers, and reaches footer)
     await page.evaluate(async () => {
       await new Promise<void>((resolve) => {
-        let totalHeight = 0;
-        const distance = 400;
-        const timer = setInterval(() => {
-          const scrollHeight = document.body.scrollHeight;
-          window.scrollBy(0, distance);
-          totalHeight += distance;
+        let currentPos = 0;
+        const step = 350;
+        const getScrollHeight = () =>
+          Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight,
+            window.innerHeight
+          );
 
-          if (totalHeight >= scrollHeight) {
+        const timer = setInterval(() => {
+          window.scrollBy(0, step);
+          currentPos += step;
+          const maxScroll = getScrollHeight();
+
+          if (currentPos >= maxScroll) {
             clearInterval(timer);
             window.scrollTo({ top: 0, behavior: "smooth" });
             setTimeout(resolve, 800);
           }
-        }, 120);
+        }, 90);
       });
     });
     await page.waitForTimeout(1000);
@@ -228,13 +282,46 @@ export async function extractDesignFromUrl(
       // Runtime stack
       const stack: string[] = [];
       const win = window as any;
-      if (document.querySelector("#__next") || win.__NEXT_DATA__) stack.push("Next.js");
-      if (document.querySelector("[data-reactroot]") || win.React) stack.push("React");
-      if (win.__vue__ || document.querySelector("[data-v-]")) stack.push("Vue.js");
-      if (win.angular || document.querySelector("[ng-version]")) stack.push("Angular");
+      const doc = document;
+
+      // Astro
       if (
-        document.querySelector('script[src*="tailwind"]') ||
-        Array.from(document.styleSheets).some((s) => {
+        doc.querySelector("[data-astro-cid-]") ||
+        doc.querySelector("astro-island") ||
+        Array.from(doc.querySelectorAll("script")).some((s) => s.src && s.src.includes("_astro/"))
+      ) {
+        stack.push("Astro");
+      }
+      // Next.js
+      if (doc.querySelector("#__next") || win.__NEXT_DATA__) stack.push("Next.js");
+      // React
+      if (
+        doc.querySelector("[data-reactroot]") ||
+        win.React ||
+        doc.querySelector("[data-astro-cid-] [data-react-component]")
+      ) {
+        stack.push("React");
+      }
+      // Vue.js
+      if (win.__vue__ || doc.querySelector("[data-v-]")) stack.push("Vue.js");
+      // Angular
+      if (win.angular || doc.querySelector("[ng-version]")) stack.push("Angular");
+      // Svelte
+      if (doc.querySelector('[class*="svelte-"]') || win.__svelte) stack.push("Svelte");
+      // Vite
+      if (
+        Array.from(doc.querySelectorAll("script")).some(
+          (s) => (s.src && (s.src.includes("@vite") || s.src.includes("/vite/"))) || s.type === "module"
+        )
+      ) {
+        stack.push("Vite");
+      }
+      // Webflow
+      if (doc.querySelector("html[data-wf-page]") || win.Webflow) stack.push("Webflow");
+      // Tailwind CSS
+      if (
+        doc.querySelector('script[src*="tailwind"]') ||
+        Array.from(doc.styleSheets).some((s) => {
           try {
             return Array.from(s.cssRules || []).some(
               (r) => r.cssText.includes("--tw-") || r.cssText.includes("@theme")
@@ -246,15 +333,57 @@ export async function extractDesignFromUrl(
       ) {
         stack.push("Tailwind CSS");
       }
+      // GSAP
+      if (
+        win.gsap ||
+        win.TweenMax ||
+        Array.from(doc.querySelectorAll("script")).some((s) => s.src && s.src.includes("gsap"))
+      ) {
+        stack.push("GSAP");
+      }
+      // Lenis Smooth Scroll
+      if (
+        win.Lenis ||
+        win.__lenis ||
+        doc.querySelector(".lenis") ||
+        Array.from(doc.querySelectorAll("script")).some((s) => s.src && s.src.includes("lenis"))
+      ) {
+        stack.push("Lenis Smooth Scroll");
+      }
+      // Three.js / WebGL Canvas
+      if (win.THREE || doc.querySelector("canvas")) {
+        stack.push("Three.js / WebGL Canvas");
+      }
+      // Framer Motion
+      if (doc.querySelector('[class*="framer-"]') || doc.querySelector("[data-framer-name]")) {
+        stack.push("Framer Motion");
+      }
+      // Vercel Analytics / Speed Insights
+      if (doc.querySelector("vercel-analytics") || doc.querySelector("vercel-speed-insights")) {
+        stack.push("Vercel Analytics");
+      }
 
       // Motion engines
       const motionEngines = {
-        gsap: Boolean(win.gsap || win.TweenMax),
-        scrollTrigger: Boolean(win.ScrollTrigger || (win.gsap && win.gsap.plugins?.ScrollTrigger)),
-        lenis: Boolean(win.Lenis || win.__lenis || document.querySelector(".lenis")),
-        threejs: Boolean(win.THREE || document.querySelector("canvas")),
+        gsap: Boolean(
+          win.gsap ||
+            win.TweenMax ||
+            Array.from(doc.querySelectorAll("script")).some((s) => s.src && s.src.includes("gsap"))
+        ),
+        scrollTrigger: Boolean(
+          win.ScrollTrigger ||
+            (win.gsap && win.gsap.plugins?.ScrollTrigger) ||
+            Array.from(doc.querySelectorAll("script")).some((s) => s.src && s.src.includes("ScrollTrigger"))
+        ),
+        lenis: Boolean(
+          win.Lenis ||
+            win.__lenis ||
+            doc.querySelector(".lenis") ||
+            Array.from(doc.querySelectorAll("script")).some((s) => s.src && s.src.includes("lenis"))
+        ),
+        threejs: Boolean(win.THREE || doc.querySelector("canvas")),
         framerMotion: Boolean(
-          document.querySelector('[class*="framer-"]') || document.querySelector("[data-framer-name]")
+          doc.querySelector('[class*="framer-"]') || doc.querySelector("[data-framer-name]")
         ),
       };
 
@@ -337,36 +466,111 @@ export async function extractDesignFromUrl(
         rawColors.push({ hex, source: val.source, count: val.count });
       });
 
-      // Section bands
-      const sectionsData: any[] = [];
-      const topContainers = Array.from(
-        document.querySelectorAll("body > *, main > *, #__next > *, header, nav, footer, section")
-      );
-      let bandIndex = 1;
+      // Macro Section Bands
+      const candidates: Element[] = [];
 
-      topContainers.slice(0, 15).forEach((sec) => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.height > 60 && rect.width > 300) {
-          const s = window.getComputedStyle(sec);
-          const tag = sec.tagName.toLowerCase();
-          const isCollapsedGiantBand = rect.height > 5000;
-          const id = sec.id ? `#${sec.id}` : `${tag}-${bandIndex}`;
-          sectionsData.push({
-            id,
-            title: `Band ${bandIndex}: ${tag.toUpperCase()}${isCollapsedGiantBand ? " [COLLAPSED BAND >5000px: Use Explicit Child Selectors]" : ""}`,
-            selector: tag + (sec.id ? `#${sec.id}` : ""),
-            bandIndex,
-            isCollapsedGiantBand,
-            dimensions: {
-              width: Math.round(rect.width),
-              height: Math.round(rect.height),
-              top: Math.round(rect.top + window.scrollY),
-            },
-            backgroundColor: s.backgroundColor !== "rgba(0, 0, 0, 0)" ? s.backgroundColor : rootBg,
-            hasGrid: s.display === "grid" || s.display === "flex",
-          });
-          bandIndex++;
+      // A. Header
+      const header = document.querySelector("header");
+      if (header) candidates.push(header);
+
+      // B. Top-level sections (sections not nested inside another section)
+      const allSections = Array.from(document.querySelectorAll("section"));
+      const topSections = allSections.filter((sec) => {
+        let parent = sec.parentElement;
+        while (parent) {
+          if (parent.tagName.toLowerCase() === "section") return false;
+          parent = parent.parentElement;
         }
+        return true;
+      });
+      candidates.push(...topSections);
+
+      // C. Standalone marquees, partner logo strips, or divider banners outside sections
+      const marquees = Array.from(document.querySelectorAll('.marquee, [class*="marquee" i], .logos, [class*="logos" i]')).filter((m) => {
+        let parent = m.parentElement;
+        while (parent) {
+          if (parent.tagName.toLowerCase() === "section") return false;
+          parent = parent.parentElement;
+        }
+        return true;
+      });
+      candidates.push(...marquees);
+
+      // D. Footer
+      const footer = document.querySelector("footer");
+      if (footer) candidates.push(footer);
+
+      // E. Fallback: If site doesn't use semantic <section> tags (e.g. only div containers)
+      if (candidates.length <= 2) {
+        const mainEl = document.querySelector("main, #__next, #root, #app, body");
+        if (mainEl) {
+          const mainChildren = Array.from(mainEl.children).filter((c) => {
+            const s = window.getComputedStyle(c);
+            const rect = c.getBoundingClientRect();
+            return (
+              s.display !== "none" &&
+              rect.height > 100 &&
+              rect.width > 300 &&
+              c.tagName.toLowerCase() !== "header" &&
+              c.tagName.toLowerCase() !== "footer"
+            );
+          });
+          candidates.push(...mainChildren);
+        }
+      }
+
+      // Filter visible content elements
+      const valid = candidates.filter((el) => {
+        const s = window.getComputedStyle(el);
+        const rect = el.getBoundingClientRect();
+        if (s.display === "none" || s.visibility === "hidden") return false;
+        if (rect.height < 40 || rect.width < 250) return false;
+        if (s.position === "fixed" && rect.height >= window.innerHeight) return false; // Curtain overlay / modal
+        if (el.classList.contains("preloader") || el.id.includes("preloader") || el.classList.contains("loader")) return false;
+        return true;
+      });
+
+      // Deduplicate: remove any candidate that is nested inside another selected candidate
+      const deduplicated = valid.filter((el) => {
+        return !valid.some((other) => other !== el && other.contains(el));
+      });
+
+      const unique = Array.from(new Set(deduplicated));
+
+      // Sort by vertical document scroll position
+      unique.sort((a, b) => {
+        const topA = a.getBoundingClientRect().top + window.scrollY;
+        const topB = b.getBoundingClientRect().top + window.scrollY;
+        return topA - topB;
+      });
+
+      const sectionsData = unique.map((el, idx) => {
+        const rect = el.getBoundingClientRect();
+        const s = window.getComputedStyle(el);
+        const tag = el.tagName.toLowerCase();
+        const id = el.id ? `#${el.id}` : "";
+        const cls =
+          el.className && typeof el.className === "string"
+            ? "." + el.className.trim().split(/\s+/).slice(0, 2).join(".")
+            : "";
+        const aria = el.getAttribute("aria-label");
+        const heading = el.querySelector("h1, h2, h3, h4")?.textContent?.trim().slice(0, 45);
+        const title = aria || heading || (el.id ? el.id : cls.replace(/^\./, "")) || tag;
+
+        return {
+          id: el.id ? `#${el.id}` : `${tag}-${idx + 1}`,
+          title: `Band ${idx + 1}: ${title.toUpperCase()}`,
+          selector: `${tag}${id}${id ? "" : cls}`,
+          bandIndex: idx + 1,
+          isCollapsedGiantBand: false,
+          dimensions: {
+            width: Math.round(rect.width),
+            height: Math.round(rect.height),
+            top: Math.round(rect.top + window.scrollY),
+          },
+          backgroundColor: s.backgroundColor !== "rgba(0, 0, 0, 0)" ? s.backgroundColor : rootBg,
+          hasGrid: s.display === "grid" || s.display === "flex",
+        };
       });
 
       return {

@@ -8,7 +8,7 @@
   <a href="LICENSE"><strong>License</strong></a> •
   <a href="SECURITY.md"><strong>Security</strong></a> •
   <a href="RELEASES/RELEASE-3.2.2.md"><strong>Release History</strong></a> •
-  <a href="https://github.com/rajairfanahmed/irfanlovefront/releases"><strong>Latest Release v3.2.3</strong></a>
+  <a href="https://github.com/rajairfanahmed/irfanlovefront/releases"><strong>Latest Release v3.2.4</strong></a>
 </p>
 
 <a href="https://github.com/rajairfanahmed/irfanlovefront">
@@ -17,7 +17,7 @@
 
 # irfanlovefront
 
-### Master Frontend Engineering Suite, Universal MCP Server & Progressive Agent Skills (v3.2.3)
+### Master Frontend Engineering Suite, Universal MCP Server & Progressive Agent Skills (v3.2.4)
 
 **Eliminate frontend design paralysis, repetitive templates, and AI slop forever.**
 
@@ -25,7 +25,7 @@
 [![GitHub Packages](https://img.shields.io/badge/GitHub_Packages-@rajairfanahmed/irfanlovefront-24292e.svg?style=flat-square&logo=github)](https://github.com/rajairfanahmed/irfanlovefront/packages)
 [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Documentation-22c55e.svg?style=flat-square&logo=github)](https://rajairfanahmed.github.io/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v3.2.3-blue.svg?style=flat-square)](https://github.com/rajairfanahmed/irfanlovefront/releases)
+[![Release](https://img.shields.io/badge/release-v3.2.4-blue.svg?style=flat-square)](https://github.com/rajairfanahmed/irfanlovefront/releases)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -41,7 +41,7 @@
 
 ---
 
-## The 1-Command Quickstart (v3.2.3)
+## The 1-Command Quickstart (v3.2.4)
 
 Install the entire skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
@@ -79,7 +79,7 @@ npx irfanlovefront --copilot
 npx irfanlovefront --all
 ```
 
-### Live Website Extraction & MCP Server (v3.2.3)
+### Live Website Extraction & MCP Server (v3.2.4)
 
 Reverse-engineer any live website or launch the stdio MCP server for AI agents:
 
