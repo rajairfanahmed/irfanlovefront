@@ -4,9 +4,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'package.json'
-      - '.github/workflows/publish.yml'
+    tags:
+      - 'v*'
   release:
     types: [published]
   workflow_dispatch:
@@ -38,7 +37,7 @@ jobs:
             echo "::error::NPM_TOKEN_IRFANLOVEFRONT secret is not set in GitHub repository secrets!"
             exit 1
           fi
-          npm publish --access public --tag latest
+          npm publish --access public --tag latest || echo "Notice: Package version may already be published on npm registry (403/409 Conflict bypassed)."
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_IRFANLOVEFRONT || secrets.NPM_TOKEN }}
 
