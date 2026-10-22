@@ -130,7 +130,7 @@ async function main() {
 
   outro(
     color.green("Ready to craft bespoke frontends! Invoke ") +
-    color.bold(color.yellow("/master-prompt-generator")) +
+    color.bold(color.yellow("/1-prompt-generator")) +
     color.green(" in your agent chat to begin.")
   );
 }

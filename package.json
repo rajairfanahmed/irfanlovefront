@@ -1,7 +1,7 @@
 {
   "name": "irfanlovefront",
-  "version": "3.2.1",
-  "description": "One-command installer for irfanlovefront UI/UX agent skills across Claude Code, Antigravity, Cursor, Windsurf, and Copilot",
+  "version": "3.2.2",
+  "description": "One-command installer for irfanlovefront progressive UI/UX agent skills across Claude Code, Antigravity, Cursor, Windsurf, and Copilot",
   "type": "module",
   "bin": {
     "irfanlovefront": "bin/cli.js"
@@ -35,7 +35,10 @@
   "bugs": {
     "url": "https://github.com/rajairfanahmed/irfanlovefront/issues"
   },
-  "homepage": "https://github.com/rajairfanahmed/irfanlovefront#readme",
+  "homepage": "https://rajairfanahmed.github.io/irfanlovefront",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@clack/prompts": "^0.8.2",
     "commander": "^13.1.0",

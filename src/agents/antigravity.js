@@ -15,9 +15,10 @@ export async function installAntigravity({ scope, cwd }) {
   await fs.ensureDir(targetDir);
   await fs.copy(sourceSkillsDir, targetDir, { overwrite: true });
 
+  const skillFolders = await fs.readdir(sourceSkillsDir);
   return {
     agent: "Google Antigravity / Gemini",
     path: targetDir,
-    filesCount: 7,
+    filesCount: skillFolders.length,
   };
 }
