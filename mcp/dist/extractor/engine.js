@@ -85,7 +85,10 @@ export async function extractDesignFromUrl(targetUrl, options = {}) {
         // Page metadata
         const pageTitle = (await page.title()) || new URL(url).hostname;
         const canonicalUrl = (await page.$eval('link[rel="canonical"]', (el) => el.href).catch(() => null)) || url;
-        const brandSlug = new URL(url).hostname.replace(/^www\./, "").replace(/[^a-zA-Z0-9_-]/g, "-").toLowerCase();
+        const sourceHostname = (canonicalUrl && !canonicalUrl.includes("localhost") && !canonicalUrl.includes("127.0.0.1"))
+            ? new URL(canonicalUrl).hostname
+            : new URL(url).hostname;
+        const brandSlug = sourceHostname.replace(/^www\./, "").replace(/[^a-zA-Z0-9_-]/g, "-").toLowerCase();
         const brandName = pageTitle.split(/[-|\u2014\u2013\u00B7]/)[0].trim() || brandSlug;
         // 2. Interactive Full-Page Smooth Scroll (triggers lazy loads, GSAP ScrollTriggers, and reaches footer)
         await page.evaluate(async () => {
@@ -701,7 +704,7 @@ export async function extractDesignFromUrl(targetUrl, options = {}) {
         const manifest = {
             brand: brandName,
             brandSlug,
-            url,
+            url: (url.includes("localhost") || url.includes("127.0.0.1")) && canonicalUrl ? canonicalUrl : url,
             canonicalUrl,
             pageTitle,
             timestamp: new Date().toISOString(),
