@@ -22,10 +22,33 @@ You are acting as a unified **Principal Creative Layout Engineer, Staff Spatial 
 2. **Build ONLY Layout Wrappers, Hero & Cards in This Stage**:
    - Do NOT build the global Navbar, Hamburger Overlay, Contact Wizard, Footer, or full multi-page routes in this command.
    - Build the structural layout wrappers in `src/components/layout/`, `HeroSection.tsx` in `src/components/layout/`, and all card/row components in `src/components/cards/`. Then mount the live **HeroSection + InfiniteMarquee + Phase 3 Cards & Layout Showroom** on the root preview route (`localhost:3000`) and **STOP** for user inspection.
-3. **Strict Anti-AI Copywriting & Anti-CLI Lock**:
+3. **Strict Verbatim Project Counts Lock**:
+   - Strictly respect the user's exact project array from `siteData.projects`. If the user has 2 projects, render exactly 2 project cards. Never synthesize, hallucinate, or inject dummy filler cards to artificially pad a grid.
+4. **Anti-Cliche Formatting & Pulse Lock**:
+   - Eyebrows, headers, and watermark elements must never contain double slashes (`//`). Use clean spacing (`01  PROJECTS`) or subtle dots (`01 · PROJECTS`).
+   - Cards and status badges must not use pulsing animations (`animate-pulse` or `animate-ping`) unless specifically requested.
+5. **Strict Anti-AI Copywriting & Anti-CLI Lock**:
    - Never render banned AI meta-words (`Nexus`, `Zero-Slop`, `AI Slop`, `Telemetry`, `Direct Coordinates`, `Direct Dispatch`, `Verified Channels`, `Architecture Routes`, `Production Standard`, `Orchestrating`, `Synergy`) or unrequested `$ npx` terminal windows inside `HeroSection.tsx` or `ProjectCard.tsx`.
 
-## 2. Step-by-Step Implementation Workflow
+## 2. Directory Layout & Architectural File Map
+
+All layout containers and card archetypes must be placed cleanly inside the following paths:
+```
+src/components/
+├── layout/
+│   ├── SectionContainer.tsx  # Max-width layout bounds and padding
+│   ├── SectionHeader.tsx     # Eyebrow, bold display H2, and lead copy
+│   ├── BentoGrid.tsx         # 12-column responsive layout grid
+│   ├── SplitLayout.tsx       # Sticky left and scrolling right split
+│   └── HeroSection.tsx       # Layered hero with exact z-index stack
+└── cards/
+    ├── ServiceCard.tsx       # Full-width numbered row or bento card
+    ├── ProjectCard.tsx       # High-contrast work card with hover zoom
+    ├── TestimonialCard.tsx   # Elevated card with radial spotlight glow
+    └── SkillGroupCard.tsx    # Domain-grouped technical skill matrix
+```
+
+## 3. Step-by-Step Implementation Workflow
 
 ### Step 1: Build Structural Layout Wrappers (`src/components/layout/`)
 Read **Block 1** of `prompts/phase-3-cards-layout.md` and create:
@@ -64,7 +87,7 @@ Read **Block 4** of `prompts/phase-3-cards-layout.md` and create `src/components
   - **Visual Container**: Aspect-ratio wrapper (e.g., `aspect-[16/10]` or `aspect-[3/4]`) with `overflow-hidden rounded-[var(--radius-card)] bg-[var(--bg-elevated)] border border-[var(--border-subtle)] relative`.
   - **Verified Image & Hover Zoom**: Render the verified image path from `siteData.projects` (or a clean high-contrast typographic/gradient visual preview if marked as a placeholder in `siteData.ts`) with smooth hover zoom (`transition-transform duration-700 ease-out group-hover:scale-105`).
   - **Metadata & Actions**: Render index (`01`), category badge, bold title, concise human summary, `<TechPill />` stack array, and live/repo action links.
-  - **Strict Lock**: Never render fake `$ npx` terminal windows inside project cards unless explicitly present in `siteData.ts`.
+  - **Strict Lock**: Render strictly the real user projects. Never synthesize extra project cards. Never render fake `$ npx` terminal windows inside project cards.
 
 ### Step 5: Build Testimonials, Skills & Supporting Cards (`src/components/cards/`)
 Read **Block 5** of `prompts/phase-3-cards-layout.md` and create:
@@ -77,13 +100,13 @@ Read **Block 5** of `prompts/phase-3-cards-layout.md` and create:
 ### Step 6: Update Root Preview (`localhost:3000`) with Hero + Cards Showroom
 Read **Block 6** of `prompts/phase-3-cards-layout.md`. Update the root preview page (e.g., `src/app/page.tsx`) so the user can visually inspect Stage 3 in the browser:
 1. **Top of Page**: Render the live `<HeroSection />` immediately followed by `<InfiniteMarquee items={siteData.marqueeItems} />`.
-2. **Below Hero**: Render a `<SectionContainer>` containing a **"Phase 3: Cards & Layout Showroom"** with `<SectionHeader index="03" eyebrow="STAGE 3 SHOWROOM" title="CARDS & LAYOUT ARCHETYPES" />`:
-   - Render 2 live `<ServiceCard />` rows/cards from `siteData.services`.
-   - Render 2 live `<ProjectCard />` showcase cards from `siteData.projects`.
-   - Render 2 live `<TestimonialCard />` radial-glow cards from `siteData.testimonials`.
-   - Render 2 live `<SkillGroupCard />` / `<CredentialCard />` cards from `siteData.skills` and `siteData.education`.
+2. **Below Hero**: Render a `<SectionContainer>` containing a **Phase 3: Cards & Layout Showroom** with `<SectionHeader index="03" eyebrow="STAGE 3 SHOWROOM" title="CARDS & LAYOUT ARCHETYPES" />`:
+   - Render live `<ServiceCard />` rows/cards from `siteData.services`.
+   - Render live `<ProjectCard />` showcase cards strictly matching `siteData.projects` length.
+   - Render live `<TestimonialCard />` radial-glow cards from `siteData.testimonials`.
+   - Render live `<SkillGroupCard />` / `<CredentialCard />` cards from `siteData.skills` and `siteData.education`.
 
-## 3. Update Progress & Stop for User Review
+## 4. Update Progress & Stop for User Review
 1. Update `prompts/IMPLEMENTATION_PROGRESS.md`:
    ```markdown
    # IMPLEMENTATION PROGRESS
@@ -93,7 +116,7 @@ Read **Block 6** of `prompts/phase-3-cards-layout.md`. Update the root preview p
    - [ ] Stage 4: `/5-navbar-and-footer`
    - [ ] Stage 5: `/6-build-pages`
    - [ ] Stage 6: `/7-animate-website`
-   - [ ] Stage 7: `/8-seo-and-aeo`
-   - [ ] Stage 8: `/9-responsive-and-qa`
+   - [ ] Stage 7: `/8-responsive-and-qa`
+   - [ ] Stage 8: `/9-seo-and-aeo`
    ```
 2. **STOP IMMEDIATELY**: Do NOT build the Navbar, Menu Overlay, Contact Wizard, or Footer yet. Instruct the user to open `http://localhost:3000` to inspect the live **HeroSection** (layering, portrait/visual, typography, and marquee) and test hovering each **ServiceCard, ProjectCard, TestimonialCard, and SkillGroupCard**, and then run `/5-navbar-and-footer` when ready.

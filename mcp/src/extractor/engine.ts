@@ -573,6 +573,145 @@ export async function extractDesignFromUrl(
         };
       });
 
+      // Deep Component & Forensics Evaluation
+      const doubleSlashElements = allElements
+        .filter((el) => {
+          if (el.children.length > 0 || !el.textContent) return false;
+          const tag = el.tagName.toLowerCase();
+          if (["script", "style", "noscript"].includes(tag)) return false;
+          const t = el.textContent.trim();
+          return t.includes("//") && !t.includes("http://") && !t.includes("https://");
+        })
+        .map((el) => ({
+          tag: el.tagName.toLowerCase(),
+          text: el.textContent!.trim().slice(0, 80),
+        }));
+
+      const pulseElements = allElements
+        .filter((el) => {
+          const cls = typeof el.className === "string" ? el.className : "";
+          const s = window.getComputedStyle(el);
+          return (
+            cls.includes("pulse") ||
+            cls.includes("ping") ||
+            (s.animationName && (s.animationName.includes("pulse") || s.animationName.includes("ping")))
+          );
+        })
+        .map((el) => ({
+          tag: el.tagName.toLowerCase(),
+          class: typeof el.className === "string" ? el.className.slice(0, 60) : "",
+        }));
+
+      const buttonsList = Array.from(
+        document.querySelectorAll('button, .btn, [class*="btn"], .pill, [class*="pill"], a[role="button"]')
+      )
+        .map((el) => {
+          const s = window.getComputedStyle(el);
+          return {
+            selector:
+              el.tagName.toLowerCase() +
+              (el.className && typeof el.className === "string" ? "." + el.className.trim().split(/\s+/)[0] : ""),
+            text: el.textContent?.trim().slice(0, 40) || "",
+            bg: s.backgroundColor,
+            color: s.color,
+            border: `${s.borderWidth} ${s.borderStyle} ${s.borderColor}`,
+            radius: s.borderRadius,
+            padding: `${s.paddingTop} ${s.paddingRight} ${s.paddingBottom} ${s.paddingLeft}`,
+            fontSize: s.fontSize,
+          };
+        })
+        .filter((b) => b.text.length > 0)
+        .slice(0, 10);
+
+      const cardsList = Array.from(
+        document.querySelectorAll(
+          '.preview__item, .preview, [class*="preview"], [class*="work"] article, [class*="card"]'
+        )
+      )
+        .map((el) => {
+          const s = window.getComputedStyle(el);
+          const title = el.querySelector('h1, h2, h3, h4, [class*="title"]')?.textContent?.trim();
+          const tags = Array.from(el.querySelectorAll('.tag, [class*="tag"], li'))
+            .map((t) => t.textContent?.trim())
+            .filter(Boolean) as string[];
+          const img = el.querySelector("img");
+          return {
+            selector:
+              el.tagName.toLowerCase() +
+              (el.className && typeof el.className === "string" ? "." + el.className.trim().split(/\s+/)[0] : ""),
+            title: title || undefined,
+            tags: tags.slice(0, 6),
+            hasImage: !!img,
+            border: `${s.borderWidth} ${s.borderColor}`,
+            radius: s.borderRadius,
+          };
+        })
+        .slice(0, 10);
+
+      const pillsAndBadgesList = Array.from(
+        document.querySelectorAll('.pill, [class*="pill"], .badge, [class*="badge"], [class*="chip"]')
+      )
+        .map((el) => {
+          const s = window.getComputedStyle(el);
+          return {
+            selector:
+              el.tagName.toLowerCase() +
+              (el.className && typeof el.className === "string" ? "." + el.className.trim().split(/\s+/)[0] : ""),
+            text: el.textContent?.trim().slice(0, 30) || "",
+            bg: s.backgroundColor,
+            color: s.color,
+            radius: s.borderRadius,
+          };
+        })
+        .filter((p) => p.text.length > 0)
+        .slice(0, 10);
+
+      const tabularRowsList = Array.from(
+        document.querySelectorAll('.rec__row, [class*="rec__row"], .row, [class*="table"] tr')
+      )
+        .map((el) => {
+          const s = window.getComputedStyle(el);
+          const cols = Array.from(el.children).map((c) => c.textContent?.trim()).filter(Boolean) as string[];
+          return {
+            selector:
+              el.tagName.toLowerCase() +
+              (el.className && typeof el.className === "string" ? "." + el.className.trim().split(/\s+/)[0] : ""),
+            columns: cols.slice(0, 5),
+            borderBottom: s.borderBottom,
+          };
+        })
+        .filter((r) => r.columns.length > 0)
+        .slice(0, 8);
+
+      const tagsetsList = Array.from(document.querySelectorAll('.tagset, [class*="tagset"], .tagsets'))
+        .map((el) => {
+          const label = el.querySelector('.label, [class*="label"]')?.textContent?.trim();
+          const items = Array.from(el.querySelectorAll("*"))
+            .filter((c) => c.children.length === 0 && c.textContent?.trim())
+            .map((c) => c.textContent!.trim())
+            .filter((t) => t !== label);
+          return {
+            label: label || undefined,
+            items: items.slice(0, 10),
+          };
+        })
+        .slice(0, 6);
+
+      const accordionsList = Array.from(
+        document.querySelectorAll('.caps__item, .caps li, [class*="caps"] li, details, [class*="accordion"]')
+      )
+        .map((el) => {
+          const title = el.querySelector("h1, h2, h3, h4, summary, strong, span")?.textContent?.trim();
+          const subItems = Array.from(el.querySelectorAll("p, li, span"))
+            .map((s) => s.textContent?.trim())
+            .filter(Boolean) as string[];
+          return {
+            title: title || undefined,
+            subItems: subItems.slice(0, 5),
+          };
+        })
+        .slice(0, 6);
+
       return {
         totalNodes,
         stylesheetsCount,
@@ -587,6 +726,21 @@ export async function extractDesignFromUrl(
         observedTransitions,
         observedEasings,
         sectionsData,
+        forensics: {
+          hasDoubleSlash: doubleSlashElements.length > 0,
+          doubleSlashOccurrences: doubleSlashElements.slice(0, 10),
+          hasPulseAnimation: pulseElements.length > 0,
+          pulseOccurrences: pulseElements.slice(0, 10),
+          projectCardsObserved: cardsList.length,
+          componentAnatomy: {
+            buttons: buttonsList,
+            cards: cardsList,
+            pillsAndBadges: pillsAndBadgesList,
+            tabularRows: tabularRowsList,
+            tagsets: tagsetsList,
+            accordions: accordionsList,
+          },
+        },
       };
     });
 
@@ -708,6 +862,7 @@ export async function extractDesignFromUrl(
       motion,
       menuOverlay: observedMenuOverlay,
       wcagFindings,
+      forensics: domInspection.forensics,
     };
 
     // 13. Emit multi-file design system into designs/<brand-slug>/

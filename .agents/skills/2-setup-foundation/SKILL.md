@@ -113,7 +113,7 @@ Read **Block 6** of `prompts/phase-1-foundation-data.md`. Replace the root page 
 2. **The Single Big Foundation Card**:
    - Container: `relative z-10 w-full max-w-5xl rounded-[var(--radius-card)] bg-[var(--bg-surface)]/90 border border-[var(--border-subtle)] backdrop-blur-xl p-8 md:p-12 shadow-2xl space-y-10`.
 3. **Section A - Header & Live Typography Hierarchy Specimen**:
-   - Top status badge in `--font-mono` (`01 // PHASE 1 FOUNDATION PREVIEW`) in `text-[var(--accent-primary)]`.
+   - Top status badge in `--font-mono` (`01 · PHASE 1 FOUNDATION PREVIEW`) in `text-[var(--accent-primary)]`.
    - Render `siteData.identity.name` in `--font-display` at Hero Display scale (`text-[clamp(2.75rem,7vw,6rem)] leading-[0.9] uppercase tracking-tight`) so the user immediately sees the display font in action.
    - Render an H2 sample heading (`--font-display` at `text-2xl md:text-4xl`) with `--accent-primary` highlight.
    - Render `siteData.identity.bio` in `--font-sans` (`text-[var(--text-secondary)] leading-relaxed max-w-2xl`) so body readability is verified.
@@ -134,7 +134,7 @@ Read **Block 6** of `prompts/phase-1-foundation-data.md`. Replace the root page 
    - [ ] Stage 4: `/5-navbar-and-footer`
    - [ ] Stage 5: `/6-build-pages`
    - [ ] Stage 6: `/7-animate-website`
-   - [ ] Stage 7: `/8-seo-and-aeo`
-   - [ ] Stage 8: `/9-responsive-and-qa`
+   - [ ] Stage 7: `/8-responsive-and-qa`
+   - [ ] Stage 8: `/9-seo-and-aeo`
    ```
 2. **STOP IMMEDIATELY**: Do NOT proceed to Stage 2 components. Instruct the user to open `http://localhost:3000` to inspect the **Single Big Foundation Preview Card** (colors, radial glow, typography hierarchy, and loaded data counts) and run `/3-build-components` when ready.

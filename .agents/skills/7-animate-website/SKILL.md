@@ -22,23 +22,39 @@ You are acting as a unified **Principal Creative Motion Engineer, Staff Interact
 2. **Never Substitute Plain CSS `scroll-behavior: smooth` for Real Motion**:
    - When `prompts/phase-6-animations.md` specifies `Lenis`, `GSAP ScrollTrigger`, or `Framer Motion`, you MUST wire real motion components and hooks rather than leaving static sections with CSS `scroll-behavior: smooth`.
 3. **Wire ONLY Motion & Micro-Interactions in This Stage**:
-   - Do NOT build SEO/AEO `llms.txt` or JSON-LD files yet (that happens in `/8-seo-and-aeo`).
+   - Do NOT run final production responsive audits or generate SEO/AEO `llms.txt` and JSON-LD schemas yet (those belong to `/8-responsive-and-qa` and `/9-seo-and-aeo`).
    - Build all motion providers and wrappers in `src/components/motion/`, wire entrance, scroll, and hover animations across all pages and components, verify 60fps execution on `localhost:3000`, update `prompts/IMPLEMENTATION_PROGRESS.md`, and **STOP** for user inspection.
+4. **Anti-Cliche Formatting & Pulse Lock**:
+   - Section eyebrows and badges must never contain double slashes (`//`). Always use clean spacing (`01  WORK`) or subtle dots (`01 · WORK`).
+   - Status indicators must remain steady and solid. Never inject unrequested pulse or ping animations.
 
-## 2. Step-by-Step Implementation Workflow
+## 2. Motion Architecture & File Registry
+
+All motion providers, choreography primitives, and physics wrappers must reside in `src/components/motion/`:
+```
+src/components/motion/
+├── SmoothScrollProvider.tsx # Lenis smooth scrolling synced with GSAP ScrollTrigger
+├── Reveal.tsx               # Viewport reveals, staggered containers, and count-up metrics
+├── SplitTextReveal.tsx      # Split-text headline entrance with overflow clipping
+└── CustomCursor.tsx         # Desktop spring follower restricted to pointer: fine
+```
+
+## 3. Step-by-Step Implementation Workflow
 
 ### Step 1: Build Smooth Scroll Engine & Reusable Motion Wrappers (`src/components/motion/`)
 Read **Block 1** of `prompts/phase-6-animations.md` and create:
 1. **`src/components/motion/SmoothScrollProvider.tsx` (`"use client"`)**:
    - Initializes `Lenis` (`duration: 1.15`, `smoothWheel: true`) inside `useEffect` (skipping if `window.matchMedia("(prefers-reduced-motion: reduce)").matches` is true).
    - Registers `GSAP ScrollTrigger` (`gsap.registerPlugin(ScrollTrigger)`) and syncs `Lenis` scroll updates with `ScrollTrigger.update`.
+   - Add GSAP ticker synchronization: `gsap.ticker.add((time) => lenis.raf(time * 1000))` and `gsap.ticker.lagSmoothing(0)`.
+   - Clean up on unmount: destroy `lenis` instance and remove ticker listener.
    - Mount `<SmoothScrollProvider>` around the application children inside `src/app/layout.tsx`.
 2. **`src/components/motion/Reveal.tsx` (`"use client"`)**:
    - Export modular client motion primitives so page and section components stay clean and composable:
      - `<Reveal>`: Animates `y: 36 -> 0, opacity: 0 -> 1` (`duration: 0.7, ease: [0.16, 1, 0.3, 1]`) when entering the viewport (`once: true, margin: "-80px"`).
      - `<StaggerContainer>` & `<StaggerItem>`: Staggers child cards or rows (`0.1s` delay between items).
-     - `<SplitTextReveal>`: Splits a headline string into words (and optional characters) wrapped in `<span className="inline-block overflow-hidden"><span className="inline-block will-change-transform">...</span></span>` and animates `translateY(110%) -> translateY(0%)`.
-     - `<CountUpMetric>`: Animates numeric values (e.g., `2+`, `14+`, `98%`) smoothly from `0` to the target number on first viewport entry while preserving prefixes/suffixes.
+     - `<SplitTextReveal>`: Splits a headline string into words wrapped in `<span className="inline-block overflow-hidden"><span className="inline-block will-change-transform">...</span></span>` and animates `translateY(110%) -> translateY(0%)`.
+     - `<CountUpMetric>`: Animates numeric values (e.g., `2+`, `14+`, `98%`) smoothly from `0` to the target number on first viewport entry while preserving prefixes and suffixes.
 
 ### Step 2: Choreograph the Hero Entrance Timeline & Parallax (`src/components/layout/HeroSection.tsx`)
 Read **Block 2** of `prompts/phase-6-animations.md` and upgrade `src/components/layout/HeroSection.tsx`:
@@ -49,7 +65,7 @@ Read **Block 2** of `prompts/phase-6-animations.md` and upgrade `src/components/
 
 ### Step 3: Wire Scroll-Triggered Section Reveals & Metric Counters Across All Pages
 Read **Block 3** of `prompts/phase-6-animations.md` and wire scroll animations across `/` (`src/app/page.tsx`) and all multi-page sub-routes (`/about`, `/projects`, `/skills`, `/contact`, etc.):
-1. **Section Headers (`SectionHeader.tsx`)**: Wrap eyebrow (`01 //`) and H2 heading in `<Reveal>` so every section header animates smoothly into view.
+1. **Section Headers (`SectionHeader.tsx`)**: Wrap eyebrow (`01 · `) and H2 heading in `<Reveal>` so every section header animates smoothly into view.
 2. **About & Metrics Counters**: Replace static metric numbers with `<CountUpMetric value={metric.value} />` so numbers count up smoothly when scrolled into view.
 3. **Numbered Service Rows (`ServiceCard.tsx`)**: Stagger each row (`01` to `04`) on scroll entry and animate top/bottom hairline borders (`origin-left scale-x-0 -> scale-x-100`).
 4. **Projects, Skills, Credentials & Testimonials Grids**: Wrap card grids in `<StaggerContainer>` and each card (`ProjectCard`, `SkillGroupCard`, `CredentialCard`, `TestimonialCard`) in `<StaggerItem>` for smooth cascading entrance.
@@ -75,8 +91,20 @@ Read **Block 5 and Block 6** of `prompts/phase-6-animations.md`:
    - Wrap wizard steps (`Step 1 -> Step 2 -> Step 3 -> Confirmation`) in `AnimatePresence mode="wait"` so steps crossfade/slide smoothly while `StepProgressBar` animates its width fill (`transition-all duration-500 ease-out`).
 3. **Reduced-Motion Accessibility Guardrail**:
    - Ensure `@media (prefers-reduced-motion: reduce)` in `globals.css` and `useReducedMotion()` checks in motion components gracefully disable heavy parallax or rapid transforms when OS reduced motion is active.
+4. **GSAP Context Teardown & Memory Management**:
+   - Wrap all GSAP timelines in `gsap.context()` inside `useEffect` or `useGSAP` with clear `ctx.revert()` cleanup on unmount to prevent stale trigger references.
+   - Set `ScrollTrigger.config({ limitCallbacks: true, syncInterval: 50 })` to optimize battery life on mobile devices.
 
-## 3. Update Progress & Stop for User Review
+### Step 6: 60fps Motion Performance & Jank Audit
+Verify that motion implementation runs smoothly without dropping frames:
+1. Ensure animated elements utilize GPU-accelerated CSS properties (`transform`, `opacity`) rather than layout triggers (`top`, `margin`, `width`).
+2. Verify that elements with heavy transforms include `will-change: transform` during active animations and remove it afterward.
+3. Test smooth scroll behavior on high-refresh-rate displays (120Hz/144Hz) to confirm stutter-free scrubbing.
+4. Verify that rapid window resizing does not break pinned ScrollTrigger calculations by testing `ScrollTrigger.refresh()`.
+5. Confirm that scroll scrubbing animations pause gracefully when the user switches browser tabs.
+6. Check that touch scrolling on mobile devices retains native inertia without fighting Lenis handlers.
+
+## 4. Update Progress & Stop for User Review
 1. Update `prompts/IMPLEMENTATION_PROGRESS.md`:
    ```markdown
    # IMPLEMENTATION PROGRESS
@@ -86,7 +114,7 @@ Read **Block 5 and Block 6** of `prompts/phase-6-animations.md`:
    - [x] Stage 4: `/5-navbar-and-footer` (`Navbar`, `MenuOverlay`, `ContactSection` & `Footer`)
    - [x] Stage 5: `/6-build-pages` (Full Production Home Page & All Sub-Routes Assembled)
    - [x] Stage 6: `/7-animate-website` (`Lenis` Smooth Scroll, `GSAP`/`Framer Motion` Reveals & Micro-Interactions Live)
-   - [ ] Stage 7: `/8-seo-and-aeo`
-   - [ ] Stage 8: `/9-responsive-and-qa`
+   - [ ] Stage 7: `/8-responsive-and-qa`
+   - [ ] Stage 8: `/9-seo-and-aeo`
    ```
-2. **STOP IMMEDIATELY**: Do NOT implement SEO/AEO metadata or `llms.txt` yet. Instruct the user to open `http://localhost:3000` to test smooth scrolling, the Hero split-text entrance, scroll-triggered section reveals, animated metric counters, menu curtain transitions, and the footer watermark hover glow, and then run `/8-seo-and-aeo` when ready.
+2. **STOP IMMEDIATELY**: Do NOT run responsive QA or write SEO/AEO metadata yet. Instruct the user to open `http://localhost:3000` to test smooth scrolling, the Hero split-text entrance, scroll-triggered section reveals, animated metric counters, menu curtain transitions, and the footer watermark hover glow, and then run `/8-responsive-and-qa` when ready.

@@ -1,6 +1,6 @@
 {
   "name": "@irfanlovefront/mcp",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "Universal Frontend Design & Motion Reverse-Engineering MCP Server and Multi-File Architecture Generator",
   "type": "module",
   "bin": {

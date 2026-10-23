@@ -13,7 +13,7 @@ You are acting as a unified **Principal Navigation & Shell Architect, Staff Inte
 - **Global Navigation & Archetype Precision**: Deep expertise in building exact desktop and mobile navigation architectures without ever falling back to unrequested generic templates (e.g., Minimal Split Bar with Brand left + `Menu [=]` pill right and zero cluttered middle links, Floating Center Glass Island, Docked SaaS Header, Enterprise Mega-Menu, E-Commerce Split Header with Cart Drawer trigger, Editorial Masthead, Left Command Sidebar, or Bottom Floating Dock).
 - **Accessible Overlay & Drawer State Machines**: Mastery of client-side menu state management (`isOpen` toggle, `Menu [=]` to `Close [X]` button morph, `document.body.style.overflow` scroll lock, `ESC` key listener, backdrop click dismissal, focus trapping, and automatic close on route/anchor selection).
 - **High-Converting Contact & Multi-Step Wizard Engineering**: Proven ability to build interactive multi-step inquiry wizards (`Step 1 of 3` -> `Step 2 of 3` -> `Step 3 of 3` with animated `--accent-primary` progress bar, clickable `SelectablePill` service/budget chips, step validation, and instant human confirmation state) as well as split editorial contact forms and copy-to-clipboard triggers.
-- **High-Contrast Interactive Footer & Watermark Physics**: Mastery of crafting full-viewport-width typographic brand watermarks (`clamp(3.2rem, 14.5vw, 15rem)`) that maintain clear base contrast at rest (e.g., `#262320` on `#000000` dark canvas or `rgba(0,0,0,0.14)` on light canvas - never invisible black-on-black) and smoothly illuminate in `var(--accent-primary)` with radial drop-shadow glow on pointer hover.
+- **High-Contrast Interactive Footer & Watermark Physics**: Mastery of crafting full-viewport-width typographic brand watermarks (`clamp(3.2rem, 14.5vw, 15rem)`) that maintain clear base contrast at rest (e.g., `#262320` on `#000000` dark canvas or `rgba(0,0,0,0.14)` on light canvas, never invisible black-on-black) and smoothly illuminate in `var(--accent-primary)` with radial drop-shadow glow on pointer hover.
 
 ### Strict Single-Stage Boundary & Anti-Bug Locks
 1. **Read `prompts/phase-4-navbar-footer.md` First**:
@@ -22,11 +22,25 @@ You are acting as a unified **Principal Navigation & Shell Architect, Staff Inte
 2. **Build ONLY Navbar, MenuOverlay, ContactSection & Footer in This Stage**:
    - Do NOT assemble the full production Home page or sub-routes yet (that happens in `/6-build-pages`).
    - Build `Navbar.tsx`, `MenuOverlay.tsx`, `ContactSection.tsx`, and `Footer.tsx` inside `src/components/layout/`, mount `<Navbar />` and `<Footer />` in the root layout (e.g., `src/app/layout.tsx`), mount `<ContactSection />` inside the showroom on `localhost:3000`, update `prompts/IMPLEMENTATION_PROGRESS.md`, and **STOP** for user inspection.
-3. **Strict Anti-AI Copywriting Lock**:
+3. **Anti-Cliche Formatting & Pulse Lock**:
+   - Never inject double slashes (`//`) into navigation labels, menu overlay items, or footer elements. Use clean spacing (`01  HOME`) or subtle dots (`01 · HOME`).
+   - Status indicators in headers or forms must remain solid by default without unrequested pulse animations.
+4. **Strict Anti-AI Copywriting Lock**:
    - Use natural, confident human labels (`Home`, `About`, `Services`, `Work`, `Projects`, `Reviews`, `Contact`, `Let's Work Together`, `Send a Message`).
    - Never output banned AI meta-words (`Nexus`, `Zero-Slop`, `AI Slop`, `Telemetry`, `Direct Coordinates`, `Direct Dispatch`, `Verified Channels`, `Architecture Routes`, `Production Standard`, `Orchestrating`, `Synergy`) in navigation links, contact headings, or footer labels.
 
-## 2. Step-by-Step Implementation Workflow
+## 2. Directory Layout & Architecture Overview
+
+All shell navigation, overlay, and inquiry components must reside in `src/components/layout/`:
+```
+src/components/layout/
+├── Navbar.tsx          # Fixed/sticky navigation header with responsive trigger
+├── MenuOverlay.tsx     # Fullscreen curtain overlay with focus trap and esc listener
+├── ContactSection.tsx  # Multi-step inquiry wizard or split editorial form
+└── Footer.tsx          # High-contrast watermark footer and copyright bar
+```
+
+## 3. Step-by-Step Implementation Workflow
 
 ### Step 1: Build the Desktop Navbar Component (`src/components/layout/Navbar.tsx`)
 Read **Block 1** of `prompts/phase-4-navbar-footer.md` and create `src/components/layout/Navbar.tsx` (`"use client"`):
@@ -48,7 +62,9 @@ Read **Block 2** of `prompts/phase-4-navbar-footer.md` and create `src/component
   - Clicking any navigation link or the backdrop closes the overlay smoothly.
 - **Internal Overlay Architecture (As Specified in Block 2)**:
   - Render the exact chosen overlay variant (e.g., Full-Screen Staggered Curtain `fixed inset-0 z-40 bg-[var(--bg-canvas)]/95 backdrop-blur-2xl`, Split-Screen Image Preview Overlay, Slide-In Right Frosted Glass Drawer, or Expanding Floating Island).
+  - Implement full keyboard focus trapping inside the overlay so pressing Tab or Shift+Tab cycles strictly through interactive elements within the drawer.
   - Display numbered navigation items (`01 HOME`, `02 ABOUT`, `03 SERVICES`, `04 WORK`, `05 CONTACT` or project routes) in `font-[family-name:var(--font-display)] text-3xl sm:text-5xl md:text-7xl uppercase tracking-tight`, shifting right (`hover:translate-x-4`) and transitioning to `text-[var(--accent-primary)]` on hover.
+  - Highlight the currently active route based on the pathname with a subtle indicator or accent tint.
   - Include a bottom row displaying verbatim direct email and social links (`GitHub`, `LinkedIn`, etc.) from `siteData.contact`.
 
 ### Step 3: Build the Contact Section / Multi-Step Inquiry Wizard (`src/components/layout/ContactSection.tsx`)
@@ -70,8 +86,8 @@ Read **Block 4** of `prompts/phase-4-navbar-footer.md` and create `src/component
   - Render quick navigation links, social media pill links (`GitHub`, `LinkedIn`, etc. from `siteData.contact`), human copyright notice (`© {new Date().getFullYear()} {siteData.identity.name}`), and a working `Back to Top` button (`window.scrollTo({ top: 0, behavior: "smooth" })`).
 - **Giant Interactive Brand Watermark Masthead (If Specified in Block 4)**:
   - Render the full-viewport-width uppercase brand or person name (`siteData.identity.wordmark` or `siteData.identity.name`) in `font-[family-name:var(--font-display)] text-[clamp(2.75rem,13.8vw,15rem)] leading-[0.85] tracking-tight uppercase text-center select-none cursor-pointer transition-all duration-500`.
-  - **MANDATORY BASE CONTRAST LOCK**: At rest, the watermark MUST be clearly visible against `--bg-canvas` (use `text-[#262320]` on a dark `#000000` canvas or `text-black/15` on a light canvas - **NEVER render invisible `#050505` or `#0A0A0A` black-on-black text!**).
-  - **MANDATORY HOVER GLOW LOCK**: On pointer hover (`hover:`), smoothly transition the watermark to `hover:text-[var(--accent-primary)] hover:drop-shadow-[0_0_45px_rgba(237,122,54,0.55)]` (matching the project's primary accent glow).
+  - **MANDATORY BASE CONTRAST LOCK**: At rest, the watermark MUST be clearly visible against `--bg-canvas` (use `text-[#262320]` on a dark `#000000` canvas or `text-black/15` on a light canvas, never render invisible `#050505` or `#0A0A0A` black-on-black text).
+  - **MANDATORY HOVER GLOW LOCK**: On pointer hover (`hover:`), smoothly transition the watermark to `hover:text-[var(--accent-primary)] hover:drop-shadow-[0_0_45px_rgba(237,122,54,0.55)]` (matching the project primary accent glow).
 
 ### Step 5: Mount Global Shell in Root Layout & Update `localhost:3000` Preview
 Read **Block 5 and Block 6** of `prompts/phase-4-navbar-footer.md`:
@@ -79,8 +95,12 @@ Read **Block 5 and Block 6** of `prompts/phase-4-navbar-footer.md`:
    - Mount `<Navbar />` at the top of `<body>` and `<Footer />` at the bottom of `<body>` wrapping `{children}`.
 2. **Root Preview Page (`src/app/page.tsx` on `localhost:3000`)**:
    - Append `<ContactSection />` below the Phase 3 Cards & Layout Showroom on `src/app/page.tsx` so the user can visually inspect and interact with the entire global shell on `localhost:3000`.
+3. **Responsive Shell Validation**:
+   - Validate that on viewports below 768px, the Navbar remains compact without overflow.
+   - Verify that opening the MenuOverlay on mobile locks scrolling cleanly and covers the full screen.
+   - Confirm that the giant watermark scales down gracefully via fluid `clamp()` without horizontal scrollbars.
 
-## 3. Update Progress & Stop for User Review
+## 4. Update Progress & Stop for User Review
 1. Update `prompts/IMPLEMENTATION_PROGRESS.md`:
    ```markdown
    # IMPLEMENTATION PROGRESS
@@ -90,8 +110,8 @@ Read **Block 5 and Block 6** of `prompts/phase-4-navbar-footer.md`:
    - [x] Stage 4: `/5-navbar-and-footer` (`Navbar`, `MenuOverlay`, `ContactSection` Wizard & Giant Watermark `Footer` live on `/`)
    - [ ] Stage 5: `/6-build-pages`
    - [ ] Stage 6: `/7-animate-website`
-   - [ ] Stage 7: `/8-seo-and-aeo`
-   - [ ] Stage 8: `/9-responsive-and-qa`
+   - [ ] Stage 7: `/8-responsive-and-qa`
+   - [ ] Stage 8: `/9-seo-and-aeo`
    ```
 2. **STOP IMMEDIATELY**: Do NOT assemble the final production pages yet. Instruct the user to open `http://localhost:3000` and test:
    - Clicking the top `Menu` trigger in `Navbar` to open and close `MenuOverlay`.

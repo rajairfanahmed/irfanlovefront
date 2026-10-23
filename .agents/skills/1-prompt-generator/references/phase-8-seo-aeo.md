@@ -1,13 +1,13 @@
-# Phase 7: Enterprise Technical SEO, Schema.org JSON-LD Graph & AI Engine Optimization (AEO / GEO)
+# Phase 8: Enterprise Technical SEO, Schema.org JSON-LD Graph & AI Engine Optimization (Final Phase)
 
-Read this file ONLY when executing **Phase 7** of `/1-prompt-generator` (after `prompts/phase-6-animations.md` has been written and recorded in `prompts/PROGRESS.md`).
+Read this file ONLY when executing **Phase 8** of `/1-prompt-generator` (after `prompts/phase-7-responsive-qa.md` has been written and recorded in `prompts/PROGRESS.md`).
 
-Your goal in Phase 7 is to:
-1. Check if the user's Phase 1-6 answers already define the brand/person name, primary domain URL, target audience, services, and social profiles. Confirm any known items as `Locked from Context`.
-2. Ask the Phase 7 questions below with selectable options + `[Custom User Input]` + `[AI Recommended]`.
-3. **Immediately after the user replies to Phase 7**, write the complete file `prompts/phase-7-seo-aeo.md` using the exact blueprint in Section 3 below, update `prompts/PROGRESS.md` to `Last Completed Phase: Phase 7 | Next Phase: Phase 8`, and then load `references/phase-8-responsive-qa.md` to present Phase 8 questions.
+Your goal in Phase 8 is to:
+1. Check if the user's Phase 1-7 answers already define the brand/person name, primary domain URL, target audience, services, and social profiles. Confirm any known items as `Locked from Context`.
+2. Ask the Phase 8 questions below with selectable options + `[Custom User Input]` + `[AI Recommended]`.
+3. **Immediately after the user replies to Phase 8**, write the complete file `prompts/phase-8-seo-aeo.md` using the exact blueprint in Section 3 below, update `prompts/PROGRESS.md` to `All 8 Prompt Phases Complete (8/8) | Ready for /2-setup-foundation`, and instruct the user to run `/2-setup-foundation` to start step-by-step implementation.
 
-## 1. Phase 7 Discovery Questions (Company-Level SEO & AI Engine Optimization)
+## 1. Phase 8 Discovery Questions (Company-Level SEO & AI Engine Optimization)
 
 ### Q1. Canonical Domain, Target Keywords & Search Positioning
 Ask the user to confirm or select their SEO positioning strategy:
@@ -54,28 +54,29 @@ Ask how social sharing previews (`og:image`, Twitter/X cards) and sitemaps shoul
 - `C) [Custom User Input]`: Provide custom OpenGraph title, description, or image path.
 - `D) [AI Recommended]`: Let AI build the complete Next.js Metadata API, dynamic OpenGraph card, `sitemap.ts`, and `robots.ts`.
 
-## 2. Immediate Action After User Answers Phase 7
-As soon as the user answers Phase 7 (or asks you to auto-decide):
-1. Write `prompts/phase-7-seo-aeo.md` using the exact 6-Block template in Section 3 below (190 to 260 lines of complete SEO & AEO specifications).
+## 2. Immediate Action After User Answers Phase 8
+As soon as the user answers Phase 8 (or asks you to auto-decide):
+1. Write `prompts/phase-8-seo-aeo.md` using the exact 6-Block template in Section 3 below (190 to 260 lines of complete SEO & AEO specifications).
 2. Update `prompts/PROGRESS.md` with:
-   - `Last Completed Phase: Phase 7 (prompts/phase-7-seo-aeo.md)`
+   - `Last Completed Phase: Phase 8 (prompts/phase-8-seo-aeo.md)`
    - `Last Written Line Count: [Exact line count]`
-   - `Next Phase to Execute: Phase 8 (references/phase-8-responsive-qa.md)`
-3. Read `references/phase-8-responsive-qa.md` and present Phase 8 questions to the user.
+   - `Status: ALL 8 PHASE PROMPTS COMPLETED (8/8)`
+   - `Next Command to Run: /2-setup-foundation`
+3. Inform the user that all 8 phase prompt files (`prompts/phase-1-*.md` through `prompts/phase-8-*.md`) are ready and they can now run `/2-setup-foundation` to begin building and previewing Step 1 on `localhost:3000`.
 
-## 3. Exact Blueprint to Write Into `prompts/phase-7-seo-aeo.md`
+## 3. Exact Blueprint to Write Into `prompts/phase-8-seo-aeo.md`
 
-When writing `prompts/phase-7-seo-aeo.md`, include all 6 blocks below with 100% concrete specifications (zero placeholders):
+When writing `prompts/phase-8-seo-aeo.md`, include all 6 blocks below with 100% concrete specifications (zero placeholders):
 
 ```markdown
-# PHASE 7 PROMPT: COMPANY-LEVEL TECHNICAL SEO, JSON-LD SCHEMA & AI ENGINE OPTIMIZATION (AEO)
-**Target Command**: `/8-seo-and-aeo`
+# PHASE 8 PROMPT: COMPANY-LEVEL TECHNICAL SEO, JSON-LD SCHEMA & AI ENGINE OPTIMIZATION (AEO)
+**Target Command**: `/9-seo-and-aeo`
 **Required Prerequisites**: Read `prompts/phase-1-foundation-data.md` and `src/data/siteData.ts`. Every SEO tag, JSON-LD entity, and `llms.txt` line MUST use real data from `siteData.ts` with zero robotic AI filler words.
 
 ## BLOCK 1: CENTRALIZED SEO CONFIGURATION & PER-ROUTE METADATA API (`src/lib/seo.ts`)
 - **Canonical Base URL (`metadataBase`)**: `[Exact production URL or process.env.NEXT_PUBLIC_SITE_URL || 'https://yourdomain.com']`
 - **Root Metadata (`src/app/layout.tsx`)**:
-  - `title`: `{ default: "[Exact Name / Brand] - [Primary Role / Value Proposition]", template: "%s | [Exact Name / Brand]" }`
+  - `title`: `{ default: "[Exact Name / Brand] · [Primary Role / Value Proposition]", template: "%s | [Exact Name / Brand]" }`
   - `description`: `[150-160 char high-converting human meta description from siteData.ts]`
   - `keywords`: `[Array of 10-15 high-intent target keywords]`
   - `authors`, `creator`, `publisher`, `alternates.canonical`, `openGraph` (`type: "website"`, `locale: "en_US"`, `siteName`), `twitter` (`card: "summary_large_image"`), and `robots` (`index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 }`).
@@ -113,10 +114,11 @@ Create two static machine-readable Markdown files in `public/` so ChatGPT Search
 Audit and upgrade all page and section components:
 - Ensure each route has **exactly one `<h1>`** (the primary Hero/Page headline) and logical `<h2>` -> `<h3>` nesting without skipped levels.
 - Ensure every `<section>` has a semantic `id` and `aria-label` or `aria-labelledby` linking to its heading.
-- Ensure every `<img>` / `<Image>` has descriptive, human-written `alt` text (e.g., `"Raja Irfan Ahmed - Full-Stack Developer Portrait"`, never `"image"` or `"hero"`).
+- Ensure every `<img>` / `<Image>` has descriptive, natural human `alt` text (e.g., `"Raja Irfan Ahmed - Full-Stack Developer Portrait"`, never `"image"` or `"hero"`).
 
-## BLOCK 6: MANDATORY SEO & AEO VERIFICATION ON `localhost:3000`
-When `/8-seo-and-aeo` completes implementation:
+## BLOCK 6: MANDATORY FINAL VERIFICATION & PRODUCTION BUILD
+When `/9-seo-and-aeo` completes implementation:
 1. Verify that `/llms.txt`, `/llms-full.txt`, `/robots.txt`, `/sitemap.xml`, and `/manifest.webmanifest` resolve cleanly on `localhost:3000`.
-2. Verify that `<script type="application/ld+json">` and complete OpenGraph/Twitter meta tags render in the document `<head>`, and then STOP so the user can run `/9-responsive-and-qa` next.
+2. Run `npx tsc --noEmit` and `npm run build` in the terminal to verify zero compilation or build errors.
+3. Confirm that the site achieves 100/100 across Lighthouse SEO and Best Practices audits.
 ```

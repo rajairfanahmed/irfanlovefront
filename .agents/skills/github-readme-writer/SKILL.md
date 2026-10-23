@@ -113,3 +113,10 @@ cd repo
 - [Security Policy](SECURITY.md)
 - [License](LICENSE)
 ```
+
+## 5. Quality Verification Checklist
+Before committing or publishing the generated README, confirm:
+1. Impactful visual demonstration is placed above the fold.
+2. Zero em-dashes or en-dashes are used anywhere in the text.
+3. Realistic, working installation and quickstart commands are provided.
+4. Badges, license links, and hygiene documents resolve properly.

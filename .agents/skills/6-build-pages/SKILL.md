@@ -21,12 +21,32 @@ You are acting as a unified **Principal Full-Page Product Architect, Staff Front
    - If `prompts/phase-5-pages.md` does not exist, stop immediately and tell the user to complete Phase 5 in `/1-prompt-generator` first.
 2. **Assemble All Production Pages & Routes in This Stage**:
    - Replace the temporary Stage 1-4 preview showroom on the root route (`src/app/page.tsx`) with the complete production Home Page, and build all sub-page routes specified in Block 2 of `prompts/phase-5-pages.md`.
-   - Do NOT wire heavy GSAP ScrollTrigger timelines or SEO/AEO `llms.txt` schemas yet (those belong to `/7-animate-website` and `/8-seo-and-aeo`).
+   - Do NOT wire heavy GSAP ScrollTrigger timelines or SEO/AEO schemas yet (those belong to `/7-animate-website` and `/9-seo-and-aeo`).
    - Once all pages and interactive states are live on `localhost:3000`, update `prompts/IMPLEMENTATION_PROGRESS.md` and **STOP** for user inspection.
-3. **Strict Anti-AI Copywriting & Anti-CLI Lock**:
+3. **Anti-Cliche Formatting & Pulse Lock**:
+   - Section eyebrows and headers must never contain double slashes (`//`). Always use clean spacing (`01  ABOUT`) or subtle dots (`01 · ABOUT`).
+   - Status indicators and badges must remain calm and solid by default. Do not use unrequested pulse animations (`animate-pulse` or `animate-ping`).
+4. **Strict Verbatim Projects Count Lock**:
+   - Never synthesize dummy, hallucinated, or placeholder project cards. If `siteData.projects` contains 2 projects, render exactly 2 project cards on the page.
+5. **Strict Anti-AI Copywriting & Anti-CLI Lock**:
    - Scan every page and section component to ensure ZERO occurrences of banned AI meta-words (`Nexus`, `Zero-Slop`, `AI Slop`, `Eliminating Generic AI Slop`, `Telemetry`, `Direct Coordinates`, `Direct Dispatch`, `Verified Channels`, `Architecture Routes`, `Production Standard`, `Orchestrating`, `Synergy`) and ZERO unrequested `$ npx` terminal windows.
 
-## 2. Step-by-Step Implementation Workflow
+## 2. Page & Sub-Route Architecture Overview
+
+Production routes must reflect the project architecture specified in `siteData.ts`:
+```
+src/app/
+├── layout.tsx            # Global layout mounting Navbar, SmoothScrollProvider, and Footer
+├── page.tsx              # Complete multi-section production Home Page
+├── about/page.tsx        # Dedicated editorial narrative, timeline, and credentials
+├── projects/
+│   ├── page.tsx          # Filterable project catalog strictly rendering real user projects
+│   └── [slug]/page.tsx   # In-depth case study template with verified specs
+├── skills/page.tsx       # Domain-categorized technical stack and workflow matrix
+└── contact/page.tsx      # Full inquiry portal with interactive contact wizard
+```
+
+## 3. Step-by-Step Implementation Workflow
 
 ### Step 1: Remove Temporary Showroom & Assemble the Production Home Page (`src/app/page.tsx`)
 Read **Block 1** of `prompts/phase-5-pages.md`. Replace the temporary showroom in `src/app/page.tsx` with the complete production Home Page by composing the UI primitives (`src/components/ui/`), cards (`src/components/cards/`), layout wrappers (`src/components/layout/`), and verbatim data (`src/data/siteData.ts`) in the exact top-to-bottom sequence specified in Block 1 (e.g.):
@@ -42,13 +62,15 @@ Read **Block 1** of `prompts/phase-5-pages.md`. Replace the temporary showroom i
    - Map `siteData.services` into `<ServiceCard />` rows or Bento cards (`01` through `04`).
 5. **Featured Projects / Work / Products Section (`#projects` or `#work`)**:
    - Wrap in `<SectionContainer id="projects" withTopBorder>` with `<SectionHeader index="03" eyebrow="SELECTED WORK" title="..." />`.
-   - Include interactive category filter tabs (if specified in Block 1/3) and map `siteData.projects` into `<ProjectCard />` showcase cards with verified image paths, tech pills, and live/repo links.
+   - Include interactive category filter tabs (if specified in Block 1/3) and map `siteData.projects` into `<ProjectCard />` showcase cards strictly matching real projects.
 6. **Skills, Education & Certifications / Specs Section (`#skills`)**:
    - Wrap in `<SectionContainer id="skills" withTopBorder>` with `<SectionHeader index="04" eyebrow="SKILLS & CREDENTIALS" title="..." />`.
    - Render categorized `<SkillGroupCard />` groups alongside verified `<CredentialCard />` items (degrees, universities, dates, and certifications from `siteData.education` and `siteData.certifications`).
 7. **Testimonials / Client Reviews Section (`#reviews`)**:
    - Wrap in `<SectionContainer id="reviews" withTopBorder withGlow>` with `<SectionHeader index="05" eyebrow="CLIENT REVIEWS" title="..." />`.
    - Map `siteData.testimonials` into `<TestimonialCard />` items with warm radial spotlight glow.
+   - Maintain consistent vertical spacing between sections using fluid padding tokens.
+   - Verify that all horizontal borders use subtle border variables rather than harsh high-opacity colors.
 8. **Interactive Contact Section (`#contact`)**:
    - Mount `<ContactSection />` (`id="contact"`) featuring the working multi-step inquiry wizard (`Step 1 of 3` -> `Step 2 of 3` -> `Step 3 of 3`) or split editorial form.
 
@@ -76,9 +98,12 @@ Read **Block 3** of `prompts/phase-5-pages.md` and verify:
 Read **Block 4 and Block 5** of `prompts/phase-5-pages.md` and run a strict check across all page and component files:
 - Confirm 100% of user data in `src/data/siteData.ts` (Identity, Metrics, Services, Projects, Skills, Education, Certifications, Testimonials, Contact) is rendered accurately.
 - Confirm every `<img>` / `<Image>` `src` points to a verified file in `public/` or a clean high-contrast typographic/gradient fallback so zero broken image icons appear in the browser.
+- Verify that every project card links accurately to its live URL or case study route without broken dead ends.
+- Ensure that active category filtering state visually highlights the selected category pill.
+- Ensure that sub-route titles and headings accurately reflect the page purpose rather than copying home page titles.
 - Confirm zero banned AI words (`Nexus`, `Zero-Slop`, `AI Slop`, `Telemetry`, `Direct Coordinates`, `Direct Dispatch`, `Verified Channels`, `Architecture Routes`) exist anywhere in the codebase.
 
-## 3. Update Progress & Stop for User Review
+## 4. Update Progress & Stop for User Review
 1. Update `prompts/IMPLEMENTATION_PROGRESS.md`:
    ```markdown
    # IMPLEMENTATION PROGRESS
@@ -88,7 +113,7 @@ Read **Block 4 and Block 5** of `prompts/phase-5-pages.md` and run a strict chec
    - [x] Stage 4: `/5-navbar-and-footer` (`Navbar`, `MenuOverlay`, `ContactSection` & `Footer`)
    - [x] Stage 5: `/6-build-pages` (Full Production Home Page & All Sub-Routes Assembled on `/`)
    - [ ] Stage 6: `/7-animate-website`
-   - [ ] Stage 7: `/8-seo-and-aeo`
-   - [ ] Stage 8: `/9-responsive-and-qa`
+   - [ ] Stage 7: `/8-responsive-and-qa`
+   - [ ] Stage 8: `/9-seo-and-aeo`
    ```
 2. **STOP IMMEDIATELY**: Do NOT wire GSAP ScrollTrigger timelines or SEO/AEO metadata yet. Instruct the user to open `http://localhost:3000` to inspect the complete assembled Home Page and all sub-routes, test project filtering and navigation links, and then run `/7-animate-website` when ready.

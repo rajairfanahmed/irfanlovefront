@@ -26,8 +26,8 @@ Regardless of which AI model executes these skills (Gemini 3.8 Flash, Gemini 3.8
 | **`/5-navbar-and-footer`** | `5-navbar-and-footer` | Stage 4 Navigation & Footer. Builds sticky navbar, full-screen menu curtain state machine, contact wizard, and giant hover-glow watermark footer. |
 | **`/6-build-pages`** | `6-build-pages` | Stage 5 Production Assembly. Removes temporary showroom, constructs complete Home page and all sub-routes with 100% authentic human copy. |
 | **`/7-animate-website`** | `7-animate-website` | Stage 6 Motion Choreography. Wires Lenis smooth scroll, GSAP ScrollTrigger scrubbing, split-text entrance, and pointer hover physics. |
-| **`/8-seo-and-aeo`** | `8-seo-and-aeo` | Stage 7 SEO & AI Optimization. Ingests metadata API, Schema.org JSON-LD Knowledge Graph, dynamic OpenGraph, sitemap.ts, and `llms.txt`. |
-| **`/9-responsive-and-qa`** | `9-responsive-and-qa` | Stage 8 Final Audit. Validates 375px/768px/1440px breakpoints, enforces WCAG AA contrast, runs 12-point anti-slop audit, and verifies production build. |
+| **`/8-responsive-and-qa`** | `8-responsive-and-qa` | Stage 7 Responsive & QA. Validates 375px/768px/1440px breakpoints, enforces WCAG AA contrast, and runs 12-point anti-bug audit. |
+| **`/9-seo-and-aeo`** | `9-seo-and-aeo` | Stage 8 Final SEO & AEO. Technical SEO, Schema.org JSON-LD Knowledge Graph, `llms.txt`, and production build verification. |
 
 ## 3. Dedicated 11-File Output Directory Architecture (`designs/<brand-slug>/`)
 Every extraction automatically produces a dedicated directory containing 11 separate specification files:
@@ -107,13 +107,13 @@ Once the 11 separate specification files are generated in `designs/<brand-slug>/
 - Halts for user visual inspection on localhost.
 
 ### Stage 4: Motion Choreography, Sub-Routes & Production Build
-- Execute `/6-build-pages`, `/7-animate-website`, `/8-seo-and-aeo`, and `/9-responsive-and-qa`.
+- Execute `/6-build-pages`, `/7-animate-website`, `/8-responsive-and-qa`, and `/9-seo-and-aeo`.
 - Wires Lenis smooth scroll synced with GSAP ScrollTrigger and split-text reveals.
 - Enforces 375px/768px/1440px responsive audits, WCAG 2.2 AA contrast, and zero-slop checklist.
 - Verifies clean TypeScript compilation with `npx tsc --noEmit` and production build with `npm run build`.
 
 ## 8. Downstream Implementation Pipeline Handoff
-Once extraction completes, present the user with a summary table of the generated files in `designs/<brand-slug>/`. The downstream workflow skills (`/1-prompt-generator` through `/9-responsive-and-qa`) consume these separate files to build the production website.
+Once extraction completes, present the user with a summary table of the generated files in `designs/<brand-slug>/`. The downstream workflow skills (`/1-prompt-generator` through `/9-seo-and-aeo`) consume these separate files to build the production website.
 - **Tokens & CSS Variables**: Read directly by `/2-setup-foundation` to initialize design tokens.
 - **Component Primitives**: Consumed by `/3-build-components` to construct atomic UI elements.
 - **Layout Bands & Archetypes**: Ingested by `/4-cards-and-layout` to structure hero and bento grids.

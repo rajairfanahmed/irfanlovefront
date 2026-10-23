@@ -424,43 +424,85 @@ ${result.menuOverlay?.detected
 `;
     writeFile("08-hover-and-interactions.md", hoverInteractionsMd);
     // 9. 09-components-catalog.md (Dedicated Components Catalog)
+    const anatomy = result.forensics?.componentAnatomy;
     const componentsCatalogMd = `# ${result.manifest.brand} UI Components Catalog & Anatomy
 
 > Source: [${result.manifest.url}](${result.manifest.url})  
-> Extracted directly from computed DOM element trees.
+> Extracted directly from computed DOM element trees via live Google Chrome inspection.
 
-## 1. Component Archetypes Observed
+## 1. Interactive Button Primitives
+
+${anatomy?.buttons?.length
+        ? anatomy.buttons
+            .map((b, idx) => `### Button Specimen ${idx + 1}: \`${b.selector}\`
+- **Label**: "${b.text}"
+- **Background**: \`${b.bg}\`
+- **Text Color**: \`${b.color}\`
+- **Border**: \`${b.border}\`
+- **Radius**: \`${b.radius}\`
+- **Padding**: \`${b.padding}\`
+- **Font Size**: \`${b.fontSize}\``)
+            .join("\n\n")
+        : `- Primary button styled with high contrast ink/primary fill and subtle micro-hover scaling.
+- Ghost/outline button with 1px hairline border.`}
+
+## 2. Work & Project Preview Cards
+
+- **Observed Count on Reference**: ${result.forensics?.projectCardsObserved || 0} cards
+${anatomy?.cards?.length
+        ? anatomy.cards
+            .map((c, idx) => `### Project Card ${idx + 1}: \`${c.selector}\`
+- **Title**: "${c.title || "Featured Work"}"
+- **Tags**: ${c.tags.length ? c.tags.map((t) => `\`${t}\``).join(", ") : "None"}
+- **Has Image**: ${c.hasImage ? "Yes (aspect-ratio framed)" : "No"}
+- **Border**: \`${c.border}\`
+- **Radius**: \`${c.radius}\``)
+            .join("\n\n")
+        : `- Standard showcase card with responsive aspect ratio image frame and metadata tag pills.`}
+
+## 3. Tagsets, Badges & Micro-Pills
+
+${anatomy?.tagsets?.length
+        ? anatomy.tagsets
+            .map((ts, idx) => `### Tagset ${idx + 1}${ts.label ? ` (${ts.label})` : ""}
+- **Items**: ${ts.items.map((i) => `\`${i}\``).join(", ")}`)
+            .join("\n")
+        : ""}
+
+${anatomy?.pillsAndBadges?.length
+        ? `### Observed Pills & Badges
+${anatomy.pillsAndBadges.map((p) => `- \`${p.selector}\`: "${p.text}" | Background: \`${p.bg}\` | Color: \`${p.color}\` | Radius: \`${p.radius}\``).join("\n")}`
+        : ""}
+
+## 4. Recognition & Tabular Award Rows
+
+${anatomy?.tabularRows?.length
+        ? anatomy.tabularRows
+            .map((r, idx) => `### Table Row ${idx + 1}: \`${r.selector}\`
+- **Columns**: ${r.columns.map((c) => `"${c}"`).join(" | ")}
+- **Border Bottom**: \`${r.borderBottom}\``)
+            .join("\n\n")
+        : `- Clean 1px hairline bottom bordered list rows for awards and timeline history.`}
+
+## 5. Capabilities & Accordion Trays
+
+${anatomy?.accordions?.length
+        ? anatomy.accordions
+            .map((a, idx) => `### Capability Group ${idx + 1}: "${a.title || "Discipline"}"
+${a.subItems.length ? a.subItems.map((s) => `  - ${s}`).join("\n") : "  - Core competency specification"}`)
+            .join("\n\n")
+        : `- Expandable capabilities trays or grouped discipline lists.`}
+
+## 6. Observed Hover Census Summary
 
 ${result.components
-        .map((c) => `### ${c.name} (\`${c.type}\`)
-
-- **Selector**: \`${c.selector}\`
-- **Default State Computed Styles**:
-  - Background Color: \`${c.defaultState.backgroundColor}\`
-  - Text Color: \`${c.defaultState.color}\`
-  - Border Radius: \`${c.defaultState.borderRadius}\`
-  - Padding: \`${c.defaultState.padding}\`
-  ${c.defaultState.fontSize ? `- Font Size: \`${c.defaultState.fontSize}\`` : ""}
-  ${c.defaultState.fontWeight ? `- Font Weight: \`${c.defaultState.fontWeight}\`` : ""}
-  ${c.defaultState.shadow ? `- Box Shadow: \`${c.defaultState.shadow}\`` : ""}
-${c.hoverState
-        ? `- **Hover State Computed Styles**:
-  - Background Color: \`${c.hoverState.backgroundColor || "Unchanged"}\`
-  - Transform: \`${c.hoverState.transform || "None"}\`
-  - Transition: \`${c.hoverState.transition || "Standard"}\``
-        : ""}
-`)
+        .map((c) => `- \`${c.selector}\`: default \`${c.defaultState.backgroundColor}\` -> hover \`${c.hoverState?.backgroundColor || "same"}\` with transform \`${c.hoverState?.transform || "none"}\``)
         .join("\n")}
-
-## 2. Reusable UI Primitives Specification
-
-- **Button Primary**: Built with \`border-radius: var(--radius-pill)\`, high contrast foreground/background, and micro-hover scaling.
-- **Button Ghost / Outline**: Built with transparent background, 1px \`var(--hairline)\` border, and hover fill to \`var(--surface-2)\`.
-- **Bento Card**: Built with \`border-radius: var(--radius-card)\`, background \`var(--surface-1)\`, 1px \`var(--hairline)\` perimeter, and hover lift.
-- **Badge / Pill**: Built with \`border-radius: 9999px\`, uppercase micro typography, and subtle surface padding.
 `;
     writeFile("09-components-catalog.md", componentsCatalogMd);
     // 10. 10-design-blueprint.md (Master Google DESIGN.md Blueprint)
+    const hasDoubleSlash = result.forensics?.hasDoubleSlash ?? false;
+    const hasPulse = result.forensics?.hasPulseAnimation ?? false;
     const designBlueprintMd = `---
 brand: "${result.manifest.brand}"
 url: "${result.manifest.url}"
@@ -498,7 +540,21 @@ colors:
 
 The aesthetic architecture of **${result.manifest.brand}** represents award-winning modern digital craft. Its foundational identity is grounded in its dark canvas substrate (\`${result.surfaces.canvas}\`), calibrated surface elevation ladder, precise geometric typography (\`${primaryFont}\`), and 60fps hardware-accelerated motion choreography.
 
-## 2. Token Architecture Cross-Reference
+## 2. Strict Anti-Slop & Design Fidelity Enforcement
+
+- **Rule 1: ZERO "//" Clichés in Eyebrows or Watermarks**:
+  ${hasDoubleSlash
+        ? `Reference site uses double slash separators in text.`
+        : `Reference site strictly does NOT use "//" separators in eyebrows, titles, or footers. Format section indicators cleanly as \`01  ABOUT\` or \`01 · ABOUT\`. NEVER hardcode \`//\` spans.`}
+- **Rule 2: ZERO Default Pulse/Ping Animations**:
+  ${hasPulse
+        ? `Reference site uses pulse animations.`
+        : `Reference site has 0 pulsing dot animations. Do NOT inject \`animate-ping\` or pulsing green radar dots unless explicitly requested. Use clean calm solid pill badges.`}
+- **Rule 3: Respect Verbatim Project Counts**:
+  - The reference site displays ${result.forensics?.projectCardsObserved || 0} project items.
+  - The downstream implementation MUST render strictly the verbatim projects provided by the user. NEVER fabricate dummy cards or clone filler projects.
+
+## 3. Token Architecture Cross-Reference
 
 - **Tokens (W3C DTCG)**: See \`01-tokens.json\`
 - **Theme & Stylesheet**: See \`02-theme.css\`
@@ -511,7 +567,7 @@ The aesthetic architecture of **${result.manifest.brand}** represents award-winn
 - **Components Catalog**: See \`09-components-catalog.md\`
 - **Accessibility & Contrast**: See \`11-accessibility-audit.md\`
 
-## 3. Core Geometric Tokens
+## 4. Core Geometric Tokens
 
 - **Border Radii**:
   - Full Pill / Badges: \`${result.surfaces.radii.full}\`
@@ -519,7 +575,7 @@ The aesthetic architecture of **${result.manifest.brand}** represents award-winn
   - Inputs & Buttons: \`${result.surfaces.radii.md}\`
 - **Hairlines**: 1px crisp borders using \`${result.surfaces.hairline}\` brightening to \`${result.surfaces.hairlineStrong}\` on hover.
 
-## 4. Visual Previews & Media Assets
+## 5. Visual Previews & Media Assets
 
 - Desktop Hero: \`assets/hero.png\`
 - Desktop Full Page: \`assets/fullpage.png\`

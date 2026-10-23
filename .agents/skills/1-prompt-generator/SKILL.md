@@ -38,8 +38,8 @@ Never wait until the end of the conversation to write one giant prompt file. Ins
 | **Phase 4** | `references/phase-4-navbar-footer.md` | `prompts/phase-4-navbar-footer.md` | `/5-navbar-and-footer` |
 | **Phase 5** | `references/phase-5-pages.md` | `prompts/phase-5-pages.md` | `/6-build-pages` |
 | **Phase 6** | `references/phase-6-animations.md` | `prompts/phase-6-animations.md` | `/7-animate-website` |
-| **Phase 7** | `references/phase-7-seo-aeo.md` | `prompts/phase-7-seo-aeo.md` | `/8-seo-and-aeo` |
-| **Phase 8** | `references/phase-8-responsive-qa.md` | `prompts/phase-8-responsive-qa.md` | `/9-responsive-and-qa` |
+| **Phase 7** | `references/phase-7-responsive-qa.md` | `prompts/phase-7-responsive-qa.md` | `/8-responsive-and-qa` |
+| **Phase 8** | `references/phase-8-seo-aeo.md` | `prompts/phase-8-seo-aeo.md` | `/9-seo-and-aeo` |
 
 ## 3. State Tracking (`prompts/PROGRESS.md`)
 Whenever `/1-prompt-generator` is invoked:
@@ -73,6 +73,12 @@ Whenever `/1-prompt-generator` is invoked:
    - If the user provides a design or asks you to decide automatically, extract the exact design DNA, explain your choices, write the current phase's `prompts/phase-N-*.md` file immediately, and ask if they want to review or proceed to the next phase.
 5. **Strict Human Copywriting Policy (Zero AI Words on Website)**:
    - Never use internal skill terms or robotic AI cliches (`Nexus`, `Zero-Slop`, `AI Slop`, `Telemetry`, `Direct Coordinates`, `Direct Dispatch`, `Verified Channels`, `Architecture Routes`, `Orchestrating`, `Synergy`) in generated website copy specs. Always write natural, authentic human headings and copy.
+6. **Zero "//" Clichés**:
+   - Never specify `//` separators in section eyebrows, titles, or footers. Always format section indicators cleanly as `01  ABOUT` or `01 · ABOUT`.
+7. **Zero Default Pulse/Ping Animations**:
+   - Never specify pulsing dots or `animate-ping` unless explicitly requested by the user. Use clean calm solid pill capsules.
+8. **Exact Verbatim Projects Count**:
+   - Always ask the user for their exact project list and record only their real projects (e.g., exactly 2 projects). Strictly forbid hallucinating or fabricating dummy cards.
 
 ## 5. Live Chrome Browser & MCP Site Inspection Protocol (Both .md & Real Browser)
 When a user provides a reference website URL (e.g., Awwwards winner, live portfolio, SaaS site, or localhost) or selects a named design:
@@ -140,5 +146,5 @@ Repeat until all 8 phases are complete
 | `/5-navbar-and-footer` | `5-navbar-and-footer/SKILL.md` (separate skill) | Reads `prompts/phase-4-navbar-footer.md`, builds navigation |
 | `/6-build-pages` | `6-build-pages/SKILL.md` (separate skill) | Reads `prompts/phase-5-pages.md`, assembles full pages |
 | `/7-animate-website` | `7-animate-website/SKILL.md` (separate skill) | Reads `prompts/phase-6-animations.md`, adds GSAP/Framer Motion |
-| `/8-seo-and-aeo` | `8-seo-and-aeo/SKILL.md` (separate skill) | Reads `prompts/phase-7-seo-aeo.md`, adds SEO and AEO |
-| `/9-responsive-and-qa` | `9-responsive-and-qa/SKILL.md` (separate skill) | Reads `prompts/phase-8-responsive-qa.md`, responsive QA audit |
+| `/8-responsive-and-qa` | `8-responsive-and-qa/SKILL.md` (separate skill) | Reads `prompts/phase-7-responsive-qa.md`, responsive QA audit |
+| `/9-seo-and-aeo` | `9-seo-and-aeo/SKILL.md` (separate skill) | Reads `prompts/phase-8-seo-aeo.md`, adds SEO and AEO (Final Stage) |

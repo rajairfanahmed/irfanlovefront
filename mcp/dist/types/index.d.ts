@@ -148,4 +148,57 @@ export interface ExtractionResult {
         required: number;
         message: string;
     }[];
+    forensics?: {
+        hasDoubleSlash: boolean;
+        doubleSlashOccurrences: {
+            tag: string;
+            text: string;
+        }[];
+        hasPulseAnimation: boolean;
+        pulseOccurrences: {
+            tag: string;
+            class: string;
+        }[];
+        projectCardsObserved: number;
+        componentAnatomy: {
+            buttons: {
+                selector: string;
+                text: string;
+                bg: string;
+                color: string;
+                border: string;
+                radius: string;
+                padding: string;
+                fontSize: string;
+            }[];
+            cards: {
+                selector: string;
+                title?: string;
+                tags: string[];
+                hasImage: boolean;
+                border: string;
+                radius: string;
+            }[];
+            pillsAndBadges: {
+                selector: string;
+                text: string;
+                bg: string;
+                color: string;
+                radius: string;
+            }[];
+            tabularRows: {
+                selector: string;
+                columns: string[];
+                borderBottom: string;
+            }[];
+            tagsets: {
+                label?: string;
+                items: string[];
+            }[];
+            accordions: {
+                title?: string;
+                subItems: string[];
+            }[];
+        };
+    };
 }

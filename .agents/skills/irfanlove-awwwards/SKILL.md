@@ -118,4 +118,4 @@ Before presenting the extraction results to the user or passing files downstream
 - [ ] **Zero Em-Dashes**: Ensure 0 em-dashes and 0 en-dashes across all written markdown files.
 
 ## 7. Downstream Implementation Pipeline Handoff
-Once extraction completes, present the user with a summary table of the generated files in `designs/<brand-slug>/`. The downstream workflow skills (`/1-prompt-generator` through `/9-responsive-and-qa`) consume these separate files to build the production website.
+Once extraction completes, present the user with a summary table of the generated files in `designs/<brand-slug>/`. The downstream workflow skills (`/1-prompt-generator` through `/9-seo-and-aeo`) consume these separate files to build the production website.
