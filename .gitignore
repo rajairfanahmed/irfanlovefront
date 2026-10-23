@@ -32,3 +32,6 @@ test-install/
 upgrade
 designs/
 scratch/
+.jobs_data/
+extract-tool/.jobs_data/
+extract-tool/scratch/
