@@ -1,119 +1,182 @@
 ---
 name: 6-build-pages
-description: Step 5 Implementation Command. Reads prompts/phase-5-pages.md, removes the temporary showroom, assembles the complete production Home page and all multi-page sub-routes with distinct layouts, interactive filtering, and 100% verbatim human copy from siteData, and stops for user inspection on localhost.
+description: Step 5 Implementation Command. Reads prompts/phase-5-pages.md plus CATEGORY.md and PERSONALITY.md, removes the temporary showroom, assembles the complete production pages with category-specific section composition and 100% verbatim data, and stops for user inspection on localhost.
 ---
 
-# Command 6: Assemble Production Pages, Multi-Route Layouts & Interactive Page States (`/6-build-pages`)
+# Command 6: Assemble Production Pages & Multi-Route Layouts (`/6-build-pages`)
 
-## 1. Specialist Persona, Experience & Core Mastery (Act As)
+## 1. Specialist Persona & Core Mastery
 
-You are acting as a unified **Principal Full-Page Product Architect, Staff Frontend Route Engineer (e.g., Next.js App Router, React, Vite, Remix, TypeScript, Tailwind CSS), and Senior Editorial Content Director** with **12+ years of production experience** assembling cohesive, high-converting, multi-section websites across any website category (e.g., Developer Portfolios, SaaS Platforms, AI Products, E-Commerce Stores, Creative Agencies, Dashboards, Fintech, Editorial, or Marketplaces) and any aesthetic direction (e.g., Awwwards Site of the Day winners, Linear, Vercel, Stripe, Apple, Robinsweb, Swiss grids, or Luxury Editorial systems).
-
-### Your Core Experience & Engineering Skills
-- **Full-Page Narrative & Section Pacing Mastery**: Deep expertise in orchestrating top-to-bottom page flows (e.g., Hero -> Infinite Marquee -> About & Metrics -> Services/Capabilities -> Featured Projects/Products -> Skills & Credentials -> Testimonials -> Contact -> Footer) where every section transitions with deliberate visual rhythm and never repeats the exact same card grid twice in a row.
-- **Multi-Page Route Differentiation**: Mastery of designing distinct sub-page architectures (e.g., `/about`, `/projects`, `/skills`, `/contact`, `/pricing`, `/shop`, or `/projects/[slug]`) so inner pages feel purpose-built rather than copy-pasted clones of the home page.
-- **Interactive Client State & Filtering Engineering**: Proven ability to wire live category filtering (`All`, `Full-Stack`, `AI`, `Frontend`, etc.), search/sort controls, expandable specification/FAQ drawers, working multi-step inquiry wizards, and one-click clipboard copy actions without breaking Server Component metadata exports.
-- **100% Verbatim Human Copy & Asset Integrity**: Strict discipline to bind every heading, metric, project, service, degree, certification, testimonial, and image path directly from `src/data/siteData.ts` using natural, confident human copywriting with zero robotic AI filler.
+You are a unified **Principal Full-Page Product Architect, Staff Frontend Route Engineer, and Senior Editorial Content Director** with 12+ years of production experience assembling cohesive, high-converting, multi-section websites across every category and aesthetic.
 
 ### Strict Single-Stage Boundary & Anti-Bug Locks
-1. **Read `prompts/phase-5-pages.md` First**:
-   - Before writing any code, read `prompts/phase-5-pages.md` in full (Blocks 1 through 6), and cross-check `prompts/phase-1-foundation-data.md` through `prompts/phase-4-navbar-footer.md` plus `src/data/siteData.ts`.
-   - If `prompts/phase-5-pages.md` does not exist, stop immediately and tell the user to complete Phase 5 in `/1-prompt-generator` first.
+1. **Read Context Files First**:
+   - Read `prompts/CATEGORY.md`, `prompts/PERSONALITY.md`, and `prompts/phase-5-pages.md` in full.
+   - Cross-check all previous prompt files and `src/data/siteData.ts`.
+   - If `prompts/phase-5-pages.md` does not exist, stop and tell the user to complete Phase 5 first.
 2. **Assemble All Production Pages & Routes in This Stage**:
-   - Replace the temporary Stage 1-4 preview showroom on the root route (`src/app/page.tsx`) with the complete production Home Page, and build all sub-page routes specified in Block 2 of `prompts/phase-5-pages.md`.
-   - Do NOT wire heavy GSAP ScrollTrigger timelines or SEO/AEO schemas yet (those belong to `/7-animate-website` and `/9-seo-and-aeo`).
-   - Once all pages and interactive states are live on `localhost:3000`, update `prompts/IMPLEMENTATION_PROGRESS.md` and **STOP** for user inspection.
-3. **Anti-Cliche Formatting & Pulse Lock**:
-   - Section eyebrows and headers must never contain double slashes (`//`). Always use clean spacing (`01  ABOUT`) or subtle dots (`01 · ABOUT`).
-   - Status indicators and badges must remain calm and solid by default. Do not use unrequested pulse animations (`animate-pulse` or `animate-ping`).
-4. **Strict Verbatim Projects Count Lock**:
-   - Never synthesize dummy, hallucinated, or placeholder project cards. If `siteData.projects` contains 2 projects, render exactly 2 project cards on the page.
-5. **Strict Anti-AI Copywriting & Anti-CLI Lock**:
-   - Scan every page and section component to ensure ZERO occurrences of banned AI meta-words (`Nexus`, `Zero-Slop`, `AI Slop`, `Eliminating Generic AI Slop`, `Telemetry`, `Direct Coordinates`, `Direct Dispatch`, `Verified Channels`, `Architecture Routes`, `Production Standard`, `Orchestrating`, `Synergy`) and ZERO unrequested `$ npx` terminal windows.
+   - Replace the temporary showroom with the real website.
+   - Do NOT wire heavy GSAP timelines or SEO schemas yet.
+3. **Anti-AI Lock**: Zero banned words, zero fabricated data, zero unrequested elements.
 
-## 2. Page & Sub-Route Architecture Overview
+---
 
-Production routes must reflect the project architecture specified in `siteData.ts`:
+## 2. CRITICAL: Section Composition MUST Match the Category
+
+**NEVER use the same section order for every project.** The home page composition is derived from the locked category, NOT from a memorized template.
+
+### Category-Specific Home Page Composition
+
+**Portfolio / Developer / Designer:**
 ```
-src/app/
-├── layout.tsx            # Global layout mounting Navbar, SmoothScrollProvider, and Footer
-├── page.tsx              # Complete multi-section production Home Page
-├── about/page.tsx        # Dedicated editorial narrative, timeline, and credentials
-├── projects/
-│   ├── page.tsx          # Filterable project catalog strictly rendering real user projects
-│   └── [slug]/page.tsx   # In-depth case study template with verified specs
-├── skills/page.tsx       # Domain-categorized technical stack and workflow matrix
-└── contact/page.tsx      # Full inquiry portal with interactive contact wizard
+Hero → [Optional: Marquee] → About & Metrics → Services/Capabilities → 
+Featured Projects → Skills & Credentials → Testimonials → Contact → Footer
 ```
 
-## 3. Step-by-Step Implementation Workflow
+**SaaS / Software Product:**
+```
+Hero (Product Screenshot/Demo) → Trusted By (Logo Bar) → Features/Benefits → 
+How It Works (3-Step) → Product Screenshots → Pricing → Testimonials → 
+FAQ → Final CTA → Footer
+```
 
-### Step 1: Remove Temporary Showroom & Assemble the Production Home Page (`src/app/page.tsx`)
-Read **Block 1** of `prompts/phase-5-pages.md`. Replace the temporary showroom in `src/app/page.tsx` with the complete production Home Page by composing the UI primitives (`src/components/ui/`), cards (`src/components/cards/`), layout wrappers (`src/components/layout/`), and verbatim data (`src/data/siteData.ts`) in the exact top-to-bottom sequence specified in Block 1 (e.g.):
-1. **Hero Section (`#hero`)**:
-   - Render `<HeroSection />` with full identity, portrait/visual, availability badge, and primary/secondary CTAs from `siteData.identity`.
-2. **Seamless Infinite Marquee Strip (`#marquee`)**:
-   - Render `<InfiniteMarquee items={siteData.marqueeItems} />` immediately below the Hero.
-3. **About & Key Metrics Section (`#about`)**:
-   - Wrap in `<SectionContainer id="about" withTopBorder>` with `<SectionHeader index="01" eyebrow="ABOUT" title="..." />` (using the exact natural human heading from Block 1).
-   - Render the editorial bio split and high-contrast metric cards (`2+`, `14+`, etc. from `siteData.metrics`) in `--font-display`.
-4. **Services / Capabilities / Features Section (`#services`)**:
-   - Wrap in `<SectionContainer id="services" withTopBorder>` with `<SectionHeader index="02" eyebrow="SERVICES" title="..." />`.
-   - Map `siteData.services` into `<ServiceCard />` rows or Bento cards (`01` through `04`).
-5. **Featured Projects / Work / Products Section (`#projects` or `#work`)**:
-   - Wrap in `<SectionContainer id="projects" withTopBorder>` with `<SectionHeader index="03" eyebrow="SELECTED WORK" title="..." />`.
-   - Include interactive category filter tabs (if specified in Block 1/3) and map `siteData.projects` into `<ProjectCard />` showcase cards strictly matching real projects.
-6. **Skills, Education & Certifications / Specs Section (`#skills`)**:
-   - Wrap in `<SectionContainer id="skills" withTopBorder>` with `<SectionHeader index="04" eyebrow="SKILLS & CREDENTIALS" title="..." />`.
-   - Render categorized `<SkillGroupCard />` groups alongside verified `<CredentialCard />` items (degrees, universities, dates, and certifications from `siteData.education` and `siteData.certifications`).
-7. **Testimonials / Client Reviews Section (`#reviews`)**:
-   - Wrap in `<SectionContainer id="reviews" withTopBorder withGlow>` with `<SectionHeader index="05" eyebrow="CLIENT REVIEWS" title="..." />`.
-   - Map `siteData.testimonials` into `<TestimonialCard />` items with warm radial spotlight glow.
-   - Maintain consistent vertical spacing between sections using fluid padding tokens.
-   - Verify that all horizontal borders use subtle border variables rather than harsh high-opacity colors.
-8. **Interactive Contact Section (`#contact`)**:
-   - Mount `<ContactSection />` (`id="contact"`) featuring the working multi-step inquiry wizard (`Step 1 of 3` -> `Step 2 of 3` -> `Step 3 of 3`) or split editorial form.
+**Creative Agency / Studio:**
+```
+Hero (Showreel/Statement) → Selected Work (Featured Cases) → 
+Capabilities/Services → About/Philosophy → Team → Process → 
+Client Logos → Contact → Footer
+```
 
-### Step 2: Build Distinct Multi-Page Sub-Routes (If Multi-Page Architecture Is Specified in Block 2)
-Read **Block 2** of `prompts/phase-5-pages.md`. If the project includes dedicated sub-routes (e.g., `/about`, `/projects`, `/skills`, `/contact`, `/pricing`, `/shop`), build each route completely with its own distinct layout and visual rhythm (never copy-paste the exact same card box grid across every route):
-- **`src/app/about/page.tsx` (e.g., Editorial Story + Career/Education Timeline + Certifications)**:
-  - Render an architectural page masthead (`<h1>`), multi-paragraph human bio narrative, vertical or split education/career timeline, verified certification cards, and bottom CTA callout.
-- **`src/app/projects/page.tsx` (e.g., Interactive Filterable Case-Study Archive)**:
-  - Render page masthead (`<h1>`), live interactive category filter bar (`All`, `Full-Stack`, `AI & Automation`, `Frontend`, etc.), full project showcase grid (`<ProjectCard />`), and open-source/GitHub callout.
-- **`src/app/skills/page.tsx` (e.g., Technical Capability Matrix + Numbered Services + Workflow)**:
-  - Render page masthead (`<h1>`), domain-grouped `<SkillGroupCard />` matrix, full `<ServiceCard />` breakdown (`01-04`), and engineering/product process steps.
-- **`src/app/contact/page.tsx` (e.g., Dedicated Inquiry Portal + Direct Channels + FAQ)**:
-  - Render page masthead (`<h1>`), full `<ContactSection />` wizard, direct copy-email / WhatsApp / social cards, and expandable FAQ `<Accordion />`.
+**E-Commerce / Product Store:**
+```
+Hero (Campaign/Featured Product) → Categories → Best Sellers → 
+New Arrivals → Featured Product Spotlight → Reviews → 
+Newsletter Signup → Footer
+```
 
-### Step 3: Wire All Navigation Links & Interactive Page States
-Read **Block 3** of `prompts/phase-5-pages.md` and verify:
-1. **Navigation Link Accuracy**:
-   - Every link inside `Navbar.tsx`, `MenuOverlay.tsx`, `HeroSection.tsx`, and `Footer.tsx` points to a real, working route (`/`, `/about`, `/projects`, `/skills`, `/contact`) or a matching section anchor ID (`#about`, `#services`, `#projects`, `#skills`, `#reviews`, `#contact`).
-2. **Interactive Category Filtering**:
-   - Clicking category tabs on the Projects/Products section dynamically filters displayed items without page reload.
-3. **Interactive Copy-to-Clipboard & Form State**:
-   - Clicking email copy buttons copies `siteData.contact.email` and shows instant `"Copied!"` feedback, and all steps in `ContactSection` transition cleanly.
+**AI / Tech Product:**
+```
+Hero (Demo/Terminal) → Key Capabilities → Architecture/How It Works → 
+Integration Ecosystem → Code Examples → Pricing → 
+Developer Testimonials → Documentation CTA → Footer
+```
 
-### Step 4: Audit Verbatim Content, Image Paths & Zero-AI Jargon
-Read **Block 4 and Block 5** of `prompts/phase-5-pages.md` and run a strict check across all page and component files:
-- Confirm 100% of user data in `src/data/siteData.ts` (Identity, Metrics, Services, Projects, Skills, Education, Certifications, Testimonials, Contact) is rendered accurately.
-- Confirm every `<img>` / `<Image>` `src` points to a verified file in `public/` or a clean high-contrast typographic/gradient fallback so zero broken image icons appear in the browser.
-- Verify that every project card links accurately to its live URL or case study route without broken dead ends.
-- Ensure that active category filtering state visually highlights the selected category pill.
-- Ensure that sub-route titles and headings accurately reflect the page purpose rather than copying home page titles.
-- Confirm zero banned AI words (`Nexus`, `Zero-Slop`, `AI Slop`, `Telemetry`, `Direct Coordinates`, `Direct Dispatch`, `Verified Channels`, `Architecture Routes`) exist anywhere in the codebase.
+**Startup / Landing Page:**
+```
+Hero (Big CTA) → Problem Statement → Solution → 3-5 Key Features → 
+Social Proof (Logos + Stats) → How It Works → Pricing → 
+Testimonials → FAQ → Final CTA → Footer
+```
 
-## 4. Update Progress & Stop for User Review
+**Restaurant / Hospitality:**
+```
+Hero (Ambiance Photo) → About/Story → Menu Highlights → 
+Gallery → Reviews → Location & Hours → Reservation CTA → Footer
+```
+
+**Editorial / Blog:**
+```
+Hero (Featured Article) → Latest Articles Grid → Category Sections → 
+Popular/Trending → Newsletter Signup → About Publication → Footer
+```
+
+**Dashboard / Admin:**
+```
+Sidebar Nav → Stats Overview → Primary Data Table/Chart → 
+Secondary Charts → Activity Feed → Quick Actions
+```
+
+**Event / Conference:**
+```
+Hero (Countdown + Key Info) → About Event → Speakers → 
+Schedule/Agenda → Venue → Ticket Tiers → Sponsors → FAQ → Footer
+```
+
+**IMPORTANT**: These are starting templates. The prompt file (`prompts/phase-5-pages.md`) has the EXACT locked composition. Follow the prompt, not these defaults.
+
+---
+
+## 3. CRITICAL: Visual Rhythm & Anti-Repetition Rules
+
+### 3A. Section Visual Variation
+Every section on the page must feel visually distinct. Apply these variation techniques:
+- **Alternate background treatments**: Not every section should use `--bg-canvas`. Alternate between `--bg-canvas`, `--bg-surface`, and `--bg-elevated` to create depth and rhythm.
+- **Alternate layout widths**: Mix full-width sections (edge-to-edge) with contained sections (`max-w-[1360px]`).
+- **Alternate grid structures**: Never use the same grid twice in a row. If Services uses full-width rows, Projects should use a 2-column grid or masonry layout.
+- **Break rhythm with accent sections**: Insert a visually distinct accent section (different background color, inverted text, or highlighted CTA) at least once on the page.
+
+### 3B. Section Spacing (Derived from Density axis)
+| Density | Section Padding | Between-section separator |
+|---|---|---|
+| **Airy** | `py-28 md:py-44` | 48px empty space, no borders |
+| **Normal** | `py-20 md:py-32` | Optional 1px top border |
+| **Dense** | `py-12 md:py-20` | Tight spacing, card-to-card flow |
+
+### 3C. Personality-Driven Page Atmosphere
+| Personality | Page Feel |
+|---|---|
+| **Glass + Futuristic** | Layered depth, glass cards floating over dark canvas, subtle glow accents |
+| **Flat + Contemporary** | Clean sections, solid fills, generous whitespace, no shadows |
+| **Material + Warm** | Elevated cards with real shadows, warm surfaces, tactile feel |
+| **Brutalist + Geometric** | Raw borders, monospace text, exposed grid, high contrast sections |
+| **Classic + Editorial** | Serif headlines, elegant spacing, editorial column widths, minimal decoration |
+
+---
+
+## 4. Step-by-Step Implementation Workflow
+
+### Step 1: Replace Showroom with Production Home Page
+Read **Block 1** of `prompts/phase-5-pages.md`. Replace `src/app/page.tsx` with the complete home page by composing components in the EXACT section order specified in the prompt.
+
+**For each section**:
+1. Reference the locked SectionHeader format (eyebrow + heading style from personality)
+2. Use the exact card archetype built in Stage 3
+3. Bind 100% of content from `src/data/siteData.ts`
+4. Apply the visual rhythm rules from Section 3A above
+
+### Step 2: Build Multi-Page Sub-Routes (If Specified)
+Read **Block 2** and build each sub-route with its OWN distinct layout:
+- Sub-pages MUST NOT copy-paste the home page layout
+- Each sub-page should have a unique page masthead / hero treatment
+- Sub-page content should go deeper than the home page (full project details, complete pricing comparison, extended about narrative, etc.)
+
+**Category-specific sub-route patterns:**
+
+| Category | Sub-Route Examples |
+|---|---|
+| **Portfolio** | `/about` (timeline + narrative), `/projects` (filterable grid), `/projects/[slug]` (case study), `/contact` (full form) |
+| **SaaS** | `/features` (detailed feature pages), `/pricing` (comparison table), `/docs` (documentation), `/contact` (sales form) |
+| **E-Commerce** | `/products` (filterable catalog), `/products/[slug]` (product detail), `/cart` (checkout flow), `/categories/[slug]` |
+| **Agency** | `/work` (case studies), `/work/[slug]` (detail), `/about` (team + philosophy), `/capabilities` (services detail) |
+| **Restaurant** | `/menu` (full categorized menu), `/gallery` (photo grid), `/reservations` (booking form), `/about` (story) |
+
+### Step 3: Wire Navigation & Interactive States
+Read **Block 3** and verify:
+1. Every link in Navbar, MenuOverlay, Hero, and Footer points to a real route or section anchor
+2. Interactive filtering (if specified) works without page reload
+3. Clipboard copy actions provide instant feedback
+4. All form steps transition cleanly
+
+### Step 4: Content & Asset Audit
+Read **Blocks 4-5** and verify:
+- 100% of `siteData.ts` data is rendered on the appropriate pages
+- Every image `src` points to a real file or clean fallback (no broken images)
+- Zero banned AI words exist anywhere in the rendered output
+- Project/product counts match exactly (no fabricated items)
+- Active filter state highlights the selected pill/tab
+
+---
+
+## 5. Update Progress & Stop for User Review
 1. Update `prompts/IMPLEMENTATION_PROGRESS.md`:
    ```markdown
    # IMPLEMENTATION PROGRESS
-   - [x] Stage 1: `/2-setup-foundation` (Tokens, Fonts, `siteData.ts` & Big Foundation Preview Card)
-   - [x] Stage 2: `/3-build-components` (Atomic UI Primitives in `src/components/ui/`)
-   - [x] Stage 3: `/4-cards-and-layout` (Layout Wrappers, `HeroSection`, & Custom Card Archetypes)
-   - [x] Stage 4: `/5-navbar-and-footer` (`Navbar`, `MenuOverlay`, `ContactSection` & `Footer`)
-   - [x] Stage 5: `/6-build-pages` (Full Production Home Page & All Sub-Routes Assembled on `/`)
+   - Home Page Sections: [List actual section order]
+   - Sub-Routes Built: [List actual routes]
+   - [x] Stage 1-4: Previous stages
+   - [x] Stage 5: `/6-build-pages` (Full Production Home Page & Sub-Routes on `/`)
    - [ ] Stage 6: `/7-animate-website`
    - [ ] Stage 7: `/8-responsive-and-qa`
    - [ ] Stage 8: `/9-seo-and-aeo`
    ```
-2. **STOP IMMEDIATELY**: Do NOT wire GSAP ScrollTrigger timelines or SEO/AEO metadata yet. Instruct the user to open `http://localhost:3000` to inspect the complete assembled Home Page and all sub-routes, test project filtering and navigation links, and then run `/7-animate-website` when ready.
+2. **STOP IMMEDIATELY**: Instruct the user to inspect the complete home page and all sub-routes on `localhost:3000`, test navigation and filtering, then run `/7-animate-website` when ready.

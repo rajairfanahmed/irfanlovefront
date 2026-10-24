@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 
 const fontDisplay = Plus_Jakarta_Sans({
@@ -24,8 +24,9 @@ const fontMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Website Design Capture - SiteRip',
-  description: 'Enter a URL and download every page as section by section images.',
+  title: 'SiteRip — Full HD Website Capture Tool',
+  description:
+    'Extract every section of any website as Full HD images. Choose viewports, tune extraction options, and download a structured ZIP in seconds.',
 };
 
 export default function RootLayout({
@@ -38,8 +39,15 @@ export default function RootLayout({
       lang="en"
       className={`${fontDisplay.variable} ${fontSans.variable} ${fontMono.variable} h-full antialiased`}
     >
-      <body className="min-h-screen bg-[#F8F9FA] text-[#111827] font-sans flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
-        {children}
+      <body className="relative min-h-screen bg-[#09090b] text-[#f4f4f5] font-sans flex flex-col items-center justify-center selection:bg-red-500/20 overflow-x-hidden">
+        {/* Ambient glow */}
+        <div className="ambient-glow" />
+        {/* Noise texture */}
+        <div className="noise-overlay" />
+        {/* Content */}
+        <div className="relative z-10 w-full flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 md:px-8 py-8">
+          {children}
+        </div>
       </body>
     </html>
   );

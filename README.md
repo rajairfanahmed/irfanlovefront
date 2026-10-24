@@ -7,8 +7,8 @@
   <a href="CODE_OF_CONDUCT.md"><strong>Code of Conduct</strong></a> •
   <a href="LICENSE"><strong>License</strong></a> •
   <a href="SECURITY.md"><strong>Security</strong></a> •
-  <a href="RELEASES/RELEASE-3.2.2.md"><strong>Release History</strong></a> •
-  <a href="https://github.com/rajairfanahmed/irfanlovefront/releases"><strong>Latest Release v3.2.6</strong></a>
+  <a href="RELEASES/RELEASE-3.2.7.md"><strong>Release History</strong></a> •
+  <a href="https://github.com/rajairfanahmed/irfanlovefront/releases"><strong>Latest Release v3.2.7</strong></a>
 </p>
 
 <a href="https://github.com/rajairfanahmed/irfanlovefront">
@@ -17,15 +17,15 @@
 
 # irfanlovefront
 
-### Master Frontend Engineering Suite, Universal MCP Server & Progressive Agent Skills (v3.2.6)
+### Master Frontend Engineering Suite, Anti-Sameness Engine & Universal Agent Skills (v3.2.7)
 
-**Eliminate frontend design paralysis, repetitive templates, and AI slop forever.**
+**Eliminate template repetition, cookie-cutter layouts, and AI slop forever.**
 
 [![npm version](https://img.shields.io/npm/v/irfanlovefront.svg?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/irfanlovefront)
 [![GitHub Packages](https://img.shields.io/badge/GitHub_Packages-@rajairfanahmed/irfanlovefront-24292e.svg?style=flat-square&logo=github)](https://github.com/rajairfanahmed/irfanlovefront/packages)
 [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Documentation-22c55e.svg?style=flat-square&logo=github)](https://rajairfanahmed.github.io/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v3.2.6-blue.svg?style=flat-square)](https://github.com/rajairfanahmed/irfanlovefront/releases)
+[![Release](https://img.shields.io/badge/release-v3.2.7-blue.svg?style=flat-square)](https://github.com/rajairfanahmed/irfanlovefront/releases)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -41,7 +41,7 @@
 
 ---
 
-## The 1-Command Quickstart (v3.2.6)
+## The 1-Command Quickstart (v3.2.7)
 
 Install the entire skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
@@ -79,7 +79,7 @@ npx irfanlovefront --copilot
 npx irfanlovefront --all
 ```
 
-### Live Website Extraction & MCP Server (v3.2.6)
+### Live Website Extraction & MCP Server (v3.2.7)
 
 Reverse-engineer any live website or launch the stdio MCP server for AI agents:
 
@@ -134,13 +134,16 @@ Standard AI coding assistants suffer from severe statistical biases, layout repe
 - Primary buttons lack tactile states and fail WCAG AA contrast standards.
 - Animations are omitted or reduced to plain CSS `scroll-behavior: smooth`.
 
-**Release 3.2.6 permanently solves this with a 9-Command Progressive Implementation Architecture:**
-1. **Interactive Prompt Architect (`/1-prompt-generator`)**: Progressive 8-phase discovery that interviews the user phase-by-phase and immediately writes dedicated prompt blueprints (`prompts/phase-1` through `prompts/phase-8`). Zero user specifications are lost.
-2. **Deterministic Step-by-Step Implementation (`/2-setup-foundation` to `/9-seo-and-aeo`)**: 8 sequential commands, each mounting a live visual showroom on localhost for inspection before moving forward.
-3. **Auxiliary Documentation Specialist (`/github-readme-writer`)**: Daytona open-source framework documentation and launch copy specialist with zero em-dashes.
-4. **Anti-Skip Architecture**: Each command executes an isolated, tightly-scoped batch with verification checkpoints to preserve maximum context for high-craft code.
-5. **Truth in Quality Verification**: Command 8 enforces multi-viewport responsive checks (`375px`, `768px`, `1440px`), `>=44px` touch targets, and a 12-point anti-bug checklist; Command 9 completes final Technical SEO, Schema.org Graph, `llms.txt`, and production build verification (`npx tsc --noEmit` and `npm run build`).
-6. **Zero-Dash Anti-Slop Policy**: Zero em-dash characters (U+2014) and zero en-dash characters (U+2013) anywhere in skills, copy, or code.
+**Release 3.2.7 permanently solves this with the Anti-Sameness Engine & 9-Command Progressive Architecture:**
+1. **Site Category Detection (12 Archetypes)**: Classifies every build into dedicated categories (SaaS, Portfolio, E-Commerce, Agency, Editorial, FinTech, Luxury/Fashion, Web3/Crypto, Healthcare/Wellness, Restaurant/Hospitality, Educational/Docs, AI/Data Infrastructure).
+2. **6-Axis Design Personality System**: Locks 6 distinct personality vectors per site (Color Energy, Visual Density, Corner Radius & Surface, Typography Tone, Motion Feel, Layout Structure).
+3. **Interactive Prompt Architect (`/1-prompt-generator`)**: Progressive 8-phase discovery that interviews the user phase-by-phase and immediately writes dedicated prompt blueprints (`prompts/phase-1` through `prompts/phase-8`). Zero user specifications are lost.
+4. **Deterministic Step-by-Step Implementation (`/2-setup-foundation` to `/9-seo-and-aeo`)**: 8 sequential commands, each mounting a live visual showroom on localhost for inspection before moving forward.
+5. **15 Distinct Hero Archetypes (`/4-cards-and-layout`)**: Unlocks H1 through H15 hero architectures (Split, Centered Glow, Device Mockup, Editorial Magazine, Bento Showcase, 3D Canvas, Metric-Led, and more).
+6. **Dynamic QA Checklist (`/8-responsive-and-qa`)**: Enforces multi-viewport responsive checks (`375px`, `768px`, `1440px`), `>=44px` touch targets, and a dynamic Anti-Bug checklist adapted specifically to what was actually built.
+7. **Production Search & AI Discovery (`/9-seo-and-aeo`)**: Category-specific Schema.org entity mapping, semantic landmarks, dual `llms.txt` + `llms-full.txt` optimization, and production build verification (`npx tsc --noEmit` and `npm run build`).
+8. **Auxiliary Documentation Specialist (`/github-readme-writer`)**: Daytona open-source framework documentation and launch copy specialist with zero em-dashes.
+9. **Zero-Dash Anti-Slop Policy**: Zero em-dash characters (U+2014) and zero en-dash characters (U+2013) anywhere in skills, copy, or code.
 
 ---
 
@@ -148,7 +151,7 @@ Standard AI coding assistants suffer from severe statistical biases, layout repe
 
 As frontend engineers working with generative AI, we repeatedly hit the same wall: AI models write great small snippets but fail at whole-site execution. When prompted to "build a complete website", models take shortcuts. They generate a single hero section, invent placeholder text, paste generic dark theme tokens, and stop.
 
-To fix this, we decomposed website development into an 8-phase interactive discovery interview followed by an 8-step verified implementation pipeline. Each step has its own dedicated skill file, its own isolated prompt blueprint, and its own live visual showroom on localhost. The result is deterministic, bespoke frontend craftsmanship with zero guesswork.
+To fix this, we decomposed website development into an 8-phase interactive discovery interview followed by an 8-step verified implementation pipeline. In v3.2.7, we added the Anti-Sameness Engine with 12 site categories and 6-axis design personality controls. Each step has its own dedicated skill file, its own isolated prompt blueprint, and its own live visual showroom on localhost. The result is deterministic, bespoke frontend craftsmanship with zero guesswork.
 
 ---
 
@@ -156,24 +159,25 @@ To fix this, we decomposed website development into an 8-phase interactive disco
 
 ```text
   +-------------------------------------------------------------------------------+
-  |                      IRFANLOVEFRONT v3.2.6 ARCHITECTURE                       |
+  |                      IRFANLOVEFRONT v3.2.7 ARCHITECTURE                       |
   +-------------------------------------------------------------------------------+
   |                                                                               |
   |  [Command 1: /1-prompt-generator]                                             |
   |  - Progressive 8-Phase Master Prompt Architect                                |
+  |  - Category Detection (12 categories) & 6-Axis Design Personality System      |
   |  - Step-by-step interviews with [Custom User Input] on every question         |
   |  - Writes prompts/phase-1-foundation-data.md to phase-8-seo-aeo.md             |
   |  - 89 brand design references in design-refs/, verbatim site data manifest   |
   |                                                                               |
   |  [Progressive Implementation Pipeline: Commands 2 through 9]                  |
-  |  - /2-setup-foundation  -> Tech stack, CSS tokens, siteData, Preview Card     |
-  |  - /3-build-components  -> UI primitives, form controls, Components Showroom  |
-  |  - /4-cards-and-layout  -> Layout grids, layered hero, Cards Showroom         |
-  |  - /5-navbar-and-footer -> Desktop navbar, menu curtain, contact, watermark   |
+  |  - /2-setup-foundation  -> Tech stack, adaptive CSS tokens, siteData preview  |
+  |  - /3-build-components  -> Category UI primitives, Components Showroom        |
+  |  - /4-cards-and-layout  -> 15 Hero Archetypes, custom cards, Cards Showroom   |
+  |  - /5-navbar-and-footer -> 10 Navbar styles, menu overlay, contact, watermark |
   |  - /6-build-pages       -> Production Home page and sub-routes (verbatim copy)|
-  |  - /7-animate-website   -> Lenis smooth scroll, GSAP ScrollTrigger, physics   |
-  |  - /8-responsive-and-qa -> Breakpoints (375/768/1440), WCAG AA, anti-bug QA   |
-  |  - /9-seo-and-aeo       -> Technical SEO, Schema.org Graph, llms.txt, build   |
+  |  - /7-animate-website   -> 4 Motion Profiles (Cinematic/Snappy/Calm/None)     |
+  |  - /8-responsive-and-qa -> Breakpoints (375/768/1440), >=44px, dynamic QA    |
+  |  - /9-seo-and-aeo       -> Schema.org entity mapping, llms.txt, build compile |
   |                                                                               |
   |  [Auxiliary Specialist: /github-readme-writer]                                |
   |  - Daytona 4,000-star launch framework, project hygiene, zero em-dashes       |
@@ -187,15 +191,15 @@ To fix this, we decomposed website development into an 8-phase interactive disco
 
 | Command | Step | Focus Area | Live Visual Verification |
 | :--- | :---: | :--- | :--- |
-| **`/1-prompt-generator`** | Plan | 8-Phase Product Discovery | Generates `prompts/phase-1` through `phase-8` |
-| **`/2-setup-foundation`** | Step 1 | Foundation & Tokens | Visual Foundation Preview Card on `localhost:3000` |
-| **`/3-build-components`** | Step 2 | Atomic UI Primitives | Interactive UI Components Showroom |
-| **`/4-cards-and-layout`** | Step 3 | Hero & Layout Grids | Hero Section + Cards & Grid Showroom |
-| **`/5-navbar-and-footer`** | Step 4 | Navigation & Footer | Working Menu Curtain State + Giant Footer Watermark |
-| **`/6-build-pages`** | Step 5 | Full Route Assembly | Production Home page + All Sub-routes (Verbatim Copy) |
-| **`/7-animate-website`** | Step 6 | Animation & Motion | Lenis Smooth Scroll + GSAP ScrollTrigger Reveals |
-| **`/8-responsive-and-qa`** | Step 7 | Responsive Audit & QA | 375px/768px/1440px checks + 12-point anti-bug QA |
-| **`/9-seo-and-aeo`** | Step 8 | Final SEO, AEO & Build | Schema.org Graph + `llms.txt` + `npm run build` pass |
+| **`/1-prompt-generator`** | Plan | 8-Phase Product Discovery | Category detection, 6-axis personality, writes `prompts/phase-1` to `phase-8` |
+| **`/2-setup-foundation`** | Step 1 | Foundation & Adaptive Tokens | Category-tailored tokens, font configuration, Visual Foundation Preview Card on `localhost:3000` |
+| **`/3-build-components`** | Step 2 | Category UI Primitives | Category-specific components (no fixed formula), Interactive UI Components Showroom |
+| **`/4-cards-and-layout`** | Step 3 | 15 Hero Archetypes & Grids | Bespoke hero composition (H1-H15) + Cards & Grid Showroom |
+| **`/5-navbar-and-footer`** | Step 4 | Navigation & Footer | 10 Navbar styles, working menu state machine, giant interactive footer watermark |
+| **`/6-build-pages`** | Step 5 | Full Route Assembly | Production Home page + all secondary sub-routes (verbatim siteData copy) |
+| **`/7-animate-website`** | Step 6 | Motion Engineering | 4 Motion Personality profiles (Cinematic, Snappy, Calm, None) synced with scroll |
+| **`/8-responsive-and-qa`** | Step 7 | Responsive Audit & Dynamic QA | 375px/768px/1440px audits, >=44px touch targets, dynamic anti-bug checklist |
+| **`/9-seo-and-aeo`** | Step 8 | Final SEO, AEO & Build | Category Schema.org entity mapping + `llms.txt` + `npm run build` pass |
 | **`/github-readme-writer`**| Docs | Documentation | Authoritative Daytona README with zero em-dashes |
 
 ---
@@ -205,28 +209,30 @@ To fix this, we decomposed website development into an 8-phase interactive disco
 All slash commands match their directory names in `.agents/skills/`.
 
 ### 1. `/1-prompt-generator`
-- **Role:** Interactive 8-Phase Master Prompt Architect.
+- **Role:** Interactive 8-Phase Master Prompt Architect with Anti-Sameness Engine.
 - **Workflow:**
+  - Automatically identifies site category across 12 distinct archetypes (SaaS, Portfolio, E-Commerce, Agency, Editorial, FinTech, Luxury, Web3, Healthcare, Restaurant, Educational, AI Infrastructure).
+  - Locks the 6-Axis Design Personality system (Color Energy, Visual Density, Corner Radius & Surface, Typography Tone, Motion Feel, Layout Structure).
   - Guides the user through 8 sequential discovery phases: Foundation & Data, Components, Hero & Layout, Navbar & Footer, Pages, Animations, Responsive QA, and SEO & AEO.
   - Every question includes multiple-choice selections plus `[Custom User Input]` and `[AI Recommended]`.
   - Immediately writes `prompts/phase-1-foundation-data.md` through `prompts/phase-8-seo-aeo.md` after each phase is answered. Zero details are lost.
   - Access to 89 brand design reference specifications in `design-refs/` (Apple, Linear, Stripe, Vercel, Framer, Robinsweb, and more).
 
 ### 2. `/2-setup-foundation`
-- **Role:** Foundation, Tokens & Visual Preview Card.
-- **Workflow:** Reads `prompts/phase-1-foundation-data.md`, verifies Next.js/Vite stack, configures fonts, writes `:root` CSS custom properties, populates verbatim data in `siteData.ts`, and renders a Single Big Visual Foundation Preview Card on `localhost:3000`.
+- **Role:** Foundation, Adaptive Tokens & Visual Preview Card.
+- **Workflow:** Reads `prompts/phase-1-foundation-data.md`, verifies Next.js/Vite stack, configures category-adaptive fonts and CSS custom properties, populates verbatim data in `siteData.ts`, and renders a Single Big Visual Foundation Preview Card on `localhost:3000`.
 
 ### 3. `/3-build-components`
 - **Role:** Atomic UI Primitives & Interactive Showroom.
-- **Workflow:** Reads `prompts/phase-2-components.md`, builds reusable atomic components in `src/components/ui/` (buttons, badges, inputs, wizard progress bars, infinite marquee), and mounts a live Interactive UI Components Showroom on `localhost:3000`.
+- **Workflow:** Reads `prompts/phase-2-components.md`, eliminates generic 6-component formulas, builds category-tailored atomic components in `src/components/ui/` (e.g., metric tickers for FinTech, pull quotes for Editorial, lookbook tags for Luxury), and mounts a live Interactive UI Components Showroom on `localhost:3000`.
 
 ### 4. `/4-cards-and-layout`
-- **Role:** Hero Architecture, Layout Grids & Custom Cards.
-- **Workflow:** Reads `prompts/phase-3-cards-layout.md`, builds `SectionContainer`, `SectionHeader`, `BentoGrid`, a layered `HeroSection` (`z-0` radial glow, `z-10` display text, `z-20` cutout portrait, `z-30` CTA), and custom card archetypes in `src/components/cards/`. Mounts the Hero + Cards Showroom on `localhost:3000`.
+- **Role:** 15 Hero Archetypes, Layout Grids & Custom Cards.
+- **Workflow:** Reads `prompts/phase-3-cards-layout.md`, selects from 15 distinct hero archetypes (H1 Split, H2 Glow, H3 Device Mockup, H4 Massive Watermark, H5 Video Background, H6 Bento Showcase, H7 Magazine Cover, H8 Card Stack, H9 3D Canvas, H10 Metric Dashboard, H11 Asymmetrical Diagonal, H12 Filmstrip, H13 Minimalist White Cube, H14 Brutalist Wireframe, H15 Terminal Code), builds layout wrappers, and mounts the Hero + Cards Showroom on `localhost:3000`.
 
 ### 5. `/5-navbar-and-footer`
 - **Role:** Navigation System & Watermark Footer.
-- **Workflow:** Reads `prompts/phase-4-navbar-footer.md`, builds desktop navbar variants, full-screen morphing hamburger curtain overlay with React state machine, multi-step contact wizard, and giant interactive footer watermark with rest contrast and hover glow.
+- **Workflow:** Reads `prompts/phase-4-navbar-footer.md`, builds 10 navbar variants, full-screen morphing hamburger curtain overlay with React state machine, multi-step contact wizard, and giant interactive footer watermark with rest contrast and hover glow.
 
 ### 6. `/6-build-pages`
 - **Role:** Full Page Assembly & Routing.
@@ -234,15 +240,15 @@ All slash commands match their directory names in `.agents/skills/`.
 
 ### 7. `/7-animate-website`
 - **Role:** Motion Engineering & Physics.
-- **Workflow:** Reads `prompts/phase-6-animations.md`, configures Lenis smooth scrolling synced with GSAP ScrollTrigger and Framer Motion, implements split-text title entrance, scroll-triggered section reveals, metric counters, and hover physics.
+- **Workflow:** Reads `prompts/phase-6-animations.md`, aligns with the locked Motion Feel axis (Cinematic, Snappy, Calm, or None/Reduced), configures Lenis smooth scrolling synced with GSAP ScrollTrigger and Framer Motion, implements split-text title entrance, scroll-triggered section reveals, metric counters, and hover physics.
 
 ### 8. `/8-responsive-and-qa`
-- **Role:** Multi-Viewport Responsive Audit & QA Checklist.
-- **Workflow:** Reads `prompts/phase-7-responsive-qa.md`, audits 375px mobile, 768px tablet, and 1440px desktop viewports, enforces >=44px touch targets, validates WCAG AA contrast, and runs the 12-point anti-bug checklist.
+- **Role:** Multi-Viewport Responsive Audit & Dynamic QA Checklist.
+- **Workflow:** Reads `prompts/phase-7-responsive-qa.md`, audits 375px mobile, 768px tablet, and 1440px desktop viewports, enforces >=44px touch targets, validates WCAG AA contrast, and executes a dynamic Anti-Bug checklist adapted to the specific components built.
 
 ### 9. `/9-seo-and-aeo`
 - **Role:** Final Technical SEO, AI Engine Optimization & Production Build Verification.
-- **Workflow:** Reads `prompts/phase-8-seo-aeo.md`, implements per-route Metadata API, linked Schema.org JSON-LD Knowledge Graph, OpenGraph cards, `sitemap.ts`, `robots.ts`, `manifest.ts`, semantic landmarks, `public/llms.txt` + `llms-full.txt` for AI discovery, and verifies `npx tsc --noEmit` and `npm run build`.
+- **Workflow:** Reads `prompts/phase-8-seo-aeo.md`, implements per-route Metadata API, category-specific Schema.org JSON-LD Knowledge Graph, OpenGraph cards, `sitemap.ts`, `robots.ts`, `manifest.ts`, semantic landmarks, `public/llms.txt` + `llms-full.txt` for AI discovery, and verifies `npx tsc --noEmit` and `npm run build`.
 
 ### 10. `/github-readme-writer`
 - **Role:** Technical Documentation Specialist.
@@ -277,8 +283,8 @@ Phase B (Step-by-Step Construction):
 /5-navbar-and-footer   -> Inspect Navbar & Footer Watermark
 /6-build-pages         -> Inspect Complete Home & Sub-routes
 /7-animate-website     -> Inspect Smooth Scroll & Motion
-/8-seo-and-aeo         -> Inspect Schema Graph & llms.txt
-/9-responsive-and-qa   -> Final Responsive Audit & npm run build
+/8-responsive-and-qa   -> Multi-Viewport Responsive Audit & Dynamic QA
+/9-seo-and-aeo         -> Schema Graph, llms.txt & npm run build pass
 ```
 
 ---

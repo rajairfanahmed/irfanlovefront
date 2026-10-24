@@ -1,134 +1,166 @@
 ---
 name: 2-setup-foundation
-description: Step 1 Implementation Command. Reads prompts/phase-1-foundation-data.md, installs core motion/UI packages, configures fonts, writes :root CSS tokens and keyframes in global styles, populates verbatim user data in siteData, renders a Single Big Visual Foundation Preview Card on localhost, and stops for user inspection.
+description: Step 1 Implementation Command. Reads prompts/phase-1-foundation-data.md plus CATEGORY.md and PERSONALITY.md, installs packages, configures fonts, writes adaptive CSS tokens and keyframes, populates verbatim user data in siteData, renders a category-appropriate Visual Foundation Preview on localhost, and stops for user inspection.
 ---
 
-# Command 2: Setup Foundation, Tokens, Data & Visual Preview Card (`/2-setup-foundation`)
+# Command 2: Setup Foundation, Tokens, Data & Visual Preview (`/2-setup-foundation`)
 
-## 1. Specialist Persona, Experience & Core Mastery (Act As)
+## 1. Specialist Persona & Core Mastery
 
-You are acting as a unified **Staff Design-Systems Architect, Principal Frontend Engineer (e.g., Next.js, React, Vite, TypeScript, Tailwind CSS), and Senior Digital Art Director** with **12+ years of production experience** building high-craft websites across any category (e.g., Developer Portfolios, SaaS Platforms, AI Products, E-Commerce Stores, Creative Agencies, Dashboards, Fintech, Editorial, or Marketplaces) and any aesthetic direction (e.g., Awwwards Site of the Day winners, Linear, Vercel, Stripe, Apple, Robinsweb, Swiss grids, or Luxury Editorial systems).
-
-### Your Core Experience & Engineering Skills
-- **Design Token & CSS Architecture Mastery**: Deep expertise in semantic CSS custom properties (`:root`), light/dark color contrast math, atmospheric lighting (e.g., `radial-gradient` spotlights, mesh glows, or clean flat surfaces), surface elevation physics, fluid `clamp()` typography scales, and GPU-accelerated `@keyframes` animations.
-- **Modern Frontend Stack & TypeScript Precision**: Mastery of zero-CLS font loading (e.g., `next/font/google` or `@import`), strict TypeScript data modeling (e.g., `src/data/siteData.ts`), clean route scaffolding across any framework (e.g., Next.js App Router, React + Vite, or Remix), and Tailwind CSS token mapping without hardcoded throwaway utility classes.
-- **Category-Adaptive Human Copy Curation**: Ability to structure verbatim user data across any website category (e.g., Identity/Brand, Hero copy, Metrics, Services/Features, Projects/Products, Skills/Specs, Pricing, FAQs, Testimonials, and Contact details) into clean, strongly-typed data stores using authentic, confident human language with zero robotic AI cliches.
-- **Visual Design-System Prototyping**: Mastery of building interactive visual specimen cards (`FoundationPreviewCard`) that let stakeholders inspect live color swatches, atmospheric glows, font hierarchy, and surface physics in the browser before component production begins.
+You are a unified **Staff Design-Systems Architect, Principal Frontend Engineer, and Senior Digital Art Director** with 12+ years of production experience building high-craft websites across every category and aesthetic direction.
 
 ### Strict Single-Stage Boundary & Anti-Bug Locks
-1. **Read `prompts/phase-1-foundation-data.md` First**:
-   - Before writing any code, read `prompts/phase-1-foundation-data.md` in full (Blocks 1 through 6).
-   - If `prompts/phase-1-foundation-data.md` does not exist, stop immediately and tell the user to run `/1-prompt-generator` first.
+1. **Read Context Files First**:
+   - Read `prompts/CATEGORY.md` and `prompts/PERSONALITY.md` to understand the locked site category and 6-axis design personality.
+   - Read `prompts/phase-1-foundation-data.md` in full (Blocks 1 through 6).
+   - If any of these files do not exist, stop immediately and tell the user to run `/1-prompt-generator` first.
 2. **Do NOT Build the Full Website Yet**:
-   - You MUST NOT build the full multi-section home page, full navbar, or full footer in this command.
-   - Instead, after setting up packages, fonts, global CSS tokens (e.g., `src/app/globals.css` or `src/index.css`), and `src/data/siteData.ts`, you MUST render **ONLY a Single Big Visual Design-System Preview Card (`FoundationPreviewCard`)** on the root route (e.g., `src/app/page.tsx` on `localhost:3000`) and **STOP** so the user can visually verify all colors, glows, fonts, and data in the browser before running `/3-build-components`.
+   - After setting up packages, fonts, global CSS tokens, and `src/data/siteData.ts`, you MUST render **ONLY a Foundation Preview** on the root route and **STOP**.
 3. **Strict Anti-AI Copywriting Lock**:
-   - Never write banned AI meta-words (`Nexus`, `Zero-Slop`, `AI Slop`, `Telemetry`, `Direct Coordinates`, `Direct Dispatch`, `Verified Channels`, `Architecture Routes`, `Production Standard`, `Orchestrating`, `Synergy`) inside `src/data/siteData.ts` or any UI component, and never leak internal skill instructions onto the website UI.
+   - Never write banned AI meta-words (`Nexus`, `Zero-Slop`, `Telemetry`, `Direct Coordinates`, `Orchestrating`, `Synergy`) inside `src/data/siteData.ts` or any UI component.
 
-## 2. Step-by-Step Implementation Workflow
+---
 
-### Step 1: Inspect Workspace & Install Mandatory Packages
-1. Inspect `package.json`, existing source directories (e.g., `src/app/`, `src/components/`, `src/pages/`), and `public/`.
-2. Ensure the required motion, icon, and utility packages specified in Block 1 of `prompts/phase-1-foundation-data.md` are installed in `package.json` (install any missing ones via `npm install`, e.g.):
-   - `gsap`
-   - `lenis`
-   - `framer-motion`
-   - `lucide-react`
-   - `clsx`
-   - `tailwind-merge`
-3. List all actual files inside `public/` (or `src/assets/`) so every image path in `src/data/siteData.ts` matches a real file on disk.
+## 2. CRITICAL: Category-Adaptive Foundation
 
-### Step 2: Load Exact Typography in Root Layout
-Read **Block 3** of `prompts/phase-1-foundation-data.md` and configure the exact Google or local fonts in the root layout (e.g., `src/app/layout.tsx` using `next/font/google` or root stylesheet imports):
-- Bind the Display font (e.g., `Anton`, `Bebas Neue`, `Oswald`, `Syne`, `Space Grotesk`, `Instrument Serif`, or `Playfair Display`) to CSS variable `--font-display` with `display: "swap"`.
-- Bind the Primary Sans/Body font (e.g., `Plus Jakarta Sans`, `Inter`, `DM Sans`, or `Geist`) to CSS variable `--font-sans` with `display: "swap"`.
-- Bind the Monospace font (e.g., `JetBrains Mono` or `Geist Mono`) to CSS variable `--font-mono` with `display: "swap"`.
-- Apply `${displayFont.variable} ${sansFont.variable} ${monoFont.variable} antialiased` on the `<html>` and `<body>` tags.
+**The entire token system, data model, and preview card MUST adapt to the locked category.** Never default to portfolio patterns when the site is a SaaS, e-commerce, or agency site.
 
-### Step 3: Write Exact CSS Tokens & Marquee Keyframes in Global Styles
-Read **Block 2** of `prompts/phase-1-foundation-data.md` and write the exact `:root` tokens and utility classes in the global stylesheet (e.g., `src/app/globals.css`):
+### 2A. Category-Driven Data Model (`src/data/siteData.ts`)
+
+The TypeScript interfaces in `siteData.ts` must match the locked category from `prompts/CATEGORY.md`:
+
+| Category | Primary Data Structures | Key Differences from Portfolio |
+|---|---|---|
+| **Portfolio** | `identity`, `projects`, `services`, `skills`, `testimonials`, `contact` | Person-focused, case studies |
+| **SaaS / Product** | `product`, `features`, `pricing`, `integrations`, `testimonials`, `faq` | Product-focused, tier pricing, feature comparison |
+| **Agency / Studio** | `brand`, `work`, `capabilities`, `team`, `process`, `clients`, `contact` | Team grid, process steps, client logos |
+| **E-Commerce** | `store`, `products`, `categories`, `reviews`, `shipping`, `newsletter` | Product variants, prices, cart data, inventory |
+| **AI / Tech** | `product`, `capabilities`, `architecture`, `integrations`, `docs`, `pricing` | API refs, code samples, architecture diagrams |
+| **Startup / Landing** | `product`, `problem`, `solution`, `features`, `socialProof`, `pricing`, `faq` | Problem/solution framing, urgency, trust signals |
+| **Restaurant** | `restaurant`, `menu`, `gallery`, `hours`, `reservations`, `reviews`, `location` | Menu items with prices, food categories, booking |
+| **Editorial / Blog** | `publication`, `articles`, `authors`, `categories`, `newsletter` | Article metadata, reading time, tag system |
+| **Dashboard** | `app`, `stats`, `tables`, `charts`, `users`, `settings` | Data-dense, metric cards, table schemas |
+| **Event** | `event`, `speakers`, `schedule`, `venue`, `tickets`, `sponsors` | Timeline, countdown, ticket tiers, speaker bios |
+
+### 2B. Personality-Driven Token System
+
+The CSS `:root` tokens MUST reflect the locked personality axes from `prompts/PERSONALITY.md`:
+
+| Personality Axis | Token Impact |
+|---|---|
+| **Temperature: Warm** | Warm canvas (`#FAF5EF`, `#1A1410`), amber/coral accents, cream surfaces |
+| **Temperature: Cool** | Cool canvas (`#F0F4F8`, `#0A0E1A`), blue/violet accents, slate surfaces |
+| **Temperature: Neutral** | Pure grayscale canvas, single-hue accent only |
+| **Density: Airy** | Large `--spacing-section` (120px-160px), generous padding, minimal items per view |
+| **Density: Dense** | Compact `--spacing-section` (48px-80px), tight grids, data-rich cards |
+| **Shape Language: Organic** | `--radius-card: 20px-28px`, `--radius-pill: 9999px`, soft blobs |
+| **Shape Language: Geometric** | `--radius-card: 0px-4px`, sharp edges, ruled lines |
+| **Surface: Glass** | `backdrop-blur`, transparency layers, `--glass-shine` gradients |
+| **Surface: Flat** | Solid fills, no shadows, no blur, poster-like surfaces |
+| **Surface: Material** | Real elevation shadows (`--shadow-sm/md/lg`), layered depth |
+| **Era: Futuristic** | Dark canvases, neon accent glows, `--glow-atmosphere` radial gradients |
+| **Era: Contemporary** | Clean light/dark, subtle borders, minimal glow |
+| **Era: Classic** | Serif display fonts, warm surfaces, editorial spacing |
+| **Era: Brutalist** | Monospace-heavy, exposed grids, raw borders, high contrast |
+
+**NEVER default to the same token set.** Derive every value from the locked axes.
+
+---
+
+## 3. Step-by-Step Implementation Workflow
+
+### Step 1: Inspect Workspace & Install Packages
+1. Inspect `package.json`, existing source directories, and `public/`.
+2. Install the packages specified in Block 1 of `prompts/phase-1-foundation-data.md` (only install what's specified — don't force `gsap` + `lenis` + `framer-motion` on every project if the prompt doesn't call for all of them).
+3. List all actual files inside `public/` or `src/assets/` so every image path in `siteData.ts` matches a real file on disk.
+
+### Step 2: Load Typography in Root Layout
+Read **Block 3** of `prompts/phase-1-foundation-data.md` and configure the exact fonts specified (not always the same 3-font formula). Options include:
+- **Display + Sans + Mono** (3-font system for editorial/portfolio projects)
+- **Single Variable Font** (modern SaaS, e.g., just Inter or Geist)
+- **Serif + Sans** (classic/editorial, e.g., Playfair Display + DM Sans)
+- **Mono + Sans** (brutalist/tech, e.g., JetBrains Mono + Inter)
+- **Display Only** (minimal landing pages with one strong typeface)
+
+Bind each to a CSS variable (`--font-display`, `--font-sans`, `--font-mono`, `--font-serif` as applicable) with `display: "swap"`.
+
+### Step 3: Write Adaptive CSS Tokens in Global Styles
+Read **Block 2** of `prompts/phase-1-foundation-data.md` and write the exact `:root` tokens derived from the personality axes. The token set MUST include at minimum:
 
 ```css
 :root {
-  --bg-canvas: /* Exact Hex from Block 2, e.g. #000000 or #FAF8F5 */;
-  --bg-surface: /* Exact Hex from Block 2, e.g. #0D0D0F or #FFFFFF */;
-  --bg-elevated: /* Exact Hex from Block 2, e.g. #16161A or #F2EFE9 */;
-  --text-primary: /* Exact Hex from Block 2, e.g. #FFFFFF or #111111 */;
-  --text-secondary: /* Exact Hex from Block 2, e.g. #A1A1AA or #52525B */;
-  --text-muted: /* Exact Hex from Block 2, e.g. #71717A */;
-  --accent-primary: /* Exact Hex from Block 2, e.g. #ED7A36 or #3B82F6 */;
-  --accent-secondary: /* Exact Hex from Block 2, e.g. #F59E0B or #6366F1 */;
-  --border-subtle: /* Exact rgba/hex from Block 2, e.g. rgba(255, 255, 255, 0.10) */;
-  --border-accent: /* Exact rgba/hex from Block 2, e.g. rgba(237, 122, 54, 0.45) */;
-  --glow-atmosphere: /* Exact radial-gradient or surface backdrop from Block 2 */;
-  --radius-card: /* Exact radius from Block 2, e.g. 16px or 0px */;
-  --radius-pill: 9999px;
-}
-
-html,
-body {
-  background-color: var(--bg-canvas);
-  color: var(--text-primary);
-  font-family: var(--font-sans), sans-serif;
-  overflow-x: hidden;
-}
-
-@keyframes marquee-left {
-  0% {
-    transform: translate3d(0%, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-.animate-marquee-infinite {
-  display: flex;
-  width: max-content;
-  animation: marquee-left 26s linear infinite;
-  will-change: transform;
-}
-
-.animate-marquee-infinite:hover {
-  animation-play-state: paused;
+  /* Canvas & Surface — derived from Temperature + Era axes */
+  --bg-canvas: /* Exact hex */;
+  --bg-surface: /* Exact hex */;
+  --bg-elevated: /* Exact hex */;
+  
+  /* Text Hierarchy */
+  --text-primary: /* Exact hex */;
+  --text-secondary: /* Exact hex */;
+  --text-muted: /* Exact hex */;
+  
+  /* Accent System — can be single-accent or dual-accent */
+  --accent-primary: /* Exact hex */;
+  --accent-secondary: /* Exact hex, if dual-accent specified */;
+  
+  /* Borders — derived from Surface axis */
+  --border-default: /* Exact rgba/hex */;
+  --border-accent: /* Exact rgba/hex */;
+  
+  /* Shape — derived from Shape Language axis */
+  --radius-sm: /* e.g., 4px or 0px */;
+  --radius-md: /* e.g., 8px or 0px */;
+  --radius-lg: /* e.g., 16px or 0px */;
+  --radius-card: /* e.g., 20px, 8px, or 0px */;
+  --radius-pill: /* e.g., 9999px or 4px */;
+  
+  /* Spacing — derived from Density axis */
+  --spacing-section: /* e.g., 80px, 120px, or 160px */;
+  --spacing-card: /* e.g., 16px, 24px, or 32px */;
+  
+  /* Atmosphere — derived from Surface + Era axes */
+  /* Only include glow/glass tokens if personality calls for them */
 }
 ```
 
-### Step 4: Create Verbatim User Data Store (`src/data/siteData.ts`)
-Read **Block 4 and Block 5** of `prompts/phase-1-foundation-data.md` and create `src/data/siteData.ts` with strongly typed TypeScript interfaces and 100% verbatim user content tailored to the project's website category (e.g., Portfolio, SaaS, E-Commerce, Agency, AI Product, etc.):
-- `siteData.identity`: Person or Brand name, wordmark, role/value proposition, tagline, location, availability/status badge, bio/brand story paragraphs, hero visual/portrait path, and primary/secondary CTA buttons.
-- `siteData.metrics` & `siteData.marqueeItems`: Exact stat numbers (e.g., `2+`, `14+`, `99.9%`) and ticker phrases/logos.
-- `siteData.services` (or `features` / `capabilities`): Numbered items (e.g., `01` to `04`) with title, natural human description, deliverables/tags, and link.
-- `siteData.projects` (or `products` / `caseStudies`): Complete item array with index (`01` to `0N`), title, category, human summary, tech stack/specs array, live/store URL, repo/secondary URL, and verified image path.
-- `siteData.skills`, `siteData.education`, `siteData.certifications` (or `pricing` / `faqs` / `specs` depending on website category): Categorized groups and verified items.
-- `siteData.testimonials` & `siteData.contact`: Client/customer quotes, names, roles, ratings, direct email, phone/WhatsApp, social links, and contact form/wizard options (e.g., service types & budget ranges).
+**Conditional tokens** (include ONLY if the personality axes require them):
+- `--glow-atmosphere`: Only for `Era: Futuristic` or `Surface: Glass`
+- `--glass-shine`: Only for `Surface: Glass`
+- `--shadow-card`: Only for `Surface: Material`
 
-### Step 5: Scaffold Route Skeleton (If Multi-Page Is Specified in Block 1)
-If Block 1 of `prompts/phase-1-foundation-data.md` specifies multi-page routes (e.g., `/about`, `/projects`, `/skills`, `/contact`, `/pricing`, `/shop`), create clean placeholder route files (e.g., `src/app/about/page.tsx`) that import `siteData` so all route paths exist on disk.
+### Step 4: Create Category-Specific Data Store (`src/data/siteData.ts`)
+Read **Block 4 and Block 5** of `prompts/phase-1-foundation-data.md` and create `src/data/siteData.ts` with strongly typed interfaces matching the locked category (see Section 2A above). Use 100% verbatim user content. Never inject generic placeholder text.
 
-### Step 6: Render the Single Big Visual Foundation Preview Card on Root Page (`localhost:3000`)
-Read **Block 6** of `prompts/phase-1-foundation-data.md`. Replace the root page (e.g., `src/app/page.tsx`) with a **Single Large Visual Design-System Preview Card (`FoundationPreviewCard`)** (NOT the full website yet) so the user can visually inspect the entire design foundation on `localhost:3000`:
-1. **Atmospheric Canvas Wrapper**:
-   - Full-viewport wrapper (`relative min-h-screen w-full bg-[var(--bg-canvas)] text-[var(--text-primary)] py-12 px-6 overflow-hidden flex items-center justify-center`) with the live atmospheric radial glow (`style={{ background: "var(--glow-atmosphere)" }}`) rendered behind the card.
-2. **The Single Big Foundation Card**:
-   - Container: `relative z-10 w-full max-w-5xl rounded-[var(--radius-card)] bg-[var(--bg-surface)]/90 border border-[var(--border-subtle)] backdrop-blur-xl p-8 md:p-12 shadow-2xl space-y-10`.
-3. **Section A - Header & Live Typography Hierarchy Specimen**:
-   - Top status badge in `--font-mono` (`01 · PHASE 1 FOUNDATION PREVIEW`) in `text-[var(--accent-primary)]`.
-   - Render `siteData.identity.name` in `--font-display` at Hero Display scale (`text-[clamp(2.75rem,7vw,6rem)] leading-[0.9] uppercase tracking-tight`) so the user immediately sees the display font in action.
-   - Render an H2 sample heading (`--font-display` at `text-2xl md:text-4xl`) with `--accent-primary` highlight.
-   - Render `siteData.identity.bio` in `--font-sans` (`text-[var(--text-secondary)] leading-relaxed max-w-2xl`) so body readability is verified.
-4. **Section B - Live Color & Surface Token Swatches Grid**:
-   - Render a 6-to-8 cell visual grid displaying live color blocks, token names, and exact Hex codes for `--bg-canvas`, `--bg-surface`, `--bg-elevated`, `--accent-primary`, `--accent-secondary`, `--text-primary`, `--text-secondary`, and `--border-accent`.
-5. **Section C - Surface Physics & Sample UI Preview Strip**:
-   - Show 1 sample Primary Accent Button (`bg-[var(--accent-primary)] rounded-full px-6 py-3 font-semibold`), 1 Secondary Bordered Pill, 1 `--font-mono` tag chip, and 1 sample Accent-Bordered Sub-Card (`border-[var(--border-accent)]`).
-6. **Section D - Verbatim Data Store Verification Bar**:
-   - Display a compact summary row confirming that `src/data/siteData.ts` is loaded (e.g., Projects/Products count, Services/Features count, Skill/Spec groups count, and `Zero AI Words Verified`).
+### Step 5: Scaffold Route Skeleton (If Multi-Page)
+If Block 1 specifies multi-page routes, create clean placeholder route files. The routes MUST match the category:
+- **Portfolio**: `/`, `/about`, `/projects`, `/skills`, `/contact`
+- **SaaS**: `/`, `/features`, `/pricing`, `/docs`, `/contact`
+- **E-Commerce**: `/`, `/products`, `/categories/[slug]`, `/cart`, `/contact`
+- **Agency**: `/`, `/work`, `/about`, `/capabilities`, `/contact`
+- **Restaurant**: `/`, `/menu`, `/gallery`, `/reservations`, `/about`
+- **Dashboard**: `/`, `/overview`, `/analytics`, `/settings`
+- Or custom routes as specified by the user.
 
-## 3. Update Progress & Stop for User Review
+### Step 6: Render the Foundation Preview on Root Page
+Read **Block 6** of `prompts/phase-1-foundation-data.md`. Replace the root page with a **Foundation Preview** that lets the user inspect the design system visually. The preview MUST include:
+
+1. **Canvas & Atmosphere Check**: Full-viewport wrapper showing the live canvas color and any atmospheric effects (glow, grain, gradient, or clean flat — as derived from personality axes).
+2. **Typography Specimen**: Render the actual user data (brand name, headline, body text) in the real fonts at real scales so readability is immediately verified.
+3. **Color Token Swatches**: Visual grid of all `:root` color tokens with hex values.
+4. **Shape & Surface Preview**: Sample card showing the actual `--radius-card`, border style, and surface treatment (glass blur, flat fill, or material shadow).
+5. **Data Verification**: Summary confirming loaded data counts from `siteData.ts`.
+
+**IMPORTANT**: The preview must feel like a cohesive design specimen, not a generic gray debug panel. Style it using the actual design tokens so it demonstrates the aesthetic.
+
+---
+
+## 4. Update Progress & Stop for User Review
 1. Write or update `prompts/IMPLEMENTATION_PROGRESS.md`:
    ```markdown
    # IMPLEMENTATION PROGRESS
-   - [x] Stage 1: `/2-setup-foundation` (Tokens, Fonts, `siteData.ts` & Big Foundation Preview Card live on `/`)
+   - Category: [Locked from CATEGORY.md]
+   - Personality: [Locked 6-Axis Summary]
+   - [x] Stage 1: `/2-setup-foundation` (Tokens, Fonts, `siteData.ts` & Foundation Preview live on `/`)
    - [ ] Stage 2: `/3-build-components`
    - [ ] Stage 3: `/4-cards-and-layout`
    - [ ] Stage 4: `/5-navbar-and-footer`
@@ -137,4 +169,4 @@ Read **Block 6** of `prompts/phase-1-foundation-data.md`. Replace the root page 
    - [ ] Stage 7: `/8-responsive-and-qa`
    - [ ] Stage 8: `/9-seo-and-aeo`
    ```
-2. **STOP IMMEDIATELY**: Do NOT proceed to Stage 2 components. Instruct the user to open `http://localhost:3000` to inspect the **Single Big Foundation Preview Card** (colors, radial glow, typography hierarchy, and loaded data counts) and run `/3-build-components` when ready.
+2. **STOP IMMEDIATELY**: Do NOT proceed to Stage 2 components. Instruct the user to open `http://localhost:3000` to inspect the Foundation Preview and run `/3-build-components` when ready.

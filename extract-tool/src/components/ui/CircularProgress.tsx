@@ -16,11 +16,11 @@ export function CircularProgress({
   percent,
   indeterminate = false,
   isComplete = false,
-  size = 160,
+  size = 180,
   className = '',
 }: CircularProgressProps) {
-  const radius = 64;
-  const circumference = 2 * Math.PI * radius; // ~402.12
+  const radius = 72;
+  const circumference = 2 * Math.PI * radius;
   const clampedPercent = Math.min(100, Math.max(0, percent));
   const strokeOffset = circumference * (1 - clampedPercent / 100);
 
@@ -35,62 +35,85 @@ export function CircularProgress({
     >
       <svg
         className={`w-full h-full ${indeterminate ? 'animate-spin-smooth' : '-rotate-90'}`}
-        viewBox="0 0 160 160"
+        viewBox="0 0 180 180"
         aria-hidden="true"
       >
-        {/* Base Red Thin Track */}
+        {/* Background track */}
         <circle
-          cx="80"
-          cy="80"
+          cx="90"
+          cy="90"
           r={radius}
-          stroke="#EA4335"
+          stroke="rgba(255,255,255,0.04)"
           strokeWidth="3"
           fill="none"
-          opacity="0.25"
         />
 
-        {/* Active Ring */}
+        {/* Accent track (very subtle) */}
+        <circle
+          cx="90"
+          cy="90"
+          r={radius}
+          stroke="rgba(239,68,68,0.08)"
+          strokeWidth="3"
+          fill="none"
+        />
+
+        {/* Active ring */}
         {indeterminate ? (
           <circle
-            cx="80"
-            cy="80"
+            cx="90"
+            cy="90"
             r={radius}
-            stroke="#111827"
-            strokeWidth="7"
+            stroke="#ef4444"
+            strokeWidth="5"
             strokeLinecap="round"
             fill="none"
             strokeDasharray={`${circumference * 0.25} ${circumference * 0.75}`}
+            style={{ filter: 'drop-shadow(0 0 6px rgba(239,68,68,0.3))' }}
           />
         ) : (
           <circle
-            cx="80"
-            cy="80"
+            cx="90"
+            cy="90"
             r={radius}
-            stroke={isComplete ? '#10B981' : '#111827'}
-            strokeWidth="7"
+            stroke={isComplete ? '#10b981' : '#ef4444'}
+            strokeWidth="5"
             strokeLinecap="round"
             fill="none"
             strokeDasharray={circumference}
             strokeDashoffset={strokeOffset}
-            className="transition-[stroke-dashoffset,stroke] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            className="transition-[stroke-dashoffset,stroke] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            style={{
+              filter: isComplete
+                ? 'drop-shadow(0 0 8px rgba(16,185,129,0.3))'
+                : 'drop-shadow(0 0 6px rgba(239,68,68,0.2))',
+            }}
           />
         )}
       </svg>
 
-      {/* Centered Large Metric or Complete Checkmark */}
+      {/* Center content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center">
         {isComplete ? (
-          <div className="w-12 h-12 rounded-full bg-emerald-50 text-[#10B981] flex items-center justify-center">
+          <div className="w-14 h-14 rounded-full bg-[#10b981]/10 text-[#10b981] flex items-center justify-center border border-[#10b981]/20">
             <Check className="w-7 h-7 stroke-[2.5]" />
           </div>
         ) : indeterminate ? (
-          <span className="font-mono text-xs font-semibold text-gray-500 uppercase tracking-wider">
-            Wait
-          </span>
+          <div className="flex flex-col items-center gap-1">
+            <div className="w-2 h-2 rounded-full bg-[#ef4444] animate-pulse-glow" />
+            <span className="font-mono text-[10px] font-medium text-[#52525b] uppercase tracking-wider">
+              Starting
+            </span>
+          </div>
         ) : (
-          <span className="font-display text-4xl sm:text-5xl font-extrabold text-[#111827] tabular-nums tracking-tight">
-            {Math.round(clampedPercent)}%
-          </span>
+          <div className="flex flex-col items-center">
+            <span className="font-display text-4xl sm:text-5xl font-extrabold text-[#f4f4f5] tabular-nums tracking-tight">
+              {Math.round(clampedPercent)}
+            </span>
+            <span className="font-mono text-[10px] text-[#52525b] uppercase tracking-wider -mt-0.5">
+              percent
+            </span>
+          </div>
         )}
       </div>
     </div>

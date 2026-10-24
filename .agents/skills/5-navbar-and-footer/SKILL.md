@@ -1,119 +1,151 @@
 ---
 name: 5-navbar-and-footer
-description: Step 4 Implementation Command. Reads prompts/phase-4-navbar-footer.md, builds Navbar, MenuOverlay state machine, ContactSection multi-step wizard or split form, and Footer with high-contrast hover-glow giant watermark, mounts them in root layout and localhost preview, and stops for user inspection.
+description: Step 4 Implementation Command. Reads prompts/phase-4-navbar-footer.md plus CATEGORY.md and PERSONALITY.md, builds a category-appropriate Navbar, menu/overlay state machine, contact section, and Footer with unique composition, mounts them in root layout and localhost preview, and stops for user inspection.
 ---
 
-# Command 5: Build Desktop Navbar, Hamburger Overlay, Contact Wizard & Interactive Footer (`/5-navbar-and-footer`)
+# Command 5: Build Navigation, Contact & Footer (`/5-navbar-and-footer`)
 
-## 1. Specialist Persona, Experience & Core Mastery (Act As)
+## 1. Specialist Persona & Core Mastery
 
-You are acting as a unified **Principal Navigation & Shell Architect, Staff Interactive State Engineer (e.g., Next.js, React, Vite, TypeScript, Tailwind CSS, Framer Motion, GSAP), and Senior Conversion UX Designer** with **12+ years of production experience** engineering global navigation systems, overlay menu state machines, high-converting inquiry wizards, and signature interactive footers across any website category (e.g., Developer Portfolios, SaaS Platforms, AI Products, E-Commerce Stores, Creative Agencies, Dashboards, Fintech, Editorial, or Marketplaces) and any aesthetic direction (e.g., Awwwards Site of the Day winners, Linear, Vercel, Stripe, Apple, Robinsweb, Swiss grids, or Luxury Editorial systems).
-
-### Your Core Experience & Engineering Skills
-- **Global Navigation & Archetype Precision**: Deep expertise in building exact desktop and mobile navigation architectures without ever falling back to unrequested generic templates (e.g., Minimal Split Bar with Brand left + `Menu [=]` pill right and zero cluttered middle links, Floating Center Glass Island, Docked SaaS Header, Enterprise Mega-Menu, E-Commerce Split Header with Cart Drawer trigger, Editorial Masthead, Left Command Sidebar, or Bottom Floating Dock).
-- **Accessible Overlay & Drawer State Machines**: Mastery of client-side menu state management (`isOpen` toggle, `Menu [=]` to `Close [X]` button morph, `document.body.style.overflow` scroll lock, `ESC` key listener, backdrop click dismissal, focus trapping, and automatic close on route/anchor selection).
-- **High-Converting Contact & Multi-Step Wizard Engineering**: Proven ability to build interactive multi-step inquiry wizards (`Step 1 of 3` -> `Step 2 of 3` -> `Step 3 of 3` with animated `--accent-primary` progress bar, clickable `SelectablePill` service/budget chips, step validation, and instant human confirmation state) as well as split editorial contact forms and copy-to-clipboard triggers.
-- **High-Contrast Interactive Footer & Watermark Physics**: Mastery of crafting full-viewport-width typographic brand watermarks (`clamp(3.2rem, 14.5vw, 15rem)`) that maintain clear base contrast at rest (e.g., `#262320` on `#000000` dark canvas or `rgba(0,0,0,0.14)` on light canvas, never invisible black-on-black) and smoothly illuminate in `var(--accent-primary)` with radial drop-shadow glow on pointer hover.
+You are a unified **Principal Navigation & Shell Architect, Staff Interactive State Engineer, and Senior Conversion UX Designer** with 12+ years of production experience engineering navigation systems, overlay menus, inquiry forms, and interactive footers across every category and aesthetic.
 
 ### Strict Single-Stage Boundary & Anti-Bug Locks
-1. **Read `prompts/phase-4-navbar-footer.md` First**:
-   - Before writing any code, read `prompts/phase-4-navbar-footer.md` in full (Blocks 1 through 6), and cross-check `prompts/phase-1-foundation-data.md` through `prompts/phase-3-cards-layout.md` plus `src/data/siteData.ts`.
-   - If `prompts/phase-4-navbar-footer.md` does not exist, stop immediately and tell the user to complete Phase 4 in `/1-prompt-generator` first.
-2. **Build ONLY Navbar, MenuOverlay, ContactSection & Footer in This Stage**:
-   - Do NOT assemble the full production Home page or sub-routes yet (that happens in `/6-build-pages`).
-   - Build `Navbar.tsx`, `MenuOverlay.tsx`, `ContactSection.tsx`, and `Footer.tsx` inside `src/components/layout/`, mount `<Navbar />` and `<Footer />` in the root layout (e.g., `src/app/layout.tsx`), mount `<ContactSection />` inside the showroom on `localhost:3000`, update `prompts/IMPLEMENTATION_PROGRESS.md`, and **STOP** for user inspection.
-3. **Anti-Cliche Formatting & Pulse Lock**:
-   - Never inject double slashes (`//`) into navigation labels, menu overlay items, or footer elements. Use clean spacing (`01  HOME`) or subtle dots (`01 · HOME`).
-   - Status indicators in headers or forms must remain solid by default without unrequested pulse animations.
-4. **Strict Anti-AI Copywriting Lock**:
-   - Use natural, confident human labels (`Home`, `About`, `Services`, `Work`, `Projects`, `Reviews`, `Contact`, `Let's Work Together`, `Send a Message`).
-   - Never output banned AI meta-words (`Nexus`, `Zero-Slop`, `AI Slop`, `Telemetry`, `Direct Coordinates`, `Direct Dispatch`, `Verified Channels`, `Architecture Routes`, `Production Standard`, `Orchestrating`, `Synergy`) in navigation links, contact headings, or footer labels.
+1. **Read Context Files First**:
+   - Read `prompts/CATEGORY.md`, `prompts/PERSONALITY.md`, and `prompts/phase-4-navbar-footer.md` in full.
+   - Cross-check all previous prompt files and `src/data/siteData.ts`.
+   - If `prompts/phase-4-navbar-footer.md` does not exist, stop and tell the user to complete Phase 4 first.
+2. **Build ONLY Navbar, Menu, Contact & Footer in This Stage**.
+3. **Anti-Cliche Lock**: Never inject `//` separators in nav labels or footer elements unless the Brutalist/Futuristic era is locked.
+4. **Anti-AI Lock**: Use natural human labels. Never output banned AI words.
 
-## 2. Directory Layout & Architecture Overview
+---
 
-All shell navigation, overlay, and inquiry components must reside in `src/components/layout/`:
-```
-src/components/layout/
-├── Navbar.tsx          # Fixed/sticky navigation header with responsive trigger
-├── MenuOverlay.tsx     # Fullscreen curtain overlay with focus trap and esc listener
-├── ContactSection.tsx  # Multi-step inquiry wizard or split editorial form
-└── Footer.tsx          # High-contrast watermark footer and copyright bar
-```
+## 2. CRITICAL: Navigation Archetype Diversity
 
-## 3. Step-by-Step Implementation Workflow
+**NEVER default to the `Menu [=]` pill navbar.** The navbar MUST be selected from the prompt's specification.
 
-### Step 1: Build the Desktop Navbar Component (`src/components/layout/Navbar.tsx`)
-Read **Block 1** of `prompts/phase-4-navbar-footer.md` and create `src/components/layout/Navbar.tsx` (`"use client"`):
-- Import `siteData` from `src/data/siteData.ts` and render the exact selected Desktop Navbar archetype from Block 1 (e.g.):
-  - **If Archetype A - Minimal Split Bar (`Brand` Left + `Menu [=]` Pill Right, e.g., `robinsweb.net` Style)**:
-    - Fixed/sticky top bar (`fixed top-0 inset-x-0 z-50 h-20 px-5 sm:px-8 md:px-12 flex items-center justify-between backdrop-blur-md bg-[var(--bg-canvas)]/70 border-b border-[var(--border-subtle)]`).
-    - Left: Uppercase brand/person wordmark (`font-[family-name:var(--font-display)] text-xl md:text-2xl tracking-wider uppercase text-[var(--text-primary)]`).
-    - Right: Interactive rounded pill button (`min-h-[44px] rounded-full px-5 py-2.5 border border-[var(--border-subtle)] bg-[var(--bg-surface)]/90 flex items-center gap-3 hover:border-[var(--accent-primary)] transition-all duration-300`) that toggles `isOpen` and morphs its label/icon between `Menu [=]` and `Close [X]`.
-    - **CRITICAL LOCK**: Do NOT render horizontal desktop nav links in the center of the bar when Archetype A is selected.
-  - **If Archetype B (Floating Center Glass Island), C (Docked Full-Width Header), D (Mega-Menu), E (E-Commerce Split Utility Header), F (Editorial Masthead), G (Left Command Rail), or H (Bottom Floating Dock)**:
-    - Build the exact structural geometry, links, and action triggers specified in Block 1.
+### Navbar Archetype Library
 
-### Step 2: Build the Hamburger & Overlay Menu State Machine (`src/components/layout/MenuOverlay.tsx`)
-Read **Block 2** of `prompts/phase-4-navbar-footer.md` and create `src/components/layout/MenuOverlay.tsx` (`"use client"`):
-- Controlled by `isOpen: boolean` and `onClose: () => void` passed from `Navbar.tsx`.
-- **State & Ergonomics**:
-  - Lock background page scroll (`document.body.style.overflow = isOpen ? "hidden" : ""`) while open, and clean up on unmount.
-  - Listen for `keydown` (`Escape`) to close immediately.
-  - Clicking any navigation link or the backdrop closes the overlay smoothly.
-- **Internal Overlay Architecture (As Specified in Block 2)**:
-  - Render the exact chosen overlay variant (e.g., Full-Screen Staggered Curtain `fixed inset-0 z-40 bg-[var(--bg-canvas)]/95 backdrop-blur-2xl`, Split-Screen Image Preview Overlay, Slide-In Right Frosted Glass Drawer, or Expanding Floating Island).
-  - Implement full keyboard focus trapping inside the overlay so pressing Tab or Shift+Tab cycles strictly through interactive elements within the drawer.
-  - Display numbered navigation items (`01 HOME`, `02 ABOUT`, `03 SERVICES`, `04 WORK`, `05 CONTACT` or project routes) in `font-[family-name:var(--font-display)] text-3xl sm:text-5xl md:text-7xl uppercase tracking-tight`, shifting right (`hover:translate-x-4`) and transitioning to `text-[var(--accent-primary)]` on hover.
-  - Highlight the currently active route based on the pathname with a subtle indicator or accent tint.
-  - Include a bottom row displaying verbatim direct email and social links (`GitHub`, `LinkedIn`, etc.) from `siteData.contact`.
+| # | Archetype | Best For | Key Trait |
+|---|---|---|---|
+| **N1** | Minimal Split Bar (Brand Left + Trigger Right) | Portfolio, Agency | No center links, hamburger trigger only |
+| **N2** | Centered Logo + Horizontal Links | SaaS, Startup, Corporate | Logo center or left, 4-6 visible nav links, CTA button right |
+| **N3** | Floating Center Glass Island | Portfolio, Creative Agency | Detached floating pill centered below top edge with blur |
+| **N4** | Full-Width Utility Header (Logo + Links + Actions) | E-Commerce, SaaS | Logo, search bar, nav links, cart/account icons |
+| **N5** | Left Sidebar Rail (Always Visible) | Dashboard, Admin, Documentation | Persistent vertical nav with icon + labels |
+| **N6** | Bottom Floating Dock (macOS-style) | Creative Portfolio, Experimental | Fixed bottom bar with icon buttons |
+| **N7** | Editorial Masthead (Publication Name + Section Links) | Editorial, Blog, Magazine | Large publication name, section nav below |
+| **N8** | Mega-Menu Header (Links + Dropdown Panels) | Enterprise, E-Commerce | Hover/click reveals multi-column dropdown panels |
+| **N9** | Transparent Overlay Header (Blends with Hero) | Restaurant, Event, Fashion | Initially transparent, gains background on scroll |
+| **N10** | Command Bar (Search-Centric) | AI Product, Developer Tool, Documentation | Central search/command input, minimal nav links |
 
-### Step 3: Build the Contact Section / Multi-Step Inquiry Wizard (`src/components/layout/ContactSection.tsx`)
-Read **Block 3** of `prompts/phase-4-navbar-footer.md` and create `src/components/layout/ContactSection.tsx` (`"use client"`), importing `StepProgressBar`, `SelectablePill`, `TextInput`, `TextArea`, and `Button` from `src/components/ui/`:
-- Implement the exact Contact architecture specified in Block 3 (e.g.):
-  - **If Variant A - Multi-Step Interactive Wizard Form with Progress Bar (`Step 1 of 3`)**:
-    - Maintain React state: `step` (`1 | 2 | 3`), `isSubmitted` (`boolean`), and `formData` (`service`, `budget`, `name`, `email`, `timeline`, `message`).
-    - Render `<StepProgressBar currentStep={step} totalSteps={3} />` at the top of the wizard card.
-    - **Step 1 (Scope & Budget)**: Render interactive `<SelectablePill />` groups for Service Type and Budget Range from `siteData.contact` + a `Next Step` button.
-    - **Step 2 (Your Details)**: Render `<TextInput />` fields for Name, Email, and Timeline + `Back` and `Next Step` buttons.
-    - **Step 3 (Project Brief)**: Render `<TextArea />` for project details + `Back` and `Send Message` submit button.
-    - **Confirmation State**: On submit, render a clean, warm human confirmation card with a `Send Another Message` reset button.
-  - **If Variant B (Split Editorial Single-Step Form) or Variant C (Booking Callout + Message Card)**:
-    - Build the left contact details column (natural human heading, copyable email/phone pills, availability badge, social links) and the right validated form card.
+**Build ONLY the archetype specified in the prompt.**
 
-### Step 4: Build the Global Footer & Giant Interactive Brand Watermark (`src/components/layout/Footer.tsx`)
-Read **Block 4** of `prompts/phase-4-navbar-footer.md` and create `src/components/layout/Footer.tsx` (`"use client"`):
-- **Top Footer Row**:
-  - Render quick navigation links, social media pill links (`GitHub`, `LinkedIn`, etc. from `siteData.contact`), human copyright notice (`© {new Date().getFullYear()} {siteData.identity.name}`), and a working `Back to Top` button (`window.scrollTo({ top: 0, behavior: "smooth" })`).
-- **Giant Interactive Brand Watermark Masthead (If Specified in Block 4)**:
-  - Render the full-viewport-width uppercase brand or person name (`siteData.identity.wordmark` or `siteData.identity.name`) in `font-[family-name:var(--font-display)] text-[clamp(2.75rem,13.8vw,15rem)] leading-[0.85] tracking-tight uppercase text-center select-none cursor-pointer transition-all duration-500`.
-  - **MANDATORY BASE CONTRAST LOCK**: At rest, the watermark MUST be clearly visible against `--bg-canvas` (use `text-[#262320]` on a dark `#000000` canvas or `text-black/15` on a light canvas, never render invisible `#050505` or `#0A0A0A` black-on-black text).
-  - **MANDATORY HOVER GLOW LOCK**: On pointer hover (`hover:`), smoothly transition the watermark to `hover:text-[var(--accent-primary)] hover:drop-shadow-[0_0_45px_rgba(237,122,54,0.55)]` (matching the project primary accent glow).
+### Menu / Overlay Archetype Library
 
-### Step 5: Mount Global Shell in Root Layout & Update `localhost:3000` Preview
-Read **Block 5 and Block 6** of `prompts/phase-4-navbar-footer.md`:
-1. **Root Layout (`src/app/layout.tsx`)**:
-   - Mount `<Navbar />` at the top of `<body>` and `<Footer />` at the bottom of `<body>` wrapping `{children}`.
-2. **Root Preview Page (`src/app/page.tsx` on `localhost:3000`)**:
-   - Append `<ContactSection />` below the Phase 3 Cards & Layout Showroom on `src/app/page.tsx` so the user can visually inspect and interact with the entire global shell on `localhost:3000`.
-3. **Responsive Shell Validation**:
-   - Validate that on viewports below 768px, the Navbar remains compact without overflow.
-   - Verify that opening the MenuOverlay on mobile locks scrolling cleanly and covers the full screen.
-   - Confirm that the giant watermark scales down gracefully via fluid `clamp()` without horizontal scrollbars.
+| # | Archetype | Key Trait |
+|---|---|---|
+| **M1** | Full-Screen Staggered Curtain | Fills viewport, staggered link reveal, contact info at bottom |
+| **M2** | Right Slide-In Drawer | Slides in from right edge, 280-400px wide, backdrop behind |
+| **M3** | Split-Screen Overlay (Links Left, Image/Content Right) | 50/50 split, image preview on hover or static content right |
+| **M4** | Expanding Island (From nav pill, expands to reveal links) | Morphs from compact nav to expanded panel |
+| **M5** | Sheet Drop-Down (Slides down from header) | Panel drops down from navbar, pushes or overlays content |
+| **M6** | No Overlay Needed | All links visible in header — no hamburger on desktop |
 
-## 4. Update Progress & Stop for User Review
+**Build ONLY the overlay specified in the prompt. Some navbars (N2, N4, N5, N8) may not need an overlay at all on desktop.**
+
+### Required Overlay Behaviors (Universal)
+- Lock background scroll when open (`document.body.style.overflow`)
+- Close on `Escape` key
+- Close on backdrop click (if drawer/overlay style)
+- Close on navigation link click
+- Focus trapping inside overlay
+- Clean up on unmount
+
+---
+
+## 3. CRITICAL: Contact Section Diversity
+
+**NEVER default to the multi-step wizard (Step 1 of 3).** The contact pattern MUST match the category and prompt.
+
+### Contact Archetype Library
+
+| # | Archetype | Best For | Key Trait |
+|---|---|---|---|
+| **C1** | Multi-Step Wizard (Step 1/2/3) | Portfolio, Agency | Guided steps with progress bar, service/budget selection |
+| **C2** | Single-Column Form | SaaS, Startup, Simple | Name, email, message — clean and direct |
+| **C3** | Split Layout (Info Left, Form Right) | Agency, Corporate | Contact details + social links left, form right |
+| **C4** | Email/Calendar CTA Only (No Form) | Minimal Portfolio | Just a big email link and/or Calendly embed |
+| **C5** | Booking Widget | Restaurant, Event, Salon | Date/time picker, party size, reservation |
+| **C6** | Chat Widget / Support Form | SaaS, Dashboard | Floating chat trigger, support ticket form |
+| **C7** | Newsletter Signup Only | Editorial, Blog | Email input + subscribe CTA, no full form |
+| **C8** | Interactive Map + Multi-Channel | Restaurant, Retail, Hospitality | Embedded map, phone, email, hours, directions |
+
+**Build ONLY what the prompt specifies.**
+
+---
+
+## 4. CRITICAL: Footer Archetype Diversity
+
+**NEVER default to the giant watermark footer.** The footer MUST match the category and personality.
+
+### Footer Archetype Library
+
+| # | Archetype | Key Trait |
+|---|---|---|
+| **F1** | Giant Brand Watermark + Minimal Links | Full-width oversized text, minimal links above/below |
+| **F2** | Multi-Column Link Grid + Newsletter | 3-4 columns of categorized links, newsletter input, social icons |
+| **F3** | Minimal Single-Line Bar | Copyright + 2-3 links, all in one row |
+| **F4** | CTA-Driven Footer (Big Final CTA + Links) | Large "Get Started" or "Contact" CTA, links below |
+| **F5** | Editorial Colophon | Publication info, latest articles, social, newsletter |
+| **F6** | Sticky Bottom Bar (Always Visible) | Fixed footer bar with key actions |
+| **F7** | Sitemap Footer (Comprehensive Links) | All routes listed, multiple columns, legal links |
+
+**F1 (Giant Watermark) is ONE option, not the default. Build what the prompt specifies.**
+
+### Giant Watermark Rules (ONLY when F1 is selected)
+- At rest: Clearly visible against canvas (never invisible same-color-on-same-color)
+- On hover: Transitions to accent color with optional glow (if personality supports glow)
+- The text is the brand/person name from `siteData`
+
+---
+
+## 5. Step-by-Step Implementation Workflow
+
+### Step 1: Build the Navbar
+Read **Block 1** and build the exact specified navbar archetype inside `src/components/layout/Navbar.tsx`.
+
+### Step 2: Build the Menu / Overlay (if needed)
+Read **Block 2** and build the overlay in `src/components/layout/MenuOverlay.tsx` if the navbar archetype requires one. Wire the state machine (open/close, scroll lock, escape key, focus trap).
+
+### Step 3: Build the Contact Section
+Read **Block 3** and build the exact specified contact archetype in `src/components/layout/ContactSection.tsx`. Import form primitives from `src/components/ui/`.
+
+### Step 4: Build the Footer
+Read **Block 4** and build the exact specified footer archetype in `src/components/layout/Footer.tsx`.
+
+### Step 5: Mount Global Shell in Root Layout
+- Mount `<Navbar />` at the top of `<body>` in the root layout
+- Mount `<Footer />` at the bottom
+- Add `<ContactSection />` to the showroom preview page
+
+### Step 6: Responsive Shell Validation
+- Verify navbar is compact without overflow on viewports below 768px
+- Verify overlay covers full screen on mobile with clean scroll lock
+- Verify footer scales gracefully with fluid typography
+
+---
+
+## 6. Update Progress & Stop for User Review
 1. Update `prompts/IMPLEMENTATION_PROGRESS.md`:
    ```markdown
    # IMPLEMENTATION PROGRESS
-   - [x] Stage 1: `/2-setup-foundation` (Tokens, Fonts, `siteData.ts` & Big Foundation Preview Card)
-   - [x] Stage 2: `/3-build-components` (Atomic UI Primitives in `src/components/ui/`)
-   - [x] Stage 3: `/4-cards-and-layout` (Layout Wrappers, `HeroSection`, & Custom Card Archetypes)
-   - [x] Stage 4: `/5-navbar-and-footer` (`Navbar`, `MenuOverlay`, `ContactSection` Wizard & Giant Watermark `Footer` live on `/`)
-   - [ ] Stage 5: `/6-build-pages`
-   - [ ] Stage 6: `/7-animate-website`
-   - [ ] Stage 7: `/8-responsive-and-qa`
-   - [ ] Stage 8: `/9-seo-and-aeo`
+   - Navbar Archetype: [e.g., N2 - Centered Logo + Horizontal Links]
+   - Menu Archetype: [e.g., M6 - No Overlay (links visible)]
+   - Contact Archetype: [e.g., C2 - Single-Column Form]
+   - Footer Archetype: [e.g., F2 - Multi-Column Link Grid]
+   - [x] Stage 1-3: Previous stages
+   - [x] Stage 4: `/5-navbar-and-footer` (Navbar, Menu, Contact & Footer live on `/`)
+   - [ ] Stage 5-8: Remaining stages
    ```
-2. **STOP IMMEDIATELY**: Do NOT assemble the final production pages yet. Instruct the user to open `http://localhost:3000` and test:
-   - Clicking the top `Menu` trigger in `Navbar` to open and close `MenuOverlay`.
-   - Clicking through `Step 1 -> Step 2 -> Step 3` of `ContactSection`.
-   - Scrolling to `Footer` to verify the giant watermark is clearly visible at rest and glows with `var(--accent-primary)` on hover, and then run `/6-build-pages` when ready.
+2. **STOP IMMEDIATELY**: Instruct the user to test the navbar (desktop + mobile trigger), menu overlay (if applicable), contact form interaction, and footer on `localhost:3000`, then run `/6-build-pages` when ready.

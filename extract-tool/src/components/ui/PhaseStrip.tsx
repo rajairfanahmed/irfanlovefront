@@ -10,27 +10,24 @@ export interface PhaseStripProps {
   className?: string;
 }
 
-export function PhaseStrip({ phase, className = '' }: PhaseStripProps) {
-  const phases = [
-    { id: 'discovering', label: 'Finding pages' },
-    { id: 'capturing', label: 'Capturing' },
-    { id: 'packaging', label: 'Packaging' },
-  ];
+const PHASES = [
+  { id: 'discovering', label: 'Discover', number: 1 },
+  { id: 'capturing', label: 'Capture', number: 2 },
+  { id: 'packaging', label: 'Package', number: 3 },
+] as const;
 
+export function PhaseStrip({ phase, className = '' }: PhaseStripProps) {
   const getStepStatus = (stepId: string) => {
     if (phase === 'done') return 'completed';
     if (stepId === 'discovering') {
-      if (phase === 'discovering') return 'current';
-      return 'completed';
+      return phase === 'discovering' ? 'current' : 'completed';
     }
     if (stepId === 'capturing') {
       if (phase === 'discovering') return 'pending';
-      if (phase === 'capturing') return 'current';
-      return 'completed';
+      return phase === 'capturing' ? 'current' : 'completed';
     }
     if (stepId === 'packaging') {
-      if (phase === 'packaging') return 'current';
-      return 'pending';
+      return phase === 'packaging' ? 'current' : 'pending';
     }
     return 'pending';
   };
@@ -39,39 +36,49 @@ export function PhaseStrip({ phase, className = '' }: PhaseStripProps) {
     <div
       role="navigation"
       aria-label="Extraction phases"
-      className={`flex items-center justify-center gap-1.5 sm:gap-3 text-xs font-mono select-none ${className}`}
+      className={`flex items-center justify-center gap-0 text-xs font-mono select-none ${className}`}
     >
-      {phases.map((step, idx) => {
+      {PHASES.map((step, idx) => {
         const status = getStepStatus(step.id);
         const isCurrent = status === 'current';
         const isCompleted = status === 'completed';
+        const isPending = status === 'pending';
 
         return (
           <React.Fragment key={step.id}>
+            {/* Connector line */}
             {idx > 0 && (
-              <span className="text-gray-300 font-sans text-xs">/</span>
+              <div className={`w-8 h-px transition-colors duration-300 ${
+                isCompleted || isCurrent ? 'bg-[#ef4444]/30' : 'bg-white/[0.06]'
+              }`} />
             )}
-            <div
-              className={`flex items-center gap-1.5 transition-colors ${
-                isCurrent
-                  ? 'text-[#111827] font-bold'
-                  : isCompleted
-                  ? 'text-gray-700 font-medium'
-                  : 'text-gray-400 opacity-60'
-              }`}
-            >
+
+            <div className="flex items-center gap-2">
+              {/* Step indicator */}
               {isCompleted ? (
-                <div className="w-4 h-4 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                  <Check className="w-2.5 h-2.5 stroke-[2.5]" />
+                <div className="w-5 h-5 rounded-full bg-[#10b981]/15 text-[#10b981] flex items-center justify-center border border-[#10b981]/20">
+                  <Check className="w-3 h-3 stroke-[2.5]" />
                 </div>
               ) : (
-                <span
-                  className={`w-1.5 h-1.5 rounded-full shrink-0 ${
-                    isCurrent ? 'bg-[#EA4335]' : 'bg-gray-300'
-                  }`}
-                />
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${
+                  isCurrent
+                    ? 'bg-[#ef4444]/15 text-[#ef4444] border border-[#ef4444]/30 shadow-[0_0_8px_rgba(239,68,68,0.15)]'
+                    : 'bg-white/[0.03] text-[#3f3f46] border border-white/[0.06]'
+                }`}>
+                  {step.number}
+                </div>
               )}
-              <span>{step.label}</span>
+
+              {/* Label */}
+              <span className={`transition-colors duration-300 ${
+                isCurrent
+                  ? 'text-[#f4f4f5] font-semibold'
+                  : isCompleted
+                  ? 'text-[#a1a1aa]'
+                  : 'text-[#3f3f46]'
+              }`}>
+                {step.label}
+              </span>
             </div>
           </React.Fragment>
         );

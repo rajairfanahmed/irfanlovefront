@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Download, AlertCircle, ArrowLeft, RefreshCw, X } from 'lucide-react';
+import { Download, AlertCircle, ArrowLeft, RefreshCw, X, Zap, ExternalLink } from 'lucide-react';
 import {
   UrlInput,
   CaptureButton,
@@ -40,33 +40,32 @@ const ERROR_MESSAGES: Record<string, string> = {
 };
 
 const crossfadeVariants = {
-  initial: { opacity: 0, scale: 0.99 },
+  initial: { opacity: 0, scale: 0.98, y: 8 },
   animate: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.15, ease: 'easeOut' as const },
+    y: 0,
+    transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
   },
   exit: {
     opacity: 0,
-    scale: 0.99,
-    transition: { duration: 0.15, ease: 'easeIn' as const },
+    scale: 0.98,
+    y: -4,
+    transition: { duration: 0.2, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
 export function DesignCaptureCard() {
-  // Input form state (defaults right for most people: all 3 viewports and all 3 options start on)
   const [url, setUrl] = useState('');
   const [viewports, setViewports] = useState<string[]>(['desktop', 'tablet', 'mobile']);
   const [animatedSite, setAnimatedSite] = useState(true);
   const [hideOverlays, setHideOverlays] = useState(true);
   const [flattenSticky, setFlattenSticky] = useState(true);
 
-  // Flow State
   const [state, setState] = useState<ToolState>('idle');
   const [inlineError, setInlineError] = useState<string | null>(null);
   const [cancelledNotice, setCancelledNotice] = useState(false);
 
-  // Running State
   const [jobId, setJobId] = useState<string | null>(null);
   const [percent, setPercent] = useState<number>(0);
   const [stageText, setStageText] = useState<string>('Finding pages');
@@ -79,7 +78,6 @@ export function DesignCaptureCard() {
   const [currentDomain, setCurrentDomain] = useState<string>('');
   const [downloadInfo, setDownloadInfo] = useState<DownloadDetails | null>(null);
 
-  // Failed state message
   const [failureMessage, setFailureMessage] = useState<string>('');
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -89,11 +87,11 @@ export function DesignCaptureCard() {
   // Tab Title synchronization
   useEffect(() => {
     if (state === 'running' && currentDomain) {
-      document.title = `${Math.round(percent)}% Capturing ${currentDomain}`;
+      document.title = `${Math.round(percent)}% — Capturing ${currentDomain}`;
     } else if (state === 'done' && currentDomain) {
-      document.title = `Done ${currentDomain}`;
+      document.title = `✓ Done — ${currentDomain}`;
     } else {
-      document.title = 'Website Design Capture - SiteRip';
+      document.title = 'SiteRip — Full HD Website Capture';
     }
   }, [state, percent, currentDomain]);
 
@@ -111,7 +109,7 @@ export function DesignCaptureCard() {
     };
   }, [state]);
 
-  // Session Storage Reconnection (Section 5)
+  // Session Storage Reconnection
   useEffect(() => {
     const savedJobId = sessionStorage.getItem('siterip_active_job_id');
     const savedUrl = sessionStorage.getItem('siterip_target_url');
@@ -123,6 +121,7 @@ export function DesignCaptureCard() {
       if (savedDomain) setCurrentDomain(savedDomain);
       connectToJob(savedJobId);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const formatElapsed = (sec: number) => {
@@ -156,7 +155,6 @@ export function DesignCaptureCard() {
       try {
         const data = JSON.parse(e.data);
 
-        // Never let percentage go backwards
         if (typeof data.percent === 'number') {
           setPercent((prev) => Math.max(prev, data.percent));
         }
@@ -172,9 +170,7 @@ export function DesignCaptureCard() {
           sessionStorage.removeItem('siterip_active_job_id');
           setPercent(100);
           setStageText('Capture complete');
-          if (data.download) {
-            setDownloadInfo(data.download);
-          }
+          if (data.download) setDownloadInfo(data.download);
           setState('done');
         } else if (data.state === 'failed') {
           eventSource.close();
@@ -197,7 +193,6 @@ export function DesignCaptureCard() {
       setIsReconnecting(true);
       eventSource.close();
 
-      // Fallback polling every 2 seconds as specified in Section 5
       const pollInterval = setInterval(async () => {
         try {
           const res = await fetch(`/api/jobs/${targetJobId}`);
@@ -214,8 +209,7 @@ export function DesignCaptureCard() {
             setIsReconnecting(false);
             clearInterval(pollInterval);
 
-            // Re-open SSE if still active
-            if (snap.state === 'capturing' || snap.state === 'discovering' || snap.state === 'packaging' || snap.state === 'queued') {
+            if (['capturing', 'discovering', 'packaging', 'queued'].includes(snap.state)) {
               connectToJob(targetJobId);
             } else if (snap.state === 'done') {
               setPercent(100);
@@ -237,7 +231,6 @@ export function DesignCaptureCard() {
     };
   };
 
-  // Step 5: Press Capture
   const handleCapture = async () => {
     setInlineError(null);
     setCancelledNotice(false);
@@ -248,7 +241,6 @@ export function DesignCaptureCard() {
       return;
     }
 
-    // Auto-prepend https:// if no scheme
     if (!/^https?:\/\//i.test(cleanUrl)) {
       cleanUrl = 'https://' + cleanUrl;
       setUrl(cleanUrl);
@@ -276,11 +268,7 @@ export function DesignCaptureCard() {
         body: JSON.stringify({
           url: cleanUrl,
           viewports,
-          options: {
-            animatedSite,
-            hideOverlays,
-            flattenSticky,
-          },
+          options: { animatedSite, hideOverlays, flattenSticky },
         }),
       });
 
@@ -299,7 +287,6 @@ export function DesignCaptureCard() {
       sessionStorage.setItem('siterip_target_url', cleanUrl);
       sessionStorage.setItem('siterip_target_domain', host);
 
-      // Reset metrics
       setPercent(0);
       setStageText('Finding pages');
       setPagesDone(0);
@@ -308,7 +295,6 @@ export function DesignCaptureCard() {
       setFailedPages(0);
       setElapsedSeconds(0);
 
-      // Move to running state
       connectToJob(newJobId);
     } catch (err: unknown) {
       setState('idle');
@@ -317,7 +303,6 @@ export function DesignCaptureCard() {
     }
   };
 
-  // Cancel Job (Outlined style, immediate stop)
   const handleCancel = async () => {
     if (jobId) {
       try {
@@ -332,7 +317,6 @@ export function DesignCaptureCard() {
     setPercent(0);
   };
 
-  // Reset to form to capture another site
   const handleCaptureAnother = () => {
     setUrl('');
     setInlineError(null);
@@ -342,29 +326,24 @@ export function DesignCaptureCard() {
     sessionStorage.removeItem('siterip_target_domain');
     setState('idle');
     setPercent(0);
-    setTimeout(() => {
-      inputRef.current?.focus();
-    }, 100);
+    setTimeout(() => inputRef.current?.focus(), 100);
   };
 
-  // Retry from failed view
   const handleTryAgain = () => {
     setState('idle');
     setInlineError(null);
-    setTimeout(() => {
-      inputRef.current?.focus();
-    }, 100);
+    setTimeout(() => inputRef.current?.focus(), 100);
   };
 
   const isFormDisabled = !url.trim() || viewports.length === 0;
 
   return (
-    <div className="w-full max-w-[720px] bg-white border border-[#E5E7EB] rounded-2xl p-6 sm:p-8 md:p-10 shadow-[0_2px_16px_rgba(0,0,0,0.04)] min-h-[400px] flex flex-col justify-center transition-all duration-150">
+    <div className="glass-card w-full max-w-[760px] p-6 sm:p-8 md:p-10 min-h-[420px] flex flex-col justify-center transition-all duration-200">
       <AnimatePresence mode="wait">
 
-        {/* =========================================================================
-            STATE: IDLE, SUBMITTING, CANCELLED (Form View)
-           ========================================================================= */}
+        {/* ═══════════════════════════════════════════
+            STATE: IDLE / SUBMITTING / CANCELLED
+           ═══════════════════════════════════════════ */}
         {(state === 'idle' || state === 'submitting' || state === 'cancelled') && (
           <motion.div
             key="view-form"
@@ -374,25 +353,25 @@ export function DesignCaptureCard() {
             exit="exit"
             className="w-full flex flex-col space-y-6"
           >
-            {/* Step 9: Cancelled Notice line */}
+            {/* Cancelled Notice */}
             {cancelledNotice && (
               <div
                 role="status"
-                className="w-full p-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs font-mono text-gray-700 flex items-center justify-between"
+                className="w-full p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-xs font-mono text-[#a1a1aa] flex items-center justify-between"
               >
                 <span>Capture cancelled.</span>
                 <button
                   type="button"
                   onClick={() => setCancelledNotice(false)}
-                  className="text-gray-400 hover:text-gray-700"
+                  className="text-[#52525b] hover:text-[#a1a1aa] transition-colors"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
               </div>
             )}
 
-            {/* Primary Action Row: URL Input + Capture Button */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
+            {/* URL + Capture row */}
+            <div className="flex flex-col sm:flex-row items-stretch gap-3 w-full">
               <UrlInput
                 inputRef={inputRef}
                 value={url}
@@ -414,21 +393,21 @@ export function DesignCaptureCard() {
               />
             </div>
 
-            {/* Inline Error Message (Section 3 Step 5) */}
+            {/* Inline Error */}
             {inlineError && (
               <div
                 role="alert"
                 aria-live="polite"
-                className="flex items-center gap-2 text-xs font-sans text-[#EA4335] -mt-3"
+                className="flex items-center gap-2 text-xs font-sans text-[#ef4444] -mt-3"
               >
                 <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                 <span>{inlineError}</span>
               </div>
             )}
 
-            {/* Example Target Link (Step 2) */}
-            <div className="flex items-center gap-2 text-xs text-gray-500 font-sans -mt-3">
-              <span>Example target:</span>
+            {/* Example link */}
+            <div className="flex items-center gap-2 text-[11px] text-[#52525b] font-sans -mt-3">
+              <span>Try:</span>
               <button
                 type="button"
                 onClick={() => {
@@ -436,41 +415,44 @@ export function DesignCaptureCard() {
                   if (inlineError) setInlineError(null);
                   inputRef.current?.focus();
                 }}
-                className="font-mono text-[#EA4335] underline hover:text-[#D93025] transition-colors"
+                className="font-mono text-[#ef4444]/70 hover:text-[#ef4444] transition-colors inline-flex items-center gap-1"
               >
-                https://robinsweb.net
+                robinsweb.net
+                <ExternalLink className="w-2.5 h-2.5" />
               </button>
             </div>
 
-            {/* Step 3: Choose Viewports */}
-            <div className="pt-2 border-t border-gray-100">
-              <ViewportSelector
-                selected={viewports}
-                onChange={setViewports}
-              />
-            </div>
+            {/* Divider */}
+            <div className="h-px bg-white/[0.04]" />
 
-            {/* Step 4: Choose Options (Three Toggle Cards, clickable anywhere) */}
-            <div className="space-y-2 text-left pt-2">
-              <label className="text-xs font-mono font-semibold uppercase tracking-wider text-gray-700 block">
-                Extraction Options
-              </label>
+            {/* Viewports */}
+            <ViewportSelector selected={viewports} onChange={setViewports} />
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {/* Divider */}
+            <div className="h-px bg-white/[0.04]" />
+
+            {/* Options */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <Zap className="w-3 h-3 text-[#52525b]" />
+                <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.12em] text-[#a1a1aa]">
+                  Extraction Options
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5">
                 <OptionToggleCard
                   title="Animated site"
                   description="Fast-forward animations, wait for scroll-triggers"
                   checked={animatedSite}
                   onChange={setAnimatedSite}
                 />
-
                 <OptionToggleCard
                   title="Hide overlays"
                   description="Auto-hide cookie banners + consent modals"
                   checked={hideOverlays}
                   onChange={setHideOverlays}
                 />
-
                 <OptionToggleCard
                   title="Flatten sticky nav"
                   description="Convert fixed/sticky elements to static"
@@ -482,9 +464,9 @@ export function DesignCaptureCard() {
           </motion.div>
         )}
 
-        {/* =========================================================================
-            STATE: RUNNING (Step 6)
-           ========================================================================= */}
+        {/* ═══════════════════════════════════════════
+            STATE: RUNNING
+           ═══════════════════════════════════════════ */}
         {state === 'running' && (
           <motion.div
             key="view-running"
@@ -494,16 +476,16 @@ export function DesignCaptureCard() {
             exit="exit"
             className="w-full flex flex-col items-center text-center space-y-6"
           >
-            {/* Top Read-only Summary Row: URL + non-clickable viewport chips */}
-            <div className="w-full flex items-center justify-between gap-3 pb-3 border-b border-gray-100 flex-wrap">
-              <span className="font-mono text-xs font-semibold text-gray-800 truncate max-w-[280px] sm:max-w-md">
+            {/* Top Summary Row */}
+            <div className="w-full flex items-center justify-between gap-3 pb-4 border-b border-white/[0.04] flex-wrap">
+              <span className="font-mono text-xs font-medium text-[#a1a1aa] truncate max-w-[280px] sm:max-w-md">
                 {url}
               </span>
               <div className="flex items-center gap-1.5 shrink-0">
                 {viewports.map((vp) => (
                   <span
                     key={vp}
-                    className="font-mono text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700 font-medium capitalize"
+                    className="font-mono text-[10px] px-2 py-0.5 rounded-md bg-white/[0.04] text-[#71717a] border border-white/[0.06] capitalize"
                   >
                     {vp}
                   </span>
@@ -511,60 +493,60 @@ export function DesignCaptureCard() {
               </div>
             </div>
 
-            {/* Centre: Large Circular Progress Indicator (~160px) */}
-            <div className="py-2">
+            {/* Progress Ring */}
+            <div className="py-3">
               <CircularProgress
                 percent={percent}
                 indeterminate={percent === 0}
-                size={160}
+                size={180}
               />
             </div>
 
-            {/* Under Circle: Live Stage Status Line */}
-            <div className="space-y-1">
+            {/* Stage Text */}
+            <div className="space-y-2">
               <p
                 role="status"
                 aria-live="polite"
-                className="font-mono text-xs sm:text-sm font-semibold text-gray-800 tracking-wide"
+                className="font-mono text-sm font-semibold text-[#f4f4f5] tracking-wide"
               >
                 {stageText}
               </p>
 
-              {/* Reconnecting Note (Section 5) */}
               {isReconnecting && (
-                <div className="inline-flex items-center gap-1.5 text-[11px] font-mono text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-full mt-1">
+                <div className="inline-flex items-center gap-1.5 text-[11px] font-mono text-amber-400/80 bg-amber-400/[0.06] px-3 py-1 rounded-full border border-amber-400/10">
                   <RefreshCw className="w-3 h-3 animate-spin" />
-                  <span>Reconnecting to engine...</span>
+                  <span>Reconnecting...</span>
                 </div>
               )}
             </div>
 
-            {/* Counters Line: Pages X of Y, Images Z, Elapsed MM:SS */}
-            <div className="text-xs font-mono text-gray-500 flex items-center justify-center gap-3">
+            {/* Metrics */}
+            <div className="text-xs font-mono text-[#52525b] flex items-center justify-center gap-4">
               <span>
-                Pages <strong className="text-gray-800">{pagesDone}</strong> of {pagesTotal}
+                Pages <strong className="text-[#a1a1aa]">{pagesDone}</strong>
+                <span className="text-[#3f3f46]">/{pagesTotal}</span>
               </span>
-              <span className="text-gray-300">·</span>
+              <span className="text-[#27272a]">·</span>
               <span>
-                Images <strong className="text-gray-800">{imagesDone}</strong>
+                Images <strong className="text-[#a1a1aa]">{imagesDone}</strong>
               </span>
-              <span className="text-gray-300">·</span>
+              <span className="text-[#27272a]">·</span>
               <span>
-                Elapsed <strong className="text-gray-800 tabular-nums">{formatElapsed(elapsedSeconds)}</strong>
+                <strong className="text-[#a1a1aa] tabular-nums">{formatElapsed(elapsedSeconds)}</strong>
               </span>
             </div>
 
-            {/* Three Step Phase Strip */}
-            <div className="pt-2">
+            {/* Phase Strip */}
+            <div className="pt-1">
               <PhaseStrip phase={getPhaseFromJob(percent, stageText)} />
             </div>
 
-            {/* Bottom: Single Cancel Button in Outlined Style */}
-            <div className="pt-4 border-t border-gray-100 w-full flex justify-center">
+            {/* Cancel */}
+            <div className="pt-4 border-t border-white/[0.04] w-full flex justify-center">
               <button
                 type="button"
                 onClick={handleCancel}
-                className="h-10 px-6 rounded-xl border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-sans text-xs font-medium transition-all duration-150 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EA4335]"
+                className="h-10 px-6 rounded-xl border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.05] text-[#71717a] hover:text-[#a1a1aa] font-sans text-xs font-medium transition-all duration-200 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ef4444]/30"
               >
                 Cancel capture
               </button>
@@ -572,9 +554,9 @@ export function DesignCaptureCard() {
           </motion.div>
         )}
 
-        {/* =========================================================================
-            STATE: DONE (Step 7)
-           ========================================================================= */}
+        {/* ═══════════════════════════════════════════
+            STATE: DONE
+           ═══════════════════════════════════════════ */}
         {state === 'done' && (
           <motion.div
             key="view-done"
@@ -584,32 +566,28 @@ export function DesignCaptureCard() {
             exit="exit"
             className="w-full flex flex-col items-center text-center space-y-6"
           >
-            {/* Completed Circle with Check Mark */}
-            <div className="py-2">
-              <CircularProgress
-                percent={100}
-                isComplete={true}
-                size={160}
-              />
+            {/* Completed Ring */}
+            <div className="py-3">
+              <CircularProgress percent={100} isComplete={true} size={180} />
             </div>
 
-            {/* Status Line */}
-            <div className="space-y-1">
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-gray-900">
+            {/* Status */}
+            <div className="space-y-2">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-[#f4f4f5]">
                 Capture complete
               </h3>
-              <p className="text-xs font-sans text-gray-500">
-                Full HD section images extracted and packaged for{' '}
-                <span className="font-semibold text-gray-700">{currentDomain}</span>
+              <p className="text-xs font-sans text-[#71717a]">
+                Full HD section images for{' '}
+                <span className="font-semibold text-[#a1a1aa]">{currentDomain}</span>
               </p>
             </div>
 
-            {/* Main Action: Large Download ZIP Button */}
-            <div className="w-full max-w-md pt-2">
+            {/* Download Button */}
+            <div className="w-full max-w-sm pt-1">
               <a
                 href={downloadInfo?.url || `/api/jobs/${jobId}/download`}
                 download={downloadInfo?.filename || `${currentDomain}.zip`}
-                className="w-full h-12 px-6 rounded-xl bg-[#10B981] hover:bg-[#059669] text-white font-semibold text-sm font-sans flex items-center justify-center gap-2.5 shadow-sm transition-all duration-150 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981] focus-visible:ring-offset-2"
+                className="group w-full h-12 px-6 rounded-xl bg-[#10b981] hover:bg-[#059669] text-white font-semibold text-sm font-sans flex items-center justify-center gap-2.5 shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:shadow-[0_0_30px_rgba(16,185,129,0.25)] transition-all duration-200 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10b981]/50"
               >
                 <Download className="w-4 h-4 stroke-[2.2]" />
                 <span>
@@ -619,27 +597,26 @@ export function DesignCaptureCard() {
               </a>
             </div>
 
-            {/* Summary Line */}
-            <div className="text-xs font-mono text-gray-600 space-y-2">
+            {/* Summary */}
+            <div className="text-xs font-mono text-[#52525b] space-y-1.5">
               <p>
-                {downloadInfo?.pages ?? pagesDone} pages, {viewports.length} viewports,{' '}
+                {downloadInfo?.pages ?? pagesDone} pages · {viewports.length} viewports ·{' '}
                 {downloadInfo?.images ?? imagesDone} images
               </p>
 
-              {/* Quiet Warning Line if any page failed or is flagged */}
               {((downloadInfo?.failedPages ?? failedPages) > 0 || (downloadInfo?.flaggedPages ?? 0) > 0) && (
-                <p className="text-gray-500 italic">
-                  {(downloadInfo?.failedPages ?? failedPages) + (downloadInfo?.flaggedPages ?? 0)} pages need review. Details are in manifest.json.
+                <p className="text-amber-400/60 italic text-[11px]">
+                  {(downloadInfo?.failedPages ?? failedPages) + (downloadInfo?.flaggedPages ?? 0)} pages need review — see manifest.json
                 </p>
               )}
             </div>
 
-            {/* Below: Text link to capture another site */}
+            {/* Capture Another */}
             <div className="pt-2">
               <button
                 type="button"
                 onClick={handleCaptureAnother}
-                className="text-xs text-gray-400 hover:text-gray-800 font-sans transition-colors underline"
+                className="text-xs text-[#52525b] hover:text-[#a1a1aa] font-sans transition-colors underline underline-offset-2 decoration-white/10 hover:decoration-white/20"
               >
                 Capture another site
               </button>
@@ -647,9 +624,9 @@ export function DesignCaptureCard() {
           </motion.div>
         )}
 
-        {/* =========================================================================
-            STATE: FAILED (Step 8)
-           ========================================================================= */}
+        {/* ═══════════════════════════════════════════
+            STATE: FAILED
+           ═══════════════════════════════════════════ */}
         {state === 'failed' && (
           <motion.div
             key="view-failed"
@@ -659,18 +636,18 @@ export function DesignCaptureCard() {
             exit="exit"
             className="w-full flex flex-col items-center text-center space-y-6"
           >
-            <div className="w-12 h-12 rounded-full bg-red-50 text-[#EA4335] flex items-center justify-center border border-red-100">
-              <AlertCircle className="w-6 h-6" />
+            <div className="w-14 h-14 rounded-2xl bg-[#ef4444]/8 text-[#ef4444] flex items-center justify-center border border-[#ef4444]/15">
+              <AlertCircle className="w-7 h-7" />
             </div>
 
             <div className="space-y-2 max-w-md">
-              <h3 className="font-display text-lg font-bold text-gray-900">
-                Extraction could not be completed
+              <h3 className="font-display text-lg font-bold text-[#f4f4f5]">
+                Extraction failed
               </h3>
               <p
                 role="alert"
                 aria-live="polite"
-                className="font-sans text-xs text-gray-600 leading-relaxed"
+                className="font-sans text-xs text-[#71717a] leading-relaxed"
               >
                 {failureMessage || ERROR_MESSAGES.UNREACHABLE}
               </p>
@@ -680,9 +657,9 @@ export function DesignCaptureCard() {
               <button
                 type="button"
                 onClick={handleTryAgain}
-                className="h-11 px-6 rounded-xl border border-[#EA4335] bg-white hover:bg-[#EA4335] text-[#EA4335] hover:text-white font-semibold text-xs font-sans transition-all duration-150 active:scale-[0.98] flex items-center gap-2"
+                className="group h-11 px-6 rounded-xl border border-[#ef4444]/20 bg-[#ef4444]/[0.04] hover:bg-[#ef4444]/[0.08] text-[#f87171] font-semibold text-xs font-sans transition-all duration-200 active:scale-[0.98] flex items-center gap-2"
               >
-                <ArrowLeft className="w-3.5 h-3.5" />
+                <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
                 <span>Try again</span>
               </button>
             </div>

@@ -29,30 +29,37 @@ export function OptionToggleCard({
           onChange(!checked);
         }
       }}
-      className={`group flex items-center justify-between p-3.5 md:p-4 rounded-2xl border transition-all duration-200 cursor-pointer select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EA4335] ${
+      className={`group relative flex items-center justify-between p-4 rounded-xl border transition-all duration-200 cursor-pointer select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ef4444]/40 focus-visible:ring-offset-1 focus-visible:ring-offset-[#09090b] overflow-hidden ${
         checked
-          ? 'bg-white border-gray-300 shadow-2xs'
-          : 'bg-gray-50/70 border-gray-200 hover:bg-white hover:border-gray-300'
+          ? 'bg-white/[0.05] border-white/[0.1] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]'
+          : 'bg-white/[0.02] border-white/[0.05] hover:bg-white/[0.04] hover:border-white/[0.08]'
       } ${className}`}
     >
-      <div className="pr-3 text-left">
-        <span className="font-sans text-xs md:text-sm font-semibold text-[#111827] block">
+      {/* Subtle shine */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none rounded-xl" />
+
+      <div className="pr-4 text-left relative z-10">
+        <span className={`text-[13px] font-semibold block transition-colors ${
+          checked ? 'text-[#f4f4f5]' : 'text-[#a1a1aa]'
+        }`}>
           {title}
         </span>
-        <span className="font-sans text-[11px] md:text-xs text-gray-500 mt-0.5 block leading-tight">
+        <span className="text-[11px] text-[#52525b] mt-0.5 block leading-snug">
           {description}
         </span>
       </div>
 
-      {/* Pill Toggle Switch (Matches user screenshot: black pill when active, white round knob) */}
+      {/* Toggle switch */}
       <div
-        className={`w-11 h-6 flex items-center rounded-full p-0.5 transition-colors duration-200 shrink-0 ${
-          checked ? 'bg-[#111827]' : 'bg-gray-200'
+        className={`relative w-10 h-[22px] flex items-center rounded-full p-[2px] transition-all duration-250 shrink-0 ${
+          checked
+            ? 'bg-[#ef4444] shadow-[0_0_10px_rgba(239,68,68,0.2)]'
+            : 'bg-[#27272a]'
         }`}
       >
         <div
-          className={`bg-white w-5 h-5 rounded-full shadow-sm transform transition-transform duration-200 ${
-            checked ? 'translate-x-5' : 'translate-x-0'
+          className={`bg-white w-[18px] h-[18px] rounded-full shadow-sm transform transition-transform duration-250 ${
+            checked ? 'translate-x-[18px]' : 'translate-x-0'
           }`}
         />
       </div>

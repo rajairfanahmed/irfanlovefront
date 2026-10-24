@@ -29,7 +29,7 @@ export async function installWindsurf({ scope, cwd }) {
   // Create root .windsurfrules summary if local workspace
   if (scope !== "global") {
     const summaryFile = path.join(cwd, ".windsurfrules");
-    const summaryText = `# irfanlovefront Windsurf Rules\n\nThis workspace enforces the irfanlovefront progressive frontend engineering suite:\n- /1-prompt-generator: Interactive 8-Phase Master Prompt Architect\n- /2-setup-foundation to /9-responsive-and-qa: 8-Step Progressive Implementation Pipeline\n- /github-readme-writer: Authoritative Daytona-framework documentation with zero em-dashes\n\nDetailed specifications are located in .windsurf/rules/.\n`;
+    const summaryText = `# irfanlovefront Windsurf Rules\n\nThis workspace enforces the irfanlovefront progressive frontend engineering suite:\n- /1-prompt-generator: Interactive 8-Phase Master Prompt Architect\n- /2-setup-foundation to /9-seo-and-aeo: 8-Step Progressive Implementation Pipeline\n- /github-readme-writer: Authoritative Daytona-framework documentation with zero em-dashes\n\nDetailed specifications are located in .windsurf/rules/.\n`;
     if (!(await fs.pathExists(summaryFile))) {
       await fs.writeFile(summaryFile, summaryText, "utf-8");
     }

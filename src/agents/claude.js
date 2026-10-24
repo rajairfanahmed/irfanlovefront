@@ -33,8 +33,8 @@ This project is supercharged with the irfanlovefront progressive frontend engine
 - \`/5-navbar-and-footer\`: Step 4 - Desktop navbar, animated menu curtain state machine, contact wizard, and giant hover-glow footer watermark.
 - \`/6-build-pages\`: Step 5 - Complete production Home page and multi-page sub-routes with 100% human copy.
 - \`/7-animate-website\`: Step 6 - Lenis smooth scrolling, GSAP ScrollTrigger, Framer Motion, and physics interactions.
-- \`/8-seo-and-aeo\`: Step 7 - Technical SEO, Schema.org Knowledge Graph, OpenGraph, and public/llms.txt + llms-full.txt for AEO/GEO.
-- \`/9-responsive-and-qa\`: Step 8 - Multi-breakpoint responsive audit (375px/768px/1440px), touch targets, WCAG AA, and build verification.
+- \`/8-responsive-and-qa\`: Step 7 - Multi-breakpoint responsive audit (375px/768px/1440px), touch targets, WCAG AA, and QA checklist.
+- \`/9-seo-and-aeo\`: Step 8 (Final) - Technical SEO, Schema.org Knowledge Graph, OpenGraph, public/llms.txt + llms-full.txt for AEO/GEO, and production build verification.
 - \`/github-readme-writer\`: Authoritative Daytona-framework documentation, case studies, and launch copy with zero em-dashes.
 
 Detailed skill instructions are stored in \`.claude/skills/<skill-name>/SKILL.md\`.
