@@ -19,7 +19,7 @@ const program = new Command();
 
 program
   .name("irfanlovefront")
-  .description("Full-Stack, Anti-Slop UI/UX & AI Agent Skills Suite, MCP Server & Installer across Claude Code, Antigravity, Cursor, Windsurf, and Copilot")
+  .description("Full-Stack, Anti-Slop UI/UX & AI Agent Skills Suite & One-Command Installer across Claude Code, Antigravity, Cursor, Windsurf, and Copilot")
   .version(pkg.version)
   .option("-a, --all", "Install for all supported AI agents")
   .option("--claude", "Install specifically for Claude Code")
@@ -30,17 +30,14 @@ program
   .option("-g, --global", "Install globally instead of current project workspace")
   .option("-y, --yes", "Skip interactive prompts and install with defaults")
   .addHelpText("after", `
-Commands:
-  extract <url>     Extract live website design system into DTCG tokens & blueprint
-  awwwards [query]  Search Awwwards award-winning websites & motion DNA
-  mcp               Start Model Context Protocol (MCP) server over stdio
-  install           Interactive installer for Claude, Antigravity, Cursor, Windsurf, Copilot
-
 Examples:
-  npx irfanlovefront extract https://linear.app --mobile
-  npx irfanlovefront awwwards "portfolio"
-  npx irfanlovefront mcp
+  npx irfanlovefront
   npx irfanlovefront --all
+  npx irfanlovefront --claude
+  npx irfanlovefront --antigravity
+  npx irfanlovefront --cursor
+  npx irfanlovefront --windsurf
+  npx irfanlovefront --copilot
 `);
 
 program.parse(process.argv);
@@ -143,8 +140,12 @@ async function main() {
   );
 
   outro(
-    color.green("Ready to craft bespoke frontends! Invoke ") +
-    color.bold(color.yellow("/1-prompt-generator")) +
+    color.green("Ready to build bespoke applications! Invoke ") +
+    color.bold(color.yellow("/frontend-craftsman")) +
+    color.green(", ") +
+    color.bold(color.yellow("/backend-architect")) +
+    color.green(", or ") +
+    color.bold(color.yellow("/ai-engineer")) +
     color.green(" in your agent chat to begin.")
   );
 }

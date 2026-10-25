@@ -7,7 +7,7 @@
   <a href="CODE_OF_CONDUCT.md"><strong>Code of Conduct</strong></a> •
   <a href="LICENSE"><strong>License</strong></a> •
   <a href="SECURITY.md"><strong>Security</strong></a> •
-  <a href="https://github.com/rajairfanahmed/irfanlovefront/releases"><strong>Latest Release v3.3.0</strong></a>
+  <a href="https://github.com/rajairfanahmed/irfanlovefront/releases"><strong>Latest Release v3.3.1</strong></a>
 </p>
 
 <a href="https://github.com/rajairfanahmed/irfanlovefront">
@@ -16,7 +16,7 @@
 
 # irfanlovefront
 
-### Full-Stack, Anti-Slop UI/UX & AI Agent Skills Suite (v3.3.0)
+### Full-Stack, Anti-Slop UI/UX & AI Agent Skills Suite (v3.3.1)
 
 **Eliminate template repetition, brittle backends, and AI slop forever.**
 
@@ -24,7 +24,7 @@
 [![GitHub Packages](https://img.shields.io/badge/GitHub_Packages-@rajairfanahmed/irfanlovefront-24292e.svg?style=flat-square&logo=github)](https://github.com/rajairfanahmed/irfanlovefront/packages)
 [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Documentation-22c55e.svg?style=flat-square&logo=github)](https://rajairfanahmed.github.io/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v3.3.0-blue.svg?style=flat-square)](https://github.com/rajairfanahmed/irfanlovefront/releases)
+[![Release](https://img.shields.io/badge/release-v3.3.1-blue.svg?style=flat-square)](https://github.com/rajairfanahmed/irfanlovefront/releases)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -40,7 +40,7 @@
 
 ---
 
-## The 1-Command Quickstart (v3.3.0)
+## The 1-Command Quickstart (v3.3.1)
 
 Install the entire skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
@@ -87,7 +87,7 @@ Standard AI coding assistants suffer from severe structural blindspots:
 - **Backend Fragility:** Missing input validation schemas, hardcoded credentials, unindexed database queries, and broken error envelopes.
 - **Toy AI Integrations:** Raw unparsed text prompts, missing streaming cancellation, zero token/cost tracking, and hallucinations during database mutations.
 
-**Release 3.3.0 introduces the 3 Flagship Specialist Agents:**
+**Release 3.3.1 features the 3 Flagship Specialist Agents:**
 1. **`/frontend-craftsman`**: Master UI/UX & Frontend Craft Specialist. Builds bespoke, anti-slop web applications with mathematical color harmony (60-30-10 rule), 15 distinct hero archetypes (H1-H15), 60fps composited micro-interactions, responsive touch ergonomics, and complete Agentic SEO (AEO/GEO full 5/5 score with Schema.org JSON-LD and `llms.txt`).
 2. **`/backend-architect`**: Master Backend Systems & API Architect. Implements Clean Architecture across TypeScript and Python, type-safe database schemas with migrations (Drizzle/Prisma/SQLAlchemy), pgvector storage, RBAC authentication, async queues (BullMQ/Inngest/Celery), and multi-stage Dockerfiles. Produces explicit `CONTRACTS.md` artifacts.
 3. **`/ai-engineer`**: Master AI/ML & LLM Systems Engineer. Implements production-grade application AI: multi-provider routing (OpenAI, Anthropic Claude, Google Gemini, Ollama), real-time Server-Sent Events (SSE) streaming, structured tool calling (function calling), hybrid RAG retrieval, agent state machines, and cost/latency telemetry.
@@ -98,7 +98,7 @@ Standard AI coding assistants suffer from severe structural blindspots:
 
 ```text
   +-------------------------------------------------------------------------------+
-  |                      IRFANLOVEFRONT v3.3.0 ARCHITECTURE                       |
+  |                      IRFANLOVEFRONT v3.3.1 ARCHITECTURE                       |
   +-------------------------------------------------------------------------------+
   |                                                                               |
   |  [Flagship Specialist Agents]                                                 |

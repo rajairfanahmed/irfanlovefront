@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "irfanlovefront": {
-      "command": "node",
-      "args": ["./mcp/dist/index.js"]
-    }
-  }
-}

@@ -45,13 +45,13 @@ const crossfadeVariants = {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] as const },
   },
   exit: {
     opacity: 0,
     scale: 0.98,
     y: -4,
-    transition: { duration: 0.2, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.2, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
