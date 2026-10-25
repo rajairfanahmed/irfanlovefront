@@ -15,7 +15,7 @@ export function printBanner() {
   console.log(color.cyan("  ██║██╔══██╗██╔══╝  ██╔══██║██║╚██╗██║██║     ██║   ██║╚██╗ ██╔╝██╔══╝  "));
   console.log(color.cyan("  ██║██║  ██║██║     ██║  ██║██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ███████╗"));
   console.log(color.cyan("  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚══════╝"));
-  console.log(color.bold(color.yellow(`              Anti-Slop UI/UX Agent Skills Suite (v${pkg.version})`)));
+  console.log(color.bold(color.yellow(`        Full-Stack, Anti-Slop UI/UX & AI Agent Skills Suite (v${pkg.version})`)));
   console.log(color.dim("       Claude Code | Google Antigravity | Cursor | Windsurf | Copilot"));
   console.log("");
 }

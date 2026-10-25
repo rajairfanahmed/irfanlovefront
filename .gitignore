@@ -35,3 +35,4 @@ scratch/
 .jobs_data/
 extract-tool/.jobs_data/
 extract-tool/scratch/
+.claude/

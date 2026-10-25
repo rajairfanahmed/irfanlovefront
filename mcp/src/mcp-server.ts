@@ -7,7 +7,7 @@ import { searchAwwwards } from "./awwwards/client.js";
 export async function runMcpServer() {
   const server = new McpServer({
     name: "irfanlovefront",
-    version: "3.2.7",
+    version: "3.3.0",
   });
 
   // Tool 1: irfanlove_extract

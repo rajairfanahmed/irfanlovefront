@@ -21,21 +21,14 @@ export async function installClaude({ scope, cwd }) {
     : path.join(cwd, "CLAUDE.md");
 
   const claudeInstructions = `
-# irfanlovefront UI/UX Agent Suite
+# irfanlovefront Full-Stack & AI Agent Suite
 
-This project is supercharged with the irfanlovefront progressive frontend engineering suite.
+This project is supercharged with the irfanlovefront full-stack and AI engineering suite.
 
-## Available Slash Commands & Skills
-- \`/1-prompt-generator\`: Interactive 8-Phase Master Prompt Architect generating dedicated prompt blueprints (prompts/phase-1 to phase-8).
-- \`/2-setup-foundation\`: Step 1 - Tech stack, :root CSS tokens, font configuration, siteData population, and Foundation Preview Card.
-- \`/3-build-components\`: Step 2 - Atomic UI primitives, form controls, marquee, and Interactive UI Showroom.
-- \`/4-cards-and-layout\`: Step 3 - Structural layout grids, layered hero architecture, card archetypes, and Hero + Cards Showroom.
-- \`/5-navbar-and-footer\`: Step 4 - Desktop navbar, animated menu curtain state machine, contact wizard, and giant hover-glow footer watermark.
-- \`/6-build-pages\`: Step 5 - Complete production Home page and multi-page sub-routes with 100% human copy.
-- \`/7-animate-website\`: Step 6 - Lenis smooth scrolling, GSAP ScrollTrigger, Framer Motion, and physics interactions.
-- \`/8-responsive-and-qa\`: Step 7 - Multi-breakpoint responsive audit (375px/768px/1440px), touch targets, WCAG AA, and QA checklist.
-- \`/9-seo-and-aeo\`: Step 8 (Final) - Technical SEO, Schema.org Knowledge Graph, OpenGraph, public/llms.txt + llms-full.txt for AEO/GEO, and production build verification.
-- \`/github-readme-writer\`: Authoritative Daytona-framework documentation, case studies, and launch copy with zero em-dashes.
+## Flagship Specialist Agents
+- \`/frontend-craftsman\`: Master UI/UX & Frontend Craft Specialist (Bespoke Anti-Slop, 15 Hero Archetypes, 60fps Micro-Interactions, AEO/SEO 5/5).
+- \`/backend-architect\`: Master Backend Systems & API Architect (Clean Architecture, REST/tRPC, Drizzle/Prisma, Auth, Queues, Docker).
+- \`/ai-engineer\`: Master AI/ML & LLM Systems Engineer (Multi-Provider Fallbacks, SSE Streaming, Structured Tools, RAG, Evals).
 
 Detailed skill instructions are stored in \`.claude/skills/<skill-name>/SKILL.md\`.
 `;

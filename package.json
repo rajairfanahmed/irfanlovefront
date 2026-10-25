@@ -1,7 +1,7 @@
 {
   "name": "irfanlovefront",
-  "version": "3.2.7",
-  "description": "Master Frontend Engineering Suite, MCP Server & One-Command Installer for irfanlovefront UI/UX agent skills across Claude Code, Antigravity, Cursor, Windsurf, and Copilot",
+  "version": "3.3.0",
+  "description": "Full-Stack, Anti-Slop UI/UX & AI Agent Skills Suite, MCP Server & One-Command Installer across Claude Code, Antigravity, Cursor, Windsurf, and Copilot",
   "type": "module",
   "bin": {
     "irfanlovefront": "bin/cli.js",

@@ -6,7 +6,7 @@ import { searchAwwwards } from "./awwwards/client.js";
 export async function runMcpServer() {
     const server = new McpServer({
         name: "irfanlovefront",
-        version: "3.2.7",
+        version: "3.3.0",
     });
     // Tool 1: irfanlove_extract
     server.tool("irfanlove_extract", "Extract an entire website's design system by opening in Chrome with full page scroll, hover testing on buttons/cards, click state machine inspection, and multi-file structured directory output (designs/<brand-slug>/). Extracts computed colors (Delta-E ranked), modular typography scale, surface hierarchy ladder, section layout bands, observed component states, motion DNA, and WCAG AA contrast audit.", {

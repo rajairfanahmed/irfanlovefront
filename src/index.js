@@ -19,7 +19,7 @@ const program = new Command();
 
 program
   .name("irfanlovefront")
-  .description("Master Frontend Engineering Suite, MCP Server & One-Command Installer for irfanlovefront progressive UI/UX agent skills")
+  .description("Full-Stack, Anti-Slop UI/UX & AI Agent Skills Suite, MCP Server & Installer across Claude Code, Antigravity, Cursor, Windsurf, and Copilot")
   .version(pkg.version)
   .option("-a, --all", "Install for all supported AI agents")
   .option("--claude", "Install specifically for Claude Code")

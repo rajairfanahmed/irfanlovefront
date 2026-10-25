@@ -7,8 +7,7 @@
   <a href="CODE_OF_CONDUCT.md"><strong>Code of Conduct</strong></a> •
   <a href="LICENSE"><strong>License</strong></a> •
   <a href="SECURITY.md"><strong>Security</strong></a> •
-  <a href="RELEASES/RELEASE-3.2.7.md"><strong>Release History</strong></a> •
-  <a href="https://github.com/rajairfanahmed/irfanlovefront/releases"><strong>Latest Release v3.2.7</strong></a>
+  <a href="https://github.com/rajairfanahmed/irfanlovefront/releases"><strong>Latest Release v3.3.0</strong></a>
 </p>
 
 <a href="https://github.com/rajairfanahmed/irfanlovefront">
@@ -17,15 +16,15 @@
 
 # irfanlovefront
 
-### Master Frontend Engineering Suite, Anti-Sameness Engine & Universal Agent Skills (v3.2.7)
+### Full-Stack, Anti-Slop UI/UX & AI Agent Skills Suite (v3.3.0)
 
-**Eliminate template repetition, cookie-cutter layouts, and AI slop forever.**
+**Eliminate template repetition, brittle backends, and AI slop forever.**
 
 [![npm version](https://img.shields.io/npm/v/irfanlovefront.svg?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/irfanlovefront)
 [![GitHub Packages](https://img.shields.io/badge/GitHub_Packages-@rajairfanahmed/irfanlovefront-24292e.svg?style=flat-square&logo=github)](https://github.com/rajairfanahmed/irfanlovefront/packages)
 [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Documentation-22c55e.svg?style=flat-square&logo=github)](https://rajairfanahmed.github.io/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v3.2.7-blue.svg?style=flat-square)](https://github.com/rajairfanahmed/irfanlovefront/releases)
+[![Release](https://img.shields.io/badge/release-v3.3.0-blue.svg?style=flat-square)](https://github.com/rajairfanahmed/irfanlovefront/releases)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -41,7 +40,7 @@
 
 ---
 
-## The 1-Command Quickstart (v3.2.7)
+## The 1-Command Quickstart (v3.3.0)
 
 Install the entire skill suite instantly across **Claude Code**, **Google Antigravity**, **Cursor**, **Windsurf**, or **GitHub Copilot** with a single command:
 
@@ -79,212 +78,125 @@ npx irfanlovefront --copilot
 npx irfanlovefront --all
 ```
 
-### Live Website Extraction & MCP Server (v3.2.7)
-
-Reverse-engineer any live website or launch the stdio MCP server for AI agents:
-
-```bash
-# Extract design system into designs/<brand-slug>/ (W3C DTCG tokens, theme.css, blueprint)
-npx irfanlovefront extract https://linear.app --mobile
-
-# Search Awwwards award-winning references & motion DNA
-npx irfanlovefront awwwards "portfolio"
-
-# Start Model Context Protocol (MCP) server over stdio
-npx irfanlovefront mcp
-```
-
-#### Universal Agent MCP Configuration (`mcpServers`)
-
-Add this to `.agents/mcp_config.json`, `.cursor/mcp.json`, or `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "irfanlovefront": {
-      "command": "npx",
-      "args": ["-y", "irfanlovefront", "mcp"]
-    }
-  }
-}
-```
-
-Or for local development inside this repository:
-
-```json
-{
-  "mcpServers": {
-    "irfanlovefront": {
-      "command": "node",
-      "args": ["./mcp/dist/index.js"]
-    }
-  }
-}
-```
-
 ---
 
 ## The Why?
 
-Standard AI coding assistants suffer from severe statistical biases, layout repetition, and attention decay:
-- Every generated site defaults to identical dark obsidian slate `#0B0F17`.
-- Agents build only a single hero section and halt prematurely, leaving secondary routes and footers missing.
-- Monolithic multi-thousand-line rule files consume model context, triggering execution freezing and truncated outputs.
-- Repetitive double-bezel cards and generic pill buttons get forced onto every interface regardless of brand identity.
-- Primary buttons lack tactile states and fail WCAG AA contrast standards.
-- Animations are omitted or reduced to plain CSS `scroll-behavior: smooth`.
+Standard AI coding assistants suffer from severe structural blindspots:
+- **Frontend Slop:** Every generated site defaults to identical dark obsidian slate `#0B0F17`, floating pill buttons with purple gradients, and generic double-bezel cards.
+- **Backend Fragility:** Missing input validation schemas, hardcoded credentials, unindexed database queries, and broken error envelopes.
+- **Toy AI Integrations:** Raw unparsed text prompts, missing streaming cancellation, zero token/cost tracking, and hallucinations during database mutations.
 
-**Release 3.2.7 permanently solves this with the Anti-Sameness Engine & 9-Command Progressive Architecture:**
-1. **Site Category Detection (12 Archetypes)**: Classifies every build into dedicated categories (SaaS, Portfolio, E-Commerce, Agency, Editorial, FinTech, Luxury/Fashion, Web3/Crypto, Healthcare/Wellness, Restaurant/Hospitality, Educational/Docs, AI/Data Infrastructure).
-2. **6-Axis Design Personality System**: Locks 6 distinct personality vectors per site (Color Energy, Visual Density, Corner Radius & Surface, Typography Tone, Motion Feel, Layout Structure).
-3. **Interactive Prompt Architect (`/1-prompt-generator`)**: Progressive 8-phase discovery that interviews the user phase-by-phase and immediately writes dedicated prompt blueprints (`prompts/phase-1` through `prompts/phase-8`). Zero user specifications are lost.
-4. **Deterministic Step-by-Step Implementation (`/2-setup-foundation` to `/9-seo-and-aeo`)**: 8 sequential commands, each mounting a live visual showroom on localhost for inspection before moving forward.
-5. **15 Distinct Hero Archetypes (`/4-cards-and-layout`)**: Unlocks H1 through H15 hero architectures (Split, Centered Glow, Device Mockup, Editorial Magazine, Bento Showcase, 3D Canvas, Metric-Led, and more).
-6. **Dynamic QA Checklist (`/8-responsive-and-qa`)**: Enforces multi-viewport responsive checks (`375px`, `768px`, `1440px`), `>=44px` touch targets, and a dynamic Anti-Bug checklist adapted specifically to what was actually built.
-7. **Production Search & AI Discovery (`/9-seo-and-aeo`)**: Category-specific Schema.org entity mapping, semantic landmarks, dual `llms.txt` + `llms-full.txt` optimization, and production build verification (`npx tsc --noEmit` and `npm run build`).
-8. **Auxiliary Documentation Specialist (`/github-readme-writer`)**: Daytona open-source framework documentation and launch copy specialist with zero em-dashes.
-9. **Zero-Dash Anti-Slop Policy**: Zero em-dash characters (U+2014) and zero en-dash characters (U+2013) anywhere in skills, copy, or code.
+**Release 3.3.0 introduces the 3 Flagship Specialist Agents:**
+1. **`/frontend-craftsman`**: Master UI/UX & Frontend Craft Specialist. Builds bespoke, anti-slop web applications with mathematical color harmony (60-30-10 rule), 15 distinct hero archetypes (H1-H15), 60fps composited micro-interactions, responsive touch ergonomics, and complete Agentic SEO (AEO/GEO full 5/5 score with Schema.org JSON-LD and `llms.txt`).
+2. **`/backend-architect`**: Master Backend Systems & API Architect. Implements Clean Architecture across TypeScript and Python, type-safe database schemas with migrations (Drizzle/Prisma/SQLAlchemy), pgvector storage, RBAC authentication, async queues (BullMQ/Inngest/Celery), and multi-stage Dockerfiles. Produces explicit `CONTRACTS.md` artifacts.
+3. **`/ai-engineer`**: Master AI/ML & LLM Systems Engineer. Implements production-grade application AI: multi-provider routing (OpenAI, Anthropic Claude, Google Gemini, Ollama), real-time Server-Sent Events (SSE) streaming, structured tool calling (function calling), hybrid RAG retrieval, agent state machines, and cost/latency telemetry.
 
 ---
 
-## Backstory
-
-As frontend engineers working with generative AI, we repeatedly hit the same wall: AI models write great small snippets but fail at whole-site execution. When prompted to "build a complete website", models take shortcuts. They generate a single hero section, invent placeholder text, paste generic dark theme tokens, and stop.
-
-To fix this, we decomposed website development into an 8-phase interactive discovery interview followed by an 8-step verified implementation pipeline. In v3.2.7, we added the Anti-Sameness Engine with 12 site categories and 6-axis design personality controls. Each step has its own dedicated skill file, its own isolated prompt blueprint, and its own live visual showroom on localhost. The result is deterministic, bespoke frontend craftsmanship with zero guesswork.
-
----
-
-## The 9-Command Progressive Architecture
+## Architecture Overview
 
 ```text
   +-------------------------------------------------------------------------------+
-  |                      IRFANLOVEFRONT v3.2.7 ARCHITECTURE                       |
+  |                      IRFANLOVEFRONT v3.3.0 ARCHITECTURE                       |
   +-------------------------------------------------------------------------------+
   |                                                                               |
-  |  [Command 1: /1-prompt-generator]                                             |
-  |  - Progressive 8-Phase Master Prompt Architect                                |
-  |  - Category Detection (12 categories) & 6-Axis Design Personality System      |
-  |  - Step-by-step interviews with [Custom User Input] on every question         |
-  |  - Writes prompts/phase-1-foundation-data.md to phase-8-seo-aeo.md             |
-  |  - 89 brand design references in design-refs/, verbatim site data manifest   |
+  |  [Flagship Specialist Agents]                                                 |
   |                                                                               |
-  |  [Progressive Implementation Pipeline: Commands 2 through 9]                  |
-  |  - /2-setup-foundation  -> Tech stack, adaptive CSS tokens, siteData preview  |
-  |  - /3-build-components  -> Category UI primitives, Components Showroom        |
-  |  - /4-cards-and-layout  -> 15 Hero Archetypes, custom cards, Cards Showroom   |
-  |  - /5-navbar-and-footer -> 10 Navbar styles, menu overlay, contact, watermark |
-  |  - /6-build-pages       -> Production Home page and sub-routes (verbatim copy)|
-  |  - /7-animate-website   -> 4 Motion Profiles (Cinematic/Snappy/Calm/None)     |
-  |  - /8-responsive-and-qa -> Breakpoints (375/768/1440), >=44px, dynamic QA    |
-  |  - /9-seo-and-aeo       -> Schema.org entity mapping, llms.txt, build compile |
+  |  1. /frontend-craftsman                                                       |
+  |     - Bespoke Anti-Slop Foundation (Mathematical 60-30-10 Color Science)      |
+  |     - 15 Hero Archetypes (H1-H15), Asymmetrical Bento Grids                   |
+  |     - 60fps Hardware-Accelerated Micro-Interactions (Composited GPU Only)     |
+  |     - 8 Category Blueprints (SaaS, Portfolio, E-Commerce, AI, DevTools, etc.)|
+  |     - 5 Brand Benchmarks (Linear, Vercel, Stripe, Apple, Awwwards)            |
+  |     - Agentic SEO 5/5 (Schema.org Graph, OpenGraph, public/llms.txt)          |
   |                                                                               |
-  |  [Auxiliary Specialist: /github-readme-writer]                                |
-  |  - Daytona 4,000-star launch framework, project hygiene, zero em-dashes       |
+  |  2. /backend-architect                                                        |
+  |     - Clean Architecture (Routes, Services, Repositories, Schemas)            |
+  |     - Type-Safe Relational & Vector Persistence (Drizzle, Prisma, SQLAlchemy) |
+  |     - Unified API Envelopes, Error Standards & CONTRACTS.md Generation       |
+  |     - Defense-in-Depth Security (RBAC, Rate Limiting, CORS, Helmet)          |
+  |     - Async Queues (BullMQ, Inngest, Celery) & Multi-Stage Dockerfile        |
+  |                                                                               |
+  |  3. /ai-engineer                                                              |
+  |     - Multi-Provider Routing & Automatic Fallback Chains (Claude, OpenAI, etc)|
+  |     - Real-Time Server-Sent Events (SSE) Streaming to UI                     |
+  |     - Deterministic Structured Output Validation (Zod, Pydantic)              |
+  |     - Hybrid RAG Vector Search (pgvector, Pinecone, Reciprocal Rank Fusion)   |
+  |     - Multi-Step ReAct Agent Tool Loops & Token/Cost Telemetry               |
+  |                                                                               |
+  |  [Supporting Engineering Skills (Matt Pocock Suite)]                         |
+  |  - /tdd, /code-review, /domain-modeling, /codebase-design, /diagnosing-bugs    |
+  |  - /github-readme-writer (Daytona Open-Source Framework, Zero Em-Dashes)       |
   |                                                                               |
   +-------------------------------------------------------------------------------+
 ```
 
 ---
 
-## Progressive Pipeline Walkthrough
+## Detailed Specialist Specifications
 
-| Command | Step | Focus Area | Live Visual Verification |
-| :--- | :---: | :--- | :--- |
-| **`/1-prompt-generator`** | Plan | 8-Phase Product Discovery | Category detection, 6-axis personality, writes `prompts/phase-1` to `phase-8` |
-| **`/2-setup-foundation`** | Step 1 | Foundation & Adaptive Tokens | Category-tailored tokens, font configuration, Visual Foundation Preview Card on `localhost:3000` |
-| **`/3-build-components`** | Step 2 | Category UI Primitives | Category-specific components (no fixed formula), Interactive UI Components Showroom |
-| **`/4-cards-and-layout`** | Step 3 | 15 Hero Archetypes & Grids | Bespoke hero composition (H1-H15) + Cards & Grid Showroom |
-| **`/5-navbar-and-footer`** | Step 4 | Navigation & Footer | 10 Navbar styles, working menu state machine, giant interactive footer watermark |
-| **`/6-build-pages`** | Step 5 | Full Route Assembly | Production Home page + all secondary sub-routes (verbatim siteData copy) |
-| **`/7-animate-website`** | Step 6 | Motion Engineering | 4 Motion Personality profiles (Cinematic, Snappy, Calm, None) synced with scroll |
-| **`/8-responsive-and-qa`** | Step 7 | Responsive Audit & Dynamic QA | 375px/768px/1440px audits, >=44px touch targets, dynamic anti-bug checklist |
-| **`/9-seo-and-aeo`** | Step 8 | Final SEO, AEO & Build | Category Schema.org entity mapping + `llms.txt` + `npm run build` pass |
-| **`/github-readme-writer`**| Docs | Documentation | Authoritative Daytona README with zero em-dashes |
+### 1. `/frontend-craftsman`
+- **Role:** Master UI/UX and Frontend Craft Specialist.
+- **Execution Protocol:** Strategy Check -> High-Craft Implementation -> Responsive & Type Audit.
+- **Reference Suite:**
+  - `anti-slop-rules.md`: Banned clichés, color harmony math, tactile state rules.
+  - `hero-and-layout-archetypes.md`: 15 distinct hero formulas (H1 Split, H2 Glow, H3 Device Mockup, H4 Typography Watermark, H5 Video Backdrop, H6 Bento Showcase, H7 Magazine Cover, H8 Card Stack, H9 3D Canvas, H10 Metric Dashboard, H11 Asymmetrical Diagonal, H12 Filmstrip, H13 Minimalist White Cube, H14 Brutalist Wire, H15 Code Sandbox).
+  - `component-craft-patterns.md`: Navbars, curtain mobile menus, bento cards, tactile buttons, data tables, empty states.
+  - `motion-recipes.md`: 4 motion profiles (Cinematic, Snappy, Calm, None), 60fps spring physics, scroll reveals.
+  - `responsive-and-touch.md`: 375px/768px/1440px audits, >=44px touch targets, zero horizontal overflow.
+  - `agentic-seo-aeo.md`: Perfect 5/5 score: Schema.org JSON-LD Knowledge Graph, dynamic OpenGraph, dual `public/llms.txt` + `llms-full.txt`.
+  - `design-engineering-standards.md`: Composited GPU-only properties, pure CSS `clamp()` fluid type, zero-CLS font metric overrides, memory cleanup hygiene.
+  - `testing-and-e2e.md`: Playwright user journey tests, Vitest component tests, axe-core accessibility checks.
+  - `deployment-and-ci.md`: Vercel/Cloudflare build optimization, bundle budgets, edge caching.
+- **Category Deep Guides:** `saas.md`, `portfolio.md`, `ecommerce.md`, `ai-product.md`, `developer-tool.md`, `agency-studio.md`, `blog-publication.md`, `dashboard-admin.md`.
+- **Brand Benchmarks:** `linear.md`, `vercel.md`, `stripe.md`, `apple.md`, `awwwards.md`.
 
----
+### 2. `/backend-architect`
+- **Role:** Master Backend Systems & API Architect.
+- **Execution Protocol:** Contract Review -> Clean Architecture Implementation -> Automated Test & Migration Verification.
+- **Reference Suite:**
+  - `api-design-and-contracts.md`: Unified `{ data, error, meta }` response envelopes, error standards, `CONTRACTS.md` synchronization.
+  - `database-and-migrations.md`: Drizzle/Prisma/SQLAlchemy relational schemas, foreign key indexes, pgvector storage.
+  - `auth-and-security.md`: Session vs JWT auth, OAuth2 PKCE flows, RBAC middleware, rate limiting, security headers.
+  - `async-jobs-and-queues.md`: BullMQ/Inngest/Celery workers, idempotency keys, exponential backoff retries, dead-letter queues.
+  - `caching-and-performance.md`: Cache-aside pattern via Redis, connection pooling.
+  - `observability-and-health.md`: Structured JSON logging (Pino/Loguru), `/health` and `/health/ready` endpoints, graceful shutdown.
+  - `testing-and-integration.md`: API endpoint integration tests, transaction rollback fixtures.
+  - `deployment-and-docker.md`: Multi-stage Dockerfile, local `docker-compose.yml` (Postgres, Redis), runtime Zod environment validation.
 
-## Detailed Skill Specifications
+### 3. `/ai-engineer`
+- **Role:** Master AI/ML & LLM Systems Engineer.
+- **Execution Protocol:** Prompt/Model Scoping -> Multi-Provider Implementation -> Streaming & Eval Verification.
+- **Reference Suite:**
+  - `provider-routing-and-fallback.md`: Model tiering (Groq/Flash for fast extraction, Sonnet/GPT-4o for reasoning, Ollama for local), automatic failover.
+  - `streaming-and-ui-protocol.md`: Server-Sent Events (SSE) streaming protocol, client hooks, cancellation support.
+  - `structured-outputs-and-tools.md`: Zod/Pydantic schema validation, function calling, ReAct multi-step agent loops.
+  - `rag-and-vector-search.md`: Semantic document chunking, embeddings, hybrid search (dense vector + sparse keyword), Reciprocal Rank Fusion.
+  - `evals-and-telemetry.md`: Token usage and dollar cost tracking, latency metrics, prompt injection delimiters.
+  - `ai-evals-and-guardrails.md`: Automated eval suites, golden test datasets, adversarial fuzzing.
 
-All slash commands match their directory names in `.agents/skills/`.
-
-### 1. `/1-prompt-generator`
-- **Role:** Interactive 8-Phase Master Prompt Architect with Anti-Sameness Engine.
-- **Workflow:**
-  - Automatically identifies site category across 12 distinct archetypes (SaaS, Portfolio, E-Commerce, Agency, Editorial, FinTech, Luxury, Web3, Healthcare, Restaurant, Educational, AI Infrastructure).
-  - Locks the 6-Axis Design Personality system (Color Energy, Visual Density, Corner Radius & Surface, Typography Tone, Motion Feel, Layout Structure).
-  - Guides the user through 8 sequential discovery phases: Foundation & Data, Components, Hero & Layout, Navbar & Footer, Pages, Animations, Responsive QA, and SEO & AEO.
-  - Every question includes multiple-choice selections plus `[Custom User Input]` and `[AI Recommended]`.
-  - Immediately writes `prompts/phase-1-foundation-data.md` through `prompts/phase-8-seo-aeo.md` after each phase is answered. Zero details are lost.
-  - Access to 89 brand design reference specifications in `design-refs/` (Apple, Linear, Stripe, Vercel, Framer, Robinsweb, and more).
-
-### 2. `/2-setup-foundation`
-- **Role:** Foundation, Adaptive Tokens & Visual Preview Card.
-- **Workflow:** Reads `prompts/phase-1-foundation-data.md`, verifies Next.js/Vite stack, configures category-adaptive fonts and CSS custom properties, populates verbatim data in `siteData.ts`, and renders a Single Big Visual Foundation Preview Card on `localhost:3000`.
-
-### 3. `/3-build-components`
-- **Role:** Atomic UI Primitives & Interactive Showroom.
-- **Workflow:** Reads `prompts/phase-2-components.md`, eliminates generic 6-component formulas, builds category-tailored atomic components in `src/components/ui/` (e.g., metric tickers for FinTech, pull quotes for Editorial, lookbook tags for Luxury), and mounts a live Interactive UI Components Showroom on `localhost:3000`.
-
-### 4. `/4-cards-and-layout`
-- **Role:** 15 Hero Archetypes, Layout Grids & Custom Cards.
-- **Workflow:** Reads `prompts/phase-3-cards-layout.md`, selects from 15 distinct hero archetypes (H1 Split, H2 Glow, H3 Device Mockup, H4 Massive Watermark, H5 Video Background, H6 Bento Showcase, H7 Magazine Cover, H8 Card Stack, H9 3D Canvas, H10 Metric Dashboard, H11 Asymmetrical Diagonal, H12 Filmstrip, H13 Minimalist White Cube, H14 Brutalist Wireframe, H15 Terminal Code), builds layout wrappers, and mounts the Hero + Cards Showroom on `localhost:3000`.
-
-### 5. `/5-navbar-and-footer`
-- **Role:** Navigation System & Watermark Footer.
-- **Workflow:** Reads `prompts/phase-4-navbar-footer.md`, builds 10 navbar variants, full-screen morphing hamburger curtain overlay with React state machine, multi-step contact wizard, and giant interactive footer watermark with rest contrast and hover glow.
-
-### 6. `/6-build-pages`
-- **Role:** Full Page Assembly & Routing.
-- **Workflow:** Reads `prompts/phase-5-pages.md`, cleans up temporary showrooms, connects navbar and footer into root layout, and assembles the complete production Home page and all secondary sub-routes with 100% human copy from `siteData.ts`.
-
-### 7. `/7-animate-website`
-- **Role:** Motion Engineering & Physics.
-- **Workflow:** Reads `prompts/phase-6-animations.md`, aligns with the locked Motion Feel axis (Cinematic, Snappy, Calm, or None/Reduced), configures Lenis smooth scrolling synced with GSAP ScrollTrigger and Framer Motion, implements split-text title entrance, scroll-triggered section reveals, metric counters, and hover physics.
-
-### 8. `/8-responsive-and-qa`
-- **Role:** Multi-Viewport Responsive Audit & Dynamic QA Checklist.
-- **Workflow:** Reads `prompts/phase-7-responsive-qa.md`, audits 375px mobile, 768px tablet, and 1440px desktop viewports, enforces >=44px touch targets, validates WCAG AA contrast, and executes a dynamic Anti-Bug checklist adapted to the specific components built.
-
-### 9. `/9-seo-and-aeo`
-- **Role:** Final Technical SEO, AI Engine Optimization & Production Build Verification.
-- **Workflow:** Reads `prompts/phase-8-seo-aeo.md`, implements per-route Metadata API, category-specific Schema.org JSON-LD Knowledge Graph, OpenGraph cards, `sitemap.ts`, `robots.ts`, `manifest.ts`, semantic landmarks, `public/llms.txt` + `llms-full.txt` for AI discovery, and verifies `npx tsc --noEmit` and `npm run build`.
-
-### 10. `/github-readme-writer`
-- **Role:** Technical Documentation Specialist.
-- **Workflow:** Crafts authoritative README files, case studies, and launch posts modeled after the Daytona open-source framework with zero em-dashes.
-
-### 11. `/irfanlove-extract`
-- **Role:** Website Reverse-Engineering & W3C DTCG Token Extractor.
-- **Workflow:** Renders live websites via visible Google Chrome, executes pre-scroll lazy loading triggers, conducts live hover testing on buttons/cards, captures overlay state machines, and emits 10 structured architecture files into `designs/<brand-slug>/`.
-
-### 12. `/irfanlove-awwwards`
-- **Role:** Awwwards Motion Intelligence & Award-Winning Inspiration.
-- **Workflow:** Searches Awwwards winning designs by award type, category, or color. Extracts motion DNA, transition curves, and component geometry.
-
-### 13. `/irfanlovefront`
-- **Role:** Master Frontend Engineering & Extraction Suite.
-- **Workflow:** Orchestrates end-to-end design intelligence, mathematical color hierarchy, and the progressive 8-phase website implementation pipeline.
+### 4. Supporting Engineering Skills (Matt Pocock Suite)
+- **`/tdd`**: Test-driven development workflows (red, green, refactor).
+- **`/code-review`**: Automated review for standards and spec compliance.
+- **`/domain-modeling`**: Domain-driven design and glossary alignment.
+- **`/diagnosing-bugs`**: Deep root-cause debugging loop.
+- **`/github-readme-writer`**: Daytona 4,000-star launch framework documentation specialist with zero em-dashes.
 
 ---
 
-## Step-by-Step Project Execution
+## Inter-Specialist Workflow
 
-Run the complete workflow in two progressive phases:
+Whenever building multi-tier applications:
 
 ```text
-Phase A (Discovery & Prompt Blueprints):
-/1-prompt-generator
+[Step 1: Backend or AI defines contract]
+/backend-architect  ->  Produces API endpoints, DB schema & updates CONTRACTS.md
+/ai-engineer        ->  Produces streaming endpoints, tools & updates CONTRACTS.md
 
-Phase B (Step-by-Step Construction):
-/2-setup-foundation    -> Inspect Foundation Preview Card
-/3-build-components    -> Inspect UI Components Showroom
-/4-cards-and-layout    -> Inspect Hero & Cards Showroom
-/5-navbar-and-footer   -> Inspect Navbar & Footer Watermark
-/6-build-pages         -> Inspect Complete Home & Sub-routes
-/7-animate-website     -> Inspect Smooth Scroll & Motion
-/8-responsive-and-qa   -> Multi-Viewport Responsive Audit & Dynamic QA
-/9-seo-and-aeo         -> Schema Graph, llms.txt & npm run build pass
+[Step 2: Frontend consumes contract]
+/frontend-craftsman ->  Reads CONTRACTS.md, implements bespoke UI, 60fps micro-interactions,
+                        and wires typed client hooks with zero guessing or mismatch
 ```
 
 ---
@@ -293,7 +205,6 @@ Phase B (Step-by-Step Construction):
 
 The repository documentation is automatically hosted on GitHub Pages:
 - **Documentation URL:** [https://rajairfanahmed.github.io/irfanlovefront](https://rajairfanahmed.github.io/irfanlovefront)
-- Configured via Jekyll with standard mobile-friendly presentation.
 
 ---
 
