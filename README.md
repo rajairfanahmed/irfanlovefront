@@ -18,7 +18,7 @@
 
 ### Modular Design Engineering Skills Suite for AI Coding Agents (v3.3.2)
 
-**11 specialist skills. 1 orchestrator. 55+ deep reference documents. Zero AI slop.**
+**12 specialist skills. 1 orchestrator. 55+ deep reference documents. Zero AI slop.**
 
 [![npm version](https://img.shields.io/npm/v/irfanlovefront.svg?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/irfanlovefront)
 [![GitHub Packages](https://img.shields.io/badge/GitHub_Packages-@rajairfanahmed/irfanlovefront-24292e.svg?style=flat-square&logo=github)](https://github.com/rajairfanahmed/irfanlovefront/packages)
@@ -86,7 +86,7 @@ Standard AI coding assistants produce structurally identical output. Every gener
 
 The root cause: monolith prompts that try to cover everything in one instruction set. They can't hold enough domain depth in any single area to produce work that actually differentiates one project from another.
 
-**v3.3.2 replaces the monolith approach with 11 modular specialist skills**, each containing its own `SKILL.md` and deep `references/` library. One orchestrator (`design-engineer`) coordinates them. Each specialist owns one domain completely: its principles, its patterns, its trade-offs, and its verification criteria. The result is frontend output where the visual design, layout, components, motion, accessibility, SEO, and performance each reflect project-specific decisions rather than generic defaults.
+**v3.3.2 replaces the monolith approach with 12 modular specialist skills**, each containing its own `SKILL.md` and deep `references/` library. One orchestrator (`design-engineer`) coordinates them. Each specialist owns one domain completely: its principles, its patterns, its trade-offs, and its verification criteria. A dedicated `github-readme-writer` skill handles project documentation. The result is frontend output where the visual design, layout, components, motion, accessibility, SEO, and performance each reflect project-specific decisions rather than generic defaults.
 
 ---
 
@@ -105,7 +105,7 @@ The root cause: monolith prompts that try to cover everything in one instruction
   |    Produces DESIGN_BRIEF.md + 10 specialist spec files                          |
   |    references/  (6 files)  |  templates/  (1 file)                              |
   |                                                                                 |
-  |  [10 Specialist Skills]                                                         |
+  |  [10 Design Engineering Specialist Skills]                                      |
   |                                                                                 |
   |   visual-design             Color systems, typography, tokens, visual hierarchy  |
   |   structural-layout         Page architecture, grids, section composition       |
@@ -118,8 +118,12 @@ The root cause: monolith prompts that try to cover everything in one instruction
   |   accessibility             WCAG conformance, assistive tech, keyboard nav      |
   |   performance-optimization  Core Web Vitals, budgets, assets, rendering         |
   |                                                                                 |
+  |  [Documentation Specialist]                                                     |
+  |                                                                                 |
+  |   github-readme-writer      Daytona framework READMEs, zero em-dashes, no slop  |
+  |                                                                                 |
   |  Each skill:  SKILL.md + references/  (3-6 deep reference documents)            |
-  |  Total:  11 skills, 55+ reference files, 1 design brief template                |
+  |  Total:  12 skills, 55+ reference files, 1 design brief template                |
   |                                                                                 |
   +---------------------------------------------------------------------------------+
   |                                                                                 |
@@ -132,7 +136,7 @@ The root cause: monolith prompts that try to cover everything in one instruction
 
 ---
 
-## The 11 Skills
+## The 12 Skills
 
 ### Orchestrator: `design-engineer`
 
@@ -162,6 +166,14 @@ Each skill contains a `SKILL.md` with full operating instructions and a `referen
 
 ---
 
+### Documentation Specialist: `github-readme-writer`
+
+Writes high-converting GitHub `README.md` files, launch posts, and project hygiene assets using the Daytona open-source framework (4,000-star launch blueprint). Enforces zero em-dashes (U+2014), zero AI cliches, and concrete evidence over adjectives. Covers the 4-pillar structure: Impactful Header, Engaging Main Body, Project Hygiene Essentials, and Enhanced Repository Hygiene.
+
+**Contains:** `SKILL.md`
+
+---
+
 ## How It Works
 
 ```text
@@ -184,6 +196,9 @@ frontend-architecture     ->  Folder structure, tokens in code, state
 seo                       ->  Meta tags, Schema.org, AI discoverability
 accessibility             ->  WCAG audit, keyboard nav, screen readers
 performance-optimization  ->  Budgets, CWV targets, asset optimization
+
+[Documentation]
+github-readme-writer      ->  Daytona framework READMEs, zero AI slop
 ```
 
 ---
@@ -230,9 +245,11 @@ performance-optimization  ->  Budgets, CWV targets, asset optimization
 ├── accessibility/
 │   ├── SKILL.md
 │   └── references/  (4 files)
-└── performance-optimization/
-    ├── SKILL.md
-    └── references/  (4 files)
+├── performance-optimization/
+│   ├── SKILL.md
+│   └── references/  (4 files)
+└── github-readme-writer/
+    └── SKILL.md
 ```
 
 ---
@@ -244,6 +261,7 @@ v3.3.1 shipped three monolith flagship agents (`/frontend-craftsman`, `/backend-
 - **Monolith agents removed.** The three flagship agents and the Matt Pocock supporting skills (`/tdd`, `/code-review`, `/domain-modeling`, `/codebase-design`, `/diagnosing-bugs`) have been removed from the shipped skill set.
 - **11 modular specialist skills added.** Each skill owns exactly one domain with its own `SKILL.md` operating instructions and 3-6 deep reference documents in `references/`. The `design-engineer` orchestrator coordinates all ten specialists.
 - **55+ reference documents.** Every skill carries its own reference library covering principles, pattern catalogs, verification criteria, and trade-off guidance. These are read by the agent on demand, not loaded all at once.
+- **`github-readme-writer` included.** Daytona open-source framework documentation specialist for writing high-converting GitHub READMEs with zero em-dashes and zero AI cliches.
 - **Cross-agent compatibility preserved.** The installer still targets Claude Code, Google Antigravity, Cursor, Windsurf, and GitHub Copilot with the same flags.
 
 ---
