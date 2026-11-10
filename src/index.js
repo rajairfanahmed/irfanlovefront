@@ -140,13 +140,11 @@ async function main() {
   );
 
   outro(
-    color.green("Ready to build bespoke applications! Invoke ") +
-    color.bold(color.yellow("/frontend-craftsman")) +
-    color.green(", ") +
-    color.bold(color.yellow("/backend-architect")) +
-    color.green(", or ") +
-    color.bold(color.yellow("/ai-engineer")) +
-    color.green(" in your agent chat to begin.")
+    color.green("Ready to build production applications! Start with the backend (") +
+    color.bold(color.yellow("backend-engineering")) +
+    color.green(") then proceed to ") +
+    color.bold(color.yellow("00-design-engineer")) +
+    color.green(" and the numbered frontend pipeline (01-10).")
   );
 }
 

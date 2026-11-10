@@ -1,7 +1,7 @@
 {
   "name": "irfanlovefront",
-  "version": "3.3.2",
-  "description": "Full-Stack, Anti-Slop UI/UX & AI Agent Skills Suite & One-Command Installer across Claude Code, Antigravity, Cursor, Windsurf, and Copilot",
+  "version": "3.3.3",
+  "description": "Backend + Frontend Design Engineering Skills Suite & One-Command Installer across Claude Code, Antigravity, Cursor, Windsurf, and Copilot",
   "type": "module",
   "bin": {
     "irfanlovefront": "bin/cli.js"

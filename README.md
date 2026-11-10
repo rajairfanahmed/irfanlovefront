@@ -7,7 +7,7 @@
   <a href="CODE_OF_CONDUCT.md"><strong>Code of Conduct</strong></a> •
   <a href="LICENSE"><strong>License</strong></a> •
   <a href="SECURITY.md"><strong>Security</strong></a> •
-  <a href="https://github.com/rajairfanahmed/irfanlovefront/releases"><strong>Latest Release v3.3.2</strong></a>
+  <a href="https://github.com/rajairfanahmed/irfanlovefront/releases"><strong>Latest Release v3.3.3</strong></a>
 </p>
 
 <a href="https://github.com/rajairfanahmed/irfanlovefront">
@@ -16,7 +16,7 @@
 
 # irfanlovefront
 
-### Backend + Frontend Design Engineering Skills Suite for AI Coding Agents (v3.3.2)
+### Backend + Frontend Design Engineering Skills Suite for AI Coding Agents (v3.3.3)
 
 **1 backend skill. 11 numbered frontend skills. 55+ deep reference documents. Zero AI slop.**
 
@@ -24,7 +24,7 @@
 [![GitHub Packages](https://img.shields.io/badge/GitHub_Packages-@rajairfanahmed/irfanlovefront-24292e.svg?style=flat-square&logo=github)](https://github.com/rajairfanahmed/irfanlovefront/packages)
 [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Documentation-22c55e.svg?style=flat-square&logo=github)](https://rajairfanahmed.github.io/irfanlovefront)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v3.3.2-blue.svg?style=flat-square)](https://github.com/rajairfanahmed/irfanlovefront/releases)
+[![Release](https://img.shields.io/badge/release-v3.3.3-blue.svg?style=flat-square)](https://github.com/rajairfanahmed/irfanlovefront/releases)
 [![Stars](https://img.shields.io/github/stars/rajairfanahmed/irfanlovefront?style=flat-square&color=yellow)](https://github.com/rajairfanahmed/irfanlovefront/stargazers)
 [![Forks](https://img.shields.io/github/forks/rajairfanahmed/irfanlovefront?style=flat-square&color=blue)](https://github.com/rajairfanahmed/irfanlovefront/network/members)
 [![Issues](https://img.shields.io/github/issues/rajairfanahmed/irfanlovefront?style=flat-square&color=red)](https://github.com/rajairfanahmed/irfanlovefront/issues)
@@ -84,13 +84,13 @@ npx irfanlovefront --all
 
 Standard AI coding assistants produce structurally identical output. Every generated site ships the same dark slate `#0B0F17`, the same floating pill buttons with purple gradients, the same generic double-bezel cards. Ask two different agents to build a SaaS landing page and a portfolio: you get the same page twice.
 
-The root cause: monolith prompts that try to cover everything in one instruction set. They can't hold enough domain depth in any single area, and they can't enforce a build order. The AI mixes foundation setup with page building, skips steps, and produces a mess that doesn't hold together.
+The root cause: monolith prompts that try to cover everything in one instruction set. They cannot hold enough domain depth in any single area, and they cannot enforce a build order. The AI mixes foundation setup with page building, skips critical architectural steps, and produces code where styling, layout, and API calls conflict with each other.
 
-**v3.3.2 solves this with two skill groups:**
+**v3.3.3 solves this with two dedicated skill groups and a strict execution order:**
 
-1. **Backend skill** (1 skill, 29 files): stack-agnostic backend engineering with 13 deep reference docs, 7 checklists, and 8 templates. Runs first. Produces API contracts, database design, and architecture docs in `docs/`.
+1. **Backend skill** (1 skill, 29 files): stack-agnostic backend engineering with 13 deep reference docs, 7 checklists, and 8 templates. Runs first. Produces API contracts, database design, and architecture documentation in `docs/`.
 
-2. **Frontend skills** (11 numbered skills, 55+ files): a strict numbered pipeline from foundation to polish. The orchestrator (`00-design-engineer`) reads the backend's API contracts and produces 10 spec files. Then skills `01` through `10` execute in order: scaffold first, tokens second, layouts third, components fourth, flows fifth, then responsive, animations, SEO, accessibility, and performance last. Each skill reads its own generated spec before implementing.
+2. **Frontend skills** (11 numbered skills, 55+ files): a strict numbered pipeline from foundation to polish. The orchestrator (`00-design-engineer`) reads the backend API contracts and produces 10 spec files in `docs/`. Then skills `01` through `10` execute in exact order: scaffold first, tokens second, layouts third, components fourth, flows fifth, then responsive, animations, SEO, accessibility, and performance last. Every skill reads its own generated spec before implementing.
 
 ---
 
@@ -98,7 +98,7 @@ The root cause: monolith prompts that try to cover everything in one instruction
 
 ```text
   +---------------------------------------------------------------------------------+
-  |                    IRFANLOVEFRONT v3.3.2 ARCHITECTURE                           |
+  |                    IRFANLOVEFRONT v3.3.3 ARCHITECTURE                           |
   +---------------------------------------------------------------------------------+
   |                                                                                 |
   |  [Backend Skill]                                                                |
@@ -145,7 +145,7 @@ The root cause: monolith prompts that try to cover everything in one instruction
 
 ## Development Workflow
 
-**Always: backend first, then frontend.**
+**Always execute in this order: backend first, then frontend.**
 
 ```text
 [Step 1: Backend]
@@ -193,7 +193,7 @@ backend skill  ->  Inspect project, build API, produce docs/
 
 ### `backend/`
 
-Stack-agnostic backend engineering skill. Does not assume Node.js, Express, PostgreSQL, or any other technology. Inspects the project, selects the right stack, and builds.
+Stack-agnostic backend engineering skill. Does not assume Node.js, Express, PostgreSQL, or any specific technology. Inspects the repository, selects the right stack based on constraints, and implements complete functionality.
 
 **Workflow:** Project Info -> Repository Inspection -> Select Required References -> Read References -> Generate Required Documentation -> Plan -> Implement -> Test -> Integrate -> Review -> Complete
 
@@ -223,7 +223,7 @@ Stack-agnostic backend engineering skill. Does not assume Node.js, Express, Post
 
 ## The 11 Frontend Skills (Numbered Pipeline)
 
-### `00-design-engineer` - Orchestrator
+### `00-design-engineer` (Orchestrator)
 
 Reads all project inputs (requirements, reference images, backend API contracts from `docs/`) and produces `DESIGN_BRIEF.md` plus 10 specialist spec files. Runs before any implementation skill. The orchestrator reads the backend's `api-contract.md`, `architecture.md`, and `database-design.md` so every frontend spec aligns with the actual API.
 
@@ -257,7 +257,7 @@ Reads all project inputs (requirements, reference images, backend API contracts 
 | **09** | `09-accessibility` | Audit and fix WCAG conformance, keyboard navigation, screen reader support, focus management | `accessibility.md` |
 | **10** | `10-performance-optimization` | Optimize bundles, images, fonts, Core Web Vitals, lazy loading, caching | `performance-optimization.md` |
 
-### `github-readme-writer` - Documentation Specialist
+### `github-readme-writer` (Documentation Specialist)
 
 Writes high-converting GitHub READMEs using the Daytona open-source framework. Zero em-dashes, zero AI cliches, concrete evidence over adjectives.
 
@@ -311,7 +311,9 @@ Writes high-converting GitHub READMEs using the Daytona open-source framework. Z
         └── SKILL.md
 ```
 
-### Generated docs (at runtime, in your project):
+### Generated Documentation (`docs/`)
+
+All generated specs live in one unified directory:
 
 ```text
 docs/
@@ -338,17 +340,17 @@ docs/
 
 ---
 
-## What Changed in v3.3.2
+## What Changed in v3.3.3
 
-v3.3.1 shipped three monolith flagship agents (`/frontend-craftsman`, `/backend-architect`, `/ai-engineer`) that each tried to cover an entire engineering tier in one instruction set. v3.3.2 replaces that approach:
+v3.3.1 shipped three monolith flagship agents (`/frontend-craftsman`, `/backend-architect`, `/ai-engineer`) that each attempted to cover an entire engineering tier in one instruction set. v3.3.3 establishes a modular, ordered architecture:
 
-- **Monolith agents removed.** The three flagship agents and the Matt Pocock supporting skills have been removed from the shipped skill set.
-- **Backend skill added.** A complete, stack-agnostic backend engineering skill with 13 references, 7 checklists, and 8 templates. Produces API contracts and architecture docs that the frontend skills consume.
-- **11 numbered frontend skills added.** Each skill has a step number and runs in strict order. The orchestrator (`00-design-engineer`) reads backend docs and produces 10 spec files. Skills `01-10` implement in sequence: foundation first (scaffold, tokens, layouts), then components and pages, then enhancements (responsive, animations, SEO, accessibility, performance).
-- **Every skill reads its spec before implementing.** Each generated spec file lives in `docs/` alongside backend docs. Before a skill writes any code, it reads `docs/<its-name>.md` for project-specific decisions.
-- **Backend-frontend contract bridge.** The design-engineer orchestrator reads `docs/api-contract.md` and ensures every frontend spec includes a "Backend Integration Points" section with exact endpoints, auth requirements, and data shapes.
-- **`github-readme-writer` included.** Daytona open-source framework documentation specialist.
-- **Cross-agent compatibility preserved.** The installer still targets Claude Code, Google Antigravity, Cursor, Windsurf, and GitHub Copilot.
+- **Strict numbered frontend pipeline.** Frontend skills are organized into numbered folders `00-design-engineer` through `10-performance-optimization` to enforce linear development: foundation first (scaffold, tokens, layouts), components and page assembly second, enhancements third.
+- **Backend skill integration.** Complete stack-agnostic backend engineering skill (`backend/`) with 13 references, 7 checklists, and 8 templates. Runs first and produces API contracts and database design.
+- **Backend-to-frontend contract bridge.** `00-design-engineer` reads `docs/api-contract.md` before generating specs. Every frontend spec includes a "Backend Integration Points" section specifying endpoints, payloads, auth, and error shapes.
+- **Unified documentation directory.** All generated markdown specifications (backend and frontend) output to `docs/`.
+- **Mandatory spec-first execution.** Every specialist skill is instructed to read its corresponding `docs/<skill-name>.md` spec before writing any code.
+- **Updated multi-agent installer.** Recursively discovers and installs both `backend/` and `frontend/` skills across Claude Code, Google Antigravity, Cursor (Rules 2.0 `.mdc`), Windsurf (`.windsurf/rules/`), and GitHub Copilot.
+- **`github-readme-writer` included.** Daytona open-source framework documentation specialist with zero em-dashes and zero AI cliches.
 
 ---
 

@@ -7,6 +7,43 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const sourceSkillsDir = path.resolve(__dirname, "../../.agents/skills");
 
+async function discoverSkills(dir) {
+  const skills = [];
+
+  // backend skill
+  const backendSkill = path.join(dir, "backend", "SKILL.md");
+  if (await fs.pathExists(backendSkill)) {
+    skills.push({ name: "backend-engineering", path: backendSkill });
+  }
+
+  // frontend skills
+  const frontendDir = path.join(dir, "frontend");
+  if (await fs.pathExists(frontendDir)) {
+    const feEntries = await fs.readdir(frontendDir, { withFileTypes: true });
+    for (const entry of feEntries) {
+      if (entry.isDirectory()) {
+        const skillPath = path.join(frontendDir, entry.name, "SKILL.md");
+        if (await fs.pathExists(skillPath)) {
+          skills.push({ name: entry.name, path: skillPath });
+        }
+      }
+    }
+  }
+
+  // flat fallback
+  const topEntries = await fs.readdir(dir, { withFileTypes: true });
+  for (const entry of topEntries) {
+    if (entry.isDirectory() && entry.name !== "backend" && entry.name !== "frontend") {
+      const skillPath = path.join(dir, entry.name, "SKILL.md");
+      if (await fs.pathExists(skillPath)) {
+        skills.push({ name: entry.name, path: skillPath });
+      }
+    }
+  }
+
+  return skills;
+}
+
 export async function installWindsurf({ scope, cwd }) {
   const rulesDir = scope === "global"
     ? path.join(os.homedir(), ".codeium", "windsurf", "memories")
@@ -14,22 +51,28 @@ export async function installWindsurf({ scope, cwd }) {
 
   await fs.ensureDir(rulesDir);
 
-  const skillFolders = await fs.readdir(sourceSkillsDir);
+  const skills = await discoverSkills(sourceSkillsDir);
   let count = 0;
 
-  for (const folder of skillFolders) {
-    const skillMdPath = path.join(sourceSkillsDir, folder, "SKILL.md");
-    if (await fs.pathExists(skillMdPath)) {
-      const content = await fs.readFile(skillMdPath, "utf-8");
-      await fs.writeFile(path.join(rulesDir, `${folder}.md`), content, "utf-8");
-      count++;
-    }
+  for (const skill of skills) {
+    const content = await fs.readFile(skill.path, "utf-8");
+    await fs.writeFile(path.join(rulesDir, `${skill.name}.md`), content, "utf-8");
+    count++;
   }
 
   // Create root .windsurfrules summary if local workspace
   if (scope !== "global") {
     const summaryFile = path.join(cwd, ".windsurfrules");
-    const summaryText = `# irfanlovefront Windsurf Rules\n\nThis workspace enforces the irfanlovefront full-stack & AI engineering suite:\n- /frontend-craftsman: Master UI/UX & Frontend Craft (Anti-Slop, 15 Hero Archetypes, AEO 5/5)\n- /backend-architect: Master Backend Systems & APIs (Clean Architecture, Drizzle/Prisma, Auth)\n- /ai-engineer: Master AI/ML & LLM Systems (SSE Streaming, Structured Tools, RAG, Evals)\n- /github-readme-writer: Authoritative Daytona-framework documentation with zero em-dashes\n\nDetailed specifications are located in .windsurf/rules/.\n`;
+    const summaryText = `# irfanlovefront Windsurf Rules
+
+This workspace enforces the irfanlovefront backend + frontend engineering suite:
+- backend-engineering: Stack-Agnostic Backend Engineering (APIs, Database, Auth, Security)
+- 00-design-engineer: Master Design Orchestrator (reads backend contracts, produces frontend specs)
+- 01-frontend-architecture through 10-performance-optimization: Numbered step-by-step frontend pipeline
+- github-readme-writer: Daytona-framework documentation with zero em-dashes
+
+Detailed specifications are located in .windsurf/rules/. All generated specs live in docs/.
+`;
     if (!(await fs.pathExists(summaryFile))) {
       await fs.writeFile(summaryFile, summaryText, "utf-8");
     }
