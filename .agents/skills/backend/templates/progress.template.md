@@ -3,27 +3,27 @@
 > Last updated: YYYY-MM-DD
 
 ## Overall status
-[Not started / In progress / Blocked / Complete, with a factual summary.]
+[Not started / In progress / Blocked / Complete, with evidence-based summary.]
 
 ## Completed
-- [Verified completed work and evidence.]
+- [Verified work and evidence.]
 
 ## In progress
-- [Current work and remaining steps.]
+- [Current work and remaining actions.]
 
 ## Pending
 - [Not yet started work.]
 
 ## Blocked
-- [Blocker, impact, and required resolution.]
+- [Blocker, impact, and resolution needed.]
 
 ## Verification
-| Command / test | Result | Notes |
+| Exact command / test | Status | Notes |
 |---|---|---|
-| [Exact command] | [Passed / Failed / Not run] | [Details] |
+| [Command] | [Passed / Failed / Not run / Blocked] | [Evidence] |
 
 ## Decisions and changes
-- [Decision or scope change, date, and rationale.]
+- [Decision, date, status, rationale.]
 
-## Known risks / limitations
+## Known risks and limitations
 - [Verified issue or unverified area.]

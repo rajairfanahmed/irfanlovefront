@@ -15,7 +15,7 @@ export function printBanner() {
   console.log(color.cyan("  ██║██╔══██╗██╔══╝  ██╔══██║██║╚██╗██║██║     ██║   ██║╚██╗ ██╔╝██╔══╝  "));
   console.log(color.cyan("  ██║██║  ██║██║     ██║  ██║██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ███████╗"));
   console.log(color.cyan("  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚══════╝"));
-  console.log(color.bold(color.yellow(`        Backend + Frontend Design Engineering Skills Suite (v${pkg.version})`)));
+  console.log(color.bold(color.yellow(`        Full-Stack PRD, Backend & Frontend Skills Suite (v${pkg.version})`)));
   console.log(color.dim("       Claude Code | Google Antigravity | Cursor | Windsurf | Copilot"));
   console.log("");
 }

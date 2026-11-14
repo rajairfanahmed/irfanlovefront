@@ -1,44 +1,77 @@
-# Reference Analysis
+# Design Reference Analysis
 
-Purpose: turn each raw input (a screenshot, a design document, an existing page) into attributable notes before any synthesis happens. Good synthesis is only as good as the analysis under it — skipping straight to "here's the design" from a stack of unread references is how specs end up generic or internally contradictory.
+Analyze source material before synthesizing a design. The purpose is to extract useful evidence and principles, not to copy a page or assume that a screenshot reveals the complete product.
 
-## Analyze each input on its own first
+## 1. Inventory the inputs
 
-Go through every supplied reference individually — every image, every document, every page of existing code — before comparing them to each other. Don't inspect only the first image and assume the rest match it; don't assume multiple screenshots belong to the same page or the same design direction unless the user said so or it's visually obvious.
+List every supplied item with its type, source, role, and review status:
 
-When image-inspection tools are available, actually look at the image. A filename like `hero-dark.png` or a one-line description from the user is not a substitute for seeing what's actually in it.
+- written design brief or `design.md`;
+- screenshots and exported frames;
+- design-system documentation;
+- reference websites and URLs;
+- brand assets, logos, icons, illustrations, and photography;
+- existing application pages;
+- frontend and backend source files;
+- user-provided constraints and examples.
 
-For each reference, note whatever is present and relevant:
+If the repository contains `designs/`, `design-refs/`, or a named reference folder, inventory the contents. When ten or more relevant images exist, inspect at least ten distinct images before concluding that the style has been understood. If fewer than ten exist, inspect all available images and state the actual count. Do not claim to have inspected an item that could not be opened.
 
-- Layout and composition (grid, columns, content width, whitespace)
-- Visual hierarchy (what draws the eye first, second, third)
-- Typography and color relationships — not just "what color," but how colors relate to each other (accent vs. neutral, contrast levels)
-- Spacing and alignment patterns
-- Component appearance (cards, buttons, forms, nav — their visual treatment)
-- Interaction or motion evidence (hover states visible in a screenshot, transition cues in a video or GIF)
-- Responsive behavior, if observable (a mobile screenshot alongside a desktop one)
-- Distinctive characteristics that make this reference recognizable
-- Potential usability or implementation issues worth flagging (low-contrast text, a layout that won't survive a narrow viewport)
+## 2. Analyze each image independently
 
-Only record what you can reasonably support. If you're inferring rather than seeing, say so — don't write an inference as though it were observed.
+For every image, record:
 
-## Tag every note by source
+| Dimension | What to observe |
+|---|---|
+| Purpose | page type, audience, primary task, page stage |
+| Composition | alignment, grid, columns, overlap, section sequence |
+| Hierarchy | focal point, heading scale, reading order, action priority |
+| Typography | type character, size contrast, line length, weight, leading |
+| Color | dominant and supporting roles, contrast, saturation, surface relationships |
+| Spacing | section rhythm, component density, margins, internal padding |
+| Shape | corners, borders, dividers, layering, depth |
+| Imagery | subject, crop, aspect ratio, art direction, placement |
+| Components | navigation, cards, forms, tables, controls, feedback |
+| Interaction clues | hover, active, expanded, selected, loading, scroll affordances |
+| Responsive evidence | mobile frame, reflow clues, content prioritization, hidden elements |
+| Brand character | restrained, editorial, technical, warm, formal, playful, or other observed tone |
 
-Every note carried forward into synthesis should be tagged with where it came from, so `reference-and-decision-map.md` can trace decisions honestly later:
+Separate facts from interpretation:
 
-- `[REQUIREMENT]` — the user said this explicitly, in text or in a document
-- `[OBSERVED]` — you can point to a specific part of a specific reference that shows this
-- `[INFERRED]` — a reasonable read between the lines, not stated or directly visible (for example, "likely wants a dark-mode-first product, based on every screenshot being dark")
-- `[RECOMMENDED]` — your own professional suggestion, not derived from any input
+- **Observed:** directly visible in the source.
+- **Inferred:** a plausible interpretation that requires confirmation or implementation testing.
+- **Unknown:** cannot be determined from the supplied evidence.
 
-Keep these distinct as you write. Collapsing them — writing an inference as though it were a requirement — is the main way a design brief ends up making promises the inputs never supported.
+A static screenshot does not prove hover behavior, navigation destinations, responsive rules, animation timing, or data behavior.
 
-## Compare across references once each is analyzed
+## 3. Compare references
 
-After each input has its own notes, look across them for:
+Identify:
+- recurring principles worth carrying forward;
+- distinctive features that belong only to one reference;
+- contradictions between sources;
+- visual elements that conflict with the product's usability or accessibility needs;
+- ideas that can be translated rather than copied;
+- aspects that should be deliberately avoided.
 
-- Where references agree (a strong signal for the direction)
-- Where they conflict (hand this to `requirements-and-conflict-resolution.md`)
-- What's present in some references but absent from others — is it missing, or deliberately not shown?
+Do not average several references into a bland composite. Select the strongest relevant principles and explain why each belongs in this product.
 
-Carry the tagged, per-reference notes forward. They're the raw material `design-synthesis.md` works from, and the source material for `reference-and-decision-map.md` later.
+## 4. Inspect references at the right scale
+
+For a complete site, examine representative page types rather than only the landing page. For an application, inspect navigation, data views, forms, detail views, settings, and important states. For a mobile product, review narrow screenshots or test a live reference at narrow widths when possible.
+
+Where available, use browser inspection to verify layout changes, interaction behavior, and navigation. Do not infer exact pixels from a resized or compressed image.
+
+## 5. Translate evidence into decisions
+
+Every adopted reference principle must map to a concrete design decision, such as:
+
+- use a narrow editorial measure for long-form reading;
+- keep the primary task visible in a dense operations screen;
+- distinguish navigation from page-level actions;
+- use a visual device only where it reinforces the content hierarchy;
+- adapt a desktop composition into a different mobile order when the task priority changes.
+
+## 6. Required record
+
+For each source, include its identifier, observation summary, useful principles, limitations, and affected specification files. Put the consolidated mapping in `reference-and-decision-map.md`.

@@ -1,56 +1,35 @@
 # Error Handling and Observability
 
-Read when implementing centralized errors, logs, metrics, tracing, monitoring, or diagnosing runtime behavior.
+Read for centralized errors, logging, metrics, tracing, monitoring, production diagnosis, or runtime reliability.
 
-## 1. Error-handling design
+## 1. Expected vs unexpected failures
 
-Separate expected business errors from unexpected system failures. Examples of expected errors include validation failure, missing resource, permission denial, state conflict, and rate limit. Unexpected failures include unhandled exceptions, infrastructure faults, and programming defects.
-
-Map internal errors to stable, safe API responses. Do not return stack traces, SQL details, filesystem paths, secret configuration, or raw provider errors to clients.
+Expected business failures include validation, missing resource, permission denial, state conflict, and rate limit. Unexpected failures include unhandled exceptions, infrastructure faults, and programming defects. Map internal failures to stable, safe API responses; never return stack traces, SQL details, filesystem paths, secret configuration, or raw provider errors to clients.
 
 ## 2. Centralized handling
 
-Use the framework's established error middleware, exception filters, or handler. Keep response shape consistent. Avoid broad catch blocks that swallow errors or falsely report success. Add context and rethrow or map errors deliberately.
+Use the framework's established middleware, exception filters, or handler. Keep response shapes consistent. Avoid broad catch blocks that swallow errors or falsely return success. Add context and rethrow or map failures deliberately.
 
 ## 3. Structured logging
 
-Where supported, use structured logs with fields such as:
-- Timestamp and severity.
-- Environment and service / component.
-- Request or correlation ID.
-- Operation name and duration.
-- Safe actor / tenant / resource identifiers where justified.
-- Error category and sanitized diagnostic details.
-
-Never log passwords, full tokens, secret keys, payment credentials, or unnecessary sensitive personal data. Redact headers and payload fields carefully.
+Where supported, record timestamp, severity, environment/service, request/correlation ID, operation, duration, sanitized actor/tenant/resource identifiers, error category, and safe diagnostics. Never log passwords, full tokens, secret keys, payment credentials, or unnecessary personal data. Redact headers and payload fields.
 
 ## 4. Metrics
 
-Useful service metrics may include request count, latency percentiles, error rate, saturation, queue depth, job duration, database pool usage, and external dependency failures. Measure business metrics only where needed and define their meaning consistently.
+Useful metrics include request count, latency percentiles, error rate, saturation, queue depth, job duration, database pool usage, and provider failures. Define metric meaning consistently; avoid collecting business metrics without a real operational need.
 
 ## 5. Tracing
 
-Use distributed tracing when requests cross several services or asynchronous workers and the operational complexity justifies it. Propagate correlation / trace context without exposing it as trusted identity.
+Use distributed tracing when requests cross services/workers and operational complexity justifies it. Propagate trace context without treating it as identity.
 
 ## 6. Health checks
 
-Distinguish:
-- **Liveness:** process is alive and should not be restarted.
-- **Readiness:** service can safely receive traffic, considering required dependencies.
+Distinguish liveness (process should remain running) from readiness (service can safely receive traffic). Do not expose internal dependency/configuration details publicly. Avoid expensive deep checks on every probe.
 
-Do not expose detailed internal dependency or configuration information publicly. Health endpoints should not perform expensive deep checks on every probe.
+## 7. Diagnose failures
 
-## 7. Failure diagnosis
-
-When investigating a defect:
-1. Reproduce with a safe test case.
-2. Capture the request / job context and correlation ID.
-3. Inspect sanitized logs and relevant metrics.
-4. Identify the failing boundary (validation, domain, data store, network, provider, or runtime).
-5. Determine root cause rather than patching only the visible symptom.
-6. Add a regression test.
-7. Verify recovery behavior and update operational notes if needed.
+Reproduce safely, capture correlation context, inspect sanitized logs/metrics, identify the failing boundary, find root cause, add regression coverage, verify recovery, and update operational notes when useful.
 
 ## 8. Alerting and retention
 
-Alerts should be actionable and based on meaningful thresholds or symptoms. Avoid alert fatigue. Set log / metric retention and access according to operational, privacy, and compliance needs. Monitor sensitive administrative events where appropriate.
+Alerts should be actionable and tied to meaningful thresholds/symptoms. Avoid alert fatigue. Set retention and access to fit privacy, compliance, and operational needs.

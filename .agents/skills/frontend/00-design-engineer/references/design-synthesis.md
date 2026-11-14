@@ -1,25 +1,68 @@
 # Design Synthesis
 
-Purpose: turn the analyzed, reconciled inputs from the previous two stages into one coherent, original design direction — the thing every specialist spec will implement a piece of.
+Synthesis converts verified product context and reference evidence into a single coherent visual and interaction direction.
 
-## What you're deciding here
+## 1. Define the experience
 
-Visual direction, typography, color system, layout approach, component style, interaction patterns, and motion language — at the level of a direction, not yet full implementation detail (that belongs to the ten specs in `output-contract.md`). Every choice should trace back to something from analysis: a requirement, an observed reference characteristic, a reasonable inference, the product's category and users, or a technical constraint. If a choice doesn't trace back to anything, it's a recommendation — make that explicit rather than presenting it as derived.
+Write a compact direction statement describing:
+- who the experience serves;
+- what users need to accomplish;
+- the intended character of the product;
+- the hierarchy that makes the key task clear;
+- the design qualities that distinguish it from a generic category template.
 
-## Don't blindly combine references
+Use concrete language. Avoid empty labels such as "modern", "beautiful", or "premium" unless they are translated into observable decisions.
 
-If the user supplied multiple references with different styles, the job isn't to average them or stitch their surface details together. Decide what this specific project needs and use references selectively to support that decision, not as a collage.
+## 2. Establish visual principles
 
-## No default patterns
+Choose and justify:
+- typography character and hierarchy;
+- color roles, contrast relationships, and theme behavior;
+- spacing rhythm and content density;
+- surface treatment, borders, elevation, and shape;
+- image, illustration, and icon direction;
+- data visualization and status treatment where needed.
 
-Don't reach for any of the following as a default just because it's common or looks sophisticated: hero-first layout, bento grid, glassmorphism, gradients, dark theme, oversized typography, animated cursors, or any other currently fashionable pattern. Any of these can be the right choice for a specific project — but only when the project's evidence (requirements, references, category, users) actually supports it. If a pattern is being reached for because it's familiar rather than because something in this project calls for it, that's the signal to reconsider.
+Do not select token values by trend alone. Confirm that the visual system supports the content, context, brand, and accessibility target.
 
-Originality here means a direction that fits this project specifically — not a direction that avoids trends for their own sake either. A trend used because it's genuinely right for the product is a fine choice; the same trend used as a reflex is not.
+## 3. Establish structural principles
 
-## Working through the decision
+Define:
+- global navigation and application shell;
+- page width and grid behavior;
+- page archetypes required by the product;
+- content priority and reading order;
+- section sequence and grouping;
+- patterns for dense data, forms, detail screens, and long-form content;
+- mobile composition and navigation changes.
 
-For each area (visual direction, typography, color, layout, components, interaction, motion), ask what this project's evidence points to, and whether that conflicts with anything else being decided. Layout and motion choices in particular have knock-on effects on performance and accessibility — keep half an eye on those while deciding here, even though their full detail belongs in their own specs.
+Do not repeat the same section or card layout on every page. Use composition that fits each page's content and task.
 
-## What this produces
+## 4. Establish interaction principles
 
-A short, coherent statement of the design direction — specific enough that someone reading only `DESIGN_BRIEF.md` understands what this project will look and feel like, and specific enough that the ten specialist specs can each run with their slice of it without inventing their own direction.
+Specify the interaction model for:
+- navigation, menus, tabs, filters, sorting, and search;
+- forms, validation, saving, and recovery;
+- confirmation and destructive actions;
+- dialogs, drawers, and overlays;
+- loading, empty, error, success, and permission states;
+- keyboard, touch, and pointer use;
+- URL and browser-history behavior.
+
+For each important flow, describe entry, action, system response, next state, and recovery route.
+
+## 5. Establish motion principles
+
+Use motion to communicate state, hierarchy, continuity, or feedback. Define when motion is meaningful and where it is intentionally absent. Include reduced-motion behavior, interaction latency, and performance implications. Do not add motion as decoration to every element.
+
+## 6. Establish responsive principles
+
+Define the content constraints before breakpoints. State what reflows, stacks, scrolls, collapses, becomes a drawer, or changes priority. Prefer fluid values and content-driven breakpoints over arbitrary device labels.
+
+## 7. Establish implementation constraints
+
+Specify framework boundaries, existing component reuse, asset requirements, data dependencies, public rendering needs, and the performance budget. Keep implementation recommendations compatible with the actual stack.
+
+## 8. Make one recommendation
+
+The brief should name one recommended direction, not present several unranked visual concepts. Alternatives belong only where a genuine unresolved trade-off requires user input. Include the rationale and the most important rejected direction so future changes remain consistent.

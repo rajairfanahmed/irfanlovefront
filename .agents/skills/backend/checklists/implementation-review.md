@@ -1,15 +1,15 @@
 # Implementation and Code Review Checklist
 
-- [ ] Changes satisfy the requested scope and acceptance criteria.
-- [ ] Existing conventions and public contracts are preserved unless an intentional change is documented.
-- [ ] No unrelated files or generated artifacts were modified unnecessarily.
-- [ ] Business logic is not duplicated across controllers or routes.
-- [ ] Validation and authorization are applied at the correct boundaries.
-- [ ] Database operations handle integrity, concurrency, and failure behavior.
+- [ ] Changes satisfy scope and acceptance criteria.
+- [ ] Existing conventions and public contracts are preserved or intentionally migrated.
+- [ ] No unrelated/generated files were modified unnecessarily.
+- [ ] Business logic is not duplicated across transport handlers.
+- [ ] Validation and authorization occur at correct boundaries.
+- [ ] Database behavior handles integrity, concurrency, and failure.
 - [ ] External dependencies have timeouts and safe error handling.
-- [ ] Logging is useful and does not reveal secrets or sensitive data.
+- [ ] Logs are useful and redact sensitive values.
 - [ ] Error handling does not suppress unexpected failures.
-- [ ] Tests cover both intended behavior and important negative cases.
-- [ ] Tests were not weakened or removed merely to obtain a passing result.
-- [ ] Comments and documentation explain important decisions rather than restating obvious code.
+- [ ] Tests cover intended behavior and negative cases.
+- [ ] Tests were not weakened or removed just to get green output.
+- [ ] Documentation explains material decisions and matches code.
 - [ ] Known risks and follow-up work are recorded.

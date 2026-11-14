@@ -1,7 +1,3 @@
-# Project Documentation Templates
+# Backend Project Documentation Templates
 
-These templates are optional starting points. They are not project documentation until copied into the target repository and adapted to verified project facts.
-
-Recommended default destination when the repository has no existing docs convention: `docs/backend/`.
-
-Use only the templates needed for the scope. For a small isolated fix, do not create a full documentation set. Remove irrelevant sections and replace all placeholders. Mark unconfirmed information as `Pending` or `Assumption`; never invent project facts.
+These optional templates are starting points, not completed project documentation. Copy only the files justified by the task into the repository's established docs location. For a new project with no convention, use root `docs/` so frontend agents can locate contracts. Replace every placeholder with verified facts or mark it pending. Do not invent project details or leave template placeholders in completed docs.

@@ -1,42 +1,35 @@
 # Performance and Scalability
 
-Read when there is a measured performance issue, a stated traffic / scale requirement, or a design decision involving caching, concurrency, or capacity.
+Read when a workload requirement, measured performance issue, caching decision, or concurrency/scaling change is in scope.
 
-## 1. Measure before optimizing
+## 1. Measure first
 
-Establish a baseline and identify the bottleneck: application CPU, memory, database queries, network latency, external services, queue backlog, serialization, or frontend behavior. Use representative workloads. Do not optimize based only on intuition.
+Establish a baseline and locate the bottleneck: CPU, memory, database, network, provider latency, queue backlog, serialization, or frontend behavior. Use representative workloads. Do not optimize by intuition alone.
 
 ## 2. API performance
 
-- Keep requests bounded and avoid unnecessary payload fields.
-- Paginate large collections and cap page sizes.
-- Avoid N+1 queries and repeated external calls.
-- Apply timeouts to network and database operations.
-- Use concurrency limits for expensive work.
-- Cache only data with a clear invalidation and consistency strategy.
+Bound request work and payloads. Paginate large collections. Avoid N+1 queries and repeated provider calls. Apply request/database timeouts and concurrency limits. Cache only with a defined key, scope, TTL, invalidation, consistency, and failure fallback.
 
-## 3. Caching
+## 3. Cache correctness
 
-Define cache key, scope, TTL, invalidation, stale-data behavior, and failure fallback. Avoid caching authorization-sensitive data across users or tenants. Do not use cache as the sole source of truth for critical state unless the architecture explicitly supports it.
+Never share authorization-sensitive cache entries across users/tenants. Do not use cache as the source of truth for critical state unless architecture explicitly supports it. Define what stale data means and when it is acceptable.
 
 ## 4. Database performance
 
-Inspect query plans, indexes, joins, document access patterns, connection pool behavior, lock contention, and transaction duration. Add or change indexes based on observed queries and assess write / storage costs.
+Inspect query plans, indexes, joins, access patterns, pool behavior, lock contention, and transaction duration. Add indexes based on observed queries, considering write and storage costs.
 
-## 5. Asynchronous processing
+## 5. Async work
 
-Move suitable slow or retryable work to background jobs. Define queue capacity, concurrency, retry, dead-letter handling, idempotency, and user-visible status. Async processing does not remove the need for timeouts and resource limits.
+Move suitable slow/retryable work to background jobs. Define queue capacity, concurrency, retry, dead-letter, idempotency, and user-visible status. Async processing does not remove the need for bounds or timeouts.
 
 ## 6. Scaling strategies
 
-- Vertical scaling increases resources for an instance.
-- Horizontal scaling adds instances and requires shared state / session strategy, load balancing, concurrency safety, and distributed coordination where needed.
-- Database read replicas, partitioning, sharding, and service decomposition add operational complexity; use only when the workload and measurements justify them.
+Vertical scaling adds resources to an instance. Horizontal scaling adds instances and requires shared-state/session strategy, load balancing, concurrency safety, and coordination where needed. Replicas, partitioning, sharding, and service decomposition add operational complexity; use when workload evidence justifies them.
 
-## 7. Load and stress testing
+## 7. Load testing
 
-Use a defined workload model: expected concurrency, request mix, data volume, ramp-up, duration, and acceptable latency / error thresholds. Test in a safe non-production environment. Do not run uncontrolled load against production or third-party services.
+Define request mix, concurrency, dataset, ramp-up, duration, and acceptable latency/error thresholds. Test in safe non-production environments. Never run uncontrolled load against production or third-party services.
 
-## 8. Scalability is not only throughput
+## 8. Scalability beyond throughput
 
-Consider reliability, recovery, queue backlogs, observability, operational ownership, cost, and maintainability. Prefer simple capacity improvements before a major architecture change when they meet the requirement.
+Include availability, recovery, queue backlogs, observability, operational ownership, cost, and maintainability. Prefer simpler capacity improvements before major architecture changes when they satisfy requirements.

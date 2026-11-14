@@ -1,51 +1,56 @@
 ---
 name: seo
-description: "Step 8 of 10 (Enhancement Phase). Adds metadata, structured data, semantic HTML improvements, sitemaps, robots.txt, Open Graph tags, and AI search discoverability to the existing implementation from Steps 1-7. Use whenever the user wants SEO added, meta tags configured, structured data implemented, or says things like \"add SEO\", \"set up meta tags\", \"add schema markup\", \"make it crawlable\", or \"implement the seo spec\". Runs AFTER animations-motion-design (Step 7) and BEFORE accessibility (Step 9)."
+description: Improves public-page crawlability, rendering, metadata, canonical behavior, structured data, sitemaps, robots rules, and social sharing previews using verified project information.
 ---
 
-# SEO (Step 8 of 10 - Enhancement Phase)
+# Search Engine Optimization
 
-**You are Step 8. You run AFTER animations-motion-design (Step 7) and BEFORE accessibility (Step 9).** Steps 1-7 built a functionally complete, responsive, animated application. Your job is to add everything needed for search engine and AI search discoverability.
+## Objective
 
-You own technical SEO, on-page metadata, structured data, and discoverability by both traditional search engines and AI search tools. You state what's required and verifiable; you never promise a ranking or result.
+Make intended public content discoverable and accurately represented in search and sharing surfaces without exposing private or misleading content.
 
-## Before doing anything: read your spec
+## Before implementation
 
-1. **Read `docs/seo.md`** - this is your implementation spec. It defines the metadata strategy, structured data requirements, semantic HTML improvements, and AI search discoverability approach. Follow it.
-2. **Read `docs/DESIGN_BRIEF.md`** for overall project context.
-3. **Inspect the existing codebase.** Steps 1-7 built everything. Add SEO to what exists without breaking functionality, responsive behavior, or animations.
+Read `seo.md`, `DESIGN_BRIEF.md`, `frontend-architecture.md`, public route inventory, content models, deployment hostname, and current rendering framework documentation.
 
-## What you build
+Also inspect repository instructions, the actual implementation, installed library versions, and relevant tests. Do not rely on a specification when the code or framework version shows that it is outdated. Record material gaps rather than silently inventing missing requirements.
 
-Work through these in order:
+## Reference library
 
-1. **Semantic HTML audit.** Review the existing markup and improve semantic structure: proper heading hierarchy (h1-h6), landmark elements (header, main, nav, footer, section, article), and meaningful element choices. Read `references/technical-seo.md`.
-2. **Page metadata.** Add title tags, meta descriptions, canonical URLs, and viewport meta to every page. Read `references/on-page-seo-and-metadata.md`.
-3. **Open Graph and social metadata.** Add og:title, og:description, og:image, og:url, and Twitter card tags for every page that should be shareable.
-4. **Structured data.** Add Schema.org JSON-LD markup as specified (Organization, WebSite, Product, Article, FAQ, BreadcrumbList, etc.). Read `references/structured-data-and-indexing.md`.
-5. **Sitemap and robots.txt.** Generate or configure a sitemap.xml and robots.txt appropriate to the project's pages and crawl requirements.
-6. **AI search discoverability.** If the spec calls for it, add `llms.txt` and/or `llms-full.txt` for AI search agent discovery. Read `references/ai-search-and-agent-discovery.md`.
+Read the references that apply to the task before making domain decisions. The complete set is listed here so the specialist can load the right guidance without guessing file names.
 
-## What you hand off
+- [`technical-seo.md`](references/technical-seo.md)
+- [`on-page-seo-and-metadata.md`](references/on-page-seo-and-metadata.md)
+- [`structured-data-and-indexing.md`](references/structured-data-and-indexing.md)
+- [`indexing-social-sharing.md`](references/indexing-social-sharing.md)
 
-After you finish:
-- Every page has proper title, meta description, and canonical URL
-- Semantic HTML is correct (heading hierarchy, landmarks)
-- Structured data validates without errors
-- Open Graph tags are set for shareable pages
-- Sitemap and robots.txt exist
+## Work sequence
 
-## Working with other skills
+1. Classify each route as indexable, noindex, or intentionally unavailable to crawlers. Keep account, private, internal, staging, and sensitive pages out of public indexes.
+2. Confirm the production origin, route patterns, locale behavior, trailing-slash rules, canonical URL policy, and redirect behavior.
+3. Implement unique, accurate titles and descriptions for public routes. Avoid repeated boilerplate and unsupported product claims.
+4. Configure Open Graph and equivalent social metadata with correct titles, descriptions, image dimensions, alt text where supported, and absolute URLs.
+5. Implement canonical links, robots directives, sitemap generation, and robots.txt according to the real route inventory and deployment environment.
+6. Add structured data only when page content satisfies the relevant schema. Use accurate business identity, price, availability, author, dates, and ratings only when verified.
+7. Choose an appropriate server-rendered or static rendering strategy for important public content. Follow the installed framework version documentation.
+8. Check heading hierarchy, descriptive links, image alternatives, internal linking, locale metadata, and pagination or faceted navigation behavior where relevant.
+9. Validate rendered HTML, metadata, robots behavior, sitemap URLs, structured data, canonical targets, and social previews.
 
-- Structural Layout (Step 3) defined the page structure you add semantic HTML to
-- UI Components (Step 4) built the elements you add aria and semantic attributes to
-- Accessibility (Step 9) will further improve semantic HTML and ARIA for assistive tech
-- Performance (Step 10) will verify that SEO additions don't impact Core Web Vitals
+## Required outputs
 
-## Review before finishing
+Correct public/private indexation rules, page metadata, canonical and sitemap configuration, accurate structured data where relevant, and verification notes.
 
-Verify: validate structured data with a schema validator, check heading hierarchy has no skipped levels, every page has unique title and meta description, canonical URLs are correct, and sitemap includes all public pages.
+## Ownership boundaries
 
-## Boundaries
+Do not expose private routes or user data, add hidden keyword content, fabricate review data or business facts, or promise search rankings. SEO does not own general page layout.
 
-Don't rebuild components (Step 4). Don't change user flows (Step 5). Don't change responsive behavior (Step 6). Don't change animations (Step 7). You add SEO metadata and structured data to the existing implementation.
+## Review before handoff
+
+- Every public route has accurate metadata, private routes are excluded, canonicals resolve, sitemap entries are valid, structured data matches visible content, and crawler output contains the intended content.
+- Review the diff for unrelated changes, unused code, debug output, or accidental dependency additions.
+- Run the relevant available checks and report their actual outcome.
+- Record open issues with impact and owner.
+
+## Handoff
+
+Identify the files changed, decisions made, routes or components affected, tests run, and any dependency on another specialist. Do not claim completion for work that was not verified.

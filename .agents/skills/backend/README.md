@@ -1,25 +1,32 @@
 # Backend Engineering Skill
 
-A reusable, stack-agnostic skill for AI agents that need to understand, design, implement, integrate, test, secure, and maintain backend systems for websites and applications.
+A production-oriented, stack-agnostic backend engineering skill for AI coding agents. It covers discovery, architecture, technology selection, data modeling, API contracts, authentication, authorization, security, integrations, implementation, testing, observability, and deployment readiness.
 
-## Package contents
+## Package structure
 
-- `SKILL.md` — the main entry point and execution instructions. Read this first.
-- `references/` — deeper technical guidance. Read only the references relevant to the current project or task.
-- `checklists/` — actionable review lists for discovery, implementation, APIs, security, testing, and production readiness.
-- `templates/` — optional starting points for project-specific backend documentation. Copy and adapt them into the target repository; do not leave placeholders in completed project documentation.
+- `SKILL.md`: authoritative role, operating rules, task modes, and completion contract.
+- `WORKFLOW.md`: end-to-end execution sequence and handoff rules.
+- `references/`: detailed engineering standards. Load only the references relevant to the task.
+- `checklists/`: actionable gates for discovery, implementation, API review, security, testing, and release readiness.
+- `templates/`: optional project-document starting points. Copy and tailor only what the project needs.
 
-## How to use
+## How to invoke
 
-1. Place this `backend/` folder in the location where your AI coding agent discovers skills, or provide the folder to the agent directly.
-2. Give the agent the project information file (for example, `project-info.md`) and access to the repository.
-3. Ask the agent to use the `backend-engineering` skill.
-4. The agent should inspect the project, select only the necessary reference files, create or update project-specific documents when justified, and then implement and verify the work.
+Ask the coding agent to use the `backend-engineering` skill for backend planning, implementation, integration, debugging, review, testing, or operations work. For a complete new product, provide the project brief or PRD and repository access. The agent must still inspect the actual repository and verify project facts.
 
-## Important behavior
+## Standard handoff location
 
-This skill does not force one technology stack. It preserves the project's existing stack where practical and selects technologies based on requirements when the project has no established stack. It also avoids generating documentation for trivial changes.
+For a new project without an established documentation convention, use the repository's root `docs/` directory and these canonical filenames:
 
-## Suggested project information
+- `docs/architecture.md`
+- `docs/database-design.md`
+- `docs/api-contract.md`
+- `docs/implementation-plan.md`
+- `docs/testing-strategy.md`
+- `docs/progress.md`
 
-A project information file is useful when it describes the product, users, features, constraints, existing frontend, preferred or existing technologies, integrations, and expected outcomes. The agent must still verify these details against the repository and must not treat assumptions as implemented facts.
+These filenames deliberately align with the frontend design-engineering workflow. If the repository already has a different, established documentation layout, preserve it and create a small index or compatibility links so frontend agents can locate the backend contract documents. Do not create duplicate competing copies.
+
+## Core operating rule
+
+Inspect first, preserve established decisions, make one defensible recommendation where a decision is needed, implement in small verifiable slices, and report only what was actually checked. No skill can guarantee perfect output; this package makes responsibilities, handoffs, and verification explicit so defects are less likely and easier to detect.

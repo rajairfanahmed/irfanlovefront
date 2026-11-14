@@ -37,18 +37,19 @@ export async function installClaude({ scope, cwd }) {
     : path.join(cwd, "CLAUDE.md");
 
   const claudeInstructions = `
-# irfanlovefront Backend + Frontend Engineering Suite
+# irfanlovefront Full-Stack PRD, Backend & Frontend Engineering Suite
 
 This project is configured with the irfanlovefront engineering suite.
 
-## Architecture & Workflow (Backend First, then Frontend)
-1. **Backend**: Run \`backend-engineering\` first to design and implement APIs, database schemas, and contracts in \`docs/\`.
-2. **Frontend Orchestrator**: Run \`00-design-engineer\` to read backend \`docs/api-contract.md\` and produce the 10 specialist specs in \`docs/\`.
-3. **Numbered Frontend Pipeline (Strict Order)**:
+## Architecture & Workflow (PRD -> Backend -> Frontend)
+1. **Product Discovery & PRDs**: Run \`prd-engineer\` first to lead iterative product discovery and produce synchronized \`docs/MASTER_PRD.md\`, \`docs/FRONTEND_PRD.md\`, and \`docs/BACKEND_PRD.md\`.
+2. **Backend**: Run \`backend-engineering\` to design and implement APIs, database schemas, and contracts in \`docs/\`.
+3. **Frontend Orchestrator**: Run \`00-design-engineer\` to read backend \`docs/api-contract.md\` and produce the 10 specialist specs in \`docs/\`.
+4. **Numbered Frontend Pipeline (Strict Order)**:
    - Foundation: \`01-frontend-architecture\` -> \`02-visual-design\` -> \`03-structural-layout\`
    - Components & Pages: \`04-ui-components\` -> \`05-ux-interaction-design\`
    - Enhancement: \`06-responsive-design\` -> \`07-animations-motion-design\` -> \`08-seo\` -> \`09-accessibility\` -> \`10-performance-optimization\`
-4. **Documentation**: \`github-readme-writer\`
+5. **Documentation**: \`github-readme-writer\`
 
 Detailed skill instructions are stored in \`.claude/skills/\`. All generated specs live in \`docs/\`.
 `;

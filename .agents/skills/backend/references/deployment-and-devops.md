@@ -4,51 +4,32 @@ Read when packaging, configuring, releasing, hosting, containerizing, or operati
 
 ## 1. Environment separation
 
-Keep development, testing, staging, and production configuration separate. Validate required configuration at startup. Use safe defaults for local development and never bundle production secrets into images, source code, or frontend assets.
+Separate development, test, staging, and production configuration. Validate required settings at startup. Never bundle production secrets into images, source, frontend assets, or build artifacts.
 
-## 2. Build and runtime
+## 2. Reproducible runtime
 
-Document reproducible install, build, migration, start, and health-check commands. Use the runtime and build process expected by the existing stack. Avoid assuming a particular hosting platform.
+Document install, build, migration, start, and health-check commands. Use the runtime/build process expected by the stack. Do not assume a host or cloud provider.
 
 ## 3. Containers
 
-When Docker is appropriate:
-- Use a minimal, maintained base image.
-- Pin dependencies and use reproducible builds.
-- Run as a non-root user where practical.
-- Keep secrets out of image layers.
-- Use health checks and correct signal handling.
-- Separate build-time and runtime configuration.
-- Avoid copying local caches, secrets, or development artifacts into the image.
+When Docker is justified, use a minimal maintained base, reproducible installs, non-root runtime where practical, health checks, correct signal handling, and separate build/runtime config. Keep secrets out of layers and exclude local caches/dev artifacts. Do not add Docker solely for appearance.
 
-Do not add Docker solely for appearance if the project has no container requirement.
+## 4. CI/CD
 
-## 4. CI / CD
-
-A typical pipeline may include dependency installation, formatting / lint, type checking, unit tests, integration tests, build, security / dependency checks, artifact creation, migration review, staged deployment, smoke tests, and rollback handling. Select steps proportionally to project risk.
-
-Protect deployment credentials and restrict who can trigger production releases.
+A pipeline may include install, format/lint, type-check, unit/integration tests, build, dependency/security checks, artifact generation, migration review, staged deployment, smoke tests, and rollback. Select controls proportional to risk. Protect deployment credentials and limit production release permissions.
 
 ## 5. Database releases
 
-Coordinate code and schema changes. Prefer backward-compatible expand-and-contract migrations for rolling deployments. Take and verify backups before risky operations. Confirm migration behavior and rollback / recovery plans. Do not run destructive production migrations without explicit authorization.
+Coordinate code/schema changes. Prefer backward-compatible expand-and-contract migrations for rolling deploys. Test migrations, verify backups for risky work, and define rollback/recovery. Do not execute destructive production migrations without explicit authorization.
 
 ## 6. Release readiness
 
-Before a release, confirm:
-- Correct environment and secrets are configured.
-- Build and tests pass to the agreed standard.
-- Migrations are reviewed and tested.
-- HTTPS, allowed origins, cookies, and security headers are configured.
-- Health checks and logs are available.
-- Backups and recovery are understood.
-- Rollback or mitigation steps exist.
-- Monitoring and ownership are defined.
+Confirm environment/secrets, build/tests, migration safety, HTTPS/CORS/cookies/headers, health checks/logs, backups/recovery, rollback, monitoring, and ownership.
 
-## 7. Deployment execution safeguards
+## 7. Deployment authorization
 
-Distinguish preparing deployment configuration from actually deploying. Do not deploy, change DNS, rotate live secrets, modify production databases, or incur cloud costs without explicit user authorization. State exactly which actions are proposed and which were performed.
+Preparing configuration is not deploying. Do not deploy, change DNS, rotate live secrets, modify production databases, or incur cloud costs without explicit user authorization for the target environment and action.
 
-## 8. Post-deployment verification
+## 8. Post-deployment checks
 
-When authorized and possible, verify service health, critical API paths, logs, error rate, database connectivity, and key user journeys. A successful deploy command alone is not proof that the release works.
+When authorized and possible, verify service health, critical APIs, database connectivity, logs/error rate, and key user journeys. A successful deployment command alone is not proof the release works.

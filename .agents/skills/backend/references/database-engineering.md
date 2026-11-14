@@ -1,84 +1,59 @@
 # Database Engineering
 
-Read whenever the task adds or changes persistent data, schema, queries, data access, migrations, or transaction behavior.
+Read whenever persistent data, schema, queries, data access, migrations, transactions, or concurrency change.
 
-## 1. Model the domain first
+## 1. Model domain behavior first
 
-Identify entities / aggregates, attributes, ownership, relationships, lifecycle, invariants, and access patterns. Model actual domain behavior instead of copying frontend form fields directly into database tables or documents.
+Identify entities/aggregates, attributes, ownership, relationships, lifecycle, invariants, access patterns, and expected volume. Do not copy frontend form fields directly into tables or documents without domain analysis.
 
-## 2. SQL and document data models
+## 2. Relational and document modeling
 
-For relational databases:
-- Define primary keys, foreign keys, unique constraints, nullability, and check constraints where appropriate.
-- Choose relationship cardinality deliberately.
-- Normalize to avoid update anomalies; denormalize only for a measured or justified access pattern.
-- Use transactions for multi-step atomic changes.
+For relational systems:
+- Define primary/foreign keys, uniqueness, nullability, check constraints, and referential behavior.
+- Choose relationship cardinality explicitly.
+- Normalize to prevent update anomalies; denormalize only for a justified access pattern.
+- Use transactions for multi-step atomic operations.
 
-For document databases:
-- Decide embed vs reference based on aggregate ownership, size, update frequency, and query patterns.
+For document systems:
+- Decide embed vs reference based on aggregate ownership, update frequency, document size, and query patterns.
 - Avoid unbounded arrays and uncontrolled document growth.
-- Define validation and indexes deliberately.
-- Understand transaction and consistency behavior for the selected deployment.
+- Define validators and indexes deliberately.
+- Understand transaction and consistency behavior of the actual deployment tier.
 
 ## 3. Integrity and ownership
 
-- Enforce uniqueness and important invariants in the database as well as application logic where possible.
-- Store ownership relationships explicitly.
-- Scope reads and writes to the authenticated actor's permitted tenant / account / resource.
-- Avoid trusting client-supplied owner IDs or role fields.
-- Consider soft deletion, retention, and audit requirements only when the product needs them.
+Enforce important invariants in the database as well as application logic where possible. Store ownership explicitly. Scope reads and writes to the authenticated actor's permitted resource/tenant. Never trust client-supplied owner or role fields. Use soft delete, audit history, and retention only when the product requires them.
 
-## 4. Querying and indexing
+## 4. Indexes and queries
 
-- Design indexes from real query patterns, filters, joins, sort order, and uniqueness needs.
-- Check query plans for slow or high-volume queries.
-- Avoid N+1 queries and unbounded collection scans.
-- Paginate large result sets; prefer stable cursor pagination for large or frequently changing collections when appropriate.
-- Select only necessary fields and avoid returning internal fields.
-- Reassess index cost on writes and storage.
+Design indexes from real filters, joins, sort order, uniqueness needs, and query plans. Avoid N+1 queries and unbounded scans. Paginate large results; use stable cursor pagination when suitable. Select only necessary fields. Evaluate the write/storage cost of every index.
 
 ## 5. Transactions and concurrency
 
-Use a transaction when a business operation requires multiple database changes to commit atomically. Define isolation and conflict behavior where relevant. For concurrent updates, consider optimistic concurrency, version columns, conditional writes, locks, or database-native mechanisms.
-
-Do not assume a read followed by a write is safe from races. Enforce uniqueness and state transitions atomically when possible.
+Use transactions when several database changes must commit atomically. A read followed by a write is not automatically safe from races. Use uniqueness constraints, conditional updates, optimistic concurrency/version fields, locks, or database-native atomic operators as appropriate. Define conflict behavior and retry rules.
 
 ## 6. Migrations
 
-A migration should be:
-- Versioned and reproducible.
-- Reviewable and tested against representative data.
-- Safe for the expected table / collection size and deployment window.
-- Backward-compatible where rolling deployments require old and new code to coexist.
-- Paired with a rollback or recovery plan when rollback is feasible.
-
-For destructive migrations, data deletion, renames, or backfills:
-1. Explain impact.
-2. Confirm backup and recovery plan.
+A migration must be versioned, reproducible, reviewable, and tested against representative data. Consider table/collection size, locks, deployment window, and backward compatibility during rolling deploys. For destructive changes or backfills:
+1. Explain impact and affected records.
+2. Confirm backup/recovery plan.
 3. Test on a copy or staging dataset.
-4. Obtain explicit authorization before touching production data.
+4. Obtain explicit authorization before production execution.
 
 Never casually reset, drop, truncate, or reseed a database that may contain user data.
 
-## 7. Seeds and fixtures
+## 7. Seeds and test fixtures
 
-Keep development seeds and test fixtures separate from production data. Make seed scripts safe to rerun where practical. Never insert default production passwords or real personal data into fixtures.
+Keep development seeds and test fixtures separate from production data. Make seed scripts safely repeatable where practical. Never include real credentials or personal data in fixtures.
 
 ## 8. Backups and recovery
 
-Define backup frequency, retention, encryption, access, restore testing, and recovery objectives when the project requires production data resilience. A backup process is not proven until restore has been tested.
+When production resilience requires it, define backup frequency, retention, encryption, access control, restore procedure, and recovery objectives. A backup process is not proven until a restore is tested.
 
-## 9. Data privacy
+## 9. Privacy
 
-Collect only required fields. Define retention and deletion behavior. Avoid logging secrets, authentication tokens, payment data, or unnecessary personal data. Apply access control at the query / repository boundary as well as the API layer where appropriate.
+Collect only required fields. Define retention and deletion. Avoid logging secrets, auth tokens, payment data, or unnecessary personal data. Protect sensitive records at both API and data-access boundaries.
 
-## 10. Database change checklist
+## 10. Review questions
 
-- Does the model reflect domain invariants?
-- Are ownership and tenant boundaries enforced?
-- Are constraints and indexes appropriate?
-- Are queries bounded and paginated?
-- Are concurrent updates safe?
-- Are migrations tested and reversible or recoverable?
-- Are fixtures separated from production data?
-- Are backup and restore needs addressed?
+Does the model reflect domain invariants? Are ownership and tenant limits enforced? Are constraints and indexes justified? Are queries bounded? Are concurrent updates safe? Are migrations tested and recoverable? Are fixtures isolated from production?

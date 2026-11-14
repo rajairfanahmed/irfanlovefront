@@ -65,7 +65,8 @@ export async function installWindsurf({ scope, cwd }) {
     const summaryFile = path.join(cwd, ".windsurfrules");
     const summaryText = `# irfanlovefront Windsurf Rules
 
-This workspace enforces the irfanlovefront backend + frontend engineering suite:
+This workspace enforces the irfanlovefront product & engineering suite:
+- prd-engineer: Interactive Full-Stack Product Discovery, Scoping & PRD Engineering (MASTER_PRD, FRONTEND_PRD, BACKEND_PRD)
 - backend-engineering: Stack-Agnostic Backend Engineering (APIs, Database, Auth, Security)
 - 00-design-engineer: Master Design Orchestrator (reads backend contracts, produces frontend specs)
 - 01-frontend-architecture through 10-performance-optimization: Numbered step-by-step frontend pipeline

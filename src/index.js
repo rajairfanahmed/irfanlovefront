@@ -140,9 +140,11 @@ async function main() {
   );
 
   outro(
-    color.green("Ready to build production applications! Start with the backend (") +
+    color.green("Ready to build production applications! Start with product discovery (") +
+    color.bold(color.yellow("prd-engineer")) +
+    color.green("), proceed to backend (") +
     color.bold(color.yellow("backend-engineering")) +
-    color.green(") then proceed to ") +
+    color.green("), then ") +
     color.bold(color.yellow("00-design-engineer")) +
     color.green(" and the numbered frontend pipeline (01-10).")
   );

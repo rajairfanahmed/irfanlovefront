@@ -1,78 +1,47 @@
 # Authentication and Authorization
 
-Read when implementing or reviewing identity, login, access control, sessions, tokens, account recovery, or protected resources.
+Read for identity, login, access control, sessions, tokens, account recovery, or protected resources.
 
 ## 1. Keep the concepts separate
 
-- **Authentication:** establishes who the actor is.
-- **Authorization:** determines what that actor may do to a specific resource in a specific context.
-
-A valid login does not grant access to every record or operation.
+Authentication establishes who the actor is. Authorization determines what that actor may do to a specific resource in a specific context. A valid login does not grant broad access.
 
 ## 2. Identity lifecycle
 
-Define the required flows: registration, account verification, login, logout, session renewal, password change, password reset, account disablement, and account deletion where applicable. Consider abuse prevention, rate limits, notification, and recovery procedures.
+Define applicable flows: registration, verification, login, logout, renewal, password change/reset, account disablement, deletion, and recovery. Include abuse prevention, rate limits, notification, and support procedures.
 
 ## 3. Password handling
 
-- Never store plaintext passwords or reversible password encryption.
-- Use a modern password-hashing algorithm supported by reputable libraries (for example, Argon2id or an appropriately configured bcrypt implementation).
-- Use framework / library password verification APIs.
-- Apply sensible password policy and rate limiting.
-- Do not log passwords or return them in responses.
-
-Do not implement cryptographic primitives manually.
+Never store plaintext or reversible password encryption. Use a reputable library implementing a modern password hash such as Argon2id or appropriately configured bcrypt. Use library verification APIs, rate-limit credential attempts, and never log/return passwords. Do not implement cryptographic primitives manually.
 
 ## 4. Sessions and tokens
 
-Choose based on architecture and threat model:
-- Server-side sessions provide centralized session invalidation and require secure session storage when scaled across instances.
-- Signed access tokens can support stateless validation, but revocation, rotation, storage, and theft response require deliberate design.
+Choose according to architecture and threat model. Server-side sessions support centralized invalidation but require reliable shared storage when scaled. Signed access tokens support distributed validation but require deliberate expiry, revocation, rotation, theft response, and key management.
 
-For browser applications, consider secure, HttpOnly, SameSite cookies and CSRF protections where appropriate. Avoid storing long-lived sensitive tokens in browser-accessible storage without a documented threat analysis.
+For browser apps, consider secure, HttpOnly, SameSite cookies and CSRF protection when appropriate. Do not store long-lived sensitive tokens in browser-accessible storage without a documented threat analysis.
 
-If using access and refresh tokens, define:
-- Expiration and renewal behavior.
-- Refresh-token rotation and reuse detection where appropriate.
-- Revocation on logout, password reset, or account compromise.
-- Secure storage and transport.
-- Issuer, audience, algorithm allow-list, and signature verification.
-- Key rotation and secret management.
-
-Do not accept unsigned or unexpected token algorithms.
+If access/refresh tokens are used, define expiry, renewal, rotation, reuse detection, revocation, logout/password-reset behavior, secure storage/transport, issuer, audience, algorithm allow-list, signature checks, and key rotation.
 
 ## 5. Authorization models
 
-- **RBAC:** permissions grouped into roles.
-- **ABAC / policy-based:** decisions based on attributes such as ownership, tenant, resource state, or context.
-- **Resource ownership:** actor may access only records they own or are explicitly granted.
+- RBAC: permissions grouped into roles.
+- ABAC/policy-based access: decision depends on attributes such as ownership, tenant, resource state, or context.
+- Resource ownership: actor can access only resources they own or have been granted.
 
-Many applications need a combination. Centralize reusable policy checks, but verify authorization close to the protected operation / data access. Never trust role, owner, price, or entitlement values sent by the client.
+Many products need a combination. Centralize reusable policies, but verify access close to the protected operation/data boundary. Never trust client-supplied role, owner, price, or entitlement.
 
 ## 6. Multi-tenancy
 
-For tenant-aware applications:
-- Derive tenant context from trusted authenticated identity and validated membership.
-- Scope every query and mutation to the tenant.
-- Enforce tenant isolation in tests.
-- Avoid accepting an arbitrary tenant ID from the browser as sufficient proof of access.
-- Consider database-level isolation controls for high-risk environments.
+Derive tenant context from trusted identity and validated membership. Scope every query and mutation to the tenant. Test cross-tenant access attempts. An arbitrary tenant ID from the browser is not proof of access. Consider database-level isolation for high-risk workloads.
 
-## 7. Account recovery and verification
+## 7. Recovery and verification
 
-Use short-lived, single-use, cryptographically random tokens or secure provider mechanisms. Store a hash of recovery tokens where practical. Invalidate tokens after use or expiry. Avoid account-enumeration leaks in public responses. Rate-limit requests and notify users of important account changes.
+Use short-lived, single-use, cryptographically random tokens or established provider flows. Store token hashes where practical and invalidate after use/expiry. Avoid public account enumeration and rate-limit recovery. Notify users of sensitive account changes.
 
-## 8. MFA and third-party login
+## 8. MFA and federation
 
-Use established libraries and providers. Verify callback state, redirect URI, issuer, audience, nonce, and signature as applicable. Store MFA recovery codes securely and make recovery procedures explicit. Do not implement OAuth or TOTP primitives from scratch.
+Use established providers/libraries. Validate OAuth/OIDC state, redirect URI, issuer, audience, nonce, and signature as applicable. Protect MFA recovery codes and define recovery paths. Do not implement OAuth, OIDC, or TOTP primitives from scratch.
 
-## 9. Authorization test cases
+## 9. Authorization test matrix
 
-Test at least:
-- Anonymous actor.
-- Authenticated actor with correct permission.
-- Authenticated actor without permission.
-- User accessing another user's resource.
-- Cross-tenant access attempt.
-- Expired, revoked, malformed, or reused credentials.
-- Role changes and disabled accounts.
+Test anonymous, valid actor, insufficient role, cross-user resource access, cross-tenant access, expired/revoked/malformed/reused credentials, disabled accounts, and role/permission changes.

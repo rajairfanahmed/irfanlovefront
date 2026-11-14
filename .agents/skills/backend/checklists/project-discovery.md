@@ -1,27 +1,28 @@
 # Project Discovery Checklist
 
-Use before substantial backend work. Mark items not applicable when justified.
+Use before substantial backend work. Mark items not applicable with a reason.
 
-## Project context
-- [ ] Read the user-provided project information and relevant root documentation.
-- [ ] Identify product purpose, actors, key user journeys, and business domain.
+## Product context
+- [ ] Read the user request, conversation context, PRD/project brief, and relevant root instructions.
+- [ ] Identify product purpose, actors, user journeys, and domain concepts.
 - [ ] Extract functional and non-functional requirements.
-- [ ] Identify constraints, technology preferences, hosting expectations, and out-of-scope items.
-- [ ] Separate confirmed facts, assumptions, proposals, and open questions.
+- [ ] Identify integrations, hosting, cost, timeline, and operational constraints.
+- [ ] Identify explicit exclusions and data sensitivity.
+- [ ] Separate confirmed facts, assumptions, proposals, and blockers.
 
 ## Repository inspection
-- [ ] Inspect repository structure and relevant manifests / lockfiles.
-- [ ] Identify frontend and backend entry points.
-- [ ] Inspect relevant routes, services, models, data access, and tests.
-- [ ] Inspect frontend API clients and authentication flow when integration is in scope.
-- [ ] Inspect database schemas, migrations, and sample environment configuration.
-- [ ] Identify existing conventions and documentation; avoid duplicates.
+- [ ] Inspect project structure, manifests, runtime versions, and lockfiles.
+- [ ] Identify backend and frontend entry points.
+- [ ] Inspect relevant routes, handlers, services, models, data access, and tests.
+- [ ] Inspect frontend API/auth callers when integration is in scope.
+- [ ] Inspect database definitions, migrations, seeds, and configuration shape.
+- [ ] Inspect CI, build, deployment, and observability conventions.
 - [ ] Do not expose secret values or production credentials.
 
 ## Baseline and scope
-- [ ] Identify available test, lint, type-check, build, and migration commands.
-- [ ] Run safe baseline checks when practical and record pre-existing failures.
-- [ ] Confirm the requested work mode and boundaries.
-- [ ] Select only the relevant references from the skill.
-- [ ] Decide whether documentation is needed based on scope and risk.
+- [ ] Identify actual test, lint, type-check, build, and migration commands.
+- [ ] Run safe baseline checks where practical and record pre-existing failures.
+- [ ] Select task mode and workflow depth.
+- [ ] Select only relevant references.
+- [ ] Decide whether project documentation is warranted.
 - [ ] Identify blockers and make only safe, explicit assumptions.

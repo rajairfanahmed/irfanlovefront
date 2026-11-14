@@ -1,23 +1,57 @@
 # Design Quality Gates
 
-Purpose: a real check before calling the work done — content and consistency, not just "do the files exist."
+Do not mark a specification complete until every relevant gate has been checked. Record exceptions and unresolved blockers.
 
-Run through these before finishing:
+## Product understanding
 
-- Every supplied input (document, image, mockup, existing code) was actually considered in the analysis, not just the first one.
-- Every explicit requirement the user stated is accounted for somewhere in the output.
-- Reference observations, inferences, and recommendations stay distinguishable — check that the `[OBSERVED]` / `[INFERRED]` / `[RECOMMENDED]` / `[REQUIREMENT]` tags carried into `reference-and-decision-map.md` weren't relabeled along the way.
-- No category-specific visual preset got imposed automatically — re-check `visual-design.md` and `structural-layout.md` against the restriction in `web-categories.md`.
-- The chosen design direction in `DESIGN_BRIEF.md` is coherent, and every spec's decisions actually fit it rather than drifting into their own direction.
-- All ten specialist specs exist, under `design-specs/`, using the filenames in `output-contract.md`.
-- Each spec contains actionable, project-specific decisions — spot-check for generic advice that could apply to any project.
-- Cross-domain requirements don't contradict each other (a motion spec assuming a component state the components spec never defined; a performance budget the animations spec ignores).
-- Responsive behavior is explicitly addressed, not assumed to follow automatically from the desktop design.
-- Accessibility and performance requirements are present and specific, not boilerplate.
-- Original input files — the user's references, existing code — are unchanged.
-- Every decision that matters is traceable in `reference-and-decision-map.md` — spot-check a handful of decisions against their claimed source.
-- Nothing presented as fact is actually unverified — check for confident claims about reference images or documents that weren't actually inspected.
-- Output paths and internal links between files are valid.
-- No required file was silently skipped.
+- [ ] Product category, target audience, roles, and core jobs are clear.
+- [ ] Main routes and page types are inventoried.
+- [ ] Required and optional scope are separated.
+- [ ] User-provided constraints are reflected.
 
-If any of these fail, fix the specific file rather than redoing the whole pass — these are meant to catch specific gaps, not trigger a full restart.
+## Reference fidelity
+
+- [ ] Every relevant supplied reference has been inventoried.
+- [ ] The required reference-image sample has been inspected where available.
+- [ ] Observations are separated from inferences.
+- [ ] The adopted principles are mapped to decisions.
+- [ ] The resulting design is original and product-specific, not a superficial clone.
+
+## Backend and data integrity
+
+- [ ] Backend documentation has been read where available.
+- [ ] Endpoint paths and methods match verified contracts.
+- [ ] Request and response fields are not invented.
+- [ ] Auth, permission, pagination, error, and empty states are accounted for.
+- [ ] Contract gaps are explicitly marked.
+
+## Visual direction
+
+- [ ] One coherent direction is recommended with a clear rationale.
+- [ ] Color and typography choices serve content and brand.
+- [ ] Hierarchy, density, and spacing are deliberate.
+- [ ] Repeated layouts are used only where content supports them.
+- [ ] Assets are specified accurately and are not fabricated.
+
+## UX and system behavior
+
+- [ ] Important flows include entry, action, response, and recovery.
+- [ ] Loading, empty, error, success, and permission states are defined.
+- [ ] Navigation and browser-history behavior are clear.
+- [ ] Forms and destructive actions have defined feedback.
+
+## Cross-cutting quality
+
+- [ ] Mobile and large-screen composition are addressed from the outset.
+- [ ] Keyboard and assistive technology needs are reflected.
+- [ ] Motion has a purpose and reduced-motion behavior.
+- [ ] Public routes have a search and sharing strategy.
+- [ ] Performance budgets and media constraints are stated.
+
+## Specification integrity
+
+- [ ] All specialist specs agree with the master brief.
+- [ ] Each spec has scope, decisions, acceptance criteria, and handoff notes.
+- [ ] Relevant backend integration points are specified or marked pending.
+- [ ] Paths and links are valid and consistent.
+- [ ] Assumptions, conflicts, and missing inputs are visible.

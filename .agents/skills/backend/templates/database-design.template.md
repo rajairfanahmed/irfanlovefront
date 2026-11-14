@@ -4,18 +4,18 @@
 > Last updated: YYYY-MM-DD
 
 ## 1. Database technology
-[Database and reason for fit.]
+[Selected database and reason for fit.]
 
 ## 2. Data ownership and tenancy
-[Who owns records, tenant boundaries, and access rules.]
+[Record ownership, tenant boundaries, access rules.]
 
 ## 3. Entities / collections
-| Entity | Purpose | Owner / tenant scope | Important constraints |
+| Name | Purpose | Owner / tenant scope | Important fields and constraints |
 |---|---|---|---|
-| [Name] | [Purpose] | [Scope] | [Constraints] |
+| [Entity] | [Purpose] | [Scope] | [Constraints] |
 
-## 4. Relationships
-[Describe cardinality, references, cascade behavior, and lifecycle.]
+## 4. Relationships and lifecycle
+[Cardinality, references, cascade behavior, state lifecycle, deletion behavior.]
 
 ## 5. Indexes and query patterns
 | Query / operation | Index or optimization | Reason |
@@ -23,13 +23,13 @@
 | [Query] | [Index] | [Reason] |
 
 ## 6. Transactions and concurrency
-[Atomic operations, isolation / conflict behavior, and idempotency.]
+[Atomic operations, isolation/conflict behavior, idempotency.]
 
 ## 7. Migrations and seed data
-[Migration sequence, compatibility, rollback / recovery, and safe fixtures.]
+[Migration order, compatibility, rollback/recovery, safe fixtures.]
 
-## 8. Retention, privacy, and backups
-[Retention / deletion rules, sensitive data, backup, and restore requirements.]
+## 8. Privacy, retention, backup, and restore
+[Retention/deletion rules, sensitive data, backup and recovery requirements.]
 
 ## 9. Open questions
-[Items requiring confirmation.]
+[Items that genuinely require confirmation.]

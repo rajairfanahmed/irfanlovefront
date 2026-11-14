@@ -1,54 +1,36 @@
 # Backend Documentation Guidance
 
-Read when creating or updating project-specific technical documentation. Prefer existing repository conventions over this suggested structure.
+Read when creating or updating project-specific technical documentation.
 
-## 1. Documentation principles
+## 1. Principles
 
-- Document decisions and behavior that help someone build, operate, test, or maintain the system.
-- Keep documents concise, accurate, and linked to actual code.
-- Separate confirmed facts from proposals, assumptions, and open questions.
-- Avoid duplicate documentation and stale copied content.
-- Update docs in the same change as the implementation when contracts or behavior change.
-- Do not document secrets or private production configuration.
+Document decisions and behavior that help someone build, operate, test, or maintain the system. Keep docs concise, accurate, linked to implementation, and synchronized with code. Separate confirmed facts from proposals, assumptions, and open questions. Avoid duplicate docs and stale copied content. Never include secrets.
 
-## 2. Suggested project documents
+## 2. Canonical cross-agent documentation
 
-For a new or complex backend, consider:
+For new projects with no established convention, use repository root `docs/` and these names so frontend agents can discover backend contracts:
 
-### `architecture.md`
-Purpose, system context, components, module boundaries, request flow, external dependencies, deployment shape, key decisions, and trade-offs.
+- `architecture.md`: purpose, context, components, boundaries, request flow, integrations, deployment shape, decisions, risks.
+- `database-design.md`: entities/collections, fields, relationships, constraints, indexes, ownership/tenant boundaries, migrations, transactions, retention.
+- `api-contract.md`: operations, paths, access, schemas, statuses, errors, side effects, idempotency, pagination, compatibility.
+- `implementation-plan.md`: vertical slices, dependencies, sequence, acceptance criteria, tests, risks, exclusions.
+- `testing-strategy.md`: test layers, tools, environment, fixtures, security cases, regression and release checks.
+- `progress.md`: factual status, completed/in-progress/pending/blocked, verification evidence, decisions, and risks.
 
-### `database-design.md`
-Data entities / collections, fields, relationships, constraints, indexes, ownership / tenant boundaries, migrations, retention, and transaction requirements.
+Do not create every document automatically. Choose based on complexity and risk.
 
-### `api-contract.md`
-Endpoint method and path, access requirements, parameters, request / response examples, validation, statuses, error format, side effects, and idempotency. Use OpenAPI or another established contract format if appropriate.
+## 3. Existing documentation conventions
 
-### `implementation-plan.md`
-Modules / vertical slices, dependencies, sequence, acceptance criteria, test requirements, risks, and out-of-scope work.
+If an established structure such as `docs/backend/` already exists, preserve it. Add an index at `docs/README.md` or the existing docs landing page linking to exact file paths. Do not duplicate contracts in root and nested folders. If consumers expect a canonical path, update their instructions to point to the actual location.
 
-### `testing-strategy.md`
-Test layers, tools, environment, fixtures, integration boundaries, security cases, regression approach, and release checks.
+## 4. Document lifecycle
 
-### `progress.md`
-Completed, in progress, pending, blocked, test outcomes, decisions, and known risks. Keep it factual and update it as work changes.
+Inspect existing docs, identify missing contracts/decisions, create only useful docs from templates, replace placeholders with verified facts or mark them pending, review consistency with code/tests, update docs as behavior changes, and remove obsolete statements rather than appending contradictions.
 
-Do not create every file automatically. Choose based on complexity, risk, and the usefulness of the document.
+## 5. Diagrams and examples
 
-## 3. Document lifecycle
+Use concise diagrams when they clarify boundaries or sequence. Keep them synchronized with implementation. Use synthetic examples, never real credentials or personal data.
 
-1. Inspect existing docs and repository conventions.
-2. Identify missing decisions or contracts.
-3. Copy only relevant templates from the skill package.
-4. Replace every placeholder with verified project-specific information or clearly label it pending.
-5. Review consistency with code and tests.
-6. Update docs when implementation changes.
-7. Remove obsolete statements rather than appending contradictory notes indefinitely.
+## 6. Completion
 
-## 4. Examples and diagrams
-
-Use small architecture or sequence diagrams when they clarify boundaries or flows. Keep diagrams synchronized with implementation. Examples must be safe, synthetic, and representative; never use real credentials or personal data.
-
-## 5. Completion
-
-A document is useful only if it answers a real project question and remains accurate. Do not create documentation solely to satisfy a checklist.
+A document is useful only when it answers a real project question and remains accurate. Documentation is not complete because all template headings are filled; it is complete when it matches verified behavior.

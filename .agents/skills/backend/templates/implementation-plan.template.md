@@ -4,18 +4,18 @@
 > Last updated: YYYY-MM-DD
 
 ## 1. Goal and scope
-[Describe the outcome and explicit exclusions.]
+[Outcome and exclusions.]
 
-## 2. Assumptions and constraints
-[Confirmed facts, assumptions, dependencies, and constraints.]
+## 2. Confirmed facts, assumptions, and constraints
+[Keep these categories distinct.]
 
-## 3. Modules / vertical slices
-| Order | Module / slice | Behavior delivered | Dependencies | Acceptance criteria | Status |
-|---|---|---|---|---|---|
-| 1 | [Name] | [Behavior] | [Dependencies] | [Testable criteria] | Pending |
+## 3. Vertical slices
+| Order | Slice | User/system behavior | Dependencies | Data/API changes | Acceptance criteria | Status |
+|---|---|---|---|---|---|---|
+| 1 | [Name] | [Behavior] | [Dependencies] | [Contracts] | [Testable criteria] | Pending |
 
 ## 4. Cross-cutting work
-[Security, logging, configuration, migrations, integrations, and documentation.]
+[Security, configuration, logging, migrations, integrations, docs.]
 
 ## 5. Risks and mitigations
 | Risk | Impact | Mitigation |
@@ -23,7 +23,7 @@
 | [Risk] | [Impact] | [Mitigation] |
 
 ## 6. Verification plan
-[Unit, integration, API, end-to-end, security, and regression checks.]
+[Unit, integration, API, end-to-end, security, regression, build.]
 
 ## 7. Out of scope
 [Explicit exclusions.]

@@ -1,54 +1,56 @@
 ---
 name: ux-interaction-design
-description: "Step 5 of 10 (Component & Page Phase). Wires user flows, navigation behavior, form submissions to backend API, loading states, error handling, empty states, and confirmation/undo patterns using the components built in Step 4. Use whenever the user wants flows wired, forms connected to the API, navigation behavior completed, or says things like \"wire up the forms\", \"connect to the API\", \"handle the errors\", \"build the user flows\", or \"implement the ux-interaction-design spec\". Runs AFTER ui-components (Step 4) and BEFORE responsive-design (Step 6)."
+description: Implements complete frontend user journeys, navigation behavior, form validation, client and URL state, API-backed actions, async feedback, permissions presentation, and error recovery against verified backend contracts.
 ---
 
-# UX Interaction Design (Step 5 of 10 - Component & Page Phase)
+# UX Interaction Design
 
-**You are Step 5. You run AFTER ui-components (Step 4) and BEFORE responsive-design (Step 6).** Steps 1-4 built the scaffold, tokens, layouts, and all UI components. Your job is to wire everything together: connect forms to the backend API, complete navigation flows, add loading/error/empty states, and make the application actually functional.
+## Objective
 
-You own user flows, information architecture, navigation models, feedback loops, form submission behavior, error prevention and recovery, loading states, empty states, and confirmation/undo patterns. You make the static components from Step 4 into a working, interactive application.
+Make the interface behave predictably from the user's first action through completion, interruption, and recovery.
 
-## Before doing anything: read your spec
+## Before implementation
 
-1. **Read `docs/ux-interaction-design.md`** - this is your implementation spec. It maps every user flow, defines navigation behavior, specifies form validation rules, and describes error handling patterns. Follow it.
-2. **Read `docs/api-contract.md`** - you need the exact endpoints, request/response shapes, authentication flow, and error format to wire every API call correctly.
-3. **Read `docs/DESIGN_BRIEF.md`** for overall project context.
-4. **Inspect the existing codebase.** Steps 1-4 already built everything you need. The API client exists (Step 1), components exist (Step 4). Your job is to wire them together.
+Read `ux-interaction-design.md`, `DESIGN_BRIEF.md`, `frontend-architecture.md`, `ui-components.md`, backend `api-contract.md`, and the relevant route and feature code.
 
-## What you build
+Also inspect repository instructions, the actual implementation, installed library versions, and relevant tests. Do not rely on a specification when the code or framework version shows that it is outdated. Record material gaps rather than silently inventing missing requirements.
 
-Work through these in order:
+## Reference library
 
-1. **Navigation wiring.** Complete all navigation: page-to-page routing, active state highlighting, breadcrumb updates, mobile menu open/close behavior, and any conditional navigation (e.g., authenticated vs guest). Read `references/user-flows-and-information-architecture.md`.
-2. **Form submissions.** Wire every form to its backend API endpoint: collect input, validate client-side, submit to the API, handle the response (success redirect, error display, field-level errors). Read `references/forms-validation-and-error-recovery.md`.
-3. **Data fetching.** Wire data-displaying components to their API endpoints: fetch on page load, show loading state while fetching, show error state on failure, show empty state when no data. Read `references/interaction-patterns.md`.
-4. **Authentication flow.** If the project has auth: wire login, signup, logout, token storage, auth header injection, protected route guards, and session expiry handling.
-5. **Feedback and confirmation.** Add toast notifications for success/error, confirmation dialogs for destructive actions, undo patterns where specified, and progress indicators for multi-step processes. Read `references/usability-and-feedback.md`.
-6. **Error recovery.** Implement retry buttons, "go back" options, form data preservation on error, and graceful degradation for network failures.
+Read the references that apply to the task before making domain decisions. The complete set is listed here so the specialist can load the right guidance without guessing file names.
 
-## What you hand off
+- [`user-flows-and-information-architecture.md`](references/user-flows-and-information-architecture.md)
+- [`forms-validation-and-error-recovery.md`](references/forms-validation-and-error-recovery.md)
+- [`interaction-patterns.md`](references/interaction-patterns.md)
+- [`usability-and-feedback.md`](references/usability-and-feedback.md)
 
-After you finish:
-- Every form submits to its correct API endpoint and handles success/error
-- All navigation works (page transitions, active states, conditional routes)
-- Data-displaying pages fetch from the API and show loading/error/empty states
-- Authentication flow works end-to-end (if applicable)
-- Toast notifications and confirmation dialogs work
-- The application is functionally complete at the default viewport size
+## Work sequence
 
-## Working with other skills
+1. Map each flow from entry point through user action, validation, request, response, resulting state, and recovery path.
+2. Assign state to the correct owner: ephemeral component state, route or URL state, shared client state, or server-owned data. Avoid copying server truth into competing state stores.
+3. Wire forms and actions to exact documented endpoints and request/response types. Do not invent routes, fields, roles, or error formats.
+4. Implement client-side usability validation while preserving server validation as authoritative. Map backend field errors to the correct controls and form summary.
+5. Implement pending, disabled, success, empty, validation, permission, timeout, network failure, retry, and confirmation behavior as appropriate.
+6. Use optimistic updates only when rollback, conflict behavior, and data consistency are understood. Respect idempotency and concurrency rules supplied by the backend.
+7. Preserve browser navigation, URL shareability, query state, and refresh behavior where the flow requires them.
+8. Handle duplicate submissions, aborted requests, stale responses, and unmounted views safely.
+9. Write interaction tests for the primary path and the most important failure or recovery path.
 
-- Frontend Architecture (Step 1) created the API client you use for all calls
-- UI Components (Step 4) built the forms, buttons, and displays you wire up
-- Responsive Design (Step 6) will adapt the interactions to mobile (touch, swipe)
-- Animations (Step 7) will add transition effects to your navigation and feedback
-- Accessibility (Step 9) will verify your flows work with keyboard and screen readers
+## Required outputs
 
-## Review before finishing
+Working user journeys, form and mutation behavior, navigation state, API integration, feedback and recovery patterns, plus tests for critical transitions.
 
-Verify: every form submits and handles responses correctly, navigation works between all pages, data fetching shows loading/error/empty states, authentication works (if applicable), error messages display correctly, and no console errors during normal flows.
+## Ownership boundaries
 
-## Boundaries
+Do not duplicate server business rules or authorization. Do not create generic component styling. Do not change backend contracts without an explicit backend review. Component-level semantics and reusable props remain with UI Components.
 
-Don't rebuild components (Step 4). Don't change layout structure (Step 3). Don't change token values (Step 2). Don't add responsive breakpoints (Step 6). Don't add animations (Step 7). You wire the existing components into working flows.
+## Review before handoff
+
+- Every primary flow has a defined result and recovery path, backend contracts are respected, async states are observable, repeated actions are safe, URL state behaves intentionally, and tests cover critical paths.
+- Review the diff for unrelated changes, unused code, debug output, or accidental dependency additions.
+- Run the relevant available checks and report their actual outcome.
+- Record open issues with impact and owner.
+
+## Handoff
+
+Identify the files changed, decisions made, routes or components affected, tests run, and any dependency on another specialist. Do not claim completion for work that was not verified.

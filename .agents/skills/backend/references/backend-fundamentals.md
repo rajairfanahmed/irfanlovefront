@@ -1,94 +1,69 @@
 # Backend Fundamentals
 
-Read this reference when the task requires foundational backend concepts, when the repository boundaries are unclear, or when explaining how a frontend and backend should communicate.
+Read this reference when the system boundaries are unclear, the task requires foundational explanations, or frontend/backend responsibilities need to be established.
 
 ## 1. Backend responsibilities
 
-A backend commonly owns business rules, trusted data access, identity and permissions, integration with external systems, background work, and operational behavior. The frontend presents the user experience; it must not be trusted to enforce permissions or authoritative business rules.
+A backend commonly owns trusted business rules, identity and access enforcement, authoritative data access, integrations, background processing, and operational behavior. The frontend presents the experience and may perform early validation, but it is not a security boundary. The server must revalidate security- and business-critical input.
 
-## 2. Client-server request lifecycle
+## 2. Typical request lifecycle
 
-A typical request passes through:
-1. Client constructs a request and sends it over HTTPS.
-2. Edge proxy, gateway, or web server accepts and routes it.
-3. Application middleware handles concerns such as request IDs, parsing, CORS, authentication, and rate limits.
+1. Client sends a request over HTTPS.
+2. Edge/server accepts and routes the request.
+3. Middleware handles request IDs, parsing, CORS, rate limits, and authentication as appropriate.
 4. Route selects a handler.
-5. Validation checks shape, types, and business constraints.
-6. Authorization verifies that the actor may perform the requested action on the target resource.
-7. Business logic applies domain rules.
-8. Data access reads or changes persistent state, potentially within a transaction.
-9. The application maps the result or failure to a stable response.
-10. Logs and metrics record useful operational context without leaking secrets.
+5. Validation checks shape, types, and domain constraints.
+6. Authorization checks the actor's access to the action and resource.
+7. Application/domain logic applies business rules.
+8. Data access reads or changes persistent state, using a transaction when needed.
+9. Response mapping returns a stable, safe result or error.
+10. Logs and metrics record sanitized operational context.
 
-The exact framework order varies. Keep trust boundaries and failure behavior explicit.
+Framework ordering differs. Keep trust boundaries and error behavior explicit.
 
-## 3. HTTP essentials
+## 3. HTTP method semantics
 
-Common methods:
-- `GET`: retrieve a representation; should not cause a business-state change.
+- `GET`: retrieve; should not cause a business-state change.
 - `POST`: create a resource or initiate an operation.
-- `PUT`: replace a resource representation or apply a defined replacement operation.
+- `PUT`: replace a resource representation or defined replacement operation.
 - `PATCH`: partially update a resource.
-- `DELETE`: remove or deactivate a resource according to domain rules.
+- `DELETE`: delete, deactivate, or archive according to domain semantics.
 
-Common status codes include:
-- `200 OK`: successful request with a response body.
-- `201 Created`: a resource was created.
-- `202 Accepted`: work was accepted for asynchronous processing.
-- `204 No Content`: successful request with no response body.
-- `400 Bad Request`: malformed or invalid request.
-- `401 Unauthorized`: valid authentication is missing or invalid.
-- `403 Forbidden`: actor is authenticated but not allowed to perform the action.
-- `404 Not Found`: resource or route is not available to the caller.
-- `409 Conflict`: request conflicts with current state or uniqueness constraints.
-- `422 Unprocessable Content`: syntactically valid request fails semantic validation, where this convention is used.
-- `429 Too Many Requests`: rate limit exceeded.
-- `500 Internal Server Error`: unexpected server failure.
-- `502`, `503`, `504`: upstream or service availability failures.
+Choose status codes based on actual semantics and existing API conventions. Common examples: `200`, `201`, `202`, `204`, `400`, `401`, `403`, `404`, `409`, `422`, `429`, `500`, `502`, `503`, and `504`. Do not force all successful operations to return `200`.
 
-Choose status codes consistently with the project's API conventions. Never force every success to `200` or expose internal exception details.
+## 4. Communication styles
 
-## 4. API styles and communication
+- REST: resource-oriented HTTP interfaces, often a practical browser-app default.
+- GraphQL: schema-driven client queries; account for query complexity, caching, and authorization.
+- RPC: operation-oriented contracts, useful for strongly defined internal calls.
+- WebSockets/SSE: realtime or server-to-client updates; authenticate connections and handle reconnects, authorization, and lifecycle.
+- Events/messaging: asynchronous communication requiring delivery, retry, ordering, idempotency, and observability decisions.
 
-- **REST:** resource-oriented HTTP APIs; often the simplest fit for browser applications.
-- **GraphQL:** clients request structured data through a schema; consider query complexity, authorization, and caching.
-- **WebSockets:** bidirectional long-lived communication for realtime needs; require connection authentication, authorization, and lifecycle management.
-- **RPC:** operation-oriented calls; useful for strongly defined service-to-service contracts.
-- **Events / messaging:** asynchronous communication for decoupled processes; requires delivery, retry, ordering, and idempotency design.
+Choose based on the use case, not trend.
 
-Choose based on actual interaction needs, not popularity.
+## 5. Architecture shapes
 
-## 5. Common architecture styles
+- Monolith: one deployable application.
+- Modular monolith: one deployable system with clear internal business boundaries.
+- Microservices: independently deployed services with network and operational costs.
+- Event-driven: components coordinate through events/messages.
 
-- **Monolith:** one deployable application with internal modules. Often a strong default for small and medium products because it is simpler to build and operate.
-- **Modular monolith:** one deployable application with clear internal boundaries. Useful when the domain is growing but separate services are not yet justified.
-- **Microservices:** independently deployable services with network boundaries and operational overhead. Use when independent scaling, ownership, isolation, or deployment needs justify the complexity.
-- **Event-driven:** components communicate through events or messages, often to decouple asynchronous workflows.
+A modular monolith is often a sound starting point for a new product, but use service separation when independent deployment, scaling, ownership, or isolation needs justify it.
 
-Do not split a system into microservices merely to appear scalable.
+## 6. Source of truth
 
-## 6. Backend responsibilities versus frontend responsibilities
-
-Backend is authoritative for:
-- Authentication and permission enforcement.
-- Prices, totals, subscription state, entitlements, and other business-critical calculations.
-- Data validation and persistence.
-- Ownership and access checks.
-- Payment confirmation and webhook processing.
-
-Frontend may provide early validation and user feedback, but the backend must repeat all security- and business-critical checks.
+For each critical datum, identify its authoritative owner. Examples: payment status belongs to verified provider/backend state, not a browser redirect; permissions belong to server-side policy; stock or inventory must be protected by atomic database operations; a cached copy is not automatically authoritative.
 
 ## 7. Stateful and stateless behavior
 
-A stateless request does not depend on hidden in-memory state from a prior request. Authentication can use signed tokens or server-side sessions, each with different revocation and storage trade-offs. Do not assume JWT is always better than sessions. Consider deployment topology, browser security, revocation, refresh, and operational requirements.
+JWT is not automatically better than sessions. Choose based on revocation, rotation, deployment topology, browser storage, CSRF, and operational needs. Define the full lifecycle for whichever model is chosen.
 
-## 8. Design questions
+## 8. Questions to answer
 
-Before choosing an implementation, ask:
+- Who can perform each action on which resource?
 - What is the source of truth for each piece of data?
-- Which actor can perform each operation?
-- Which operations must be atomic?
-- Which work can happen asynchronously?
-- What happens when a dependency times out or fails?
-- What must be observable for support and incident diagnosis?
+- Which changes must be atomic?
+- Which work can be asynchronous?
+- What happens when a dependency is slow, unavailable, or returns invalid data?
+- What must be observable for support and incident response?
 - What data must never appear in logs or client responses?

@@ -1,43 +1,54 @@
-# Web Categories
+# Web Product Categories and Discovery
 
-Purpose: identify what kind of product this is, so later design decisions have the right context. This file never chooses colors, fonts, layouts, or components — see "What this file must never do" below.
+Use this reference to understand what kind of product is being designed. The category informs the information architecture and key user tasks. It does not prescribe a visual theme, color palette, typography, layout, or animation style.
 
-## How to use this file
+## Discover the product, not a template
 
-1. Check whether the user already told you the category, named it in a supplied document, or it's obvious from what they're asking for ("design my SaaS dashboard"). If so, state it back in one line and move on — don't ask again.
-2. If it's genuinely unclear, ask the user to pick from the list below or describe their own category in a sentence or two.
-3. A project can be a hybrid of two categories ("marketplace with a blog") or something not listed here. Support that rather than forcing a single label where two apply.
+Establish:
+- what the product offers and to whom;
+- what a first-time visitor needs to understand;
+- what a returning user needs to do;
+- what information or content the product manages;
+- whether the experience is public, authenticated, transactional, editorial, operational, or mixed;
+- which action defines a successful visit.
 
-## Example categories
+## Common category families
 
-- SaaS product
-- AI product / AI-powered tool
-- Developer tool
-- Portfolio / personal site
-- Agency / studio site
-- E-commerce / storefront
-- Blog / publication
-- Dashboard / admin panel
-- Marketplace
-- Booking / scheduling platform
-- Community / social platform
-- Landing page / single-page marketing site
-- Documentation site
-- Education / course platform
-- Healthcare
-- Finance / fintech
-- Entertainment / media
+Use the closest fit or define a more accurate category:
 
-This list is illustrative, not exhaustive or closed. If the user describes something that doesn't fit cleanly, record what they said as the category rather than forcing the nearest label onto it.
+- **Marketing or company website:** explain an organization, service, offer, and route to contact or conversion.
+- **SaaS or web application:** support recurring user workflows, account access, data management, settings, and often multiple roles.
+- **E-commerce or marketplace:** support product discovery, evaluation, purchasing, fulfillment, and account history.
+- **Portfolio or personal site:** communicate expertise, selected work, credibility, and contact paths.
+- **Editorial or publication:** organize articles or media for discovery, reading, and retention.
+- **Education or learning platform:** organize lessons, materials, assessment, progress, and learner or instructor workflows.
+- **Community or social product:** support identity, publishing, discovery, participation, moderation, and notifications.
+- **Booking or service platform:** support availability, selection, scheduling, payment, and changes or cancellation.
+- **Dashboard or internal tool:** support dense, role-specific operational tasks with strong data hierarchy and efficiency.
+- **Documentation or knowledge base:** help users locate, understand, and navigate structured technical or reference information.
+- **Hybrid product:** combine multiple families where distinct routes require different information architectures.
 
-## What the category is for
+These are discovery labels, not fixed design systems. A healthcare dashboard, creator SaaS, and developer dashboard should not receive the same screen structure simply because each is called a web application.
 
-Use it to understand the product's purpose, likely users, and functional expectations — a dashboard implies data density and frequent return visits, a marketing landing page implies a single conversion goal. These are things to keep in mind during analysis and synthesis later, not decisions to make now.
+## Ask for the category only when needed
 
-## What this file must never do
+If the user's request, files, or existing repository already establish the category, do not ask again. If the category is genuinely unclear and changes route structure or core user flows, ask the user to describe the product or choose the closest category. Do not ask the user to decide colors, fonts, sections, animations, or layout patterns as part of category selection. Those are design-engineering decisions informed by the product and references.
 
-Never let category selection imply or default to a visual system: no fixed palette, font pairing, layout pattern, page-section combination, navbar/hero/footer treatment, or animation style. Two SaaS products should not come out looking alike just because they're both SaaS. The actual visual and structural decisions belong to `design-synthesis.md`, grounded in this specific project's inputs — not in a category stereotype.
+## Category-to-evidence map
 
-## If a standalone category skill exists in this project
+| Product family | Key evidence to collect |
+|---|---|
+| Marketing | audience, offer, proof, lead action, service details |
+| SaaS/application | roles, permissions, workflows, records, settings, empty/error states |
+| Commerce | catalog, attributes, pricing, cart, checkout, delivery, returns |
+| Portfolio | discipline, work samples, role in each project, outcomes, contact |
+| Editorial | content types, taxonomy, search, authorship, publishing cadence |
+| Education | learner roles, course structure, progress, assessments, accessibility |
+| Community | identity, feed or spaces, contribution, reporting, moderation |
+| Booking | inventory or availability, time zones, pricing, confirmations, changes |
+| Dashboard | tasks, data density, filters, bulk actions, export, permissions |
+| Documentation | information hierarchy, navigation depth, code examples, search |
 
-Some projects maintain their own dedicated category-selection skill with its own list and conventions. If this skill finds one at inspection time (see `SKILL.md`, "Before anything else"), defer to it instead of this file, so category selection isn't done twice with two different lists.
+## Output
+
+Record one primary category and any secondary category. Explain how this classification affects the user journeys and page architecture. Do not let the label dictate visual styling.

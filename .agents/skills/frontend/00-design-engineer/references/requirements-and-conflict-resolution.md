@@ -1,27 +1,69 @@
 # Requirements and Conflict Resolution
 
-Purpose: give every conflicting signal a consistent, defensible way to get resolved, instead of ad hoc judgment calls nobody could reconstruct later.
+A sound design specification exposes uncertainty instead of hiding it. Use traceable decisions and a consistent priority order.
+
+## Requirement sources
+
+Record each requirement with:
+- identifier;
+- requirement statement;
+- source and location;
+- classification: confirmed, assumption, inferred, optional, or unresolved;
+- affected user, route, component, or flow;
+- acceptance evidence;
+- dependency or owner.
 
 ## Priority order
 
-When inputs disagree, resolve in this order:
+Use this order when sources conflict:
 
-1. **Explicit user requirements** — stated directly, in conversation or in a document. These win over everything else.
-2. **Real technical constraints** — an existing stack, a performance budget, a browser-support requirement, an accessibility obligation. These aren't optional even if a reference image suggests otherwise.
-3. **Reference evidence** — what the supplied images, mockups, or existing pages actually show. Strong when references agree with each other; weaker when they conflict.
-4. **Reasonable inference** — a conclusion that follows from the above but wasn't stated outright.
-5. **Your own recommendation** — a professional suggestion with no direct support in the inputs. Useful for filling genuine gaps, but it never overrides 1–4.
+1. Explicit, current user instruction and confirmed product policy.
+2. Security, privacy, legal, and technical constraints that apply to the project.
+3. Verified backend API and data contracts.
+4. Confirmed product requirements and established behavior.
+5. Supplied design references and documented brand rules.
+6. Existing implementation conventions that are safe and intentional.
+7. General design or engineering preference.
 
-A reference image is evidence and inspiration, not a binding spec. If the user shows a screenshot and says "something like this," the direction is free to adapt it to the project's actual requirements; if they say "match this exactly," that becomes a `[REQUIREMENT]` and takes priority over everything below it.
+A static image cannot override a confirmed product requirement or API constraint. A design preference cannot justify a security or accessibility regression.
 
-## When two references conflict
+## Backend contract rules
 
-Don't silently pick one and move on. Record the conflict: what each reference shows, which one is being followed (or how they're being reconciled), and why — grounded in the priority order above, the product's category and users, or an explicit constraint. This becomes an entry in `reference-and-decision-map.md`.
+For every planned operation, verify:
+- endpoint path and HTTP method;
+- request payload and query parameters;
+- response schema and nullability;
+- authentication and authorization requirements;
+- pagination, sorting, filtering, and concurrency behavior;
+- error envelope and validation details;
+- file upload, download, streaming, or webhook implications where relevant.
 
-## When something is missing
+Only copy values from a real backend contract. If a contract is missing, mark the operation as `Contract required`. Do not invent a route, payload property, response field, status code, or permission rule. Propose a contract change separately for backend review.
 
-If a requirement the user mentioned isn't reflected in any reference, or a reference shows something the user never asked for, don't drop it and don't silently invent a justification for it. Note it as an open question or a flagged assumption in `DESIGN_BRIEF.md` (see `output-contract.md`) rather than deciding quietly.
+## Conflict record
 
-## What this produces
+Use a table such as:
 
-By the end of this stage: a resolved direction for every point where inputs agreed, an explicit, reasoned call for every point where they conflicted, and a short list of unresolved items or assumptions the user should see before the spec is treated as final.
+| ID | Source A | Source B | Conflict | User impact | Recommended resolution | Owner | Status |
+|---|---|---|---|---|---|---|---|
+
+A resolution is complete only when the responsible owner accepts it and the source of truth is updated.
+
+## Assumption control
+
+Make assumptions explicit and keep them reversible where possible. A design assumption should not be implemented as a backend fact. Use a visible marker such as `Assumption: pending confirmation` in the specification.
+
+## Scope control
+
+Separate:
+- required product capability;
+- necessary usability support;
+- visual refinement;
+- optional enhancement;
+- future possibility.
+
+Do not expand a small request into an unrequested redesign. Conversely, do not omit a critical empty, failure, permission, or recovery state merely because it is absent from a screenshot.
+
+## Completion rule
+
+The brief must include unresolved decisions, their effects, and the least risky next step. A downstream specialist may proceed around a non-blocking unknown only when the assumption is explicit and does not create misleading product behavior.

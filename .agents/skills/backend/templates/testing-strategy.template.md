@@ -4,32 +4,32 @@
 > Last updated: YYYY-MM-DD
 
 ## 1. Quality goals
-[Critical behaviors and quality attributes to verify.]
+[Critical behaviors and attributes to verify.]
 
 ## 2. Test environment
-[Isolated database, services, configuration, fixtures, and safety rules.]
+[Isolated database, services, config, fixtures, safety rules.]
 
 ## 3. Test layers
-| Layer | Tools | Scope | Run command |
+| Layer | Tools | Scope | Exact command |
 |---|---|---|---|
-| Unit | [TBD] | [TBD] | [TBD] |
-| Integration | [TBD] | [TBD] | [TBD] |
-| API | [TBD] | [TBD] | [TBD] |
-| End-to-end | [TBD] | [TBD] | [TBD] |
+| Unit | [Tool] | [Scope] | [Command] |
+| Integration | [Tool] | [Scope] | [Command] |
+| API | [Tool] | [Scope] | [Command] |
+| E2E | [Tool] | [Scope] | [Command] |
 
 ## 4. Acceptance scenarios
-| Scenario | Expected behavior | Test / evidence | Status |
+| Scenario | Expected behavior | Test/evidence | Status |
 |---|---|---|---|
-| [Scenario] | [Expected] | [Test] | Pending |
+| [Scenario] | [Behavior] | [Evidence] | Pending |
 
-## 5. Security and authorization cases
-[Relevant negative cases, ownership checks, tenant isolation, abuse controls, and sensitive flows.]
+## 5. Security and authorization
+[Negative cases, ownership, tenancy, abuse controls, sensitive flows.]
 
 ## 6. External integrations
-[Mocked tests, contract tests, sandbox / live verification boundaries, and failure scenarios.]
+[Mocks, contract tests, provider sandbox/live verification boundaries, failures.]
 
 ## 7. Regression approach
-[Existing critical paths and checks to rerun after fixes.]
+[Critical flows and checks to rerun after fixes.]
 
 ## 8. Known limitations
-[Unrun tests, unavailable dependencies, environment blockers, and residual risks.]
+[Unrun tests, unavailable dependencies, environment blockers, residual risks.]
